@@ -319,6 +319,17 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 .contact-section::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(99,102,241,.1) 1.5px,transparent 1.5px);background-size:28px 28px;pointer-events:none;z-index:0}
 .contact-in{position:relative;z-index:2}
 .hero-fade{background:linear-gradient(to bottom,transparent,#f4f7fc)}
+/* ── ERP 3D Pie Chart ── */
+.erp-visual{display:flex;flex-direction:column;align-items:center;gap:20px}
+.erp-chart-3d{perspective:520px;width:210px;height:210px;flex-shrink:0;margin:0 auto}
+.erp-disc-inner{transform:rotateX(54deg) rotateZ(-6deg);animation:erpRock 7s ease-in-out infinite;transform-style:preserve-3d}
+@keyframes erpRock{0%,100%{transform:rotateX(54deg) rotateZ(-6deg)}50%{transform:rotateX(49deg) rotateZ(6deg)}}
+.erp-pie{width:210px;height:210px;overflow:visible;filter:drop-shadow(0 12px 24px rgba(0,0,0,.25))}
+.erp-seg{transition:stroke-dasharray 1.1s cubic-bezier(.35,.9,.4,1)}
+.erp-legend{display:flex;flex-direction:column;gap:8px;width:100%;max-width:240px}
+.erp-leg-row{display:flex;align-items:center;gap:9px;font-size:.76rem;color:#475569}
+.erp-leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.erp-leg-pct{font-family:'Plus Jakarta Sans',sans-serif;font-size:.74rem;font-weight:800;color:#0f172a;margin-left:auto}
 /* ── Isometric stack diagram (hero) ── */
 .iso-diagram{position:relative;padding:20px 8px 28px}
 .iso-float{animation:isoflt 5.5s ease-in-out infinite alternate}
@@ -348,8 +359,8 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 <nav>
   <div class="nav-logo">
     <div style="display:flex;flex-direction:column;line-height:1.08;gap:1px">
-      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:.48rem;font-weight:800;color:rgba(255,255,255,.32);letter-spacing:.2em;text-transform:uppercase">Entegrasyon</span>
-      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:.92rem;font-weight:900;color:#fff;letter-spacing:-.04em">Donanım<span style="color:#ef4444">.</span></span>
+      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:.82rem;font-weight:800;color:rgba(255,255,255,.42);letter-spacing:.13em;text-transform:uppercase">Entegrasyon</span>
+      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:1.52rem;font-weight:900;color:#fff;letter-spacing:-.04em">Donanım<span style="color:#ef4444">.</span></span>
     </div>
   </div>
   <div class="nav-center">
@@ -477,11 +488,30 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
         <span class="erp-tag"><i class="fa-solid fa-gears" style="color:#8b5cf6"></i> T-SQL</span>
       </div>
     </div>
-    <div class="erp-cards">
-      <div class="erp-card"><div class="erp-card-title"><i class="fa-solid fa-file-invoice" style="color:#ef4444;font-size:.78rem"></i> e-İrsaliye</div><div class="erp-card-desc">tpShipmentHeaderExtension üzerinden GİB durum takibi, hata yönetimi ve yeniden gönderim süreçleri.</div></div>
-      <div class="erp-card"><div class="erp-card-title"><i class="fa-solid fa-receipt" style="color:#f59e0b;font-size:.78rem"></i> e-Fatura</div><div class="erp-card-desc">EInvoice süreç takibi, gelen/giden fatura yönetimi ve kayıt doğrulama işlemleri.</div></div>
-      <div class="erp-card"><div class="erp-card-title"><i class="fa-solid fa-coins" style="color:#22c55e;font-size:.78rem"></i> Tahsilat & Tediye</div><div class="erp-card-desc">Nakit akış kayıtları, CurrAcc tahsilat-tediye döngüsü ve döneme göre mutabakat.</div></div>
-      <div class="erp-card"><div class="erp-card-title"><i class="fa-solid fa-chart-line" style="color:#3b82f6;font-size:.78rem"></i> Maliyet & Raporlama</div><div class="erp-card-desc">Maliyet merkezi yönetimi, personel bazlı gider takibi ve yönetim raporları.</div></div>
+    <div class="erp-visual">
+      <div class="erp-chart-3d">
+        <div class="erp-disc-inner">
+          <svg class="erp-pie" viewBox="-6 -6 112 112">
+            <!-- Track ring -->
+            <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(0,0,0,.09)" stroke-width="23"/>
+            <!-- Segments — start hidden, animated in by JS on scroll -->
+            <circle class="erp-seg s1" cx="50" cy="50" r="38" fill="none" stroke="#ef4444" stroke-width="22" stroke-dasharray="0 239" stroke-dashoffset="0"    transform="rotate(-90 50 50)"/>
+            <circle class="erp-seg s2" cx="50" cy="50" r="38" fill="none" stroke="#f59e0b" stroke-width="22" stroke-dasharray="0 239" stroke-dashoffset="-84"   transform="rotate(-90 50 50)"/>
+            <circle class="erp-seg s3" cx="50" cy="50" r="38" fill="none" stroke="#22c55e" stroke-width="22" stroke-dasharray="0 239" stroke-dashoffset="-144"  transform="rotate(-90 50 50)"/>
+            <circle class="erp-seg s4" cx="50" cy="50" r="38" fill="none" stroke="#3b82f6" stroke-width="22" stroke-dasharray="0 239" stroke-dashoffset="-204"  transform="rotate(-90 50 50)"/>
+            <!-- Center disc -->
+            <circle cx="50" cy="50" r="20" fill="white" filter="drop-shadow(0 2px 6px rgba(0,0,0,.12))"/>
+            <text x="50" y="47.5" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="7.5" font-weight="900" fill="#0f172a">ERP</text>
+            <text x="50" y="56.5" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="4.5" fill="#94a3b8">Entegrasyon</text>
+          </svg>
+        </div>
+      </div>
+      <div class="erp-legend">
+        <div class="erp-leg-row"><div class="erp-leg-dot" style="background:#ef4444"></div><span>e-İrsaliye (GİB)</span><span class="erp-leg-pct">35%</span></div>
+        <div class="erp-leg-row"><div class="erp-leg-dot" style="background:#f59e0b"></div><span>e-Fatura</span><span class="erp-leg-pct">25%</span></div>
+        <div class="erp-leg-row"><div class="erp-leg-dot" style="background:#22c55e"></div><span>Tahsilat & Tediye</span><span class="erp-leg-pct">25%</span></div>
+        <div class="erp-leg-row"><div class="erp-leg-dot" style="background:#3b82f6"></div><span>Maliyet & Raporlama</span><span class="erp-leg-pct">15%</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -626,6 +656,25 @@ if(si){const so=new IntersectionObserver(es=>{if(es[0].isIntersecting){count('c1
 // Skill bars
 const sk=document.getElementById('skills-container');
 if(sk){const sko=new IntersectionObserver(es=>{if(es[0].isIntersecting){const ws=[.95,.90,.85,.80,.88];sk.querySelectorAll('.skill-bar').forEach((b,i)=>{setTimeout(()=>{b.style.width=(ws[i]*100)+'%';b.classList.add('triggered');},i*100);});sko.disconnect();}},{threshold:.4});sko.observe(sk);}
+
+// ERP 3D pie chart — animate segments on scroll
+(function(){
+  const sec=document.querySelector('.erp-section');
+  if(!sec)return;
+  const segs=[
+    {el:document.querySelector('.erp-seg.s1'),da:'84 155'},
+    {el:document.querySelector('.erp-seg.s2'),da:'60 179'},
+    {el:document.querySelector('.erp-seg.s3'),da:'60 179'},
+    {el:document.querySelector('.erp-seg.s4'),da:'36 203'}
+  ];
+  const obs=new IntersectionObserver(es=>{
+    if(es[0].isIntersecting){
+      segs.forEach((s,i)=>{if(s.el)setTimeout(()=>{s.el.style.strokeDasharray=s.da;},i*200);});
+      obs.disconnect();
+    }
+  },{threshold:.35});
+  obs.observe(sec);
+})();
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
