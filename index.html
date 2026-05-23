@@ -321,11 +321,12 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 .hero-fade{background:linear-gradient(to bottom,transparent,#f4f7fc)}
 /* ── ERP 3D Spinning Pie Chart ── */
 .erp-visual{display:flex;flex-direction:column;align-items:center;gap:28px}
-.erp-chart-outer{position:relative;width:340px;height:280px;flex-shrink:0;perspective:900px;perspective-origin:50% 18%}
-.erp-disc-shadow{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);width:66%;height:52px;background:radial-gradient(ellipse,rgba(0,0,0,.62) 0%,transparent 72%);filter:blur(24px)}
-.erp-disc-3d{position:absolute;top:0;left:50%;width:320px;height:320px;animation:discSpin 18s linear infinite}
-@keyframes discSpin{from{transform:translateX(-50%) rotateX(62deg) rotateZ(0deg)}to{transform:translateX(-50%) rotateX(62deg) rotateZ(360deg)}}
-.erp-pie-svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 34px 68px rgba(0,0,0,.65)) drop-shadow(0 14px 28px rgba(0,0,0,.38))}
+.erp-chart-outer{position:relative;width:340px;height:310px;flex-shrink:0}
+.erp-disc-shadow{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);width:62%;height:52px;background:radial-gradient(ellipse,rgba(0,0,0,.65) 0%,transparent 72%);filter:blur(24px);z-index:0}
+.erp-disc-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;perspective:580px;perspective-origin:50% 30%}
+.erp-disc-3d{width:310px;height:310px;flex-shrink:0;animation:discSpin 14s linear infinite}
+@keyframes discSpin{from{transform:rotateX(66deg) rotateZ(0deg)}to{transform:rotateX(66deg) rotateZ(360deg)}}
+.erp-pie-svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 36px 72px rgba(0,0,0,.7)) drop-shadow(0 16px 32px rgba(0,0,0,.42)) drop-shadow(0 -6px 16px rgba(255,255,255,.07))}
 .erp-seg{transition:stroke-dasharray 1.2s cubic-bezier(.3,.9,.4,1)}
 .erp-legend{display:flex;flex-direction:column;gap:9px;width:100%;max-width:270px}
 .erp-leg-row{display:flex;align-items:center;gap:9px;font-size:.78rem;color:#475569;cursor:default}
@@ -375,10 +376,12 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 
 <nav>
   <div class="nav-logo">
-    <div style="display:flex;flex-direction:column;line-height:1.08;gap:1px">
-      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:.82rem;font-weight:800;color:rgba(255,255,255,.42);letter-spacing:.13em;text-transform:uppercase">Entegrasyon</span>
-      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:1.52rem;font-weight:900;color:#fff;letter-spacing:-.04em">Donanım<span style="color:#ef4444">.</span></span>
-    </div>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="text-decoration:none;cursor:pointer">
+      <div style="display:flex;flex-direction:column;line-height:1.08;gap:1px">
+        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:.82rem;font-weight:800;color:rgba(255,255,255,.42);letter-spacing:.13em;text-transform:uppercase">Entegrasyon</span>
+        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:1.52rem;font-weight:900;color:#fff;letter-spacing:-.04em">Donanım<span style="color:#ef4444">.</span></span>
+      </div>
+    </a>
   </div>
   <div class="nav-center">
     <a href="#moduller" class="nav-link">Modüller</a>
@@ -556,6 +559,7 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
     <div class="erp-visual">
       <div class="erp-chart-outer">
         <div class="erp-disc-shadow"></div>
+        <div class="erp-disc-wrap">
         <div class="erp-disc-3d">
           <svg class="erp-pie-svg" viewBox="0 0 200 200">
             <defs>
@@ -582,6 +586,7 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
             <text x="100" y="111" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="7.5" fill="#94a3b8">Entegrasyon</text>
             <circle cx="100" cy="100" r="99" fill="url(#discLight)" pointer-events="none"/>
           </svg>
+        </div>
         </div>
       </div>
       <div class="erp-legend">
