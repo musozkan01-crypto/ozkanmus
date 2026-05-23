@@ -331,11 +331,16 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 .iso-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:800;color:#fff;margin-bottom:2px;line-height:1.2}
 .iso-d{font-size:.57rem;color:rgba(255,255,255,.45);font-weight:600}
 .iso-lnum{font-family:'Plus Jakarta Sans',sans-serif;font-size:.55rem;font-weight:900;color:rgba(255,255,255,.22);flex-shrink:0}
-.iso-ui{background:linear-gradient(135deg,rgba(139,92,246,.32),rgba(109,40,217,.22));border:1px solid rgba(139,92,246,.42);box-shadow:0 7px 0 rgba(76,29,149,.65),0 13px 0 rgba(76,29,149,.3),0 20px 24px rgba(0,0,0,.45)}
-.iso-adm{background:linear-gradient(135deg,rgba(34,197,94,.26),rgba(22,163,74,.17));border:1px solid rgba(34,197,94,.36);box-shadow:0 7px 0 rgba(20,83,45,.65),0 13px 0 rgba(20,83,45,.3),0 20px 24px rgba(0,0,0,.4)}
-.iso-php{background:linear-gradient(135deg,rgba(59,130,246,.28),rgba(37,99,235,.19));border:1px solid rgba(59,130,246,.4);box-shadow:0 7px 0 rgba(30,64,175,.65),0 13px 0 rgba(30,64,175,.3),0 20px 24px rgba(0,0,0,.4)}
-.iso-erp{background:linear-gradient(135deg,rgba(239,68,68,.26),rgba(220,38,38,.17));border:1px solid rgba(239,68,68,.36);box-shadow:0 7px 0 rgba(127,29,29,.65),0 13px 0 rgba(127,29,29,.3),0 20px 24px rgba(0,0,0,.4)}
-.iso-db{background:linear-gradient(135deg,rgba(245,158,11,.26),rgba(217,119,6,.17));border:1px solid rgba(245,158,11,.36);box-shadow:0 7px 0 rgba(120,53,15,.65),0 13px 0 rgba(120,53,15,.3),0 20px 24px rgba(0,0,0,.4)}
+@keyframes layerAppear{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.iso-layer{animation:layerAppear .42s ease-out both}
+.iso-ui{background:linear-gradient(135deg,rgba(139,92,246,.32),rgba(109,40,217,.22));border:1px solid rgba(139,92,246,.42);box-shadow:0 7px 0 rgba(76,29,149,.65),0 13px 0 rgba(76,29,149,.3),0 20px 24px rgba(0,0,0,.45);animation-delay:.7s}
+.iso-adm{background:linear-gradient(135deg,rgba(34,197,94,.26),rgba(22,163,74,.17));border:1px solid rgba(34,197,94,.36);box-shadow:0 7px 0 rgba(20,83,45,.65),0 13px 0 rgba(20,83,45,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.56s}
+.iso-php{background:linear-gradient(135deg,rgba(59,130,246,.28),rgba(37,99,235,.19));border:1px solid rgba(59,130,246,.4);box-shadow:0 7px 0 rgba(30,64,175,.65),0 13px 0 rgba(30,64,175,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.42s}
+.iso-erp{background:linear-gradient(135deg,rgba(239,68,68,.26),rgba(220,38,38,.17));border:1px solid rgba(239,68,68,.36);box-shadow:0 7px 0 rgba(127,29,29,.65),0 13px 0 rgba(127,29,29,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.28s}
+.iso-db{background:linear-gradient(135deg,rgba(245,158,11,.26),rgba(217,119,6,.17));border:1px solid rgba(245,158,11,.36);box-shadow:0 7px 0 rgba(120,53,15,.65),0 13px 0 rgba(120,53,15,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.14s}
+.iso-sec{background:linear-gradient(135deg,rgba(20,184,166,.26),rgba(13,148,132,.17));border:1px solid rgba(20,184,166,.36);box-shadow:0 7px 0 rgba(17,94,89,.65),0 13px 0 rgba(17,94,89,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:0s}
+.iso-badges{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.iso-bi{display:flex;align-items:center;gap:7px;background:rgba(15,23,40,.85);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 13px;font-size:.63rem;font-weight:600;color:rgba(255,255,255,.6);white-space:nowrap;backdrop-filter:blur(8px)}
 </style>
 </head>
 <body>
@@ -381,32 +386,33 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
             <div class="iso-layer iso-ui">
               <div class="iso-icon-w" style="background:rgba(139,92,246,.22)"><i class="fa-solid fa-display" style="color:#a78bfa"></i></div>
               <div class="iso-info"><div class="iso-n">Web Arayüzü</div><div class="iso-d">HTML · CSS · JavaScript · Mobil Uyumlu</div></div>
-              <span class="iso-lnum">01</span>
             </div>
             <div class="iso-layer iso-adm">
               <div class="iso-icon-w" style="background:rgba(34,197,94,.18)"><i class="fa-solid fa-gauge" style="color:#4ade80"></i></div>
-              <div class="iso-info"><div class="iso-n">Yönetim Paneli</div><div class="iso-d">Rol Bazlı Erişim · CSRF · IP Takibi</div></div>
-              <span class="iso-lnum">02</span>
+              <div class="iso-info"><div class="iso-n">Yönetim Paneli</div><div class="iso-d">Rol Bazlı Erişim · Yetki Yönetimi · CSRF</div></div>
             </div>
             <div class="iso-layer iso-php">
               <div class="iso-icon-w" style="background:rgba(59,130,246,.18)"><i class="fa-brands fa-php" style="color:#60a5fa"></i></div>
               <div class="iso-info"><div class="iso-n">PHP Backend</div><div class="iso-d">API · Oturum Yönetimi · Bildirim</div></div>
-              <span class="iso-lnum">03</span>
             </div>
             <div class="iso-layer iso-erp">
               <div class="iso-icon-w" style="background:rgba(239,68,68,.18)"><i class="fa-solid fa-gears" style="color:#f87171"></i></div>
               <div class="iso-info"><div class="iso-n">ERP Entegrasyon</div><div class="iso-d">Nebim V3 · e-İrsaliye · e-Fatura</div></div>
-              <span class="iso-lnum">04</span>
             </div>
             <div class="iso-layer iso-db">
               <div class="iso-icon-w" style="background:rgba(245,158,11,.18)"><i class="fa-solid fa-database" style="color:#fbbf24"></i></div>
               <div class="iso-info"><div class="iso-n">SQL Server</div><div class="iso-d">T-SQL · Index Yönetimi · Prosedür</div></div>
-              <span class="iso-lnum">05</span>
+            </div>
+            <div class="iso-layer iso-sec">
+              <div class="iso-icon-w" style="background:rgba(20,184,166,.18)"><i class="fa-solid fa-shield-halved" style="color:#2dd4bf"></i></div>
+              <div class="iso-info"><div class="iso-n">Güvenlik & Loglama</div><div class="iso-d">IP Takibi · Audit Log · Risk Skorlama</div></div>
             </div>
           </div>
         </div>
-        <div class="fl fl2"><i class="fa-solid fa-shield-halved" style="color:#60a5fa;font-size:.7rem"></i> Rol Bazlı Erişim</div>
-        <div style="position:absolute;top:50%;right:-22px;transform:translateY(-50%);background:rgba(15,23,40,.95);border:1px solid rgba(99,102,241,.3);border-radius:12px;padding:10px 14px;font-size:.62rem;font-weight:700;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(0,0,0,.4);backdrop-filter:blur(8px);white-space:nowrap"><i class="fa-solid fa-chart-line" style="color:#818cf8;font-size:.7rem"></i> ERP Entegrasyon Aktif</div>
+        <div class="iso-badges">
+          <div class="iso-bi"><i class="fa-solid fa-shield-halved" style="color:#60a5fa;font-size:.68rem"></i> Rol Bazlı Erişim</div>
+          <div class="iso-bi"><i class="fa-solid fa-chart-line" style="color:#818cf8;font-size:.68rem"></i> ERP Entegrasyon Aktif</div>
+        </div>
       </div>
     </div>
   </div>
@@ -484,7 +490,7 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
   <div class="niti-in">
     <div class="rv">
       <div class="niti-standalone"><i class="fa-solid fa-cube" style="font-size:.56rem"></i> Bağımsız Yazılım</div>
-      <div class="niti-logo-row"><div class="niti-icon"><i class="fa-solid fa-chart-column" style="color:#fff"></i></div><span class="niti-name">Niti Go</span></div>
+      <div class="niti-logo-row"><div class="niti-icon" style="background:linear-gradient(135deg,#f97316,#ea580c);flex-direction:column;gap:1px;padding:0 5px;box-shadow:0 8px 24px rgba(249,115,22,.36)"><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:.74rem;font-weight:900;color:#fff;font-style:italic;letter-spacing:-.04em;line-height:1.15">niti</span><span style="font-size:.28rem;color:rgba(255,255,255,.75);font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1">YAZILIM</span></div><span class="niti-name">Niti Go</span></div>
       <div class="niti-title">Standart Programlardan<br><span>Farklı Raporlama</span></div>
       <p class="niti-desc">Muhasebe ve operasyonel verileri standart yazılımların sunduğu şablonların ötesine taşıyan, sunum kalitesinde çıktılar üreten bağımsız bir raporlama platformu. Mevcut ERP sistemleriyle entegre çalışır; onların yerine geçmez, onları güçlendirir.</p>
       <div class="niti-tags">
