@@ -303,6 +303,7 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
   <div class="nav-center">
     <a href="#moduller" class="nav-link">Modüller</a>
     <a href="#fiyatlar" class="nav-link">Fiyatlar</a>
+    <a href="#iletisim" class="nav-link">İletişim</a>
   </div>
 </nav>
 
@@ -473,14 +474,28 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 </section>
 
 
-<section style="background:#fff;padding:72px 32px">
-  <div style="max-width:1160px;margin:0 auto;text-align:center" class="rv">
-    <div class="sec-ey"><i class="fa-solid fa-envelope" style="font-size:.58rem"></i> İletişim</div>
-    <h2 class="sec-h">Benimle İletişime Geçin</h2>
-    <p class="sec-p" style="margin:0 auto 36px">Proje fikriniz veya teknik danışmanlık talebiniz için doğrudan mail atabilirsiniz.</p>
-    <a href="mailto:ozkanmus@nevas.tr" style="display:inline-flex;align-items:center;gap:12px;padding:18px 36px;border-radius:16px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 8px 28px rgba(220,38,38,.32);transition:all .22s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 14px 40px rgba(220,38,38,.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(220,38,38,.32)'">
-      <i class="fa-solid fa-envelope"></i> ozkanmus@nevas.tr
-    </a>
+<section id="iletisim" class="contact-section">
+  <div class="contact-in" style="grid-template-columns:1fr 1.5fr">
+    <div class="rv">
+      <div class="sec-ey"><i class="fa-solid fa-envelope" style="font-size:.58rem"></i> İletişim</div>
+      <h2 class="sec-h">İletişime Geçin</h2>
+      <p class="sec-p">Proje fikriniz, fiyat sorunuz veya teknik danışmanlık talebiniz için formu doldurun, size döneyim.</p>
+    </div>
+    <div class="rv d2">
+      <div id="cf-sent-box" class="cf-sent-box" style="display:none"><i class="fa-solid fa-circle-check"></i> Mesajınız iletildi, teşekkürler! En kısa sürede dönüş yapılacak.</div>
+      <form class="cf-form" id="cf-form">
+        <input type="hidden" name="access_key" value="004cb40e-b7a5-4d01-824e-a1de159fda69">
+        <input type="hidden" name="subject" value="ozkanmus.com.tr — İletişim Formu">
+        <input type="hidden" name="from_name" value="ozkanmus.com.tr">
+        <div class="cf-row">
+          <div class="cf-field"><label class="cf-label">Ad Soyad <span class="cf-req">*</span></label><input class="cf-input" type="text" name="name" placeholder="Örn. Ahmet Yılmaz" required></div>
+          <div class="cf-field"><label class="cf-label">Telefon</label><input class="cf-input" type="tel" name="phone" placeholder="05xx xxx xx xx"></div>
+        </div>
+        <div class="cf-field"><label class="cf-label">E-posta <span class="cf-req">*</span></label><input class="cf-input" type="email" name="email" placeholder="ornek@mail.com" required></div>
+        <div class="cf-field"><label class="cf-label">Mesajınız</label><textarea class="cf-textarea" name="message" placeholder="Projeniz veya talebiniz hakkında kısa bilgi verin…"></textarea></div>
+        <button type="submit" class="cf-btn"><i class="fa-solid fa-paper-plane" style="font-size:.82rem"></i> <span id="cf-btn-text">Mesaj Gönder</span></button>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -538,6 +553,24 @@ function openPM(n){const d=PM[n];if(!d)return;document.getElementById('pm-tier')
 function closePM(){document.getElementById('pm-backdrop').classList.remove('open');document.body.style.overflow='';}
 function closePMOnBackdrop(e){if(e.target===document.getElementById('pm-backdrop'))closePM();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePM();});
+
+// Contact form
+document.getElementById('cf-form').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('cf-btn-text');
+  btn.textContent='Gönderiliyor…';
+  const data=new FormData(this);
+  try{
+    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:data});
+    const j=await r.json();
+    if(j.success){
+      document.getElementById('cf-sent-box').style.display='flex';
+      this.reset();
+      document.getElementById('cf-sent-box').scrollIntoView({behavior:'smooth',block:'center'});
+    } else { btn.textContent='Hata — Tekrar Deneyin'; }
+  } catch(err){ btn.textContent='Hata — Tekrar Deneyin'; }
+  finally{ setTimeout(()=>btn.textContent='Mesaj Gönder',3000); }
+});
 
 // Scroll reveal
 const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:0.08});
