@@ -27,10 +27,11 @@ main{position:relative;z-index:1}
 .hero{position:relative;overflow:hidden;background:#09111f;min-height:100svh;display:flex;align-items:center;padding:100px 32px 80px}
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .orb{position:absolute;border-radius:50%;filter:blur(90px);will-change:transform;pointer-events:none}
-.orb1{width:min(680px,120vw);height:min(680px,120vw);background:radial-gradient(circle,rgba(127,29,29,.42) 0%,transparent 70%);top:-15%;left:-10%;animation:o1 16s ease-in-out infinite alternate}
-.orb2{width:min(520px,100vw);height:min(520px,100vw);background:radial-gradient(circle,rgba(30,58,138,.3) 0%,transparent 70%);top:30%;right:-10%;animation:o2 20s ease-in-out infinite alternate}
-.orb3{width:min(400px,90vw);height:min(400px,90vw);background:radial-gradient(circle,rgba(220,38,38,.18) 0%,transparent 70%);bottom:-5%;left:25%;animation:o3 14s ease-in-out infinite alternate}
-.orb4{width:min(280px,70vw);height:min(280px,70vw);background:radial-gradient(circle,rgba(109,40,217,.15) 0%,transparent 70%);top:55%;left:55%;animation:o4 18s ease-in-out infinite alternate}
+.orb1{width:min(780px,130vw);height:min(780px,130vw);background:radial-gradient(circle,rgba(127,29,29,.52) 0%,transparent 65%);top:-20%;left:-15%;animation:o1 16s ease-in-out infinite alternate}
+.orb2{width:min(620px,110vw);height:min(620px,110vw);background:radial-gradient(circle,rgba(30,58,138,.4) 0%,transparent 65%);top:25%;right:-15%;animation:o2 20s ease-in-out infinite alternate}
+.orb3{width:min(480px,90vw);height:min(480px,90vw);background:radial-gradient(circle,rgba(220,38,38,.22) 0%,transparent 65%);bottom:-5%;left:20%;animation:o3 14s ease-in-out infinite alternate}
+.orb4{width:min(360px,70vw);height:min(360px,70vw);background:radial-gradient(circle,rgba(99,102,241,.22) 0%,transparent 65%);top:45%;left:50%;animation:o4 18s ease-in-out infinite alternate}
+.orb5{width:min(300px,60vw);height:min(300px,60vw);background:radial-gradient(circle,rgba(220,38,38,.12) 0%,transparent 65%);top:10%;right:25%;animation:o1 22s ease-in-out infinite alternate-reverse;position:absolute;border-radius:50%;filter:blur(90px);will-change:transform;pointer-events:none}
 @keyframes o1{to{transform:translate(50px,-35px) scale(1.08)}}
 @keyframes o2{to{transform:translate(-45px,55px) scale(1.11)}}
 @keyframes o3{to{transform:translate(35px,-45px) scale(.93)}}
@@ -60,7 +61,7 @@ main{position:relative;z-index:1}
 .btn-r:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(220,38,38,.5)}
 .btn-g{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:rgba(255,255,255,.65);font-weight:600;font-size:.86rem;text-decoration:none;transition:all .22s}
 .btn-g:hover{background:rgba(255,255,255,.12);color:#fff}
-.hero-right{position:relative}
+.hero-right{position:relative;perspective:1400px}
 .mfloat{animation:mfl 5s ease-in-out infinite alternate}
 @keyframes mfl{0%{transform:translateY(0) rotate(-.7deg)}100%{transform:translateY(-16px) rotate(.4deg)}}
 .mcard{background:rgba(15,23,40,.95);border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;box-shadow:0 48px 96px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.09)}
@@ -342,6 +343,7 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
   <div class="hero-bg">
     <div class="orb orb1"></div><div class="orb orb2"></div>
     <div class="orb orb3"></div><div class="orb orb4"></div>
+    <div class="orb5"></div>
     <div class="bg-grid"></div><div class="bg-vig"></div>
     <div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div>
     <div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div>
@@ -358,7 +360,8 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
     <div class="hero-right rv d2">
       <div style="position:relative">
         <div class="mfloat">
-          <div class="mcard">
+          <div style="transform:perspective(1100px) rotateY(-14deg) rotateX(6deg) scale(1.03);transform-style:preserve-3d">
+          <div class="mcard" style="box-shadow:0 48px 96px rgba(0,0,0,.6),-28px 28px 56px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.09)">&zwj;
             <div class="mbar"><div class="md" style="background:#ef4444"></div><div class="md" style="background:#f59e0b"></div><div class="md" style="background:#22c55e"></div><span class="mlbl" id="mock-lbl">Admin Panel — Genel Bakış</span></div>
             <div class="mbody" id="mock-body">
               <div class="mstats">
@@ -374,8 +377,11 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
               </div>
             </div>
           </div>
+          </div>
         </div>
         <div class="fl fl2"><i class="fa-solid fa-shield-halved" style="color:#60a5fa;font-size:.7rem"></i> Rol Bazlı Erişim</div>
+        <div style="position:absolute;top:50%;right:-22px;transform:translateY(-80%);background:rgba(15,23,40,.95);border:1px solid rgba(99,102,241,.3);border-radius:12px;padding:10px 14px;font-size:.62rem;font-weight:700;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(0,0,0,.4);backdrop-filter:blur(8px);white-space:nowrap"><i class="fa-solid fa-chart-line" style="color:#818cf8;font-size:.7rem"></i> ERP Entegrasyon Aktif</div>
+        <div style="position:absolute;bottom:-18px;left:10px;background:rgba(15,23,40,.95);border:1px solid rgba(34,197,94,.25);border-radius:12px;padding:8px 12px;font-size:.6rem;font-weight:700;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:7px;box-shadow:0 8px 24px rgba(0,0,0,.4);backdrop-filter:blur(8px);white-space:nowrap"><span style="width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80;flex-shrink:0"></span> Canlı Sistem · 99.8% Uptime</div>
       </div>
     </div>
   </div>
