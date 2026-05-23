@@ -321,11 +321,11 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 .hero-fade{background:linear-gradient(to bottom,transparent,#f4f7fc)}
 /* ── ERP 3D Spinning Pie Chart ── */
 .erp-visual{display:flex;flex-direction:column;align-items:center;gap:28px}
-.erp-chart-outer{position:relative;width:300px;height:220px;flex-shrink:0}
-.erp-disc-shadow{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:80%;height:32px;background:radial-gradient(ellipse,rgba(0,0,0,.32) 0%,transparent 68%);filter:blur(12px)}
-.erp-disc-3d{position:absolute;top:-38px;left:50%;width:280px;height:280px;filter:drop-shadow(0 22px 44px rgba(0,0,0,.38)) drop-shadow(0 6px 14px rgba(0,0,0,.22));animation:discSpin 24s linear infinite}
-@keyframes discSpin{from{transform:translateX(-50%) perspective(680px) rotateX(64deg) rotateZ(0deg)}to{transform:translateX(-50%) perspective(680px) rotateX(64deg) rotateZ(360deg)}}
-.erp-pie-svg{width:100%;height:100%;overflow:visible}
+.erp-chart-outer{position:relative;width:340px;height:280px;flex-shrink:0;perspective:900px;perspective-origin:50% 18%}
+.erp-disc-shadow{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);width:66%;height:52px;background:radial-gradient(ellipse,rgba(0,0,0,.62) 0%,transparent 72%);filter:blur(24px)}
+.erp-disc-3d{position:absolute;top:0;left:50%;width:320px;height:320px;animation:discSpin 18s linear infinite}
+@keyframes discSpin{from{transform:translateX(-50%) rotateX(62deg) rotateZ(0deg)}to{transform:translateX(-50%) rotateX(62deg) rotateZ(360deg)}}
+.erp-pie-svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 34px 68px rgba(0,0,0,.65)) drop-shadow(0 14px 28px rgba(0,0,0,.38))}
 .erp-seg{transition:stroke-dasharray 1.2s cubic-bezier(.3,.9,.4,1)}
 .erp-legend{display:flex;flex-direction:column;gap:9px;width:100%;max-width:270px}
 .erp-leg-row{display:flex;align-items:center;gap:9px;font-size:.78rem;color:#475569;cursor:default}
@@ -335,22 +335,36 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 .iso-diagram{position:relative;padding:20px 8px 28px}
 .iso-float{animation:isoflt 5.5s ease-in-out infinite alternate}
 @keyframes isoflt{0%{transform:translateY(0) rotate(-.6deg)}100%{transform:translateY(-16px) rotate(.4deg)}}
-.iso-tilt{transform:perspective(920px) rotateX(18deg) rotateY(-10deg);display:flex;flex-direction:column;gap:12px}
-.iso-layer{border-radius:14px;padding:13px 16px;display:flex;align-items:center;gap:12px;position:relative;overflow:hidden}
-.iso-layer::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,.01) 100%);pointer-events:none}
-.iso-icon-w{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
-.iso-info{flex:1;min-width:0}
+.iso-tilt{transform:perspective(920px) rotateX(18deg) rotateY(-10deg);display:flex;flex-direction:column;gap:12px;transform-style:preserve-3d}
+.iso-layer{border-radius:14px;position:relative;min-height:62px;overflow:visible;animation:layerAppear .42s ease-out both}
+.iso-flip-inner{transform-style:preserve-3d;position:relative;height:62px;width:100%;animation:cardFlip 8s ease-in-out infinite}
+@keyframes cardFlip{0%,38%{transform:rotateY(0deg)}48%,88%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
+.iso-front,.iso-back{backface-visibility:hidden;-webkit-backface-visibility:hidden;position:absolute;inset:0;display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:14px;overflow:hidden}
+.iso-back{transform:rotateY(180deg)}
+.iso-front::after,.iso-back::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.01) 100%);pointer-events:none;border-radius:14px}
+.iso-icon-w{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;position:relative;z-index:1}
+.iso-info{flex:1;min-width:0;position:relative;z-index:1}
 .iso-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:800;color:#fff;margin-bottom:2px;line-height:1.2}
 .iso-d{font-size:.57rem;color:rgba(255,255,255,.45);font-weight:600}
-.iso-lnum{font-family:'Plus Jakarta Sans',sans-serif;font-size:.55rem;font-weight:900;color:rgba(255,255,255,.22);flex-shrink:0}
 @keyframes layerAppear{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.iso-layer{animation:layerAppear .42s ease-out both}
-.iso-ui{background:linear-gradient(135deg,rgba(139,92,246,.32),rgba(109,40,217,.22));border:1px solid rgba(139,92,246,.42);box-shadow:0 7px 0 rgba(76,29,149,.65),0 13px 0 rgba(76,29,149,.3),0 20px 24px rgba(0,0,0,.45);animation-delay:.7s}
-.iso-adm{background:linear-gradient(135deg,rgba(34,197,94,.26),rgba(22,163,74,.17));border:1px solid rgba(34,197,94,.36);box-shadow:0 7px 0 rgba(20,83,45,.65),0 13px 0 rgba(20,83,45,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.56s}
-.iso-php{background:linear-gradient(135deg,rgba(59,130,246,.28),rgba(37,99,235,.19));border:1px solid rgba(59,130,246,.4);box-shadow:0 7px 0 rgba(30,64,175,.65),0 13px 0 rgba(30,64,175,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.42s}
-.iso-erp{background:linear-gradient(135deg,rgba(239,68,68,.26),rgba(220,38,38,.17));border:1px solid rgba(239,68,68,.36);box-shadow:0 7px 0 rgba(127,29,29,.65),0 13px 0 rgba(127,29,29,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.28s}
-.iso-db{background:linear-gradient(135deg,rgba(245,158,11,.26),rgba(217,119,6,.17));border:1px solid rgba(245,158,11,.36);box-shadow:0 7px 0 rgba(120,53,15,.65),0 13px 0 rgba(120,53,15,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.14s}
-.iso-sec{background:linear-gradient(135deg,rgba(20,184,166,.26),rgba(13,148,132,.17));border:1px solid rgba(20,184,166,.36);box-shadow:0 7px 0 rgba(17,94,89,.65),0 13px 0 rgba(17,94,89,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:0s}
+.iso-ui{box-shadow:0 7px 0 rgba(76,29,149,.65),0 13px 0 rgba(76,29,149,.3),0 20px 24px rgba(0,0,0,.45);animation-delay:.7s}
+.iso-ui .iso-front,.iso-ui .iso-back{background:linear-gradient(135deg,rgba(139,92,246,.32),rgba(109,40,217,.22));border:1px solid rgba(139,92,246,.42)}
+.iso-adm{box-shadow:0 7px 0 rgba(20,83,45,.65),0 13px 0 rgba(20,83,45,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.56s}
+.iso-adm .iso-front,.iso-adm .iso-back{background:linear-gradient(135deg,rgba(34,197,94,.26),rgba(22,163,74,.17));border:1px solid rgba(34,197,94,.36)}
+.iso-php{box-shadow:0 7px 0 rgba(30,64,175,.65),0 13px 0 rgba(30,64,175,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.42s}
+.iso-php .iso-front,.iso-php .iso-back{background:linear-gradient(135deg,rgba(59,130,246,.28),rgba(37,99,235,.19));border:1px solid rgba(59,130,246,.4)}
+.iso-erp{box-shadow:0 7px 0 rgba(127,29,29,.65),0 13px 0 rgba(127,29,29,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.28s}
+.iso-erp .iso-front,.iso-erp .iso-back{background:linear-gradient(135deg,rgba(239,68,68,.26),rgba(220,38,38,.17));border:1px solid rgba(239,68,68,.36)}
+.iso-db{box-shadow:0 7px 0 rgba(120,53,15,.65),0 13px 0 rgba(120,53,15,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:.14s}
+.iso-db .iso-front,.iso-db .iso-back{background:linear-gradient(135deg,rgba(245,158,11,.26),rgba(217,119,6,.17));border:1px solid rgba(245,158,11,.36)}
+.iso-sec{box-shadow:0 7px 0 rgba(17,94,89,.65),0 13px 0 rgba(17,94,89,.3),0 20px 24px rgba(0,0,0,.4);animation-delay:0s}
+.iso-sec .iso-front,.iso-sec .iso-back{background:linear-gradient(135deg,rgba(20,184,166,.26),rgba(13,148,132,.17));border:1px solid rgba(20,184,166,.36)}
+.iso-ui .iso-flip-inner{animation-delay:1.2s}
+.iso-adm .iso-flip-inner{animation-delay:1.8s}
+.iso-php .iso-flip-inner{animation-delay:2.4s}
+.iso-erp .iso-flip-inner{animation-delay:3.0s}
+.iso-db .iso-flip-inner{animation-delay:3.6s}
+.iso-sec .iso-flip-inner{animation-delay:4.2s}
 .iso-badges{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
 .iso-bi{display:flex;align-items:center;gap:7px;background:rgba(15,23,40,.85);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 13px;font-size:.63rem;font-weight:600;color:rgba(255,255,255,.6);white-space:nowrap;backdrop-filter:blur(8px)}
 </style>
@@ -396,28 +410,76 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
         <div class="iso-float">
           <div class="iso-tilt">
             <div class="iso-layer iso-ui">
-              <div class="iso-icon-w" style="background:rgba(139,92,246,.22)"><i class="fa-solid fa-display" style="color:#a78bfa"></i></div>
-              <div class="iso-info"><div class="iso-n">Web Arayüzü</div><div class="iso-d">HTML · CSS · JavaScript · Mobil Uyumlu</div></div>
+              <div class="iso-flip-inner">
+                <div class="iso-front">
+                  <div class="iso-icon-w" style="background:rgba(139,92,246,.22)"><i class="fa-solid fa-display" style="color:#a78bfa"></i></div>
+                  <div class="iso-info"><div class="iso-n">Web Arayüzü</div><div class="iso-d">HTML · CSS · JavaScript · Mobil Uyumlu</div></div>
+                </div>
+                <div class="iso-back">
+                  <div class="iso-icon-w" style="background:rgba(139,92,246,.22)"><i class="fa-solid fa-mobile-screen" style="color:#a78bfa"></i></div>
+                  <div class="iso-info"><div class="iso-n">Responsive & PWA</div><div class="iso-d">Dark Mode · 3 Tema · Akış Animasyon</div></div>
+                </div>
+              </div>
             </div>
             <div class="iso-layer iso-adm">
-              <div class="iso-icon-w" style="background:rgba(34,197,94,.18)"><i class="fa-solid fa-gauge" style="color:#4ade80"></i></div>
-              <div class="iso-info"><div class="iso-n">Yönetim Paneli</div><div class="iso-d">Rol Bazlı Erişim · Yetki Yönetimi · CSRF</div></div>
+              <div class="iso-flip-inner">
+                <div class="iso-front">
+                  <div class="iso-icon-w" style="background:rgba(34,197,94,.18)"><i class="fa-solid fa-gauge" style="color:#4ade80"></i></div>
+                  <div class="iso-info"><div class="iso-n">Yönetim Paneli</div><div class="iso-d">Rol Bazlı Erişim · Yetki Yönetimi · CSRF</div></div>
+                </div>
+                <div class="iso-back">
+                  <div class="iso-icon-w" style="background:rgba(34,197,94,.18)"><i class="fa-solid fa-users-gear" style="color:#4ade80"></i></div>
+                  <div class="iso-info"><div class="iso-n">12 Rol · 256 Yetki</div><div class="iso-d">Departman Bazlı · Session Guard</div></div>
+                </div>
+              </div>
             </div>
             <div class="iso-layer iso-php">
-              <div class="iso-icon-w" style="background:rgba(59,130,246,.18)"><i class="fa-brands fa-php" style="color:#60a5fa"></i></div>
-              <div class="iso-info"><div class="iso-n">PHP Backend</div><div class="iso-d">API · Oturum Yönetimi · Bildirim</div></div>
+              <div class="iso-flip-inner">
+                <div class="iso-front">
+                  <div class="iso-icon-w" style="background:rgba(59,130,246,.18)"><i class="fa-brands fa-php" style="color:#60a5fa"></i></div>
+                  <div class="iso-info"><div class="iso-n">PHP Backend</div><div class="iso-d">API · Oturum Yönetimi · Bildirim</div></div>
+                </div>
+                <div class="iso-back">
+                  <div class="iso-icon-w" style="background:rgba(59,130,246,.18)"><i class="fa-solid fa-server" style="color:#60a5fa"></i></div>
+                  <div class="iso-info"><div class="iso-n">REST API & Queue</div><div class="iso-d">JWT Auth · WebSocket · Redis Cache</div></div>
+                </div>
+              </div>
             </div>
             <div class="iso-layer iso-erp">
-              <div class="iso-icon-w" style="background:rgba(239,68,68,.18)"><i class="fa-solid fa-gears" style="color:#f87171"></i></div>
-              <div class="iso-info"><div class="iso-n">ERP Entegrasyon</div><div class="iso-d">Nebim V3 · e-İrsaliye · e-Fatura</div></div>
+              <div class="iso-flip-inner">
+                <div class="iso-front">
+                  <div class="iso-icon-w" style="background:rgba(239,68,68,.18)"><i class="fa-solid fa-gears" style="color:#f87171"></i></div>
+                  <div class="iso-info"><div class="iso-n">ERP Entegrasyon</div><div class="iso-d">Nebim V3 · e-İrsaliye · e-Fatura</div></div>
+                </div>
+                <div class="iso-back">
+                  <div class="iso-icon-w" style="background:rgba(239,68,68,.18)"><i class="fa-solid fa-plug-circle-check" style="color:#f87171"></i></div>
+                  <div class="iso-info"><div class="iso-n">%99.8 Uptime</div><div class="iso-d">GİB Onaylı · Anlık Sync · Canlı</div></div>
+                </div>
+              </div>
             </div>
             <div class="iso-layer iso-db">
-              <div class="iso-icon-w" style="background:rgba(245,158,11,.18)"><i class="fa-solid fa-database" style="color:#fbbf24"></i></div>
-              <div class="iso-info"><div class="iso-n">SQL Server</div><div class="iso-d">T-SQL · Index Yönetimi · Prosedür</div></div>
+              <div class="iso-flip-inner">
+                <div class="iso-front">
+                  <div class="iso-icon-w" style="background:rgba(245,158,11,.18)"><i class="fa-solid fa-database" style="color:#fbbf24"></i></div>
+                  <div class="iso-info"><div class="iso-n">SQL Server</div><div class="iso-d">T-SQL · Index Yönetimi · Prosedür</div></div>
+                </div>
+                <div class="iso-back">
+                  <div class="iso-icon-w" style="background:rgba(245,158,11,.18)"><i class="fa-solid fa-chart-simple" style="color:#fbbf24"></i></div>
+                  <div class="iso-info"><div class="iso-n">50M+ Satır</div><div class="iso-d">200ms Sorgu · Index %98 · Temiz</div></div>
+                </div>
+              </div>
             </div>
             <div class="iso-layer iso-sec">
-              <div class="iso-icon-w" style="background:rgba(20,184,166,.18)"><i class="fa-solid fa-shield-halved" style="color:#2dd4bf"></i></div>
-              <div class="iso-info"><div class="iso-n">Güvenlik & Loglama</div><div class="iso-d">IP Takibi · Audit Log · Risk Skorlama</div></div>
+              <div class="iso-flip-inner">
+                <div class="iso-front">
+                  <div class="iso-icon-w" style="background:rgba(20,184,166,.18)"><i class="fa-solid fa-shield-halved" style="color:#2dd4bf"></i></div>
+                  <div class="iso-info"><div class="iso-n">Güvenlik & Loglama</div><div class="iso-d">IP Takibi · Audit Log · Risk Skorlama</div></div>
+                </div>
+                <div class="iso-back">
+                  <div class="iso-icon-w" style="background:rgba(20,184,166,.18)"><i class="fa-solid fa-triangle-exclamation" style="color:#2dd4bf"></i></div>
+                  <div class="iso-info"><div class="iso-n">IP Kara Liste</div><div class="iso-d">AES-256 · Gerçek Zamanlı Uyarı</div></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -499,6 +561,11 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
                 <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
+              <radialGradient id="discLight" cx="36%" cy="30%" r="65%">
+                <stop offset="0%" stop-color="rgba(255,255,255,.26)"/>
+                <stop offset="50%" stop-color="rgba(255,255,255,.04)"/>
+                <stop offset="100%" stop-color="rgba(0,0,0,.22)"/>
+              </radialGradient>
             </defs>
             <!-- Track ring -->
             <circle cx="100" cy="100" r="76" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="46"/>
@@ -511,6 +578,7 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
             <circle cx="100" cy="100" r="38" fill="white" filter="drop-shadow(0 4px 12px rgba(0,0,0,.18))"/>
             <text x="100" y="96" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="900" fill="#0f172a">ERP</text>
             <text x="100" y="111" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="7.5" fill="#94a3b8">Entegrasyon</text>
+            <circle cx="100" cy="100" r="99" fill="url(#discLight)" pointer-events="none"/>
           </svg>
         </div>
       </div>
