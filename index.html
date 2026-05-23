@@ -359,14 +359,14 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
       <div style="position:relative">
         <div class="mfloat">
           <div class="mcard">
-            <div class="mbar"><div class="md" style="background:#ef4444"></div><div class="md" style="background:#f59e0b"></div><div class="md" style="background:#22c55e"></div><span class="mlbl">Admin Panel — Genel Bakış</span></div>
+            <div class="mbar"><div class="md" style="background:#ef4444"></div><div class="md" style="background:#f59e0b"></div><div class="md" style="background:#22c55e"></div><span class="mlbl" id="mock-lbl">Admin Panel — Genel Bakış</span></div>
             <div class="mbody">
-              <div class="mstats">
+              <div class="mstats" id="mock-stats">
                 <div class="ms"><div class="ms-n">142</div><div class="ms-l">Aktif Hizmet</div><div class="ms-b" style="background:linear-gradient(90deg,#22c55e,#16a34a)"></div></div>
                 <div class="ms"><div class="ms-n">28</div><div class="ms-l">Açık Talep</div><div class="ms-b" style="background:linear-gradient(90deg,#ef4444,#dc2626)"></div></div>
                 <div class="ms"><div class="ms-n">15</div><div class="ms-l">Superbox</div><div class="ms-b" style="background:linear-gradient(90deg,#8b5cf6,#7c3aed)"></div></div>
               </div>
-              <div class="mtbl">
+              <div class="mtbl" id="mock-rows">
                 <div class="mr"><div class="mdt" style="background:#22c55e"></div><div class="mb" style="flex:1"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.22)">Aktif</div></div>
                 <div class="mr"><div class="mdt" style="background:#ef4444"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.05)"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.22)">Arıza</div></div>
                 <div class="mr"><div class="mdt" style="background:#22c55e"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.07)"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.22)">Aktif</div></div>
@@ -375,7 +375,6 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
             </div>
           </div>
         </div>
-        <div class="fl fl1"><i class="fa-solid fa-check-circle" style="color:#4ade80;font-size:.7rem"></i> Canlı &amp; Çalışıyor</div>
         <div class="fl fl2"><i class="fa-solid fa-shield-halved" style="color:#60a5fa;font-size:.7rem"></i> Rol Bazlı Erişim</div>
       </div>
     </div>
@@ -590,6 +589,29 @@ if(si){const so=new IntersectionObserver(es=>{if(es[0].isIntersecting){count('c1
 // Skill bars
 const sk=document.getElementById('skills-container');
 if(sk){const sko=new IntersectionObserver(es=>{if(es[0].isIntersecting){const ws=[.95,.90,.85,.80,.88];sk.querySelectorAll('.skill-bar').forEach((b,i)=>{setTimeout(()=>{b.style.width=(ws[i]*100)+'%';b.classList.add('triggered');},i*100);});sko.disconnect();}},{threshold:.4});sko.observe(sk);}
+
+// Mock panel cycling animation
+const mockStates=[
+  {lbl:'Admin Panel — Genel Bakış',stats:[{n:'142',l:'Aktif Hizmet',bar:'#22c55e,#16a34a'},{n:'28',l:'Açık Talep',bar:'#ef4444,#dc2626'},{n:'15',l:'Superbox',bar:'#8b5cf6,#7c3aed'}],rows:[{c:'#22c55e',bg:'rgba(34,197,94,.15)',tc:'#4ade80',bc:'rgba(34,197,94,.22)',lbl:'Aktif'},{c:'#ef4444',bg:'rgba(239,68,68,.15)',tc:'#f87171',bc:'rgba(239,68,68,.22)',lbl:'Arıza'},{c:'#22c55e',bg:'rgba(34,197,94,.15)',tc:'#4ade80',bc:'rgba(34,197,94,.22)',lbl:'Aktif'},{c:'#f59e0b',bg:'rgba(245,158,11,.15)',tc:'#fbbf24',bc:'rgba(245,158,11,.22)',lbl:'Beklemede'}]},
+  {lbl:'Ticket Yönetimi — Canlı',stats:[{n:'37',l:'Bekleyen',bar:'#f59e0b,#d97706'},{n:'14',l:'İşlemde',bar:'#3b82f6,#2563eb'},{n:'89',l:'Çözüldü',bar:'#22c55e,#16a34a'}],rows:[{c:'#f59e0b',bg:'rgba(245,158,11,.15)',tc:'#fbbf24',bc:'rgba(245,158,11,.22)',lbl:'Beklemede'},{c:'#3b82f6',bg:'rgba(59,130,246,.15)',tc:'#60a5fa',bc:'rgba(59,130,246,.22)',lbl:'İşlemde'},{c:'#22c55e',bg:'rgba(34,197,94,.15)',tc:'#4ade80',bc:'rgba(34,197,94,.22)',lbl:'Çözüldü'},{c:'#22c55e',bg:'rgba(34,197,94,.15)',tc:'#4ade80',bc:'rgba(34,197,94,.22)',lbl:'Çözüldü'}]},
+  {lbl:'Tahsilat & Tediye — Dönem',stats:[{n:'₺84K',l:'Tahsilat',bar:'#22c55e,#16a34a'},{n:'₺31K',l:'Tediye',bar:'#ef4444,#dc2626'},{n:'₺53K',l:'Net Bakiye',bar:'#3b82f6,#2563eb'}],rows:[{c:'#22c55e',bg:'rgba(34,197,94,.15)',tc:'#4ade80',bc:'rgba(34,197,94,.22)',lbl:'Onaylandı'},{c:'#22c55e',bg:'rgba(34,197,94,.15)',tc:'#4ade80',bc:'rgba(34,197,94,.22)',lbl:'Onaylandı'},{c:'#f59e0b',bg:'rgba(245,158,11,.15)',tc:'#fbbf24',bc:'rgba(245,158,11,.22)',lbl:'Beklemede'},{c:'#22c55e',bg:'rgba(34,197,94,.15)',tc:'#4ade80',bc:'rgba(34,197,94,.22)',lbl:'Onaylandı'}]},
+  {lbl:'e-İrsaliye — GİB Entegrasyon',stats:[{n:'312',l:'e-İrsaliye',bar:'#ef4444,#dc2626'},{n:'98%',l:'GİB Başarı',bar:'#22c55e,#16a34a'},{n:'4',l:'Hata',bar:'#f59e0b,#d97706'}],rows:[{c:'#22c55e',bg:'rgba(34,197,94,.15)',tc:'#4ade80',bc:'rgba(34,197,94,.22)',lbl:'GİB Onaylı'},{c:'#22c55e',bg:'rgba(34,197,94,.15)',tc:'#4ade80',bc:'rgba(34,197,94,.22)',lbl:'GİB Onaylı'},{c:'#ef4444',bg:'rgba(239,68,68,.15)',tc:'#f87171',bc:'rgba(239,68,68,.22)',lbl:'Hata'},{c:'#22c55e',bg:'rgba(34,197,94,.15)',tc:'#4ade80',bc:'rgba(34,197,94,.22)',lbl:'GİB Onaylı'}]}
+];
+let mockIdx=0;
+const mcard=document.querySelector('.mcard');
+if(mcard){
+  setInterval(()=>{
+    mcard.style.transition='opacity .3s';mcard.style.opacity='0';
+    setTimeout(()=>{
+      mockIdx=(mockIdx+1)%mockStates.length;
+      const s=mockStates[mockIdx];
+      document.getElementById('mock-lbl').textContent=s.lbl;
+      document.getElementById('mock-stats').innerHTML=s.stats.map(st=>`<div class="ms"><div class="ms-n">${st.n}</div><div class="ms-l">${st.l}</div><div class="ms-b" style="background:linear-gradient(90deg,${st.bar})"></div></div>`).join('');
+      document.getElementById('mock-rows').innerHTML=s.rows.map(r=>`<div class="mr"><div class="mdt" style="background:${r.c}"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.06)"></div><div class="mb" style="width:28%;background:rgba(255,255,255,.06)"></div><div class="mcp" style="background:${r.bg};color:${r.tc};border:1px solid ${r.bc}">${r.lbl}</div></div>`).join('');
+      mcard.style.opacity='1';
+    },320);
+  },2000);
+}
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
