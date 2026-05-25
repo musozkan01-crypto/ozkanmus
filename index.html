@@ -324,40 +324,44 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 .erp-iso-float{width:100%}
 .erp-iso-float.ep-go{animation:erpFlt 6s 3s ease-in-out infinite alternate both}
 @keyframes erpFlt{0%{transform:translateY(0) rotate(-.3deg)}100%{transform:translateY(-10px) rotate(.25deg)}}
-/* Stack — başlangıçta düz plaka, scroll'da izometrik açılır */
-.erp-iso-stack{transform:perspective(900px) rotateX(86deg) rotateY(0deg);display:flex;flex-direction:column;gap:0;transform-style:preserve-3d;position:relative;width:100%;will-change:transform}
+.erp-iso-stack{transform:perspective(1000px) rotateX(86deg) rotateY(0deg);display:flex;flex-direction:column;gap:0;transform-style:preserve-3d;position:relative;width:100%;will-change:transform}
 .erp-iso-stack.ep-go{animation:erpStackOpen 2.8s cubic-bezier(.22,1,.36,1) forwards}
 @keyframes erpStackOpen{
-  0%,20%{transform:perspective(900px) rotateX(86deg) rotateY(0deg);gap:0px}
-  100%{transform:perspective(900px) rotateX(28deg) rotateY(-7deg);gap:18px}
+  0%,20%{transform:perspective(1000px) rotateX(86deg) rotateY(0deg);gap:0px}
+  100%{transform:perspective(1000px) rotateX(30deg) rotateY(-8deg);gap:16px}
 }
-/* Tek plaka görüntüsü — overlay slabları kaplar, açılınca solar */
 .erp-plat-overlay{position:absolute;inset:-5px;background:linear-gradient(145deg,#1e3a5f,#0f172a);border-radius:18px;z-index:20;pointer-events:none}
 .erp-plat-overlay.ep-go{animation:erpOverOut 2.8s ease-out forwards}
 @keyframes erpOverOut{0%,22%{opacity:1}68%,100%{opacity:0}}
-/* Slab katmanları */
 @keyframes erpSlabIn{from{opacity:0;transform:scaleX(.86)}to{opacity:1;transform:scaleX(1)}}
-.erp-slab{position:relative;width:100%;border-radius:16px;display:flex;align-items:center;justify-content:center;flex-direction:column;min-height:80px;overflow:visible;opacity:0;will-change:transform}
+/* Her slab: gerçek 3D görünüm için transform-style:preserve-3d */
+.erp-slab{position:relative;width:100%;border-radius:18px;display:flex;align-items:center;justify-content:center;flex-direction:column;min-height:96px;overflow:visible;opacity:0;will-change:transform;transform-style:preserve-3d}
 .erp-slab.ep-go{animation:erpSlabIn .5s ease-out forwards}
-.slab-db{background:linear-gradient(135deg,#3b82f6,#1d4ed8);box-shadow:0 14px 0 rgba(29,78,216,.72),0 25px 0 rgba(29,78,216,.36),0 38px 44px rgba(0,0,0,.54)}
+/* Ön yüz (front face) — pseudo-element ile gerçek 3D kenar */
+.erp-slab::after{content:'';position:absolute;bottom:0;left:10px;right:10px;height:22px;border-radius:0 0 14px 14px;transform:rotateX(90deg);transform-origin:bottom center}
+.slab-db{background:linear-gradient(180deg,#60a5fa 0%,#3b82f6 55%,#2563eb 100%);box-shadow:0 40px 50px rgba(0,0,0,.45)}
+.slab-db::after{background:#1d4ed8}
 .slab-db.ep-go{animation-delay:1.3s}
-.slab-rt{background:linear-gradient(135deg,#22c55e,#15803d);box-shadow:0 14px 0 rgba(21,128,61,.72),0 25px 0 rgba(21,128,61,.36),0 38px 44px rgba(0,0,0,.46)}
+.slab-rt{background:linear-gradient(180deg,#4ade80 0%,#22c55e 55%,#16a34a 100%);box-shadow:0 40px 50px rgba(0,0,0,.38)}
+.slab-rt::after{background:#15803d}
 .slab-rt.ep-go{animation-delay:1.6s}
-.slab-app{background:linear-gradient(135deg,#f59e0b,#d97706);box-shadow:0 14px 0 rgba(180,83,9,.72),0 25px 0 rgba(180,83,9,.36),0 38px 44px rgba(0,0,0,.42)}
+.slab-app{background:linear-gradient(180deg,#fbbf24 0%,#f59e0b 55%,#d97706 100%);box-shadow:0 40px 50px rgba(0,0,0,.34)}
+.slab-app::after{background:#b45309}
 .slab-app.ep-go{animation-delay:1.9s}
-.slab-top{background:#fff;border:1.5px solid rgba(0,0,0,.09);box-shadow:0 10px 0 rgba(0,0,0,.13),0 18px 0 rgba(0,0,0,.06),0 28px 36px rgba(0,0,0,.28);min-height:62px}
+.slab-top{background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);border:1.5px solid rgba(0,0,0,.08);box-shadow:0 30px 40px rgba(0,0,0,.2);min-height:70px}
+.slab-top::after{background:#d1d5db}
 .slab-top.ep-go{animation-delay:2.2s}
-.slab-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.08rem;font-weight:900;color:#fff;letter-spacing:-.03em}
+.slab-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.12rem;font-weight:900;color:#fff;letter-spacing:-.03em}
 .slab-top .slab-name{color:#0f172a;font-size:.95rem}
-.slab-sub{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.6);margin-top:3px}
+.slab-sub{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.62);margin-top:3px}
 .slab-top .slab-sub{color:#64748b}
-/* Etiket chips — slabın yanlarından çıkar */
+/* Chips — slabın hemen kenarında, referanstaki gibi entegre */
 .slab-chips{position:absolute;inset:0;pointer-events:none}
-.sc-chip{position:absolute;border-radius:9px;padding:5px 13px;font-size:.63rem;font-weight:800;white-space:nowrap;box-shadow:0 3px 12px rgba(0,0,0,.2);letter-spacing:-.01em}
-.slab-db .sc-chip{background:#dbeafe;color:#1e40af}
-.slab-rt .sc-chip{background:#dcfce7;color:#166534}
-.slab-app .sc-chip{background:#fef3c7;color:#92400e}
-@media(max-width:760px){.slab-chips{display:none}}
+.sc-chip{position:absolute;border-radius:10px;padding:6px 14px;font-size:.64rem;font-weight:800;white-space:nowrap;letter-spacing:-.01em;box-shadow:0 4px 14px rgba(0,0,0,.22)}
+.slab-db .sc-chip{background:#eff6ff;color:#1e40af;border:1.5px solid #bfdbfe}
+.slab-rt .sc-chip{background:#f0fdf4;color:#166534;border:1.5px solid #bbf7d0}
+.slab-app .sc-chip{background:#fffbeb;color:#92400e;border:1.5px solid #fde68a}
+@media(max-width:820px){.slab-chips{display:none}}
 .erp-legend{display:flex;flex-direction:column;gap:9px;width:100%;max-width:340px}
 .erp-leg-row{display:flex;align-items:center;gap:9px;font-size:.78rem;color:#475569;cursor:default}
 .erp-leg-dot{width:11px;height:11px;border-radius:3px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.18)}
@@ -599,30 +603,30 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
           <div class="erp-slab slab-app">
             <div class="slab-name">İş Süreçleri</div>
             <div class="slab-chips">
-              <div class="sc-chip" style="right:calc(100% + 10px);top:13px">Tahsilat</div>
-              <div class="sc-chip" style="right:calc(100% + 10px);top:46px">Tediye</div>
-              <div class="sc-chip" style="left:calc(100% + 10px);top:13px">Maliyet</div>
-              <div class="sc-chip" style="left:calc(100% + 10px);top:46px">Raporlama</div>
+              <div class="sc-chip" style="right:calc(100% + 3px);top:13px">Tahsilat</div>
+              <div class="sc-chip" style="right:calc(100% + 3px);top:46px">Tediye</div>
+              <div class="sc-chip" style="left:calc(100% + 3px);top:13px">Maliyet</div>
+              <div class="sc-chip" style="left:calc(100% + 3px);top:46px">Raporlama</div>
             </div>
           </div>
           <!-- Yeşil: ERP Entegrasyon -->
           <div class="erp-slab slab-rt">
             <div class="slab-name">ERP Entegrasyon</div>
             <div class="slab-chips">
-              <div class="sc-chip" style="right:calc(100% + 10px);top:13px">e-İrsaliye</div>
-              <div class="sc-chip" style="right:calc(100% + 10px);top:46px">e-Fatura</div>
-              <div class="sc-chip" style="left:calc(100% + 10px);top:13px">GİB Onaylı</div>
-              <div class="sc-chip" style="left:calc(100% + 10px);top:46px">API Sync</div>
+              <div class="sc-chip" style="right:calc(100% + 3px);top:13px">e-İrsaliye</div>
+              <div class="sc-chip" style="right:calc(100% + 3px);top:46px">e-Fatura</div>
+              <div class="sc-chip" style="left:calc(100% + 3px);top:13px">GİB Onaylı</div>
+              <div class="sc-chip" style="left:calc(100% + 3px);top:46px">API Sync</div>
             </div>
           </div>
           <!-- Mavi: SQL Server (alt katman) -->
           <div class="erp-slab slab-db">
             <div class="slab-name">SQL Server</div>
             <div class="slab-chips">
-              <div class="sc-chip" style="right:calc(100% + 10px);top:13px">T-SQL</div>
-              <div class="sc-chip" style="right:calc(100% + 10px);top:46px">Index</div>
-              <div class="sc-chip" style="left:calc(100% + 10px);top:13px">Stored Proc</div>
-              <div class="sc-chip" style="left:calc(100% + 10px);top:46px">Performans</div>
+              <div class="sc-chip" style="right:calc(100% + 3px);top:13px">T-SQL</div>
+              <div class="sc-chip" style="right:calc(100% + 3px);top:46px">Index</div>
+              <div class="sc-chip" style="left:calc(100% + 3px);top:13px">Stored Proc</div>
+              <div class="sc-chip" style="left:calc(100% + 3px);top:46px">Performans</div>
             </div>
           </div>
         </div>
