@@ -319,37 +319,45 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 .contact-section::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(99,102,241,.1) 1.5px,transparent 1.5px);background-size:28px 28px;pointer-events:none;z-index:0}
 .contact-in{position:relative;z-index:2}
 .hero-fade{background:linear-gradient(to bottom,transparent,#f4f7fc)}
-/* ── ERP Puzzle Platform (tek plaka → parçalara ayrılır) ── */
-.erp-visual{display:flex;flex-direction:column;align-items:center;gap:24px;width:100%}
+/* ── ERP İzometrik Katman Platformu (entererp stili) ── */
+.erp-visual{display:flex;flex-direction:column;align-items:center;gap:28px;width:100%}
 .erp-iso-float{width:100%}
-.erp-iso-float.ep-go{animation:erpFlt 5.5s 2.4s ease-in-out infinite alternate both}
-@keyframes erpFlt{0%{transform:translateY(0) rotate(-.4deg)}100%{transform:translateY(-12px) rotate(.3deg)}}
-/* Tilt container — starts flat, then opens to isometric on scroll trigger */
-.erp-iso-tilt{transform:perspective(920px) rotateX(84deg) rotateY(0deg);display:flex;flex-direction:column;gap:0px;transform-style:preserve-3d;position:relative;width:100%;will-change:transform}
-.erp-iso-tilt.ep-go{animation:erpReveal 2.8s cubic-bezier(.22,1,.36,1) forwards}
-@keyframes erpReveal{
-  0%,25%{transform:perspective(920px) rotateX(84deg) rotateY(0deg);gap:0px}
-  100%{transform:perspective(920px) rotateX(20deg) rotateY(-8deg);gap:18px}
+.erp-iso-float.ep-go{animation:erpFlt 6s 3s ease-in-out infinite alternate both}
+@keyframes erpFlt{0%{transform:translateY(0) rotate(-.3deg)}100%{transform:translateY(-10px) rotate(.25deg)}}
+/* Stack — başlangıçta düz plaka, scroll'da izometrik açılır */
+.erp-iso-stack{transform:perspective(900px) rotateX(86deg) rotateY(0deg);display:flex;flex-direction:column;gap:0;transform-style:preserve-3d;position:relative;width:100%;will-change:transform}
+.erp-iso-stack.ep-go{animation:erpStackOpen 2.8s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes erpStackOpen{
+  0%,20%{transform:perspective(900px) rotateX(86deg) rotateY(0deg);gap:0px}
+  100%{transform:perspective(900px) rotateX(28deg) rotateY(-7deg);gap:18px}
 }
-/* Single dark plate overlay — hides individual pieces so they look like ONE plate */
-.erp-plat-overlay{position:absolute;inset:-4px;background:linear-gradient(140deg,#1a3352 0%,#0f172a 100%);border-radius:18px;z-index:10;pointer-events:none}
-.erp-plat-overlay.ep-go{animation:erpOverlayOut 2.8s ease-out forwards}
-@keyframes erpOverlayOut{0%,28%{opacity:1}68%,100%{opacity:0}}
-/* Individual piece pop-in (staggered, plays as overlay fades) */
-@keyframes erpPiecePop{from{opacity:0;transform:translateY(8px) scaleX(.92)}to{opacity:1;transform:none}}
-.erp-plat{border-radius:14px;padding:14px 18px;display:flex;flex-direction:column;gap:7px;opacity:0;will-change:transform}
-.erp-plat.ep-go{animation:erpPiecePop .5s ease-out forwards}
-.ep1.ep-go{animation-delay:1.45s}.ep2.ep-go{animation-delay:1.68s}.ep3.ep-go{animation-delay:1.91s}.ep4.ep-go{animation-delay:2.14s}
-.erp-plat-head{display:flex;align-items:center;gap:11px}
-.erp-plat-ic{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:.84rem;flex-shrink:0}
-.erp-plat-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;font-weight:800;color:#fff;line-height:1.2}
-.erp-plat-sub{font-size:.58rem;color:rgba(255,255,255,.62);font-weight:600;margin-top:1px}
-.erp-plat-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
-.erp-chip{padding:3px 10px;border-radius:999px;font-size:.57rem;font-weight:700;background:rgba(255,255,255,.14);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.22)}
-.ep1{background:linear-gradient(135deg,rgba(239,68,68,.92),rgba(185,28,28,.82));border:1px solid rgba(239,68,68,.5);box-shadow:0 12px 0 rgba(127,29,29,.78),0 22px 0 rgba(127,29,29,.4),0 34px 40px rgba(0,0,0,.55)}
-.ep2{background:linear-gradient(135deg,rgba(245,158,11,.92),rgba(180,83,9,.82));border:1px solid rgba(245,158,11,.5);box-shadow:0 12px 0 rgba(120,53,15,.78),0 22px 0 rgba(120,53,15,.4),0 34px 40px rgba(0,0,0,.48)}
-.ep3{background:linear-gradient(135deg,rgba(34,197,94,.88),rgba(21,128,61,.78));border:1px solid rgba(34,197,94,.5);box-shadow:0 12px 0 rgba(20,83,45,.78),0 22px 0 rgba(20,83,45,.4),0 34px 40px rgba(0,0,0,.44)}
-.ep4{background:linear-gradient(135deg,rgba(59,130,246,.9),rgba(29,78,216,.8));border:1px solid rgba(59,130,246,.5);box-shadow:0 12px 0 rgba(30,64,175,.78),0 22px 0 rgba(30,64,175,.4),0 34px 40px rgba(0,0,0,.44)}
+/* Tek plaka görüntüsü — overlay slabları kaplar, açılınca solar */
+.erp-plat-overlay{position:absolute;inset:-5px;background:linear-gradient(145deg,#1e3a5f,#0f172a);border-radius:18px;z-index:20;pointer-events:none}
+.erp-plat-overlay.ep-go{animation:erpOverOut 2.8s ease-out forwards}
+@keyframes erpOverOut{0%,22%{opacity:1}68%,100%{opacity:0}}
+/* Slab katmanları */
+@keyframes erpSlabIn{from{opacity:0;transform:scaleX(.86)}to{opacity:1;transform:scaleX(1)}}
+.erp-slab{position:relative;width:100%;border-radius:16px;display:flex;align-items:center;justify-content:center;flex-direction:column;min-height:80px;overflow:visible;opacity:0;will-change:transform}
+.erp-slab.ep-go{animation:erpSlabIn .5s ease-out forwards}
+.slab-db{background:linear-gradient(135deg,#3b82f6,#1d4ed8);box-shadow:0 14px 0 rgba(29,78,216,.72),0 25px 0 rgba(29,78,216,.36),0 38px 44px rgba(0,0,0,.54)}
+.slab-db.ep-go{animation-delay:1.3s}
+.slab-rt{background:linear-gradient(135deg,#22c55e,#15803d);box-shadow:0 14px 0 rgba(21,128,61,.72),0 25px 0 rgba(21,128,61,.36),0 38px 44px rgba(0,0,0,.46)}
+.slab-rt.ep-go{animation-delay:1.6s}
+.slab-app{background:linear-gradient(135deg,#f59e0b,#d97706);box-shadow:0 14px 0 rgba(180,83,9,.72),0 25px 0 rgba(180,83,9,.36),0 38px 44px rgba(0,0,0,.42)}
+.slab-app.ep-go{animation-delay:1.9s}
+.slab-top{background:#fff;border:1.5px solid rgba(0,0,0,.09);box-shadow:0 10px 0 rgba(0,0,0,.13),0 18px 0 rgba(0,0,0,.06),0 28px 36px rgba(0,0,0,.28);min-height:62px}
+.slab-top.ep-go{animation-delay:2.2s}
+.slab-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.08rem;font-weight:900;color:#fff;letter-spacing:-.03em}
+.slab-top .slab-name{color:#0f172a;font-size:.95rem}
+.slab-sub{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.6);margin-top:3px}
+.slab-top .slab-sub{color:#64748b}
+/* Etiket chips — slabın yanlarından çıkar */
+.slab-chips{position:absolute;inset:0;pointer-events:none}
+.sc-chip{position:absolute;border-radius:9px;padding:5px 13px;font-size:.63rem;font-weight:800;white-space:nowrap;box-shadow:0 3px 12px rgba(0,0,0,.2);letter-spacing:-.01em}
+.slab-db .sc-chip{background:#dbeafe;color:#1e40af}
+.slab-rt .sc-chip{background:#dcfce7;color:#166534}
+.slab-app .sc-chip{background:#fef3c7;color:#92400e}
+@media(max-width:760px){.slab-chips{display:none}}
 .erp-legend{display:flex;flex-direction:column;gap:9px;width:100%;max-width:340px}
 .erp-leg-row{display:flex;align-items:center;gap:9px;font-size:.78rem;color:#475569;cursor:default}
 .erp-leg-dot{width:11px;height:11px;border-radius:3px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.18)}
@@ -580,35 +588,42 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
     </div>
     <div class="erp-visual">
       <div class="erp-iso-float">
-        <div class="erp-iso-tilt">
+        <div class="erp-iso-stack">
           <div class="erp-plat-overlay"></div>
-          <div class="erp-plat ep1">
-            <div class="erp-plat-head">
-              <div class="erp-plat-ic"><i class="fa-solid fa-file-invoice" style="color:#fca5a5"></i></div>
-              <div><div class="erp-plat-name">e-İrsaliye (GİB)</div><div class="erp-plat-sub">35% iş akışı · Anlık gönderim & onay</div></div>
-            </div>
-            <div class="erp-plat-chips"><span class="erp-chip">GİB Onaylı</span><span class="erp-chip">Anlık Sync</span><span class="erp-chip">Yeniden Gönderim</span><span class="erp-chip">Durum Takibi</span></div>
+          <!-- En üst: Nebim V3 logo katmanı (beyaz) -->
+          <div class="erp-slab slab-top">
+            <div class="slab-name">Nebim V3</div>
+            <div class="slab-sub">ERP Platformu</div>
           </div>
-          <div class="erp-plat ep2">
-            <div class="erp-plat-head">
-              <div class="erp-plat-ic"><i class="fa-solid fa-receipt" style="color:#fde68a"></i></div>
-              <div><div class="erp-plat-name">e-Fatura</div><div class="erp-plat-sub">25% iş akışı · GİB entegrasyonu</div></div>
+          <!-- Sarı: İş Süreçleri -->
+          <div class="erp-slab slab-app">
+            <div class="slab-name">İş Süreçleri</div>
+            <div class="slab-chips">
+              <div class="sc-chip" style="right:calc(100% + 10px);top:13px">Tahsilat</div>
+              <div class="sc-chip" style="right:calc(100% + 10px);top:46px">Tediye</div>
+              <div class="sc-chip" style="left:calc(100% + 10px);top:13px">Maliyet</div>
+              <div class="sc-chip" style="left:calc(100% + 10px);top:46px">Raporlama</div>
             </div>
-            <div class="erp-plat-chips"><span class="erp-chip">Gelen Fatura</span><span class="erp-chip">Giden Fatura</span><span class="erp-chip">Mutabakat</span><span class="erp-chip">Arşiv</span></div>
           </div>
-          <div class="erp-plat ep3">
-            <div class="erp-plat-head">
-              <div class="erp-plat-ic"><i class="fa-solid fa-money-bill-transfer" style="color:#86efac"></i></div>
-              <div><div class="erp-plat-name">Tahsilat & Tediye</div><div class="erp-plat-sub">25% iş akışı · Ödeme süreçleri</div></div>
+          <!-- Yeşil: ERP Entegrasyon -->
+          <div class="erp-slab slab-rt">
+            <div class="slab-name">ERP Entegrasyon</div>
+            <div class="slab-chips">
+              <div class="sc-chip" style="right:calc(100% + 10px);top:13px">e-İrsaliye</div>
+              <div class="sc-chip" style="right:calc(100% + 10px);top:46px">e-Fatura</div>
+              <div class="sc-chip" style="left:calc(100% + 10px);top:13px">GİB Onaylı</div>
+              <div class="sc-chip" style="left:calc(100% + 10px);top:46px">API Sync</div>
             </div>
-            <div class="erp-plat-chips"><span class="erp-chip">Nakit Tahsilat</span><span class="erp-chip">Tediye</span><span class="erp-chip">Mutabakat</span><span class="erp-chip">Dönem</span></div>
           </div>
-          <div class="erp-plat ep4">
-            <div class="erp-plat-head">
-              <div class="erp-plat-ic"><i class="fa-solid fa-chart-pie" style="color:#93c5fd"></i></div>
-              <div><div class="erp-plat-name">Maliyet & Raporlama</div><div class="erp-plat-sub">15% iş akışı · Finansal analiz</div></div>
+          <!-- Mavi: SQL Server (alt katman) -->
+          <div class="erp-slab slab-db">
+            <div class="slab-name">SQL Server</div>
+            <div class="slab-chips">
+              <div class="sc-chip" style="right:calc(100% + 10px);top:13px">T-SQL</div>
+              <div class="sc-chip" style="right:calc(100% + 10px);top:46px">Index</div>
+              <div class="sc-chip" style="left:calc(100% + 10px);top:13px">Stored Proc</div>
+              <div class="sc-chip" style="left:calc(100% + 10px);top:46px">Performans</div>
             </div>
-            <div class="erp-plat-chips"><span class="erp-chip">Maliyet Merkezi</span><span class="erp-chip">Dönem Raporu</span><span class="erp-chip">Bütçe</span><span class="erp-chip">Analiz</span></div>
           </div>
         </div>
       </div>
@@ -763,16 +778,16 @@ if(si){const so=new IntersectionObserver(es=>{if(es[0].isIntersecting){count('c1
 const sk=document.getElementById('skills-container');
 if(sk){const sko=new IntersectionObserver(es=>{if(es[0].isIntersecting){const ws=[.95,.90,.85,.80,.88];sk.querySelectorAll('.skill-bar').forEach((b,i)=>{setTimeout(()=>{b.style.width=(ws[i]*100)+'%';b.classList.add('triggered');},i*100);});sko.disconnect();}},{threshold:.4});sko.observe(sk);}
 
-// ERP puzzle platform — scroll triggered reveal
+// ERP izometrik platform — scroll'da açılır
 (function(){
   const erpSec=document.querySelector('.erp-section');
   if(!erpSec)return;
   const obs=new IntersectionObserver(es=>{
     if(es[0].isIntersecting){
       document.querySelector('.erp-iso-float').classList.add('ep-go');
-      document.querySelector('.erp-iso-tilt').classList.add('ep-go');
+      document.querySelector('.erp-iso-stack').classList.add('ep-go');
       document.querySelector('.erp-plat-overlay').classList.add('ep-go');
-      document.querySelectorAll('.erp-plat').forEach(el=>el.classList.add('ep-go'));
+      document.querySelectorAll('.erp-slab').forEach(el=>el.classList.add('ep-go'));
       obs.disconnect();
     }
   },{threshold:.18});
