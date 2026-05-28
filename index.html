@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Özkan Muş</title>
+<title>Özkan Muş — Full Stack Geliştirici & ERP Uzmanı</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'DM Sans',sans-serif;background:#f4f7fc;color:#0f172a;overflow-x:hidden;min-height:100vh}
+body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#0f172a;overflow-x:hidden;min-height:100vh}
 img{max-width:100%;display:block}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 32px;background:rgba(9,17,31,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.08);gap:8px}
 .nav-logo{display:flex;align-items:center;gap:10px;min-width:0;flex-shrink:0}
@@ -27,11 +27,10 @@ main{position:relative;z-index:1}
 .hero{position:relative;overflow:hidden;background:#09111f;min-height:100svh;display:flex;align-items:center;padding:100px 32px 80px}
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .orb{position:absolute;border-radius:50%;filter:blur(90px);will-change:transform;pointer-events:none}
-.orb1{width:min(780px,130vw);height:min(780px,130vw);background:radial-gradient(circle,rgba(127,29,29,.52) 0%,transparent 65%);top:-20%;left:-15%;animation:o1 16s ease-in-out infinite alternate}
-.orb2{width:min(620px,110vw);height:min(620px,110vw);background:radial-gradient(circle,rgba(30,58,138,.4) 0%,transparent 65%);top:25%;right:-15%;animation:o2 20s ease-in-out infinite alternate}
-.orb3{width:min(480px,90vw);height:min(480px,90vw);background:radial-gradient(circle,rgba(220,38,38,.22) 0%,transparent 65%);bottom:-5%;left:20%;animation:o3 14s ease-in-out infinite alternate}
-.orb4{width:min(360px,70vw);height:min(360px,70vw);background:radial-gradient(circle,rgba(99,102,241,.22) 0%,transparent 65%);top:45%;left:50%;animation:o4 18s ease-in-out infinite alternate}
-.orb5{width:min(300px,60vw);height:min(300px,60vw);background:radial-gradient(circle,rgba(220,38,38,.12) 0%,transparent 65%);top:10%;right:25%;animation:o1 22s ease-in-out infinite alternate-reverse;position:absolute;border-radius:50%;filter:blur(90px);will-change:transform;pointer-events:none}
+.orb1{width:min(680px,120vw);height:min(680px,120vw);background:radial-gradient(circle,rgba(127,29,29,.42) 0%,transparent 70%);top:-15%;left:-10%;animation:o1 16s ease-in-out infinite alternate}
+.orb2{width:min(520px,100vw);height:min(520px,100vw);background:radial-gradient(circle,rgba(30,58,138,.3) 0%,transparent 70%);top:30%;right:-10%;animation:o2 20s ease-in-out infinite alternate}
+.orb3{width:min(400px,90vw);height:min(400px,90vw);background:radial-gradient(circle,rgba(220,38,38,.18) 0%,transparent 70%);bottom:-5%;left:25%;animation:o3 14s ease-in-out infinite alternate}
+.orb4{width:min(280px,70vw);height:min(280px,70vw);background:radial-gradient(circle,rgba(109,40,217,.15) 0%,transparent 70%);top:55%;left:55%;animation:o4 18s ease-in-out infinite alternate}
 @keyframes o1{to{transform:translate(50px,-35px) scale(1.08)}}
 @keyframes o2{to{transform:translate(-45px,55px) scale(1.11)}}
 @keyframes o3{to{transform:translate(35px,-45px) scale(.93)}}
@@ -51,10 +50,10 @@ main{position:relative;z-index:1}
 .hero-fade{position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to bottom,transparent,#f1f5f9);z-index:4;pointer-events:none}
 .hero-in{position:relative;z-index:2;max-width:1160px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap;padding:5px 13px;border-radius:999px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.22);font-size:.62rem;font-weight:800;color:#f87171;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px}
-.hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.38rem,5.5vw,4.1rem);font-weight:900;line-height:1.06;letter-spacing:-.05em;margin-bottom:20px;color:#fff}
+.hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.1rem,5vw,3.6rem);font-weight:900;line-height:1.06;letter-spacing:-.05em;margin-bottom:20px;color:#fff}
 .h-red{color:#ef4444}
 .h-dim{color:rgba(255,255,255,.26)}
-.hero-sub{font-size:clamp(.95rem,2.4vw,1.06rem);line-height:1.85;color:rgba(255,255,255,.48);margin-bottom:34px;max-width:480px}
+.hero-sub{font-size:clamp(.88rem,2.2vw,.97rem);line-height:1.85;color:rgba(255,255,255,.48);margin-bottom:34px;max-width:480px}
 .hero-sub strong{color:rgba(255,255,255,.8);font-weight:600}
 .cta-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .btn-r{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:14px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;font-weight:700;font-size:.86rem;text-decoration:none;box-shadow:0 6px 28px rgba(220,38,38,.36);transition:all .22s}
@@ -122,11 +121,11 @@ main{position:relative;z-index:1}
 .erp-label{font-size:.6rem;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px}
 .erp-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.55rem;font-weight:900;letter-spacing:-.04em;line-height:1.2;margin-bottom:14px;color:#0f172a}
 .erp-desc{font-size:.86rem;color:#475569;line-height:1.8;margin-bottom:20px}
-.erp-tags{display:flex;flex-wrap:wrap;gap:7px}
+.erp-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
 .erp-tag{padding:5px 13px;border-radius:999px;font-size:.68rem;font-weight:700;background:#fff;border:1px solid #e2e8f0;color:#475569;display:flex;align-items:center;gap:6px}
 .erp-tag i{font-size:.6rem}
-.erp-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.erp-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.erp-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.erp-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:18px 18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
 .erp-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;font-weight:800;margin-bottom:5px;display:flex;align-items:center;gap:7px;color:#0f172a}
 .erp-card-desc{font-size:.73rem;color:#64748b;line-height:1.65}
 .niti-section{background:#eef2ff;border-top:1px solid #c7d2fe;border-bottom:1px solid #c7d2fe;padding:80px 32px}
@@ -179,39 +178,39 @@ main{position:relative;z-index:1}
 .pc-cta{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:20px;padding:10px;border-radius:12px;font-size:.76rem;font-weight:700;background:#f1f5f9;border:1px solid #e2e8f0;color:#94a3b8}
 .pc.featured .pc-cta{background:#fee2e2;border-color:#fecaca;color:#dc2626}
 .pc-tag{display:inline-flex;align-items:center;gap:5px;margin-top:10px;padding:3px 9px;border-radius:999px;font-size:.6rem;font-weight:700;background:#eff6ff;border:1px solid #bfdbfe;color:#3b82f6}
-.pm-backdrop{position:fixed;inset:0;z-index:500;background:rgba(5,10,20,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .28s cubic-bezier(.4,0,.2,1)}
+.pm-backdrop{position:fixed;inset:0;z-index:500;background:rgba(15,23,40,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .28s cubic-bezier(.4,0,.2,1)}
 .pm-backdrop.open{opacity:1;pointer-events:all}
-.pm-box{background:rgba(13,20,35,.97);border:1px solid rgba(255,255,255,.1);border-radius:24px;width:100%;max-width:720px;max-height:90vh;overflow-y:auto;box-shadow:0 50px 100px rgba(0,0,0,.7);transform:scale(.94) translateY(12px);transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0}
+.pm-box{background:#fff;border:1px solid #e2e8f0;border-radius:24px;width:100%;max-width:720px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.14),0 4px 16px rgba(0,0,0,.07);transform:scale(.94) translateY(12px);transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0}
 .pm-backdrop.open .pm-box{transform:scale(1) translateY(0);opacity:1}
 .pm-box::-webkit-scrollbar{width:4px}
-.pm-box::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:4px}
+.pm-box::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
 .pm-stripe{height:4px;border-radius:24px 24px 0 0;background:linear-gradient(90deg,#dc2626,#ef4444,#dc2626);background-size:200%;animation:shine 2.5s linear infinite}
 .pm-head{padding:26px 28px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
 .pm-meta{flex:1}
-.pm-tier-lbl{font-size:.58rem;font-weight:800;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.14em;margin-bottom:7px}
-.pm-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.45rem;font-weight:900;letter-spacing:-.04em;line-height:1.15;margin-bottom:10px;color:#fff}
+.pm-tier-lbl{font-size:.58rem;font-weight:800;color:#94a3b8!important;text-transform:uppercase;letter-spacing:.14em;margin-bottom:7px}
+.pm-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.45rem;font-weight:900;letter-spacing:-.04em;line-height:1.15;margin-bottom:10px;color:#0f172a!important}
 .pm-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.pm-price{font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:900;color:#ef4444;letter-spacing:-.04em;line-height:1}
-.pm-price .suf{font-size:.9rem;color:rgba(255,255,255,.35);font-weight:600}
-.pm-time-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:.67rem;font-weight:700;color:rgba(255,255,255,.45)}
-.pm-close{width:36px;height:36px;border-radius:10px;flex-shrink:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,.45);font-size:.85rem;transition:all .18s}
-.pm-close:hover{background:rgba(239,68,68,.18);border-color:rgba(239,68,68,.3);color:#f87171}
-.pm-divider{height:1px;background:rgba(255,255,255,.08);margin:0 28px}
+.pm-price{font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:900;color:#dc2626!important;letter-spacing:-.04em;line-height:1}
+.pm-price .suf{font-size:.9rem;color:#94a3b8!important;font-weight:600}
+.pm-time-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:999px;background:#f1f5f9!important;border:1px solid #e2e8f0!important;font-size:.67rem;font-weight:700;color:#64748b!important}
+.pm-close{width:36px;height:36px;border-radius:10px;flex-shrink:0;background:#f8fafc!important;border:1px solid #e2e8f0!important;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#94a3b8!important;font-size:.85rem;transition:all .18s}
+.pm-close:hover{background:#fee2e2!important;border-color:#fecaca!important;color:#dc2626!important}
+.pm-divider{height:1px;background:#e2e8f0!important;margin:0 28px}
 .pm-body{padding:24px 28px 28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
 @media(max-width:580px){.pm-body{grid-template-columns:1fr}}
-.pm-section-lbl{font-size:.6rem;font-weight:800;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.13em;margin-bottom:12px}
+.pm-section-lbl{font-size:.6rem;font-weight:800;color:#94a3b8!important;text-transform:uppercase;letter-spacing:.13em;margin-bottom:12px}
 .pm-feat-list{display:flex;flex-direction:column;gap:8px}
-.pmf{display:flex;align-items:flex-start;gap:9px;font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.55}
+.pmf{display:flex;align-items:flex-start;gap:9px;font-size:.8rem;color:#475569!important;line-height:1.55}
 .pmf i{margin-top:3px;flex-shrink:0;width:12px;font-size:.62rem}
-.pmf.yes i{color:#4ade80}.pmf.no i{color:rgba(255,255,255,.18)}.pmf.no{color:rgba(255,255,255,.22)}
+.pmf.yes i{color:#22c55e!important}.pmf.no i{color:#cbd5e1!important}.pmf.no{color:#cbd5e1!important}
 .pm-use-cases{display:flex;flex-direction:column;gap:8px}
-.pm-uc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:11px 14px}
-.pm-uc-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:800;margin-bottom:3px;display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.85)}
-.pm-uc-desc{font-size:.72rem;color:rgba(255,255,255,.35);line-height:1.6}
-.pm-tech-strip{margin:20px 28px 0;padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;display:flex;flex-wrap:wrap;gap:7px;align-items:center}
-.pm-tech-lbl{font-size:.58rem;font-weight:800;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.13em;margin-right:4px}
-.pm-tech-chip{padding:3px 10px;border-radius:999px;font-size:.64rem;font-weight:700;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5)}
-.pm-footer{margin:16px 28px 0;padding:14px 16px 0;border-top:1px solid rgba(255,255,255,.07);font-size:.72rem;color:rgba(255,255,255,.25);line-height:1.65}
+.pm-uc{background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:12px;padding:11px 14px}
+.pm-uc-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:800;margin-bottom:3px;display:flex;align-items:center;gap:7px;color:#0f172a!important}
+.pm-uc-desc{font-size:.72rem;color:#64748b!important;line-height:1.6}
+.pm-tech-strip{margin:20px 28px 0;padding:14px 16px;background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:14px;display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.pm-tech-lbl{font-size:.58rem;font-weight:800;color:#94a3b8!important;text-transform:uppercase;letter-spacing:.13em;margin-right:4px}
+.pm-tech-chip{padding:3px 10px;border-radius:999px;font-size:.64rem;font-weight:700;background:#fff!important;border:1px solid #e2e8f0!important;color:#475569!important}
+.pm-footer{margin:16px 28px 0;padding:14px 16px 0;border-top:1px solid #e2e8f0!important;font-size:.72rem;color:#94a3b8!important;line-height:1.65}
 .contact-section{background:#fff;padding:80px 32px}
 .contact-in{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:start}
 .contact-info-list{display:flex;flex-direction:column;gap:14px;margin-top:28px}
@@ -241,6 +240,7 @@ main{position:relative;z-index:1}
 footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28px 32px;position:relative;z-index:1}
 .foot-in{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
 .foot-copy{font-size:.7rem;color:rgba(255,255,255,.3)}
+.foot-legal{font-size:.62rem;color:rgba(255,255,255,.18);margin-top:4px;line-height:1.55}
 .foot-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .sc{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:none;transition:all .22s}
 .sc:hover{transform:translateY(-2px)}
@@ -254,7 +254,8 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
   .hero-in{grid-template-columns:1fr}
   .hero-right{display:none}
   .banner-in{grid-template-columns:1fr;gap:28px}
-  .erp-in{grid-template-columns:1fr;gap:24px}
+  .erp-in{grid-template-columns:1fr;gap:16px}
+  .erp-cards{margin-top:36px}
   .niti-in{grid-template-columns:1fr;gap:32px}
   .contact-in{grid-template-columns:1fr;gap:32px}
   .fgrid{grid-template-columns:1fr 1fr}
@@ -290,122 +291,68 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
   .foot-in{flex-direction:column;align-items:flex-start;gap:12px}
 }
 @media(max-width:390px){
-  .hero h1{font-size:2.1rem}
+  .hero h1{font-size:1.9rem}
   .nav-login span{display:none}
 }
-
-/* ── Decorative section backgrounds ── */
-.feat-section{position:relative;background:#f4f7fc}
-.feat-section::before{content:'';position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(220,38,38,.07) 0%,transparent 68%);top:-320px;right:-260px;pointer-events:none;z-index:0}
-.feat-section::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(100,116,139,.12) 1.5px,transparent 1.5px);background-size:28px 28px;pointer-events:none;z-index:0}
-.feat-wrap{position:relative;z-index:2}
-.price-section{position:relative;background:#f4f7fc}
-.price-section::before{content:'';position:absolute;width:820px;height:820px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.07) 0%,transparent 68%);bottom:-320px;left:-240px;pointer-events:none;z-index:0}
-.price-section::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(100,116,139,.1) 1.5px,transparent 1.5px);background-size:28px 28px;pointer-events:none;z-index:0}
-.price-wrap{position:relative;z-index:2}
-.tech-section{position:relative;background:#fff}
-.tech-section::before{content:'';position:absolute;width:750px;height:750px;border-radius:50%;background:radial-gradient(circle,rgba(220,38,38,.06) 0%,transparent 68%);bottom:-220px;left:-220px;pointer-events:none;z-index:0}
-.tech-section::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(100,116,139,.1) 1.5px,transparent 1.5px);background-size:28px 28px;pointer-events:none;z-index:0}
-.tech-in{position:relative;z-index:2}
-.banner-section{position:relative;overflow:hidden}
-.banner-section::before{content:'';position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.05) 0%,transparent 68%);bottom:-200px;right:-80px;pointer-events:none;z-index:0}
-.banner-section::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(100,116,139,.07) 1.5px,transparent 1.5px);background-size:32px 32px;pointer-events:none;z-index:0}
-.banner-in{position:relative;z-index:2}
-.erp-section{position:relative;overflow:hidden}
-.erp-section::before{content:'';position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(220,38,38,.05) 0%,transparent 68%);top:-220px;right:-160px;pointer-events:none;z-index:0}
-.erp-in{position:relative;z-index:2}
-.contact-section{position:relative;overflow:hidden;background:#f0f5ff}
-.contact-section::before{content:'';position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(220,38,38,.06) 0%,transparent 68%);top:-200px;right:-180px;pointer-events:none;z-index:0}
-.contact-section::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(99,102,241,.1) 1.5px,transparent 1.5px);background-size:28px 28px;pointer-events:none;z-index:0}
-.contact-in{position:relative;z-index:2}
-.hero-fade{background:linear-gradient(to bottom,transparent,#f4f7fc)}
-/* ── ERP Kart Stack + Pasta Grafik ── */
-.erp-visual{display:flex;flex-direction:column;gap:32px;align-items:stretch;width:100%}
-.erp-stack-wrap{position:relative;width:100%;height:510px}
-.erp-card{position:absolute;left:0;right:0;border-radius:18px;padding:20px 22px;opacity:0;will-change:transform;box-shadow:0 10px 36px rgba(0,0,0,.26),0 2px 8px rgba(0,0,0,.14)}
-.erp-card.ep-go{animation:cardRise .7s cubic-bezier(.22,1,.36,1) forwards}
-@keyframes cardRise{from{transform:perspective(700px) translateY(70px) rotateX(22deg) scale(.88);opacity:0}to{transform:perspective(700px) translateY(0) rotateX(0) scale(1);opacity:1}}
-.erp-card-1{bottom:0;background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 100%)}
-.erp-card-2{bottom:132px;background:linear-gradient(135deg,#14532d 0%,#16a34a 100%)}
-.erp-card-3{bottom:264px;background:linear-gradient(135deg,#78350f 0%,#d97706 100%)}
-.erp-card-4{bottom:396px;background:linear-gradient(135deg,#312e81 0%,#4f46e5 100%)}
-.erp-card-1.ep-go{animation-delay:.25s}
-.erp-card-2.ep-go{animation-delay:.55s}
-.erp-card-3.ep-go{animation-delay:.85s}
-.erp-card-4.ep-go{animation-delay:1.15s}
-.erp-card-head{display:flex;align-items:center;gap:10px;margin-bottom:13px}
-.erp-card-icon{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:.88rem;color:#fff;flex-shrink:0}
-.erp-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:900;color:#fff;letter-spacing:-.03em}
-.erp-card-badge{margin-left:auto;font-size:.52rem;font-weight:700;padding:3px 9px;border-radius:20px;background:rgba(255,255,255,.18);color:rgba(255,255,255,.9);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
-.erp-card-items{display:flex;flex-wrap:wrap;gap:7px}
-.erp-card-item{display:flex;align-items:center;gap:6px;font-size:.71rem;color:rgba(255,255,255,.85);font-weight:600;background:rgba(255,255,255,.12);border-radius:8px;padding:5px 11px}
-/* Pasta grafik */
-.erp-pie-row{display:flex;align-items:center;gap:28px;justify-content:center}
-.erp-donut-wrap{position:relative;width:144px;height:144px;flex-shrink:0}
-.erp-donut{width:144px;height:144px;border-radius:50%;background:conic-gradient(#ef4444 0% 35%,#f59e0b 35% 60%,#22c55e 60% 85%,#3b82f6 85% 100%);box-shadow:0 8px 28px rgba(0,0,0,.18)}
-.erp-donut-hole{position:absolute;inset:28px;background:#f4f7fc;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
-.erp-donut-lbl{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:900;color:#0f172a;letter-spacing:-.03em}
-.erp-donut-sub{font-size:.46rem;color:#64748b;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.erp-pie-legend{display:flex;flex-direction:column;gap:9px}
-.erp-pie-leg-row{display:flex;align-items:center;gap:8px;font-size:.74rem;color:#475569}
-.erp-pie-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
-.erp-pie-pct{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;font-weight:800;color:#0f172a;margin-left:auto;min-width:30px;text-align:right}
-/* ── Isometric stack diagram (hero) ── */
-.iso-diagram{position:relative;padding:20px 8px 28px}
-.iso-float{animation:isoflt 5.5s 2.8s ease-in-out infinite alternate both}
-@keyframes isoflt{0%{transform:translateY(0) rotate(-.6deg)}100%{transform:translateY(-16px) rotate(.4deg)}}
-.iso-tilt{transform:perspective(920px) rotateX(18deg) rotateY(-10deg);display:flex;flex-direction:column;gap:12px;transform-style:preserve-3d;animation:isoReveal 2s .3s cubic-bezier(.22,1,.36,1) both;will-change:transform}
-@keyframes isoReveal{from{transform:perspective(920px) rotateX(78deg) rotateY(0deg);gap:0px}to{transform:perspective(920px) rotateX(18deg) rotateY(-10deg);gap:12px}}
-@keyframes layerPop{from{opacity:0;transform:scaleX(.86)}to{opacity:1;transform:scaleX(1)}}
-.iso-layer{border-radius:14px;position:relative;min-height:62px;overflow:visible}
-.iso-flip-inner{transform-style:preserve-3d;position:relative;height:62px;width:100%;animation:cardFlip 8s ease-in-out infinite;will-change:transform}
-@keyframes cardFlip{0%,38%{transform:rotateY(0deg)}48%,88%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
-.iso-front,.iso-back{backface-visibility:hidden;-webkit-backface-visibility:hidden;position:absolute;inset:0;display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:14px;overflow:hidden;will-change:transform}
-.iso-back{transform:rotateY(180deg)}
-.iso-front::after,.iso-back::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.01) 100%);pointer-events:none;border-radius:14px}
-.iso-icon-w{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;position:relative;z-index:1}
-.iso-info{flex:1;min-width:0;position:relative;z-index:1}
-.iso-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:800;color:#fff;margin-bottom:2px;line-height:1.2}
-.iso-d{font-size:.57rem;color:rgba(255,255,255,.45);font-weight:600}
-.iso-ui{box-shadow:0 7px 0 rgba(76,29,149,.65),0 13px 0 rgba(76,29,149,.3),0 20px 24px rgba(0,0,0,.45);animation:layerPop .38s 1.32s ease-out both}
-.iso-ui .iso-front,.iso-ui .iso-back{background:linear-gradient(135deg,rgba(139,92,246,.32),rgba(109,40,217,.22));border:1px solid rgba(139,92,246,.42)}
-.iso-adm{box-shadow:0 7px 0 rgba(20,83,45,.65),0 13px 0 rgba(20,83,45,.3),0 20px 24px rgba(0,0,0,.4);animation:layerPop .38s 1.14s ease-out both}
-.iso-adm .iso-front,.iso-adm .iso-back{background:linear-gradient(135deg,rgba(34,197,94,.26),rgba(22,163,74,.17));border:1px solid rgba(34,197,94,.36)}
-.iso-php{box-shadow:0 7px 0 rgba(30,64,175,.65),0 13px 0 rgba(30,64,175,.3),0 20px 24px rgba(0,0,0,.4);animation:layerPop .38s .96s ease-out both}
-.iso-php .iso-front,.iso-php .iso-back{background:linear-gradient(135deg,rgba(59,130,246,.28),rgba(37,99,235,.19));border:1px solid rgba(59,130,246,.4)}
-.iso-erp{box-shadow:0 7px 0 rgba(127,29,29,.65),0 13px 0 rgba(127,29,29,.3),0 20px 24px rgba(0,0,0,.4);animation:layerPop .38s .78s ease-out both}
-.iso-erp .iso-front,.iso-erp .iso-back{background:linear-gradient(135deg,rgba(239,68,68,.26),rgba(220,38,38,.17));border:1px solid rgba(239,68,68,.36)}
-.iso-db{box-shadow:0 7px 0 rgba(120,53,15,.65),0 13px 0 rgba(120,53,15,.3),0 20px 24px rgba(0,0,0,.4);animation:layerPop .38s .6s ease-out both}
-.iso-db .iso-front,.iso-db .iso-back{background:linear-gradient(135deg,rgba(245,158,11,.26),rgba(217,119,6,.17));border:1px solid rgba(245,158,11,.36)}
-.iso-sec{box-shadow:0 7px 0 rgba(17,94,89,.65),0 13px 0 rgba(17,94,89,.3),0 20px 24px rgba(0,0,0,.4);animation:layerPop .38s .42s ease-out both}
-.iso-sec .iso-front,.iso-sec .iso-back{background:linear-gradient(135deg,rgba(20,184,166,.26),rgba(13,148,132,.17));border:1px solid rgba(20,184,166,.36)}
-.iso-ui .iso-flip-inner{animation-delay:3.6s}
-.iso-adm .iso-flip-inner{animation-delay:4.2s}
-.iso-php .iso-flip-inner{animation-delay:4.8s}
-.iso-erp .iso-flip-inner{animation-delay:5.4s}
-.iso-db .iso-flip-inner{animation-delay:6.0s}
-.iso-sec .iso-flip-inner{animation-delay:6.6s}
-.iso-badges{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;opacity:0;animation:fadeUp .55s 2.4s ease-out forwards}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.iso-bi{display:flex;align-items:center;gap:7px;background:rgba(15,23,40,.85);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 13px;font-size:.63rem;font-weight:600;color:rgba(255,255,255,.6);white-space:nowrap;backdrop-filter:blur(8px)}
+/* ── Ek mobil düzeltmeleri ── */
+@media(max-width:640px){
+  /* Price kartı: absolute badge başlık üstüne binmesin */
+  .pc-tier{padding-right:76px}
+  .pc-name{overflow-wrap:break-word;word-break:break-word}
+  /* Niti bölümü büyük yazılar */
+  .niti-name{font-size:1.5rem}
+  .niti-title{font-size:1.2rem}
+  /* ERP başlık */
+  .erp-title{font-size:1.2rem}
+  /* İletişim e-posta taşma */
+  .ci-val{overflow-wrap:break-word;word-break:break-all;font-size:.82rem}
+  /* Tag satırları */
+  .erp-tag,.niti-tag{font-size:.62rem;padding:4px 10px;gap:5px}
+  /* Genel section başlıkları */
+  .sec-p{font-size:.87rem}
+  /* Modal padding daraltma */
+  .pm-head{padding:20px 18px 16px}
+  .pm-body{padding:18px 18px 22px}
+  .pm-divider{margin:0 18px}
+  .pm-tech-strip{margin:16px 18px 0}
+  .pm-footer{margin:14px 18px 0}
+  /* Hero eyebrow sarma */
+  .hero-eyebrow{font-size:.58rem;gap:5px;padding:4px 10px}
+}
+@media(max-width:420px){
+  .sec-h{font-size:1.3rem}
+  .sn{font-size:1.4rem}
+  .niti-name{font-size:1.2rem}
+  .niti-title,.erp-title{font-size:1.05rem}
+  .banner-title{font-size:1.1rem}
+  .skill-name{width:86px;font-size:.66rem}
+  .skill-pct{width:28px;font-size:.63rem}
+  .pc-name{font-size:.88rem}
+  .pc-price{font-size:1.15rem}
+  .erp-tag,.niti-tag{font-size:.58rem;padding:3px 8px}
+  .tcard{padding:12px 10px}
+  .tcard-name{font-size:.7rem}
+  .tcard-cat{font-size:.55rem}
+  .ci-val{font-size:.76rem}
+  .pc-tier{padding-right:70px}
+}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-logo">
-    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="text-decoration:none;cursor:pointer">
-      <div style="display:flex;flex-direction:column;line-height:1.08;gap:1px">
-        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:.82rem;font-weight:800;color:rgba(255,255,255,.42);letter-spacing:.13em;text-transform:uppercase">Entegrasyon</span>
-        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:1.52rem;font-weight:900;color:#fff;letter-spacing:-.04em">Donanım</span>
-      </div>
-    </a>
+    <div class="logo-ic"><i class="fa-solid fa-headset" style="color:#fff"></i></div>
   </div>
   <div class="nav-center">
     <a href="#moduller" class="nav-link">Modüller</a>
     <a href="#fiyatlar" class="nav-link">Fiyatlar</a>
     <a href="#iletisim" class="nav-link">İletişim</a>
   </div>
+  <a href="https://nevasdestek.online/auth/login.php" class="nav-login">
+    <i class="fa-solid fa-lock" style="font-size:.68rem"></i>
+    <span>Yetkili Girişi</span>
+  </a>
 </nav>
 
 <main>
@@ -414,7 +361,6 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
   <div class="hero-bg">
     <div class="orb orb1"></div><div class="orb orb2"></div>
     <div class="orb orb3"></div><div class="orb orb4"></div>
-    <div class="orb5"></div>
     <div class="bg-grid"></div><div class="bg-vig"></div>
     <div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div>
     <div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div>
@@ -422,94 +368,35 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
   <div class="hero-in">
     <div>
       <div class="hero-eyebrow rv"><i class="fa-solid fa-code" style="font-size:.58rem"></i> Full Stack Geliştirici &nbsp;·&nbsp; ERP Uzmanı &nbsp;·&nbsp; IT Sistemleri</div>
-      <h1 class="rv d1">Kurumsal<br>Sistemler<br><span class="h-red">İnşa</span><br><span class="h-dim">Ediyorum.</span></h1>
-      <p class="hero-sub rv d2">Bayi ağlarından ERP süreçlerine, müşteri destek akışlarından finans modüllerine uzanan çok modüllü kurumsal platformlar <strong>sıfırdan tasarlıyor ve geliştiriyorum.</strong> Nebim V3 entegrasyonu, T-SQL performans optimizasyonu ve rol tabanlı güvenlik mimarisi temel uzmanlık alanlarım.</p>
+      <h1 class="rv d1">Kurumsal<br>IT &amp; Destek<br><span class="h-red">Yönetim</span><br><span class="h-dim">Sistemi.</span></h1>
+      <p class="hero-sub rv d2">Bayi operasyonlarını, ERP süreçlerini ve müşteri destek akışlarını tek platformda birleştiren bu sistem <strong>sıfırdan tasarlandı ve geliştirildi.</strong> Nebim V3 entegrasyonundan ticket yönetimine, tahsilat takibinden abonelik yönetimine tam işlevsel kurumsal çözüm.</p>
       <div class="cta-row rv d3">
-        <a href="#moduller" class="btn-r"><i class="fa-solid fa-layer-group" style="font-size:.76rem"></i> Modülleri İncele</a>
+        <a href="https://nevasdestek.online/auth/login.php" class="btn-r"><i class="fa-solid fa-arrow-right-to-bracket" style="font-size:.78rem"></i> Sisteme Giriş</a>
+        <a href="#moduller" class="btn-g"><i class="fa-solid fa-layer-group" style="font-size:.76rem"></i> Modülleri İncele</a>
       </div>
     </div>
     <div class="hero-right rv d2">
-      <div class="iso-diagram">
-        <div class="iso-float">
-          <div class="iso-tilt">
-            <div class="iso-layer iso-ui">
-              <div class="iso-flip-inner">
-                <div class="iso-front">
-                  <div class="iso-icon-w" style="background:rgba(139,92,246,.22)"><i class="fa-solid fa-display" style="color:#a78bfa"></i></div>
-                  <div class="iso-info"><div class="iso-n">Web Arayüzü</div><div class="iso-d">HTML · CSS · JavaScript · Mobil Uyumlu</div></div>
-                </div>
-                <div class="iso-back">
-                  <div class="iso-icon-w" style="background:rgba(139,92,246,.22)"><i class="fa-solid fa-mobile-screen" style="color:#a78bfa"></i></div>
-                  <div class="iso-info"><div class="iso-n">Responsive & PWA</div><div class="iso-d">Dark Mode · 3 Tema · Akış Animasyon</div></div>
-                </div>
+      <div style="position:relative">
+        <div class="mfloat">
+          <div class="mcard">
+            <div class="mbar"><div class="md" style="background:#ef4444"></div><div class="md" style="background:#f59e0b"></div><div class="md" style="background:#22c55e"></div><span class="mlbl">Admin Panel — Genel Bakış</span></div>
+            <div class="mbody">
+              <div class="mstats">
+                <div class="ms"><div class="ms-n">142</div><div class="ms-l">Aktif Hizmet</div><div class="ms-b" style="background:linear-gradient(90deg,#22c55e,#16a34a)"></div></div>
+                <div class="ms"><div class="ms-n">28</div><div class="ms-l">Açık Talep</div><div class="ms-b" style="background:linear-gradient(90deg,#ef4444,#dc2626)"></div></div>
+                <div class="ms"><div class="ms-n">15</div><div class="ms-l">Superbox</div><div class="ms-b" style="background:linear-gradient(90deg,#8b5cf6,#7c3aed)"></div></div>
               </div>
-            </div>
-            <div class="iso-layer iso-adm">
-              <div class="iso-flip-inner">
-                <div class="iso-front">
-                  <div class="iso-icon-w" style="background:rgba(34,197,94,.18)"><i class="fa-solid fa-gauge" style="color:#4ade80"></i></div>
-                  <div class="iso-info"><div class="iso-n">Yönetim Paneli</div><div class="iso-d">Rol Bazlı Erişim · Yetki Yönetimi · CSRF</div></div>
-                </div>
-                <div class="iso-back">
-                  <div class="iso-icon-w" style="background:rgba(34,197,94,.18)"><i class="fa-solid fa-users-gear" style="color:#4ade80"></i></div>
-                  <div class="iso-info"><div class="iso-n">12 Rol · 256 Yetki</div><div class="iso-d">Departman Bazlı · Session Guard</div></div>
-                </div>
-              </div>
-            </div>
-            <div class="iso-layer iso-php">
-              <div class="iso-flip-inner">
-                <div class="iso-front">
-                  <div class="iso-icon-w" style="background:rgba(59,130,246,.18)"><i class="fa-brands fa-php" style="color:#60a5fa"></i></div>
-                  <div class="iso-info"><div class="iso-n">PHP Backend</div><div class="iso-d">API · Oturum Yönetimi · Bildirim</div></div>
-                </div>
-                <div class="iso-back">
-                  <div class="iso-icon-w" style="background:rgba(59,130,246,.18)"><i class="fa-solid fa-server" style="color:#60a5fa"></i></div>
-                  <div class="iso-info"><div class="iso-n">REST API & Queue</div><div class="iso-d">JWT Auth · WebSocket · Redis Cache</div></div>
-                </div>
-              </div>
-            </div>
-            <div class="iso-layer iso-erp">
-              <div class="iso-flip-inner">
-                <div class="iso-front">
-                  <div class="iso-icon-w" style="background:rgba(239,68,68,.18)"><i class="fa-solid fa-gears" style="color:#f87171"></i></div>
-                  <div class="iso-info"><div class="iso-n">ERP Entegrasyon</div><div class="iso-d">Nebim V3 · e-İrsaliye · e-Fatura</div></div>
-                </div>
-                <div class="iso-back">
-                  <div class="iso-icon-w" style="background:rgba(239,68,68,.18)"><i class="fa-solid fa-plug-circle-check" style="color:#f87171"></i></div>
-                  <div class="iso-info"><div class="iso-n">%99.8 Uptime</div><div class="iso-d">GİB Onaylı · Anlık Sync · Canlı</div></div>
-                </div>
-              </div>
-            </div>
-            <div class="iso-layer iso-db">
-              <div class="iso-flip-inner">
-                <div class="iso-front">
-                  <div class="iso-icon-w" style="background:rgba(245,158,11,.18)"><i class="fa-solid fa-database" style="color:#fbbf24"></i></div>
-                  <div class="iso-info"><div class="iso-n">SQL Server</div><div class="iso-d">T-SQL · Index Yönetimi · Prosedür</div></div>
-                </div>
-                <div class="iso-back">
-                  <div class="iso-icon-w" style="background:rgba(245,158,11,.18)"><i class="fa-solid fa-chart-simple" style="color:#fbbf24"></i></div>
-                  <div class="iso-info"><div class="iso-n">50M+ Satır</div><div class="iso-d">200ms Sorgu · Index %98 · Temiz</div></div>
-                </div>
-              </div>
-            </div>
-            <div class="iso-layer iso-sec">
-              <div class="iso-flip-inner">
-                <div class="iso-front">
-                  <div class="iso-icon-w" style="background:rgba(20,184,166,.18)"><i class="fa-solid fa-shield-halved" style="color:#2dd4bf"></i></div>
-                  <div class="iso-info"><div class="iso-n">Güvenlik & Loglama</div><div class="iso-d">IP Takibi · Audit Log · Risk Skorlama</div></div>
-                </div>
-                <div class="iso-back">
-                  <div class="iso-icon-w" style="background:rgba(20,184,166,.18)"><i class="fa-solid fa-triangle-exclamation" style="color:#2dd4bf"></i></div>
-                  <div class="iso-info"><div class="iso-n">IP Kara Liste</div><div class="iso-d">AES-256 · Gerçek Zamanlı Uyarı</div></div>
-                </div>
+              <div class="mtbl">
+                <div class="mr"><div class="mdt" style="background:#22c55e"></div><div class="mb" style="flex:1"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.22)">Aktif</div></div>
+                <div class="mr"><div class="mdt" style="background:#ef4444"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.05)"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.22)">Arıza</div></div>
+                <div class="mr"><div class="mdt" style="background:#22c55e"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.07)"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.22)">Aktif</div></div>
+                <div class="mr"><div class="mdt" style="background:#f59e0b"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.05)"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.22)">Beklemede</div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="iso-badges">
-          <div class="iso-bi"><i class="fa-solid fa-shield-halved" style="color:#60a5fa;font-size:.68rem"></i> Rol Bazlı Erişim</div>
-          <div class="iso-bi"><i class="fa-solid fa-chart-line" style="color:#818cf8;font-size:.68rem"></i> ERP Entegrasyon Aktif</div>
-        </div>
+        <div class="fl fl1"><i class="fa-solid fa-check-circle" style="color:#4ade80;font-size:.7rem"></i> Canlı &amp; Çalışıyor</div>
+        <div class="fl fl2"><i class="fa-solid fa-shield-halved" style="color:#60a5fa;font-size:.7rem"></i> Rol Bazlı Erişim</div>
       </div>
     </div>
   </div>
@@ -574,76 +461,11 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
         <span class="erp-tag"><i class="fa-solid fa-gears" style="color:#8b5cf6"></i> T-SQL</span>
       </div>
     </div>
-    <div class="erp-visual">
-      <div class="erp-stack-wrap">
-        <div class="erp-card erp-card-4">
-          <div class="erp-card-head">
-            <div class="erp-card-icon"><i class="fa-solid fa-layer-group"></i></div>
-            <div class="erp-card-title">Nebim V3 ERP</div>
-            <span class="erp-card-badge">Platform</span>
-          </div>
-          <div class="erp-card-items">
-            <span class="erp-card-item">Stok & Satış</span>
-            <span class="erp-card-item">Muhasebe</span>
-            <span class="erp-card-item">Çok Şube</span>
-            <span class="erp-card-item">Gerçek Zamanlı</span>
-          </div>
-        </div>
-        <div class="erp-card erp-card-3">
-          <div class="erp-card-head">
-            <div class="erp-card-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
-            <div class="erp-card-title">İş Süreçleri</div>
-            <span class="erp-card-badge">Operasyon</span>
-          </div>
-          <div class="erp-card-items">
-            <span class="erp-card-item">Tahsilat & Tediye</span>
-            <span class="erp-card-item">Maliyet Analizi</span>
-            <span class="erp-card-item">Bütçe Takibi</span>
-            <span class="erp-card-item">Raporlama</span>
-          </div>
-        </div>
-        <div class="erp-card erp-card-2">
-          <div class="erp-card-head">
-            <div class="erp-card-icon"><i class="fa-solid fa-plug"></i></div>
-            <div class="erp-card-title">ERP Entegrasyon</div>
-            <span class="erp-card-badge">GİB Onaylı</span>
-          </div>
-          <div class="erp-card-items">
-            <span class="erp-card-item">e-İrsaliye</span>
-            <span class="erp-card-item">e-Fatura</span>
-            <span class="erp-card-item">API Sync</span>
-            <span class="erp-card-item">Otomatik Onay</span>
-          </div>
-        </div>
-        <div class="erp-card erp-card-1">
-          <div class="erp-card-head">
-            <div class="erp-card-icon"><i class="fa-solid fa-database"></i></div>
-            <div class="erp-card-title">SQL Server</div>
-            <span class="erp-card-badge">Veritabanı</span>
-          </div>
-          <div class="erp-card-items">
-            <span class="erp-card-item">T-SQL</span>
-            <span class="erp-card-item">Stored Proc</span>
-            <span class="erp-card-item">Index & Performans</span>
-            <span class="erp-card-item">Sorgu Analizi</span>
-          </div>
-        </div>
-      </div>
-      <div class="erp-pie-row">
-        <div class="erp-donut-wrap">
-          <div class="erp-donut"></div>
-          <div class="erp-donut-hole">
-            <div class="erp-donut-lbl">ERP</div>
-            <div class="erp-donut-sub">Dağılım</div>
-          </div>
-        </div>
-        <div class="erp-pie-legend">
-          <div class="erp-pie-leg-row"><div class="erp-pie-dot" style="background:#ef4444"></div><span>e-İrsaliye (GİB)</span><span class="erp-pie-pct">35%</span></div>
-          <div class="erp-pie-leg-row"><div class="erp-pie-dot" style="background:#f59e0b"></div><span>e-Fatura</span><span class="erp-pie-pct">25%</span></div>
-          <div class="erp-pie-leg-row"><div class="erp-pie-dot" style="background:#22c55e"></div><span>Tahsilat & Tediye</span><span class="erp-pie-pct">25%</span></div>
-          <div class="erp-pie-leg-row"><div class="erp-pie-dot" style="background:#3b82f6"></div><span>Maliyet & Rapor</span><span class="erp-pie-pct">15%</span></div>
-        </div>
-      </div>
+    <div class="erp-cards">
+      <div class="erp-card"><div class="erp-card-title"><i class="fa-solid fa-file-invoice" style="color:#ef4444;font-size:.78rem"></i> e-İrsaliye</div><div class="erp-card-desc">tpShipmentHeaderExtension üzerinden GİB durum takibi, hata yönetimi ve yeniden gönderim süreçleri.</div></div>
+      <div class="erp-card"><div class="erp-card-title"><i class="fa-solid fa-receipt" style="color:#f59e0b;font-size:.78rem"></i> e-Fatura</div><div class="erp-card-desc">EInvoice süreç takibi, gelen/giden fatura yönetimi ve kayıt doğrulama işlemleri.</div></div>
+      <div class="erp-card"><div class="erp-card-title"><i class="fa-solid fa-coins" style="color:#22c55e;font-size:.78rem"></i> Tahsilat & Tediye</div><div class="erp-card-desc">Nakit akış kayıtları, CurrAcc tahsilat-tediye döngüsü ve döneme göre mutabakat.</div></div>
+      <div class="erp-card"><div class="erp-card-title"><i class="fa-solid fa-chart-line" style="color:#3b82f6;font-size:.78rem"></i> Maliyet & Raporlama</div><div class="erp-card-desc">Maliyet merkezi yönetimi, personel bazlı gider takibi ve yönetim raporları.</div></div>
     </div>
   </div>
 </section>
@@ -652,7 +474,7 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
   <div class="niti-in">
     <div class="rv">
       <div class="niti-standalone"><i class="fa-solid fa-cube" style="font-size:.56rem"></i> Bağımsız Yazılım</div>
-      <div class="niti-logo-row"><div class="niti-icon" style="background:linear-gradient(135deg,#f97316,#ea580c);flex-direction:column;gap:1px;padding:0 5px;box-shadow:0 8px 24px rgba(249,115,22,.36)"><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:.74rem;font-weight:900;color:#fff;font-style:italic;letter-spacing:-.04em;line-height:1.15">niti</span><span style="font-size:.28rem;color:rgba(255,255,255,.75);font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1">YAZILIM</span></div><span class="niti-name">Niti Go</span></div>
+      <div class="niti-logo-row"><div class="niti-icon"><i class="fa-solid fa-chart-gantt" style="color:#fff"></i></div><span class="niti-name">Niti Go</span></div>
       <div class="niti-title">Standart Programlardan<br><span>Farklı Raporlama</span></div>
       <p class="niti-desc">Muhasebe ve operasyonel verileri standart yazılımların sunduğu şablonların ötesine taşıyan, sunum kalitesinde çıktılar üreten bağımsız bir raporlama platformu. Mevcut ERP sistemleriyle entegre çalışır; onların yerine geçmez, onları güçlendirir.</p>
       <div class="niti-tags">
@@ -694,43 +516,82 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
       <div class="pc featured" onclick="openPM(3)"><div class="pc-badge">Popüler</div><div class="pc-tier">Katman 3</div><div class="pc-name">Özel Web Uygulaması</div><div class="pc-desc">Sıfırdan yazılmış PHP/MySQL backend, kullanıcı kimlik doğrulama ve AJAX tabanlı asenkron mimari.</div><div class="pc-price"><i class="cur">₺</i>60.000 <span class="suf">– 150.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 15 – 25 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Özel PHP backend mimarisi</div><div class="pf"><i class="fa-solid fa-check"></i>MySQL veritabanı tasarımı</div><div class="pf"><i class="fa-solid fa-check"></i>CSRF &amp; session güvenliği</div><div class="pf"><i class="fa-solid fa-check"></i>Admin yönetim paneli</div></div><div class="pc-cta"><i class="fa-brands fa-php"></i> PHP · MySQL · AJAX</div></div>
     </div>
     <div class="price-grid2 rv d2">
-      <div class="pc featured" onclick="openPM(4)"><div class="pc-badge">Referans</div><div class="pc-tier">Katman 4 — Kurumsal</div><div class="pc-name">Kurumsal Yönetim Platformu</div><div class="pc-desc">Çoklu modül mimarisine sahip, rol ve departman bazlı yetki yönetimi olan, gerçek zamanlı raporlama panelleriyle donatılmış tam işlevli kurumsal sistem.</div><div class="pc-price"><i class="cur">₺</i>120.000 <span class="suf">– 300.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 25 – 45 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Çok modüllü sistem mimarisi</div><div class="pf"><i class="fa-solid fa-check"></i>Rol bazlı yetki yönetimi (RBAC)</div><div class="pf"><i class="fa-solid fa-check"></i>Gerçek zamanlı istatistik panelleri</div><div class="pf"><i class="fa-solid fa-check"></i>Tahsilat, tediye, maliyet modülleri</div></div><div class="pc-tag"><i class="fa-solid fa-star" style="font-size:.55rem"></i> Geliştirdiğim sistem bu kategoride</div><div class="pc-cta" style="margin-top:14px"><i class="fa-solid fa-layer-group"></i> PHP · MySQL · Multi-Modül</div></div>
+      <div class="pc featured" onclick="openPM(4)"><div class="pc-badge">Bu Sistem</div><div class="pc-tier">Katman 4 — Kurumsal</div><div class="pc-name">Kurumsal Yönetim Platformu</div><div class="pc-desc">Çoklu modül mimarisine sahip, rol ve departman bazlı yetki yönetimi olan, gerçek zamanlı raporlama panelleriyle donatılmış tam işlevli kurumsal sistem.</div><div class="pc-price"><i class="cur">₺</i>120.000 <span class="suf">– 300.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 25 – 45 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Çok modüllü sistem mimarisi</div><div class="pf"><i class="fa-solid fa-check"></i>Rol bazlı yetki yönetimi (RBAC)</div><div class="pf"><i class="fa-solid fa-check"></i>Gerçek zamanlı istatistik panelleri</div><div class="pf"><i class="fa-solid fa-check"></i>Tahsilat, tediye, maliyet modülleri</div></div><div class="pc-tag"><i class="fa-solid fa-star" style="font-size:.55rem"></i> Bu sayfadaki proje bu kategori</div><div class="pc-cta" style="margin-top:14px"><i class="fa-solid fa-layer-group"></i> PHP · MySQL · Multi-Modül</div></div>
       <div class="pc" onclick="openPM(5)"><div class="pc-tier">Katman 5 — Enterprise ERP</div><div class="pc-name">ERP Entegre / Canlı Veri Platformu</div><div class="pc-desc">Nebim V3 veya özel ERP sistemlerine bağlanan, SQL Server üzerinden canlı veri çeken tam entegre kurumsal platform.</div><div class="pc-price" style="font-size:1.3rem;color:#f59e0b">Teklif Al</div><div class="pc-time"><i class="fa-regular fa-clock"></i> 45+ iş günü · Keşif zorunlu</div><div style="font-size:.66rem;color:#94a3b8;margin-bottom:18px">Piyasa: 250.000 TL – 1.000.000+ TL</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Nebim V3 / SAP ERP entegrasyonu</div><div class="pf"><i class="fa-solid fa-check"></i>SQL Server / T-SQL direkt bağlantı</div><div class="pf"><i class="fa-solid fa-check"></i>e-İrsaliye / e-Fatura (GİB)</div><div class="pf"><i class="fa-solid fa-check"></i>REST / SOAP API tasarımı</div></div><div class="pc-cta" style="background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.22);color:#f59e0b"><i class="fa-solid fa-gears"></i> Nebim V3 · SQL Server · ERP</div></div>
     </div>
   </div>
 </section>
 
-
 <section id="iletisim" class="contact-section">
-  <div class="contact-in" style="grid-template-columns:1fr 1.5fr">
+  <div class="contact-in">
     <div class="rv">
       <div class="sec-ey"><i class="fa-solid fa-envelope" style="font-size:.58rem"></i> İletişim</div>
-      <h2 class="sec-h">İletişime Geçin</h2>
-      <p class="sec-p">Proje fikriniz, fiyat sorunuz veya teknik danışmanlık talebiniz için formu doldurun, size döneyim.</p>
+      <h2 class="sec-h">Bize Ulaşın</h2>
+      <p class="sec-p">Proje fikriniz, fiyat sorunuz veya teknik danışmanlık talebiniz için formu doldurun.</p>
+      <div class="contact-info-list">
+        <div class="ci-item"><div class="ci-ic" style="background:#fee2e2"><i class="fa-solid fa-envelope" style="color:#dc2626;font-size:.88rem"></i></div><div><div class="ci-label">E-posta</div><div class="ci-val">ozkanmus@nevas.tr</div></div></div>
+        <div class="ci-item"><div class="ci-ic" style="background:#fce7f3"><i class="fa-brands fa-instagram" style="color:#e1306c;font-size:.88rem"></i></div><div><div class="ci-label">Instagram</div><div class="ci-val">@nevas.tr</div></div></div>
+        <div class="ci-item"><div class="ci-ic" style="background:#eef2ff"><i class="fa-solid fa-clock" style="color:#6366f1;font-size:.88rem"></i></div><div><div class="ci-label">Yanıt Süresi</div><div class="ci-val">Genellikle 24 saat içinde</div></div></div>
+      </div>
     </div>
     <div class="rv d2">
       <div id="cf-sent-box" class="cf-sent-box" style="display:none"><i class="fa-solid fa-circle-check"></i> Mesajınız iletildi, teşekkürler! En kısa sürede dönüş yapılacak.</div>
       <form class="cf-form" id="cf-form">
-        <input type="hidden" name="access_key" value="004cb40e-b7a5-4d01-824e-a1de159fda69">
-        <input type="hidden" name="subject" value="ozkanmus.com.tr — İletişim Formu">
+        <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY_BURAYA">
+        <input type="hidden" name="subject" value="Showcase İletişim Formu">
         <input type="hidden" name="from_name" value="ozkanmus.com.tr">
         <div class="cf-row">
-          <div class="cf-field"><label class="cf-label">Ad Soyad <span class="cf-req">*</span></label><input class="cf-input" type="text" name="name" required></div>
-          <div class="cf-field"><label class="cf-label">Telefon</label><input class="cf-input" type="tel" name="phone"></div>
+          <div class="cf-field"><label class="cf-label">Ad Soyad <span class="cf-req">*</span></label><input class="cf-input" type="text" name="name" placeholder="Örn. Ahmet Yılmaz" required></div>
+          <div class="cf-field"><label class="cf-label">Telefon</label><input class="cf-input" type="tel" name="phone" placeholder="05xx xxx xx xx"></div>
         </div>
-        <div class="cf-field"><label class="cf-label">E-posta <span class="cf-req">*</span></label><input class="cf-input" type="email" name="email" required></div>
-        <div class="cf-field"><label class="cf-label">Mesajınız</label><textarea class="cf-textarea" name="message"></textarea></div>
+        <div class="cf-field"><label class="cf-label">E-posta <span class="cf-req">*</span></label><input class="cf-input" type="email" name="email" placeholder="ornek@mail.com" required></div>
+        <div class="cf-field">
+          <label class="cf-label">Hizmet Konusu <span class="cf-req">*</span></label>
+          <select class="cf-select" name="subject_detail" required>
+            <option value="">— Seçiniz —</option>
+            <option>Web Uygulaması Geliştirme</option>
+            <option>Kurumsal Sistem / Yönetim Paneli</option>
+            <option>ERP Entegrasyonu</option>
+            <option>Niti Go — Raporlama Yazılımı</option>
+            <option>Nebim V3 Danışmanlık</option>
+            <option>Diğer</option>
+          </select>
+        </div>
+        <div class="cf-field"><label class="cf-label">Notlar / Mesajınız</label><textarea class="cf-textarea" name="message" placeholder="Projeniz hakkında kısa bir bilgi verin…"></textarea></div>
         <button type="submit" class="cf-btn"><i class="fa-solid fa-paper-plane" style="font-size:.82rem"></i> <span id="cf-btn-text">Mesaj Gönder</span></button>
       </form>
     </div>
   </div>
 </section>
 
+<section class="tech-section">
+  <div class="tech-in">
+    <div class="rv" style="margin-bottom:28px">
+      <div class="sec-ey"><i class="fa-solid fa-microchip" style="font-size:.58rem"></i> Teknoloji Yığını</div>
+      <h2 class="sec-h">Kullandığım Araçlar</h2>
+      <p class="sec-p">Bu sistemde ve diğer kurumsal projelerde aktif olarak kullandığım teknolojiler.</p>
+    </div>
+    <div class="tech-grid rv d1">
+      <div class="tcard"><div class="tcard-icon"><i class="fa-brands fa-php" style="color:#7c73e6"></i></div><div class="tcard-name">PHP 8</div><div class="tcard-cat">Backend</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-solid fa-database" style="color:#f59e0b"></i></div><div class="tcard-name">MySQL</div><div class="tcard-cat">Veritabanı</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-solid fa-server" style="color:#64748b"></i></div><div class="tcard-name">SQL Server</div><div class="tcard-cat">ERP / T-SQL</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-brands fa-js" style="color:#f7df1e"></i></div><div class="tcard-name">JavaScript</div><div class="tcard-cat">Frontend</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-solid fa-palette" style="color:#38bdf8"></i></div><div class="tcard-name">Tailwind CSS</div><div class="tcard-cat">Stil</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-solid fa-gears" style="color:#e879f9"></i></div><div class="tcard-name">Nebim V3</div><div class="tcard-cat">ERP Sistemi</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-solid fa-envelope" style="color:#34d399"></i></div><div class="tcard-name">PHPMailer</div><div class="tcard-cat">E-posta</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-solid fa-table" style="color:#a78bfa"></i></div><div class="tcard-name">DataTables</div><div class="tcard-cat">Tablo / Filtre</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-solid fa-shield-halved" style="color:#fb7185"></i></div><div class="tcard-name">Session Auth</div><div class="tcard-cat">Güvenlik</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-solid fa-bolt" style="color:#fbbf24"></i></div><div class="tcard-name">AJAX / JSON</div><div class="tcard-cat">Async API</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-solid fa-file-invoice" style="color:#f87171"></i></div><div class="tcard-name">e-İrsaliye</div><div class="tcard-cat">GİB Entegrasyon</div></div>
+      <div class="tcard"><div class="tcard-icon"><i class="fa-brands fa-github" style="color:#475569"></i></div><div class="tcard-name">Git / GitHub</div><div class="tcard-cat">Versiyon Kontrolü</div></div>
+    </div>
+  </div>
+</section>
 
 </main>
 
 <div class="pm-backdrop" id="pm-backdrop" onclick="closePMOnBackdrop(event)">
-  <div class="pm-box" id="pm-box">
+  <div class="pm-box" id="pm-box" style="background:#fff!important;border:1px solid #e2e8f0!important;color:#0f172a!important">
     <div class="pm-stripe" id="pm-stripe"></div>
     <div class="pm-head"><div class="pm-meta"><div class="pm-tier-lbl" id="pm-tier"></div><div class="pm-title" id="pm-title"></div><div class="pm-price-row"><div class="pm-price" id="pm-price"></div><div class="pm-time-pill" id="pm-time"><i class="fa-regular fa-clock" style="font-size:.58rem"></i> <span></span></div></div></div><div class="pm-close" onclick="closePM()"><i class="fa-solid fa-xmark"></i></div></div>
     <div class="pm-divider"></div>
@@ -743,9 +604,13 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 
 <footer>
   <div class="foot-in">
-    <div class="foot-copy">© 2026</div>
+    <div>
+      <div class="foot-copy">© 2026 Özkan Muş — Tüm hakları saklıdır.</div>
+      <div class="foot-legal">Bu sitedeki tüm içerik, tasarım ve yazılım Özkan Muş'a aittir. İzinsiz kopyalanamaz veya dağıtılamaz.</div>
+    </div>
     <div class="foot-right">
-      <span style="font-size:.7rem;color:rgba(255,255,255,.2)">Özkan Muş</span>
+      <a href="https://www.instagram.com/nevas.tr/" target="_blank" rel="noopener" class="sc ig"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/nevasoutlet" target="_blank" rel="noopener" class="sc fb"><i class="fa-brands fa-facebook-f"></i></a>
     </div>
   </div>
 </footer>
@@ -753,12 +618,19 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 <script>
 const PM={1:{tier:'Katman 1',title:'Statik / Tanıtım Sitesi',price:'₺12.000 – 30.000',time:'3 – 6 iş günü',stripe:'linear-gradient(90deg,#64748b,#94a3b8,#64748b)',included:[['yes','Figma/XD tasarım → HTML/CSS/JS dönüşümü'],['yes','Tamamen responsive — mobil, tablet, masaüstü'],['yes','Google PageSpeed / Core Web Vitals optimizasyonu'],['yes','Temel SEO (meta, Open Graph, sitemap)'],['yes','İletişim formu (static endpoint)'],['no','Backend / veritabanı yok'],['no','Kullanıcı girişi yok'],['no','Dinamik içerik yönetimi yok']],usecases:[{icon:'fa-briefcase',color:'#60a5fa',title:'Şirket Tanıtım',desc:'Ürün veya hizmet tanıtımı yapan kurumsal vitrin sayfası.'},{icon:'fa-camera',color:'#a78bfa',title:'Portfolyo',desc:'Fotoğrafçı, tasarımcı veya serbest çalışanlar için kişisel portfolyo.'},{icon:'fa-calendar-days',color:'#4ade80',title:'Landing Page',desc:'Kampanya veya etkinlik için tek sayfalık tanıtım.'}],tech:['HTML5','CSS3 / Tailwind','Vanilla JS','Git','Google Analytics'],note:'Backend gerektirmeyen, içerik değişiminin seyrek olduğu projeler için idealdir.'},2:{tier:'Katman 2',title:'CMS Tabanlı Site',price:'₺22.000 – 50.000',time:'7 – 14 iş günü',stripe:'linear-gradient(90deg,#2563eb,#3b82f6,#2563eb)',included:[['yes','WordPress kurulum, tema seçimi &amp; tam özelleştirme'],['yes','İçerik yönetim paneli — teknik bilgi gerektirmez'],['yes','Eklenti entegrasyonu (SEO, iletişim, galeri)'],['yes','Güvenlik eklentisi &amp; yedekleme ayarı'],['no','Özel yazılım mimarisi yok'],['no','Gelişmiş rol/yetki yönetimi yok']],usecases:[{icon:'fa-newspaper',color:'#fbbf24',title:'Haber / Blog',desc:'Sürekli güncellenen içerik sitesi.'},{icon:'fa-building',color:'#60a5fa',title:'Kurumsal Tanıtım',desc:'Sık güncellenen içerik ihtiyacı olan kurumsal siteler.'},{icon:'fa-cart-shopping',color:'#4ade80',title:'Küçük E-ticaret',desc:'Az ürünlü WooCommerce mağazası.'}],tech:['WordPress','PHP','MySQL','WooCommerce','Yoast SEO'],note:'İçerik ekibinin kendi kendine güncelleme yapmasını gerektiren projeler için uygundur.'},3:{tier:'Katman 3 — Popüler',title:'Özel Web Uygulaması',price:'₺60.000 – 150.000',time:'15 – 25 iş günü',stripe:'linear-gradient(90deg,#dc2626,#ef4444,#dc2626)',included:[['yes','Sıfırdan PHP 8 backend mimarisi'],['yes','MySQL veritabanı şema tasarımı &amp; optimizasyonu'],['yes','Kullanıcı kayıt, giriş, şifre sıfırlama sistemi'],['yes','AJAX / JSON tabanlı asenkron API'],['yes','CSRF token koruması, güvenli session yönetimi'],['yes','E-posta bildirim entegrasyonu'],['yes','Admin yönetim paneli'],['yes','Responsive, mobil uyumlu tasarım']],usecases:[{icon:'fa-calendar-check',color:'#4ade80',title:'Rezervasyon Sistemi',desc:'Randevu, otel, klinik gibi zaman bazlı rezervasyon uygulamaları.'},{icon:'fa-users',color:'#a78bfa',title:'Müşteri / CRM Portalı',desc:'Müşteri kayıtları ve görev takibi.'},{icon:'fa-truck',color:'#fbbf24',title:'Lojistik / Sipariş Takip',desc:'Kargo, depo veya üretim süreç takip sistemleri.'}],tech:['PHP 8','MySQL','AJAX / JSON','PHPMailer','Tailwind CSS','DataTables'],note:'WordPress kullanılmaz — her satır özel yazılır. Tam kontrol ve yüksek güvenlik.'},4:{tier:'Katman 4 — Kurumsal',title:'Kurumsal Yönetim Platformu',price:'₺120.000 – 300.000',time:'25 – 45 iş günü',stripe:'linear-gradient(90deg,#dc2626,#ef4444,#f97316,#ef4444,#dc2626)',included:[['yes','Çok modüllü sistem mimarisi'],['yes','RBAC — rol ve departman bazlı yetki yönetimi'],['yes','Gerçek zamanlı istatistik &amp; quick panel'],['yes','DataTables: sıralama, filtre, arama'],['yes','Risk skorlama &amp; IP bazlı giriş güvenliği'],['yes','Tahsilat, tediye, maliyet takip modülleri'],['yes','Personel &amp; görev yönetimi'],['yes','Audit log — kim ne zaman ne yaptı']],usecases:[{icon:'fa-network-wired',color:'#ef4444',title:'Bayi / Şube Yönetim Sistemi',desc:'Çok lokasyonlu operasyonları merkezi admin panelden yönetme.'},{icon:'fa-headset',color:'#60a5fa',title:'Kurumsal Destek Merkezi',desc:'Ticket yönetimi, birim atama, SLA takibi.'},{icon:'fa-chart-pie',color:'#4ade80',title:'Finans &amp; Operasyon Portalı',desc:'Tahsilat, tediye, maliyet merkezi ve yönetim raporlaması.'}],tech:['PHP 8','MySQL','AJAX','DataTables','Chart.js','SweetAlert2','PHPMailer'],note:'Proje başlamadan önce keşif toplantısı yapılır, milestone bazlı ödeme planı kurulur.'},5:{tier:'Katman 5 — ERP / Enterprise',title:'ERP Entegre Canlı Veri Platformu',price:'Teklif Al',priceNote:'Piyasa: ₺250.000 – 1.000.000+',time:'45+ iş günü · Keşif zorunlu',stripe:'linear-gradient(90deg,#f59e0b,#fbbf24,#f59e0b)',included:[['yes','Nebim V3 / SAP / özel ERP direkt entegrasyon'],['yes','SQL Server &amp; T-SQL — karmaşık sorgular'],['yes','Canlı veri akışı — ERP\'den web arayüzüne'],['yes','e-İrsaliye (GİB) — durum takibi &amp; yeniden gönderim'],['yes','e-Fatura — gelen/giden, mutabakat, arşiv'],['yes','REST / SOAP API tasarımı &amp; dokümantasyon'],['yes','Index &amp; performans optimizasyonu']],usecases:[{icon:'fa-file-invoice',color:'#f87171',title:'e-Dönüşüm Portalı',desc:'e-İrsaliye ve e-Fatura süreçlerini GİB entegrasyonuyla web üzerinden yönetme.'},{icon:'fa-coins',color:'#fbbf24',title:'Canlı Finans Panosu',desc:'ERP\'den anlık tahsilat, tediye ve maliyet verilerini web arayüzünde görüntüleme.'},{icon:'fa-gears',color:'#a78bfa',title:'ERP Light Alternatif',desc:'Nebim V3\'ün belirli modüllerine web tabanlı arayüz.'}],tech:['Nebim V3','SQL Server','T-SQL','PHP 8','REST API','GİB Entegrasyonu','Stored Procedures'],note:'Mimari keşif ve analiz aşaması zorunludur. Keşif bedeli ayrıca fiyatlandırılır.'}};
 
-function openPM(n){const d=PM[n];if(!d)return;document.getElementById('pm-tier').textContent=d.tier;document.getElementById('pm-title').textContent=d.title;const pe=document.getElementById('pm-price');pe.innerHTML=d.price+(d.priceNote?`<span class="suf" style="font-size:.7rem;display:block;margin-top:3px;color:rgba(255,255,255,.25)">${d.priceNote}</span>`:'');document.getElementById('pm-time').querySelector('span').textContent=d.time;document.getElementById('pm-stripe').style.background=d.stripe;document.getElementById('pm-included').innerHTML=d.included.map(([t,tx])=>`<div class="pmf ${t}"><i class="fa-solid fa-${t==='yes'?'check':'xmark'}"></i>${tx}</div>`).join('');document.getElementById('pm-usecases').innerHTML=d.usecases.map(u=>`<div class="pm-uc"><div class="pm-uc-title"><i class="fa-solid ${u.icon}" style="color:${u.color};font-size:.75rem"></i>${u.title}</div><div class="pm-uc-desc">${u.desc}</div></div>`).join('');document.getElementById('pm-tech').innerHTML=`<span class="pm-tech-lbl">Teknoloji</span>`+d.tech.map(t=>`<span class="pm-tech-chip">${t}</span>`).join('');document.getElementById('pm-footer').textContent=d.note;document.getElementById('pm-backdrop').classList.add('open');document.body.style.overflow='hidden';}
+function openPM(n){const d=PM[n];if(!d)return;document.getElementById('pm-tier').textContent=d.tier;document.getElementById('pm-title').textContent=d.title;const pe=document.getElementById('pm-price');pe.innerHTML=d.price+(d.priceNote?`<span class="suf" style="font-size:.7rem;display:block;margin-top:3px;color:#94a3b8">${d.priceNote}</span>`:'');document.getElementById('pm-time').querySelector('span').textContent=d.time;document.getElementById('pm-stripe').style.background=d.stripe;document.getElementById('pm-included').innerHTML=d.included.map(([t,tx])=>`<div class="pmf ${t}"><i class="fa-solid fa-${t==='yes'?'check':'xmark'}"></i>${tx}</div>`).join('');document.getElementById('pm-usecases').innerHTML=d.usecases.map(u=>`<div class="pm-uc"><div class="pm-uc-title"><i class="fa-solid ${u.icon}" style="color:${u.color};font-size:.75rem"></i>${u.title}</div><div class="pm-uc-desc">${u.desc}</div></div>`).join('');document.getElementById('pm-tech').innerHTML=`<span class="pm-tech-lbl">Teknoloji</span>`+d.tech.map(t=>`<span class="pm-tech-chip">${t}</span>`).join('');document.getElementById('pm-footer').textContent=d.note;
+const box=document.getElementById('pm-box');
+box.style.background='#fff';
+box.style.border='1px solid #e2e8f0';
+box.style.color='#0f172a';
+box.style.boxShadow='0 24px 60px rgba(0,0,0,.14),0 4px 16px rgba(0,0,0,.07)';
+document.getElementById('pm-backdrop').style.background='rgba(15,23,40,.55)';
+document.getElementById('pm-backdrop').classList.add('open');document.body.style.overflow='hidden';}
 function closePM(){document.getElementById('pm-backdrop').classList.remove('open');document.body.style.overflow='';}
 function closePMOnBackdrop(e){if(e.target===document.getElementById('pm-backdrop'))closePM();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePM();});
 
-// Contact form
+// Contact form — Web3Forms
 document.getElementById('cf-form').addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=document.getElementById('cf-btn-text');
@@ -788,19 +660,6 @@ if(si){const so=new IntersectionObserver(es=>{if(es[0].isIntersecting){count('c1
 // Skill bars
 const sk=document.getElementById('skills-container');
 if(sk){const sko=new IntersectionObserver(es=>{if(es[0].isIntersecting){const ws=[.95,.90,.85,.80,.88];sk.querySelectorAll('.skill-bar').forEach((b,i)=>{setTimeout(()=>{b.style.width=(ws[i]*100)+'%';b.classList.add('triggered');},i*100);});sko.disconnect();}},{threshold:.4});sko.observe(sk);}
-
-// ERP izometrik platform — scroll'da açılır
-(function(){
-  const erpSec=document.querySelector('.erp-section');
-  if(!erpSec)return;
-  const obs=new IntersectionObserver(es=>{
-    if(es[0].isIntersecting){
-      document.querySelectorAll('.erp-card').forEach(el=>el.classList.add('ep-go'));
-      obs.disconnect();
-    }
-  },{threshold:.18});
-  obs.observe(erpSec);
-})();
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
