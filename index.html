@@ -302,6 +302,19 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
 .foot-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .sc{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:none;transition:all .22s}
 .sc:hover{transform:translateY(-2px)}
+/* Demo callout */
+.demo-bar{background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:18px 22px;margin-top:28px;display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.demo-bar-live{display:flex;align-items:center;gap:6px;font-size:.58rem;font-weight:800;color:#16a34a;text-transform:uppercase;letter-spacing:.1em;flex-shrink:0;padding-top:2px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.demo-bar-live i{animation:pulse 2s ease-in-out infinite}
+.demo-bar-body{flex:1;min-width:180px}
+.demo-bar-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;font-weight:900;color:#0f172a;margin-bottom:4px}
+.demo-bar-desc{font-size:.74rem;color:#475569;line-height:1.6;margin-bottom:10px}
+.demo-bar-tags{display:flex;flex-wrap:wrap;gap:5px}
+.demo-bar-tag{padding:2px 9px;border-radius:999px;font-size:.58rem;font-weight:700;background:#f1f5f9;border:1px solid #e2e8f0;color:#475569}
+.demo-bar-cta{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:10px;background:#0f172a;color:#fff;font-size:.74rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;text-decoration:none;flex-shrink:0;transition:all .2s;align-self:center}
+.demo-bar-cta:hover{background:#1e293b;transform:translateY(-1px)}
+.demo-lock{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;background:#f1f5f9;border:1px solid #e2e8f0;font-size:.58rem;font-weight:700;color:#64748b;margin-left:6px}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .58s cubic-bezier(.4,0,.2,1),transform .58s cubic-bezier(.4,0,.2,1)}
 .rv.on{opacity:1;transform:none}
 .d1{transition-delay:.07s}.d2{transition-delay:.15s}.d3{transition-delay:.24s}
@@ -518,6 +531,22 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
       <div class="fc rv d1"><div class="fic" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.2)"><i class="fa-solid fa-money-bill-transfer" style="color:#f59e0b"></i></div><div class="ft">Finans & Maliyet Takibi</div><div class="fd">Nakit tahsilat, tediye ve maliyet kalemlerini kaydet, döneme göre raporla. ERP ile entegre veya bağımsız çalışan muhasebe modülü.</div><div class="ftags"><span class="ftag">Tahsilat</span><span class="ftag">Tediye</span><span class="ftag">Dönem Raporu</span></div></div>
       <div class="fc rv d2"><div class="fic" style="background:rgba(236,72,153,.1);border-color:rgba(236,72,153,.2)"><i class="fa-solid fa-users-gear" style="color:#ec4899"></i></div><div class="ft">Personel & Yetki Yönetimi</div><div class="fd">Personel bilgileri, görev tanımları ve departman bazlı yetki sistemi. Rol tabanlı erişim kontrolü ile her kullanıcı sadece ilgili modülleri görür.</div><div class="ftags"><span class="ftag">RBAC</span><span class="ftag">Departman Bazlı</span><span class="ftag">Audit Log</span></div></div>
       <div class="fc sp2 rv d1"><div class="fdual"><div><div class="fic" style="background:rgba(220,38,38,.08);border-color:rgba(220,38,38,.18)"><i class="fa-solid fa-shield-halved" style="color:#dc2626"></i></div><div class="ft">Güvenli Altyapı</div><div class="fd">Rol bazlı yetki sistemi (Admin, Birim Yetkilisi, Finans), CSRF koruması, risk skorlama ile IP bazlı giriş izleme ve oturum yönetimi.</div><div class="ftags"><span class="ftag">CSRF</span><span class="ftag">Risk Skoru</span><span class="ftag">IP Takibi</span></div></div><div><div class="fic" style="background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.18)"><i class="fa-solid fa-chart-pie" style="color:#3b82f6"></i></div><div class="ft">İstatistik & Raporlama</div><div class="fd">Fatura takvimi, aktif/pasif hizmet dağılımı, talep özeti ve quick-panel ile tıklanabilir istatistik kartları.</div><div class="ftags"><span class="ftag">Fatura Takvimi</span><span class="ftag">Quick Panel</span><span class="ftag">DataTables</span></div></div></div></div>
+    </div>
+    <div class="demo-bar rv">
+      <div class="demo-bar-live"><i class="fa-solid fa-circle" style="font-size:.45rem"></i> Canlı</div>
+      <div class="demo-bar-body">
+        <div class="demo-bar-title">Yukarıdaki modüllerin tamamı bu sistemde çalışmaktadır <span class="demo-lock"><i class="fa-solid fa-lock" style="font-size:.5rem"></i> Kapalı sistem</span></div>
+        <div class="demo-bar-desc">nevasdestek.online adresinde aktif kurumsal kullanımda. Rol bazlı erişim, ERP entegrasyonu ve 8 modül ile tam işlevsel. Demo erişimi için iletişime geçin.</div>
+        <div class="demo-bar-tags">
+          <span class="demo-bar-tag">Ticket Sistemi</span>
+          <span class="demo-bar-tag">Nebim V3 ERP</span>
+          <span class="demo-bar-tag">Tahsilat & Tediye</span>
+          <span class="demo-bar-tag">Personel Yönetimi</span>
+          <span class="demo-bar-tag">Rol Bazlı Erişim</span>
+          <span class="demo-bar-tag">Audit Log</span>
+        </div>
+      </div>
+      <a href="https://nevasdestek.online/auth/login.php" target="_blank" rel="noopener" class="demo-bar-cta"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.68rem"></i> Sisteme Git</a>
     </div>
   </div>
 </section>
