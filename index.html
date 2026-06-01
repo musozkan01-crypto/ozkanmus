@@ -86,6 +86,17 @@ main{position:relative;z-index:1}
 .fl{position:absolute;background:rgba(15,23,40,.95);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px 14px;font-size:.67rem;font-weight:600;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:7px;box-shadow:0 10px 28px rgba(0,0,0,.4);backdrop-filter:blur(8px);white-space:nowrap}
 .fl1{top:-16px;right:-16px;border-color:rgba(220,38,38,.26);animation:mfl 4s ease-in-out infinite alternate}
 .fl2{bottom:-14px;left:-14px;border-color:rgba(37,99,235,.22);animation:mfl 6s ease-in-out infinite alternate-reverse}
+/* Hero vertical flip cards */
+.hfc-col{display:flex;flex-direction:column;gap:10px}
+.hfc{background:rgba(15,23,40,.9);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 20px rgba(0,0,0,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+@keyframes hfc-spin{0%{transform:perspective(700px) rotateY(0deg)}100%{transform:perspective(700px) rotateY(360deg)}}
+.hfc.hfc-spinning{animation:hfc-spin .9s cubic-bezier(.45,0,.55,1)}
+.hfc-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0}
+.hfc-body{flex:1;min-width:0}
+.hfc-lbl{font-size:.5rem;font-weight:800;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+.hfc-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;font-weight:900;color:#fff;line-height:1.2;margin-bottom:5px}
+.hfc-tags{display:flex;gap:4px;flex-wrap:wrap}
+.hfc-tag{font-size:.52rem;font-weight:700;color:rgba(255,255,255,.42);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);padding:1px 7px;border-radius:999px}
 /* 3D card section */
 .h3d-section{padding:0 32px;margin-top:-42px;position:relative;z-index:10}
 .h3d-wrap{max-width:1160px;margin:0 auto;perspective:1100px;perspective-origin:50% 35%}
@@ -389,49 +400,39 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
       </div>
     </div>
     <div class="hero-right rv d2">
-      <div style="position:relative">
-        <div class="mfloat">
-          <div class="mcard">
-            <div class="mbar"><div class="md" style="background:#ef4444"></div><div class="md" style="background:#f59e0b"></div><div class="md" style="background:#22c55e"></div><span class="mlbl">Admin Panel — Genel Bakış</span><span class="mlbl" style="margin-left:auto;opacity:.5">Haz 2026</span></div>
-            <div class="mbody">
-              <div class="mstats" style="grid-template-columns:repeat(4,1fr)">
-                <div class="ms"><div class="ms-n" style="font-size:1.1rem">142</div><div class="ms-l">Hizmet</div><div class="ms-b" style="background:linear-gradient(90deg,#22c55e,#16a34a)"></div></div>
-                <div class="ms"><div class="ms-n" style="font-size:1.1rem">28</div><div class="ms-l">Talep</div><div class="ms-b" style="background:linear-gradient(90deg,#ef4444,#dc2626)"></div></div>
-                <div class="ms"><div class="ms-n" style="font-size:1.1rem">15</div><div class="ms-l">Superbox</div><div class="ms-b" style="background:linear-gradient(90deg,#8b5cf6,#7c3aed)"></div></div>
-                <div class="ms"><div class="ms-n" style="font-size:1.1rem">99<span style="font-size:.6rem">%</span></div><div class="ms-l">Uptime</div><div class="ms-b" style="background:linear-gradient(90deg,#3b82f6,#2563eb)"></div></div>
-              </div>
-              <div class="mc-chart">
-                <div class="mc-chart-lbl">Haftalık Talep Akışı <span>▲ +12%</span></div>
-                <svg viewBox="0 0 240 40" class="mc-svg" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="cg1" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#ef4444" stop-opacity=".28"/>
-                      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
-                    </linearGradient>
-                    <linearGradient id="cg2" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#3b82f6" stop-opacity=".18"/>
-                      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <path d="M0,32 C20,28 36,34 56,26 C76,18 90,30 110,20 C130,10 148,24 168,16 C188,8 210,14 240,8 L240,40 L0,40 Z" fill="url(#cg1)"/>
-                  <path d="M0,32 C20,28 36,34 56,26 C76,18 90,30 110,20 C130,10 148,24 168,16 C188,8 210,14 240,8" fill="none" stroke="#ef4444" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M0,36 C24,34 40,38 64,33 C88,28 100,35 124,30 C148,25 164,32 188,28 C212,24 228,28 240,25 L240,40 L0,40 Z" fill="url(#cg2)"/>
-                  <path d="M0,36 C24,34 40,38 64,33 C88,28 100,35 124,30 C148,25 164,32 188,28 C212,24 228,28 240,25" fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 2" opacity=".7"/>
-                  <circle cx="240" cy="8" r="2.5" fill="#ef4444"/>
-                  <circle cx="240" cy="25" r="2" fill="#3b82f6" opacity=".7"/>
-                </svg>
-              </div>
-              <div class="mtbl">
-                <div class="mr"><div class="mdt" style="background:#22c55e"></div><div class="mb" style="flex:1"></div><div class="mb" style="width:22%"></div><div class="mcp" style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.22)">Aktif</div></div>
-                <div class="mr"><div class="mdt" style="background:#ef4444"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.05)"></div><div class="mb" style="width:22%"></div><div class="mcp" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.22)">Arıza</div></div>
-                <div class="mr"><div class="mdt" style="background:#22c55e"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.07)"></div><div class="mb" style="width:22%"></div><div class="mcp" style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.22)">Aktif</div></div>
-                <div class="mr"><div class="mdt" style="background:#f59e0b"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.05)"></div><div class="mb" style="width:22%"></div><div class="mcp" style="background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.22)">Beklemede</div></div>
-              </div>
-            </div>
+      <div class="hfc-col">
+        <div class="hfc">
+          <div class="hfc-ic" style="background:rgba(220,38,38,.2)"><i class="fa-solid fa-headset" style="color:#f87171"></i></div>
+          <div class="hfc-body">
+            <div class="hfc-lbl">IT Sistemi</div>
+            <div class="hfc-name">Nevas Destek</div>
+            <div class="hfc-tags"><span class="hfc-tag">Oturum Korumalı</span><span class="hfc-tag">Rol Bazlı</span><span class="hfc-tag">CSRF</span></div>
           </div>
         </div>
-        <div class="fl fl1"><i class="fa-solid fa-check-circle" style="color:#4ade80;font-size:.7rem"></i> Canlı &amp; Çalışıyor</div>
-        <div class="fl fl2"><i class="fa-solid fa-shield-halved" style="color:#60a5fa;font-size:.7rem"></i> Rol Bazlı Erişim</div>
+        <div class="hfc">
+          <div class="hfc-ic" style="background:rgba(245,158,11,.2)"><i class="fa-solid fa-server" style="color:#fbbf24"></i></div>
+          <div class="hfc-body">
+            <div class="hfc-lbl">ERP Uzmanlığı</div>
+            <div class="hfc-name">Nebim V3</div>
+            <div class="hfc-tags"><span class="hfc-tag">IT Yöneticisi</span><span class="hfc-tag">e-İrsaliye</span></div>
+          </div>
+        </div>
+        <div class="hfc">
+          <div class="hfc-ic" style="background:rgba(249,115,22,.2)"><i class="fa-solid fa-chart-gantt" style="color:#fb923c"></i></div>
+          <div class="hfc-body">
+            <div class="hfc-lbl">Yazılım</div>
+            <div class="hfc-name">Niti Go</div>
+            <div class="hfc-tags"><span class="hfc-tag">Raporlama</span><span class="hfc-tag">ERP Bağlantısı</span></div>
+          </div>
+        </div>
+        <div class="hfc">
+          <div class="hfc-ic" style="background:rgba(37,99,235,.2)"><i class="fa-solid fa-code" style="color:#60a5fa"></i></div>
+          <div class="hfc-body">
+            <div class="hfc-lbl">Geliştirici</div>
+            <div class="hfc-name">Kurumsal Yazılım</div>
+            <div class="hfc-tags"><span class="hfc-tag">PHP 8</span><span class="hfc-tag">MySQL</span><span class="hfc-tag">JavaScript</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -756,6 +757,41 @@ document.querySelectorAll('.ecb').forEach((btn,i)=>btn.addEventListener('click',
   ecTimer=setInterval(()=>activateEC((ecActive+1)%3),4000);
 }));
 
+// Hero flip cards
+const HFC_DATA=[
+  [{ic:'fa-headset',bg:'rgba(220,38,38,.2)',cl:'#f87171',lbl:'IT Sistemi',name:'Nevas Destek',tags:['Oturum Korumalı','Rol Bazlı','CSRF']},
+   {ic:'fa-cubes',bg:'rgba(220,38,38,.2)',cl:'#f87171',lbl:'8 Modül',name:'Tam Kapsam',tags:['Ticket','TT Fiber','Superbox','POS']},
+   {ic:'fa-shield-halved',bg:'rgba(220,38,38,.2)',cl:'#f87171',lbl:'Güvenlik',name:'Sıfır Zafiyet',tags:['RBAC','IP Takibi','Risk Skoru']}],
+  [{ic:'fa-server',bg:'rgba(245,158,11,.2)',cl:'#fbbf24',lbl:'ERP Uzmanlığı',name:'Nebim V3',tags:['IT Yöneticisi','e-İrsaliye']},
+   {ic:'fa-file-invoice',bg:'rgba(245,158,11,.2)',cl:'#fbbf24',lbl:'e-Dönüşüm',name:'GİB Entegrasyonu',tags:['e-Fatura','Gelen/Giden','Mutabakat']},
+   {ic:'fa-database',bg:'rgba(245,158,11,.2)',cl:'#fbbf24',lbl:'Veritabanı',name:'SQL Server T-SQL',tags:['Index Optim.','Performans']}],
+  [{ic:'fa-chart-gantt',bg:'rgba(249,115,22,.2)',cl:'#fb923c',lbl:'Yazılım',name:'Niti Go',tags:['Bağımsız Platform','ERP Bağlantısı']},
+   {ic:'fa-chart-bar',bg:'rgba(249,115,22,.2)',cl:'#fb923c',lbl:'Raporlama',name:'Özel Analizler',tags:['Muhasebe','Dönem Karş.','Şablon']},
+   {ic:'fa-plug',bg:'rgba(249,115,22,.2)',cl:'#fb923c',lbl:'Entegrasyon',name:'Canlı Veri',tags:['Nebim V3','SQL','Gerçek Zamanlı']}],
+  [{ic:'fa-code',bg:'rgba(37,99,235,.2)',cl:'#60a5fa',lbl:'Geliştirici',name:'Kurumsal Yazılım',tags:['PHP 8','MySQL','JavaScript']},
+   {ic:'fa-layer-group',bg:'rgba(37,99,235,.2)',cl:'#60a5fa',lbl:'Mimari',name:'Sıfırdan Tasarım',tags:['AJAX','Session Auth','CSRF']},
+   {ic:'fa-paper-plane',bg:'rgba(37,99,235,.2)',cl:'#60a5fa',lbl:'Hizmet',name:'Serbest Proje',tags:['Web App','ERP Entgr.','Danışmanlık']}]
+];
+function updateHFC(card,ci,fi){
+  const d=HFC_DATA[ci][fi];
+  const ic=card.querySelector('.hfc-ic');
+  ic.style.background=d.bg;
+  ic.innerHTML=`<i class="fa-solid ${d.ic}" style="color:${d.cl}"></i>`;
+  card.querySelector('.hfc-lbl').textContent=d.lbl;
+  card.querySelector('.hfc-name').textContent=d.name;
+  card.querySelector('.hfc-tags').innerHTML=d.tags.map(t=>`<span class="hfc-tag">${t}</span>`).join('');
+}
+let hfcFace=0;
+setInterval(()=>{
+  hfcFace=(hfcFace+1)%3;
+  document.querySelectorAll('.hfc').forEach((card,ci)=>{
+    card.classList.remove('hfc-spinning');
+    void card.offsetWidth;
+    card.classList.add('hfc-spinning');
+    setTimeout(()=>updateHFC(card,ci,hfcFace),450);
+    card.addEventListener('animationend',()=>card.classList.remove('hfc-spinning'),{once:true});
+  });
+},3000);
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
 </script>
