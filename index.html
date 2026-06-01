@@ -87,14 +87,25 @@ main{position:relative;z-index:1}
 .fl1{top:-16px;right:-16px;border-color:rgba(220,38,38,.26);animation:mfl 4s ease-in-out infinite alternate}
 .fl2{bottom:-14px;left:-14px;border-color:rgba(37,99,235,.22);animation:mfl 6s ease-in-out infinite alternate-reverse}
 /* Hero 3D flip cards */
-.hfc-col{display:flex;flex-direction:column;gap:10px}
-.hfc-wrap{perspective:900px;height:88px}
+.hfc-col{display:flex;flex-direction:column;gap:12px}
+.hfc-wrap{perspective:1000px}
+.hfc-tilt{
+  height:86px;transform-style:preserve-3d;
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+  position:relative;
+}
+.hfc-col .hfc-wrap:nth-child(1) .hfc-tilt{transform:rotateX(9deg) rotateY(-12deg)}
+.hfc-col .hfc-wrap:nth-child(2) .hfc-tilt{transform:rotateX(5deg) rotateY(-6deg)}
+.hfc-col .hfc-wrap:nth-child(3) .hfc-tilt{transform:rotateX(5deg) rotateY(6deg)}
+.hfc-col .hfc-wrap:nth-child(4) .hfc-tilt{transform:rotateX(9deg) rotateY(12deg)}
+.hfc-wrap:hover .hfc-tilt{transform:rotateX(0deg) rotateY(0deg)!important;transition:transform .35s ease}
 .hfc-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d}
+.hfc-inner::after{content:'';position:absolute;inset:0;background:rgba(4,9,18,.96);border-radius:14px;transform:translateZ(-7px);border:1px solid rgba(255,255,255,.04)}
 @keyframes hfc-spin{0%{transform:rotateY(0deg)}100%{transform:rotateY(360deg)}}
 .hfc-inner.hfc-spinning{animation:hfc-spin 1s cubic-bezier(.4,0,.2,1) forwards}
-.hfc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:13px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 20px rgba(0,0,0,.4)}
-.hfc-front{background:rgba(15,23,40,.93);border:1px solid rgba(255,255,255,.12)}
-.hfc-back{background:rgba(9,17,31,.96);border:1px solid rgba(255,255,255,.08);transform:rotateY(180deg)}
+.hfc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:13px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.hfc-front{background:rgba(15,23,40,.94);border:1px solid rgba(255,255,255,.13)}
+.hfc-back{background:rgba(9,17,31,.97);border:1px solid rgba(255,255,255,.08);transform:rotateY(180deg)}
 .hfc-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0}
 .hfc-body{flex:1;min-width:0}
 .hfc-lbl{font-size:.5rem;font-weight:800;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
@@ -405,22 +416,22 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
     </div>
     <div class="hero-right rv d2">
       <div class="hfc-col">
-        <div class="hfc-wrap"><div class="hfc-inner">
+        <div class="hfc-wrap"><div class="hfc-tilt"><div class="hfc-inner">
           <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(220,38,38,.2)"><i class="fa-solid fa-headset" style="color:#f87171"></i></div><div class="hfc-body"><div class="hfc-lbl">IT Sistemi</div><div class="hfc-name">Nevas Destek</div><div class="hfc-tags"><span class="hfc-tag">Oturum Korumalı</span><span class="hfc-tag">Rol Bazlı</span><span class="hfc-tag">CSRF</span></div></div></div>
           <div class="hfc-face hfc-back"><div class="hfc-ic" style="background:rgba(220,38,38,.2)"><i class="fa-solid fa-cubes" style="color:#f87171"></i></div><div class="hfc-body"><div class="hfc-lbl">8 Modül</div><div class="hfc-name">Tam Kapsam</div><div class="hfc-tags"><span class="hfc-tag">Ticket</span><span class="hfc-tag">TT Fiber</span><span class="hfc-tag">Superbox</span></div></div></div>
-        </div></div>
-        <div class="hfc-wrap"><div class="hfc-inner">
+        </div></div></div>
+        <div class="hfc-wrap"><div class="hfc-tilt"><div class="hfc-inner">
           <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(245,158,11,.2)"><i class="fa-solid fa-server" style="color:#fbbf24"></i></div><div class="hfc-body"><div class="hfc-lbl">ERP Uzmanlığı</div><div class="hfc-name">Nebim V3</div><div class="hfc-tags"><span class="hfc-tag">IT Yöneticisi</span><span class="hfc-tag">e-İrsaliye</span></div></div></div>
           <div class="hfc-face hfc-back"><div class="hfc-ic" style="background:rgba(245,158,11,.2)"><i class="fa-solid fa-file-invoice" style="color:#fbbf24"></i></div><div class="hfc-body"><div class="hfc-lbl">e-Dönüşüm</div><div class="hfc-name">GİB Entegrasyonu</div><div class="hfc-tags"><span class="hfc-tag">e-Fatura</span><span class="hfc-tag">Gelen/Giden</span><span class="hfc-tag">Mutabakat</span></div></div></div>
-        </div></div>
-        <div class="hfc-wrap"><div class="hfc-inner">
+        </div></div></div>
+        <div class="hfc-wrap"><div class="hfc-tilt"><div class="hfc-inner">
           <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(249,115,22,.2)"><i class="fa-solid fa-chart-gantt" style="color:#fb923c"></i></div><div class="hfc-body"><div class="hfc-lbl">Yazılım</div><div class="hfc-name">Niti Go</div><div class="hfc-tags"><span class="hfc-tag">Bağımsız Platform</span><span class="hfc-tag">ERP Bağlantısı</span></div></div></div>
           <div class="hfc-face hfc-back"><div class="hfc-ic" style="background:rgba(249,115,22,.2)"><i class="fa-solid fa-chart-bar" style="color:#fb923c"></i></div><div class="hfc-body"><div class="hfc-lbl">Raporlama</div><div class="hfc-name">Özel Analizler</div><div class="hfc-tags"><span class="hfc-tag">Muhasebe</span><span class="hfc-tag">Dönem Karş.</span><span class="hfc-tag">Şablon</span></div></div></div>
-        </div></div>
-        <div class="hfc-wrap"><div class="hfc-inner">
+        </div></div></div>
+        <div class="hfc-wrap"><div class="hfc-tilt"><div class="hfc-inner">
           <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(37,99,235,.2)"><i class="fa-solid fa-code" style="color:#60a5fa"></i></div><div class="hfc-body"><div class="hfc-lbl">Geliştirici</div><div class="hfc-name">Kurumsal Yazılım</div><div class="hfc-tags"><span class="hfc-tag">PHP 8</span><span class="hfc-tag">MySQL</span><span class="hfc-tag">JavaScript</span></div></div></div>
           <div class="hfc-face hfc-back"><div class="hfc-ic" style="background:rgba(37,99,235,.2)"><i class="fa-solid fa-paper-plane" style="color:#60a5fa"></i></div><div class="hfc-body"><div class="hfc-lbl">Hizmet</div><div class="hfc-name">Serbest Proje</div><div class="hfc-tags"><span class="hfc-tag">Web App</span><span class="hfc-tag">ERP Entgr.</span><span class="hfc-tag">Danışmanlık</span></div></div></div>
-        </div></div>
+        </div></div></div>
       </div>
     </div>
   </div>
