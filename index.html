@@ -73,6 +73,10 @@ main{position:relative;z-index:1}
 .ms-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;line-height:1}
 .ms-l{font-size:.53rem;color:rgba(255,255,255,.28);margin-top:4px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
 .ms-b{height:3px;border-radius:99px;margin-top:8px}
+.mc-chart{margin:0 0 10px;padding:2px 0}
+.mc-chart-lbl{font-size:.49rem;font-weight:700;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;display:flex;justify-content:space-between}
+.mc-chart-lbl span{color:rgba(34,197,94,.6)}
+.mc-svg{width:100%;height:40px;display:block;overflow:visible}
 .mtbl{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden}
 .mr{display:flex;align-items:center;padding:8px 11px;border-bottom:1px solid rgba(255,255,255,.05);gap:8px}
 .mr:last-child{border-bottom:none}
@@ -388,18 +392,40 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
       <div style="position:relative">
         <div class="mfloat">
           <div class="mcard">
-            <div class="mbar"><div class="md" style="background:#ef4444"></div><div class="md" style="background:#f59e0b"></div><div class="md" style="background:#22c55e"></div><span class="mlbl">Admin Panel — Genel Bakış</span></div>
+            <div class="mbar"><div class="md" style="background:#ef4444"></div><div class="md" style="background:#f59e0b"></div><div class="md" style="background:#22c55e"></div><span class="mlbl">Admin Panel — Genel Bakış</span><span class="mlbl" style="margin-left:auto;opacity:.5">Haz 2026</span></div>
             <div class="mbody">
-              <div class="mstats">
-                <div class="ms"><div class="ms-n">142</div><div class="ms-l">Aktif Hizmet</div><div class="ms-b" style="background:linear-gradient(90deg,#22c55e,#16a34a)"></div></div>
-                <div class="ms"><div class="ms-n">28</div><div class="ms-l">Açık Talep</div><div class="ms-b" style="background:linear-gradient(90deg,#ef4444,#dc2626)"></div></div>
-                <div class="ms"><div class="ms-n">15</div><div class="ms-l">Superbox</div><div class="ms-b" style="background:linear-gradient(90deg,#8b5cf6,#7c3aed)"></div></div>
+              <div class="mstats" style="grid-template-columns:repeat(4,1fr)">
+                <div class="ms"><div class="ms-n" style="font-size:1.1rem">142</div><div class="ms-l">Hizmet</div><div class="ms-b" style="background:linear-gradient(90deg,#22c55e,#16a34a)"></div></div>
+                <div class="ms"><div class="ms-n" style="font-size:1.1rem">28</div><div class="ms-l">Talep</div><div class="ms-b" style="background:linear-gradient(90deg,#ef4444,#dc2626)"></div></div>
+                <div class="ms"><div class="ms-n" style="font-size:1.1rem">15</div><div class="ms-l">Superbox</div><div class="ms-b" style="background:linear-gradient(90deg,#8b5cf6,#7c3aed)"></div></div>
+                <div class="ms"><div class="ms-n" style="font-size:1.1rem">99<span style="font-size:.6rem">%</span></div><div class="ms-l">Uptime</div><div class="ms-b" style="background:linear-gradient(90deg,#3b82f6,#2563eb)"></div></div>
+              </div>
+              <div class="mc-chart">
+                <div class="mc-chart-lbl">Haftalık Talep Akışı <span>▲ +12%</span></div>
+                <svg viewBox="0 0 240 40" class="mc-svg" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="cg1" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#ef4444" stop-opacity=".28"/>
+                      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="cg2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#3b82f6" stop-opacity=".18"/>
+                      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,32 C20,28 36,34 56,26 C76,18 90,30 110,20 C130,10 148,24 168,16 C188,8 210,14 240,8 L240,40 L0,40 Z" fill="url(#cg1)"/>
+                  <path d="M0,32 C20,28 36,34 56,26 C76,18 90,30 110,20 C130,10 148,24 168,16 C188,8 210,14 240,8" fill="none" stroke="#ef4444" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M0,36 C24,34 40,38 64,33 C88,28 100,35 124,30 C148,25 164,32 188,28 C212,24 228,28 240,25 L240,40 L0,40 Z" fill="url(#cg2)"/>
+                  <path d="M0,36 C24,34 40,38 64,33 C88,28 100,35 124,30 C148,25 164,32 188,28 C212,24 228,28 240,25" fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 2" opacity=".7"/>
+                  <circle cx="240" cy="8" r="2.5" fill="#ef4444"/>
+                  <circle cx="240" cy="25" r="2" fill="#3b82f6" opacity=".7"/>
+                </svg>
               </div>
               <div class="mtbl">
-                <div class="mr"><div class="mdt" style="background:#22c55e"></div><div class="mb" style="flex:1"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.22)">Aktif</div></div>
-                <div class="mr"><div class="mdt" style="background:#ef4444"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.05)"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.22)">Arıza</div></div>
-                <div class="mr"><div class="mdt" style="background:#22c55e"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.07)"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.22)">Aktif</div></div>
-                <div class="mr"><div class="mdt" style="background:#f59e0b"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.05)"></div><div class="mb" style="width:28%"></div><div class="mcp" style="background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.22)">Beklemede</div></div>
+                <div class="mr"><div class="mdt" style="background:#22c55e"></div><div class="mb" style="flex:1"></div><div class="mb" style="width:22%"></div><div class="mcp" style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.22)">Aktif</div></div>
+                <div class="mr"><div class="mdt" style="background:#ef4444"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.05)"></div><div class="mb" style="width:22%"></div><div class="mcp" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.22)">Arıza</div></div>
+                <div class="mr"><div class="mdt" style="background:#22c55e"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.07)"></div><div class="mb" style="width:22%"></div><div class="mcp" style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.22)">Aktif</div></div>
+                <div class="mr"><div class="mdt" style="background:#f59e0b"></div><div class="mb" style="flex:1;background:rgba(255,255,255,.05)"></div><div class="mb" style="width:22%"></div><div class="mcp" style="background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.22)">Beklemede</div></div>
               </div>
             </div>
           </div>
