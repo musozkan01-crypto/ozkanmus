@@ -86,28 +86,38 @@ main{position:relative;z-index:1}
 .fl{position:absolute;background:rgba(15,23,40,.95);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px 14px;font-size:.67rem;font-weight:600;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:7px;box-shadow:0 10px 28px rgba(0,0,0,.4);backdrop-filter:blur(8px);white-space:nowrap}
 .fl1{top:-16px;right:-16px;border-color:rgba(220,38,38,.26);animation:mfl 4s ease-in-out infinite alternate}
 .fl2{bottom:-14px;left:-14px;border-color:rgba(37,99,235,.22);animation:mfl 6s ease-in-out infinite alternate-reverse}
-/* Hero 3D flip cards */
-.hfc-col{display:flex;flex-direction:column;gap:14px}
+/* Hero 3D flip cards — GPU composited, sıfır JS */
+.hfc-col{display:flex;flex-direction:column;gap:12px}
 .hfc-wrap{perspective:900px}
-.hfc-inner{position:relative;height:82px;transform-style:preserve-3d}
-@keyframes hfc-spin{0%{transform:rotateY(0deg)}100%{transform:rotateY(360deg)}}
-.hfc-inner.hfc-spinning{animation:hfc-spin 1s cubic-bezier(.4,0,.2,1) forwards}
-.hfc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 22px rgba(0,0,0,.45)}
+.hfc-inner{
+  position:relative;height:82px;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+@keyframes hfc-intro{
+  0%  {transform:rotateY(0deg)}
+  100%{transform:rotateY(360deg)}
+}
+.hfc-col .hfc-wrap:nth-child(1) .hfc-inner{animation:hfc-intro .9s cubic-bezier(.25,.46,.45,.94) .15s both}
+.hfc-col .hfc-wrap:nth-child(2) .hfc-inner{animation:hfc-intro .9s cubic-bezier(.25,.46,.45,.94) .35s both}
+.hfc-col .hfc-wrap:nth-child(3) .hfc-inner{animation:hfc-intro .9s cubic-bezier(.25,.46,.45,.94) .55s both}
+.hfc-col .hfc-wrap:nth-child(4) .hfc-inner{animation:hfc-intro .9s cubic-bezier(.25,.46,.45,.94) .75s both}
+.hfc-face{
+  position:absolute;inset:0;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border-radius:14px;padding:12px 16px;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:0 4px 22px rgba(0,0,0,.45);
+  will-change:transform;
+}
 .hfc-front{background:rgba(15,23,40,.94);border:1px solid rgba(255,255,255,.13)}
-.hfc-back{background:rgba(9,17,31,.97);border:1px solid rgba(255,255,255,.08);transform:rotateY(180deg)}
+.hfc-back{background:rgba(9,17,31,.9);border:1px solid rgba(255,255,255,.06);transform:rotateY(180deg)}
 .hfc-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0}
 .hfc-body{flex:1;min-width:0}
 .hfc-lbl{font-size:.5rem;font-weight:800;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
 .hfc-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;font-weight:900;color:#fff;line-height:1.2;margin-bottom:5px}
 .hfc-tags{display:flex;gap:4px;flex-wrap:wrap}
 .hfc-tag{font-size:.52rem;font-weight:700;color:rgba(255,255,255,.42);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);padding:1px 7px;border-radius:999px}
-.hfc-dots{display:flex;justify-content:center;gap:5px;margin-top:6px}
-.hfc-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.18);transition:all .3s;flex-shrink:0}
-.hfc-dot.on{width:18px;border-radius:3px}
-.hfc-col .hfc-wrap:nth-child(1) .hfc-dot.on{background:#f87171}
-.hfc-col .hfc-wrap:nth-child(2) .hfc-dot.on{background:#fbbf24}
-.hfc-col .hfc-wrap:nth-child(3) .hfc-dot.on{background:#fb923c}
-.hfc-col .hfc-wrap:nth-child(4) .hfc-dot.on{background:#60a5fa}
 /* 3D card section */
 .h3d-section{padding:0 32px;margin-top:-42px;position:relative;z-index:10}
 .h3d-wrap{max-width:1160px;margin:0 auto;perspective:1100px;perspective-origin:50% 35%}
@@ -417,28 +427,24 @@ footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28p
             <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(220,38,38,.2)"><i class="fa-solid fa-headset" style="color:#f87171"></i></div><div class="hfc-body"><div class="hfc-lbl">IT Sistemi</div><div class="hfc-name">Nevas Destek</div><div class="hfc-tags"><span class="hfc-tag">Oturum Korumalı</span><span class="hfc-tag">Rol Bazlı</span><span class="hfc-tag">CSRF</span></div></div></div>
             <div class="hfc-face hfc-back"><div class="hfc-ic" style="background:rgba(220,38,38,.2)"><i class="fa-solid fa-cubes" style="color:#f87171"></i></div><div class="hfc-body"><div class="hfc-lbl">8 Modül</div><div class="hfc-name">Tam Kapsam</div><div class="hfc-tags"><span class="hfc-tag">Ticket</span><span class="hfc-tag">TT Fiber</span><span class="hfc-tag">Superbox</span></div></div></div>
           </div>
-          <div class="hfc-dots"><span class="hfc-dot on"></span><span class="hfc-dot"></span><span class="hfc-dot"></span></div>
         </div>
         <div class="hfc-wrap">
           <div class="hfc-inner">
-            <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(245,158,11,.2)"><i class="fa-solid fa-server" style="color:#fbbf24"></i></div><div class="hfc-body"><div class="hfc-lbl">ERP Uzmanlığı</div><div class="hfc-name">Nebim V3</div><div class="hfc-tags"><span class="hfc-tag">IT Yöneticisi</span><span class="hfc-tag">e-İrsaliye</span></div></div></div>
-            <div class="hfc-face hfc-back"><div class="hfc-ic" style="background:rgba(245,158,11,.2)"><i class="fa-solid fa-file-invoice" style="color:#fbbf24"></i></div><div class="hfc-body"><div class="hfc-lbl">e-Dönüşüm</div><div class="hfc-name">GİB Entegrasyonu</div><div class="hfc-tags"><span class="hfc-tag">e-Fatura</span><span class="hfc-tag">Gelen/Giden</span><span class="hfc-tag">Mutabakat</span></div></div></div>
+            <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(245,158,11,.2)"><i class="fa-solid fa-server" style="color:#fbbf24"></i></div><div class="hfc-body"><div class="hfc-lbl">ERP Uzmanlığı</div><div class="hfc-name">Nebim V3</div><div class="hfc-tags"><span class="hfc-tag">IT Yöneticisi</span><span class="hfc-tag">e-İrsaliye</span><span class="hfc-tag">SQL Server</span></div></div></div>
+            <div class="hfc-face hfc-back"></div>
           </div>
-          <div class="hfc-dots"><span class="hfc-dot on"></span><span class="hfc-dot"></span><span class="hfc-dot"></span></div>
         </div>
         <div class="hfc-wrap">
           <div class="hfc-inner">
-            <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(249,115,22,.2)"><i class="fa-solid fa-chart-gantt" style="color:#fb923c"></i></div><div class="hfc-body"><div class="hfc-lbl">Yazılım</div><div class="hfc-name">Niti Go</div><div class="hfc-tags"><span class="hfc-tag">Bağımsız Platform</span><span class="hfc-tag">ERP Bağlantısı</span></div></div></div>
-            <div class="hfc-face hfc-back"><div class="hfc-ic" style="background:rgba(249,115,22,.2)"><i class="fa-solid fa-chart-bar" style="color:#fb923c"></i></div><div class="hfc-body"><div class="hfc-lbl">Raporlama</div><div class="hfc-name">Özel Analizler</div><div class="hfc-tags"><span class="hfc-tag">Muhasebe</span><span class="hfc-tag">Dönem Karş.</span><span class="hfc-tag">Şablon</span></div></div></div>
+            <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(249,115,22,.2)"><i class="fa-solid fa-chart-gantt" style="color:#fb923c"></i></div><div class="hfc-body"><div class="hfc-lbl">Yazılım</div><div class="hfc-name">Niti Go</div><div class="hfc-tags"><span class="hfc-tag">Raporlama</span><span class="hfc-tag">Muhasebe</span><span class="hfc-tag">ERP Bağlantısı</span></div></div></div>
+            <div class="hfc-face hfc-back"></div>
           </div>
-          <div class="hfc-dots"><span class="hfc-dot on"></span><span class="hfc-dot"></span><span class="hfc-dot"></span></div>
         </div>
         <div class="hfc-wrap">
           <div class="hfc-inner">
             <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(37,99,235,.2)"><i class="fa-solid fa-code" style="color:#60a5fa"></i></div><div class="hfc-body"><div class="hfc-lbl">Geliştirici</div><div class="hfc-name">Kurumsal Yazılım</div><div class="hfc-tags"><span class="hfc-tag">PHP 8</span><span class="hfc-tag">MySQL</span><span class="hfc-tag">JavaScript</span></div></div></div>
-            <div class="hfc-face hfc-back"><div class="hfc-ic" style="background:rgba(37,99,235,.2)"><i class="fa-solid fa-paper-plane" style="color:#60a5fa"></i></div><div class="hfc-body"><div class="hfc-lbl">Hizmet</div><div class="hfc-name">Serbest Proje</div><div class="hfc-tags"><span class="hfc-tag">Web App</span><span class="hfc-tag">ERP Entgr.</span><span class="hfc-tag">Danışmanlık</span></div></div></div>
+            <div class="hfc-face hfc-back"></div>
           </div>
-          <div class="hfc-dots"><span class="hfc-dot on"></span><span class="hfc-dot"></span><span class="hfc-dot"></span></div>
         </div>
       </div>
     </div>
@@ -764,50 +770,6 @@ document.querySelectorAll('.ecb').forEach((btn,i)=>btn.addEventListener('click',
   ecTimer=setInterval(()=>activateEC((ecActive+1)%3),4000);
 }));
 
-// Hero 3D flip cards
-const HFC_DATA=[
-  [{ic:'fa-headset',bg:'rgba(220,38,38,.2)',cl:'#f87171',lbl:'IT Sistemi',name:'Nevas Destek',tags:['Oturum Korumalı','Rol Bazlı','CSRF']},
-   {ic:'fa-cubes',bg:'rgba(220,38,38,.2)',cl:'#f87171',lbl:'8 Modül',name:'Tam Kapsam',tags:['Ticket','TT Fiber','Superbox','POS']},
-   {ic:'fa-shield-halved',bg:'rgba(220,38,38,.2)',cl:'#f87171',lbl:'Güvenlik',name:'Sıfır Zafiyet',tags:['RBAC','IP Takibi','Risk Skoru']}],
-  [{ic:'fa-server',bg:'rgba(245,158,11,.2)',cl:'#fbbf24',lbl:'ERP Uzmanlığı',name:'Nebim V3',tags:['IT Yöneticisi','e-İrsaliye']},
-   {ic:'fa-file-invoice',bg:'rgba(245,158,11,.2)',cl:'#fbbf24',lbl:'e-Dönüşüm',name:'GİB Entegrasyonu',tags:['e-Fatura','Gelen/Giden','Mutabakat']},
-   {ic:'fa-database',bg:'rgba(245,158,11,.2)',cl:'#fbbf24',lbl:'Veritabanı',name:'SQL Server T-SQL',tags:['Index Optim.','Performans']}],
-  [{ic:'fa-chart-gantt',bg:'rgba(249,115,22,.2)',cl:'#fb923c',lbl:'Yazılım',name:'Niti Go',tags:['Bağımsız Platform','ERP Bağlantısı']},
-   {ic:'fa-chart-bar',bg:'rgba(249,115,22,.2)',cl:'#fb923c',lbl:'Raporlama',name:'Özel Analizler',tags:['Muhasebe','Dönem Karş.','Şablon']},
-   {ic:'fa-plug',bg:'rgba(249,115,22,.2)',cl:'#fb923c',lbl:'Entegrasyon',name:'Canlı Veri',tags:['Nebim V3','SQL','Gerçek Zamanlı']}],
-  [{ic:'fa-code',bg:'rgba(37,99,235,.2)',cl:'#60a5fa',lbl:'Geliştirici',name:'Kurumsal Yazılım',tags:['PHP 8','MySQL','JavaScript']},
-   {ic:'fa-layer-group',bg:'rgba(37,99,235,.2)',cl:'#60a5fa',lbl:'Mimari',name:'Sıfırdan Tasarım',tags:['AJAX','Session Auth','CSRF']},
-   {ic:'fa-paper-plane',bg:'rgba(37,99,235,.2)',cl:'#60a5fa',lbl:'Hizmet',name:'Serbest Proje',tags:['Web App','ERP Entgr.','Danışmanlık']}]
-];
-function hfcRender(face,ci,fi){
-  const d=HFC_DATA[ci][fi];
-  const ic=face.querySelector('.hfc-ic');
-  ic.style.background=d.bg;
-  ic.innerHTML=`<i class="fa-solid ${d.ic}" style="color:${d.cl}"></i>`;
-  face.querySelector('.hfc-lbl').textContent=d.lbl;
-  face.querySelector('.hfc-name').textContent=d.name;
-  face.querySelector('.hfc-tags').innerHTML=d.tags.map(t=>`<span class="hfc-tag">${t}</span>`).join('');
-}
-let hfcFace=0;
-setInterval(()=>{
-  const next=(hfcFace+1)%3;
-  const afterNext=(hfcFace+2)%3;
-  document.querySelectorAll('.hfc-wrap').forEach((wrap,ci)=>{
-    const inner=wrap.querySelector('.hfc-inner');
-    inner.classList.remove('hfc-spinning');
-    void inner.offsetWidth;
-    inner.classList.add('hfc-spinning');
-    setTimeout(()=>{
-      hfcRender(inner.querySelector('.hfc-front'),ci,next);
-      wrap.querySelectorAll('.hfc-dot').forEach((d,i)=>d.classList.toggle('on',i===next));
-    },500);
-    setTimeout(()=>{
-      inner.classList.remove('hfc-spinning');
-      hfcRender(inner.querySelector('.hfc-back'),ci,afterNext);
-    },1050);
-  });
-  hfcFace=next;
-},3000);
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
 </script>
