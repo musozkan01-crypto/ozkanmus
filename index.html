@@ -726,7 +726,7 @@ img{max-width:100%;height:auto}
         <input type="hidden" name="from_name" value="ozkanmus.com.tr">
         <div class="cf-row">
           <div class="cf-field"><label class="cf-label">Ad Soyad <span class="cf-req">*</span></label><input class="cf-input" type="text" name="name" required></div>
-          <div class="cf-field"><label class="cf-label">Telefon</label><input class="cf-input" type="tel" name="phone"></div>
+          <div class="cf-field"><label class="cf-label">Telefon</label><input class="cf-input" type="tel" name="phone" inputmode="tel" maxlength="20" pattern="[0-9+()\s-]*" oninput="this.value=this.value.replace(/[^0-9+()\s-]/g,'')"></div>
         </div>
         <div class="cf-field"><label class="cf-label">E-posta <span class="cf-req">*</span></label><input class="cf-input" type="email" name="email" required></div>
         <div class="cf-field">
@@ -858,7 +858,7 @@ document.getElementById('cf-form').addEventListener('submit',async function(e){
   btn.textContent='Gönderiliyor…';
   const data=new FormData(this);
   try{
-    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:data});
+    const r=await fetch('https://nevasdestek.online/send.php',{method:'POST',body:data});
     const j=await r.json();
     if(j.success){
       document.getElementById('cf-sent-box').style.display='flex';
