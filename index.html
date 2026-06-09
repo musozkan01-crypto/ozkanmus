@@ -726,7 +726,7 @@ img{max-width:100%;height:auto}
         <input type="hidden" name="from_name" value="ozkanmus.com.tr">
         <div class="cf-row">
           <div class="cf-field"><label class="cf-label">Ad Soyad <span class="cf-req">*</span></label><input class="cf-input" type="text" name="name" required></div>
-          <div class="cf-field"><label class="cf-label">Telefon</label><input class="cf-input" type="tel" name="phone" inputmode="tel" maxlength="20" pattern="[0-9+()\s-]*" oninput="this.value=this.value.replace(/[^0-9+()\s-]/g,'')"></div>
+          <div class="cf-field"><label class="cf-label">Telefon <span class="cf-req">*</span></label><input class="cf-input" type="tel" name="phone" required inputmode="tel" maxlength="20" placeholder="+90 5XX XXX XX XX" oninput="this.value=this.value.replace(/[^0-9+()\s-]/g,'');this.setCustomValidity('')"></div>
         </div>
         <div class="cf-field"><label class="cf-label">E-posta <span class="cf-req">*</span></label><input class="cf-input" type="email" name="email" required></div>
         <div class="cf-field">
@@ -855,8 +855,14 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePM();closeDM()
 document.getElementById('cf-form').addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=document.getElementById('cf-btn-text');
+  const phoneEl=this.querySelector('[name=phone]');
+  let p=(phoneEl.value||'').replace(/\D/g,'');
+  if(p.length===10) p='90'+p; else if(p.charAt(0)==='0') p='90'+p.slice(1);
+  if(!/^90\d{10}$/.test(p)){ phoneEl.setCustomValidity('Lütfen geçerli bir Türkiye telefon numarası girin (örn. +90 5XX XXX XX XX)'); phoneEl.reportValidity(); return; }
+  phoneEl.setCustomValidity('');
   btn.textContent='Gönderiliyor…';
   const data=new FormData(this);
+  data.set('phone','+'+p);
   try{
     const r=await fetch('https://nevasdestek.online/send.php',{method:'POST',body:data});
     const j=await r.json();
