@@ -636,6 +636,23 @@ body{background:transparent!important}
 /* acik bolumleri seffaf yap -> mesh gorunsun (hero/footer koyu kalir) */
 .combo-section,.erp-section,.niti-section,.proj-section,.price-section,.contact-section{background:transparent!important}
 </style>
+<style id="prem-h3d">
+/* h3d kartlar: 3D acil-kapan + sirali + yukselme, 3sn dongu */
+.h3d-c{opacity:1!important;transform-origin:center bottom;backface-visibility:hidden;animation:h3dFlow 3s ease-in-out infinite;will-change:transform}
+.h3d-c:nth-child(1){animation-delay:0s!important}
+.h3d-c:nth-child(2){animation-delay:.2s!important}
+.h3d-c:nth-child(3){animation-delay:.4s!important}
+.h3d-c:nth-child(4){animation-delay:.6s!important}
+.h3d-c:hover{animation-play-state:paused}
+@keyframes h3dFlow{
+ 0%,66%,100%{transform:rotateX(0deg) translateY(0)}
+ 10%{transform:rotateX(-56deg) translateY(0)}   /* acil (3D) */
+ 22%{transform:rotateX(0deg) translateY(0)}      /* kapan */
+ 40%{transform:rotateX(0deg) translateY(-22px)}  /* yuksel */
+ 56%{transform:rotateX(0deg) translateY(0)}       /* in */
+}
+@media(prefers-reduced-motion:reduce){.h3d-c{animation:none!important}}
+</style>
 </head>
 <body>
 
