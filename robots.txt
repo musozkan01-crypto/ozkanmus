@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ozkanmus.com.tr/sitemap.xml
