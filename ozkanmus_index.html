@@ -681,6 +681,21 @@ body{background:transparent!important}
 .cd-wa i{color:#22c55e}.cd-li i{color:#0a66c2}.cd-ig i{color:#e1306c}.cd-tel i{color:#dc2626}
 .foot-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 </style>
+<style id="prem-talk">
+.talk-card{background:#fff;border:1px solid #e2e8f0;border-radius:24px;padding:34px 32px;box-shadow:0 8px 24px rgba(15,23,42,.06),0 28px 56px rgba(15,23,42,.09);position:relative;overflow:hidden}
+.talk-card::before{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(220,38,38,.10),transparent 70%);pointer-events:none}
+.talk-eyb{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#dc2626;margin-bottom:18px}
+.talk-sent{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;color:#0f172a;font-size:clamp(1.15rem,2.2vw,1.55rem);line-height:2.15}
+.tb{display:inline-block}
+.tb input{font:inherit;font-weight:800;color:#dc2626;border:none;border-bottom:2px dashed #cbd5e1;background:linear-gradient(transparent 62%,rgba(220,38,38,.09) 0);padding:0 5px 1px;min-width:78px;width:80px;outline:none;text-align:center;transition:border-color .2s}
+.tb input:focus{border-bottom-style:solid;border-bottom-color:#dc2626}
+.tb input::placeholder{color:#94a3b8;font-weight:600;font-style:italic;opacity:.9}
+.talk-send{margin-top:28px;display:inline-flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1rem;color:#fff;background:linear-gradient(135deg,#dc2626,#b91c1c);border:none;border-radius:14px;padding:15px 28px;cursor:pointer;box-shadow:0 10px 26px rgba(220,38,38,.32);transition:transform .2s,box-shadow .25s}
+.talk-send:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(220,38,38,.42)}
+.talk-send i{font-size:1.15rem}
+.talk-alt{margin-top:16px;font-size:.84rem;color:#64748b}
+.talk-alt a{color:#dc2626;font-weight:700;text-decoration:none}.talk-alt a:hover{text-decoration:underline}
+</style>
 </head>
 <body>
 
@@ -952,32 +967,15 @@ body{background:transparent!important}
       <p class="sec-p">Proje fikriniz, fiyat sorunuz veya teknik danışmanlık talebiniz için formu doldurun.</p><div class="contact-direct"><a class="cd-link cd-wa" href="https://wa.me/905343548997" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a><a class="cd-link cd-tel" href="tel:+905343548997"><i class="fa-solid fa-phone"></i> 0534 354 89 97</a><a class="cd-link cd-li" href="https://www.linkedin.com/in/%C3%B6zkan-m-994927323/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a><a class="cd-link cd-ig" href="https://www.instagram.com/ozkannmuss/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a></div>
     </div>
     <div class="rv d2">
-      <div id="cf-sent-box" class="cf-sent-box" style="display:none"><i class="fa-solid fa-circle-check"></i> Mesajınız iletildi, teşekkürler! En kısa sürede dönüş yapılacak.</div>
-      <form class="cf-form" id="cf-form">
-        <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY_BURAYA">
-        <input type="hidden" name="subject" value="Showcase İletişim Formu">
-        <input type="hidden" name="from_name" value="ozkanmus.com.tr">
-        <div class="cf-row">
-          <div class="cf-field"><label class="cf-label">Ad Soyad <span class="cf-req">*</span></label><input class="cf-input" type="text" name="name" required></div>
-          <div class="cf-field"><label class="cf-label">Telefon <span class="cf-req">*</span></label><input class="cf-input" type="tel" name="phone" required inputmode="tel" maxlength="20" placeholder="+90 5XX XXX XX XX" oninput="this.value=this.value.replace(/[^0-9+()\s-]/g,'');this.setCustomValidity('')"></div>
-        </div>
-        <div class="cf-field"><label class="cf-label">E-posta <span class="cf-req">*</span></label><input class="cf-input" type="email" name="email" required></div>
-        <div class="cf-field">
-          <label class="cf-label">Hizmet Konusu <span class="cf-req">*</span></label>
-          <select class="cf-select" name="subject_detail" required>
-            <option value="">— Seçiniz —</option>
-            <option>Küçük İşletme / Tanıtım Web Sitesi</option>
-            <option>Web Tabanlı Canlı Veri Sistemi</option>
-            <option>Kurumsal Yönetim Paneli</option>
-            <option>ERP Entegrasyonu (Nebim V3 / SQL)</option>
-            <option>Destek & Talep Sistemi</option>
-            <option>Niti Go — Raporlama</option>
-            <option>Danışmanlık</option>
-          </select>
-        </div>
-        <div class="cf-field"><label class="cf-label">Notlar / Mesajınız</label><textarea class="cf-textarea" name="message"></textarea></div>
-        <button type="submit" class="cf-btn"><i class="fa-solid fa-paper-plane" style="font-size:.82rem"></i> <span id="cf-btn-text">Mesaj Gönder</span></button>
-      </form>
+      <div class="talk-card">
+  <div class="talk-eyb"><i class="fa-solid fa-comment-dots"></i> Hadi tanışalım</div>
+  <p class="talk-sent">Merhaba Özkan, ben <span class="tb"><input id="tk-name" type="text" placeholder="adın" autocomplete="name"></span>.
+  <span class="tb"><input id="tk-sector" type="text" placeholder="sektörün"></span> alanında
+  <span class="tb"><input id="tk-need" type="text" placeholder="ne istediğin"></span> için bir çözüm arıyorum.
+  Bana <span class="tb"><input id="tk-phone" type="tel" inputmode="tel" placeholder="telefonun"></span> üzerinden dönebilirsin.</p>
+  <button type="button" class="talk-send" id="tk-send">WhatsApp'tan gönder <i class="fa-brands fa-whatsapp"></i></button>
+  <div class="talk-alt">veya <a href="tel:+905343548997">beni ara</a> · <a href="https://wa.me/905343548997" target="_blank" rel="noopener">direkt WhatsApp yaz</a></div>
+</div>
     </div>
   </div>
 </section>
@@ -1085,7 +1083,7 @@ function closePMOnBackdrop(e){if(e.target===document.getElementById('pm-backdrop
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePM();closeDM();}});
 
 // Contact form — Web3Forms
-document.getElementById('cf-form').addEventListener('submit',async function(e){
+var _cf=document.getElementById('cf-form'); _cf&&_cf.addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=document.getElementById('cf-btn-text');
   const phoneEl=this.querySelector('[name=phone]');
@@ -1242,6 +1240,21 @@ document.querySelectorAll('.fc, .h3d-c').forEach(function(c){
 </script>
 <script id="prem-bg-js">
 (function(){var bg=document.createElement('div');bg.id='px-bg';bg.innerHTML='<b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>';document.body.insertBefore(bg,document.body.firstChild);})();
+</script>
+<script id="prem-talk-js">
+(function(){
+ var ids=['tk-name','tk-sector','tk-need','tk-phone'];
+ function grow(i){var v=(i.value||i.placeholder||'');i.style.width=Math.max(v.length,(i.placeholder||'').length)+2+'ch';}
+ ids.forEach(function(id){var i=document.getElementById(id);if(i){grow(i);i.addEventListener('input',function(){grow(i);});}});
+ function v(id){var e=document.getElementById(id);return e?e.value.trim():'';}
+ var btn=document.getElementById('tk-send');
+ if(btn) btn.addEventListener('click',function(){
+   var n=v('tk-name'),sec=v('tk-sector'),need=v('tk-need'),ph=v('tk-phone');
+   if(!n||!need){alert('Adını ve ne istediğini yazar mısın? 🙂');return;}
+   var msg='Merhaba Özkan, ben '+n+'. '+(sec?sec+' alanında ':'')+need+' için bir çözüm arıyorum.'+(ph?' Telefonum: '+ph:'');
+   window.open('https://wa.me/905343548997?text='+encodeURIComponent(msg),'_blank');
+ });
+})();
 </script>
 </body>
 </html>
