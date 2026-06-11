@@ -707,6 +707,7 @@ body{background:transparent!important}
 .pf-sent{display:none;align-items:center;gap:9px;color:#15803d;font-weight:700;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:13px;padding:15px 16px;margin-top:10px}
 @media(max-width:600px){.pf-row{grid-template-columns:1fr}.pf-card{padding:24px 20px}}
 </style>
+<style id="prem-phone">.pf-emsg{display:none;color:#dc2626;font-size:.78rem;font-weight:600;margin-top:-6px}.pf-emsg.show{display:block}</style>
 </head>
 <body>
 
@@ -982,11 +983,11 @@ body{background:transparent!important}
   <form class="pf-form" id="pf-form" novalidate>
     <div class="pf-row">
       <div class="pf-field"><input class="pf-in" id="pf-name" type="text" placeholder=" " required><label>Ad Soyad</label><i class="fa-solid fa-user"></i></div>
-      <div class="pf-field"><input class="pf-in" id="pf-phone" type="tel" inputmode="tel" placeholder=" " required><label>Telefon</label><i class="fa-solid fa-phone"></i></div>
+      <div class="pf-field"><input class="pf-in" id="pf-phone" type="tel" inputmode="numeric" maxlength="18" placeholder=" " required oninput="this.value=this.value.replace(/[^0-9+ ]/g,'');this.classList.remove('pf-err')"><label>Telefon</label><i class="fa-solid fa-phone"></i></div>
     </div>
     <div class="pf-field"><input class="pf-in" id="pf-email" type="email" placeholder=" "><label>E-posta (opsiyonel)</label><i class="fa-solid fa-envelope"></i></div>
     <div class="pf-field"><textarea class="pf-in pf-ta" id="pf-msg" rows="3" placeholder=" " required></textarea><label>Projeni kısaca anlat</label><i class="fa-solid fa-comment-dots"></i></div>
-    <button type="submit" class="pf-btn" id="pf-btn"><span>Gönder</span> <i class="fa-solid fa-paper-plane"></i></button>
+    <div class="pf-emsg" id="pf-emsg"></div><button type="submit" class="pf-btn" id="pf-btn"><span>Gönder</span> <i class="fa-solid fa-paper-plane"></i></button>
     <div class="pf-note"><i class="fa-brands fa-whatsapp"></i> Gönder'e basınca mesaj WhatsApp üzerinden iletilir</div>
   </form>
   <div class="pf-sent" id="pf-sent"><i class="fa-solid fa-circle-check"></i> Teşekkürler! WhatsApp açılıyor…</div>
@@ -1257,25 +1258,33 @@ document.querySelectorAll('.fc, .h3d-c').forEach(function(c){
 (function(){var bg=document.createElement('div');bg.id='px-bg';bg.innerHTML='<b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>';document.body.insertBefore(bg,document.body.firstChild);})();
 </script>
 
+
 <script id="prem-form-js">
 (function(){
  var f=document.getElementById('pf-form'); if(!f) return;
  function v(id){var e=document.getElementById(id);return e?e.value.trim():'';}
+ function trPhone(raw){
+   var d=(raw||'').replace(/\D/g,'');
+   if(d.length===12 && d.slice(0,2)==='90') d=d.slice(2);
+   else if(d.length===11 && d[0]==='0') d=d.slice(1);
+   if(d.length===10 && d[0]==='5') return d;   // gecerli TR mobil
+   return null;
+ }
  f.addEventListener('submit',function(e){
    e.preventDefault();
-   var n=v('pf-name'),ph=v('pf-phone'),em=v('pf-email'),msg=v('pf-msg');
-   var bad=false;[['pf-name',n],['pf-phone',ph],['pf-msg',msg]].forEach(function(a){var el=document.getElementById(a[0]);if(!a[1]){el.classList.add('pf-err');bad=true;}else el.classList.remove('pf-err');});
-   if(bad){return;}
-   var text='Merhaba Özkan,
-
-Ad: '+n+'
-Telefon: '+ph+(em?'
-E-posta: '+em:'')+'
-
-Proje:
-'+msg;
+   var n=v('pf-name'),phRaw=v('pf-phone'),em=v('pf-email'),msg=v('pf-msg');
+   var emsg=document.getElementById('pf-emsg');
+   var bad=false;
+   [['pf-name',n],['pf-msg',msg]].forEach(function(a){var el=document.getElementById(a[0]);if(!a[1]){el.classList.add('pf-err');bad=true;}else el.classList.remove('pf-err');});
+   var pd=trPhone(phRaw);
+   var pel=document.getElementById('pf-phone');
+   if(!pd){ pel.classList.add('pf-err'); if(emsg){emsg.textContent='Geçerli bir Türkiye cep numarası girin (5XX XXX XX XX)';emsg.classList.add('show');} bad=true; }
+   else { pel.classList.remove('pf-err'); if(emsg) emsg.classList.remove('show'); }
+   if(bad) return;
+   var pretty='+90 '+pd.slice(0,3)+' '+pd.slice(3,6)+' '+pd.slice(6,8)+' '+pd.slice(8,10);
+   var text='Merhaba Özkan,\n\nAd: '+n+'\nTelefon: '+pretty+(em?'\nE-posta: '+em:'')+'\n\nProje:\n'+msg;
    window.open('https://wa.me/905343548997?text='+encodeURIComponent(text),'_blank');
-   f.style.display='none'; var s=document.getElementById('pf-sent'); if(s) s.style.display='flex';
+   f.style.display='none'; var sb=document.getElementById('pf-sent'); if(sb) sb.style.display='flex';
  });
 })();
 </script>
