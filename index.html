@@ -581,6 +581,27 @@ img{max-width:100%;height:auto}
 @keyframes hpbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 @media(max-width:640px){.hp-track i{font-size:1.6rem}.hero-people{top:78px}}
 </style>
+<style id="prem-layer">
+/* ===== PREMIUM LAYER ===== */
+#px-prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:9999;background:linear-gradient(90deg,#dc2626,#60a5fa);box-shadow:0 0 12px rgba(220,38,38,.5);transition:width .12s linear}
+#px-grain{position:fixed;inset:0;z-index:6;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#px-aura{position:fixed;top:0;left:0;width:640px;height:640px;margin:-320px;z-index:0;pointer-events:none;border-radius:50%;background:radial-gradient(circle,rgba(220,38,38,.10),rgba(96,165,250,.06) 42%,transparent 66%);transform:translate(-100px,-100px);transition:transform .25s cubic-bezier(.16,1,.3,1);will-change:transform;filter:blur(8px)}
+@media(hover:none){#px-aura{display:none}}
+/* scroll reveal (failsafe'li) */
+.px-rv{opacity:0;transform:translateY(28px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
+.px-rv.px-in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.px-rv{opacity:1!important;transform:none!important}}
+/* kart imlec-spotlight + lift */
+.fc,.h3d-c,.niti-card,.proj-card{position:relative;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s ease}
+.fc::after,.h3d-c::after,.niti-card::after,.proj-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s ease;background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),rgba(220,38,38,.13),transparent 62%);z-index:2}
+.fc:hover::after,.h3d-c:hover::after,.niti-card:hover::after,.proj-card:hover::after{opacity:1}
+.fc:hover,.niti-card:hover,.proj-card:hover{transform:translateY(-5px)}
+/* animasyonlu gradyan baslik */
+.px-grad{background:linear-gradient(100deg,#0f172a 0%,#dc2626 38%,#60a5fa 60%,#0f172a 100%);background-size:240% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:pxGrad 7s linear infinite}
+@keyframes pxGrad{to{background-position:240% center}}
+/* manyetik buton yumusaklik */
+.btn-r,.btn-g,.cf-btn,.pc-cta{transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .25s ease,background .2s ease}
+</style>
 </head>
 <body>
 
@@ -1101,6 +1122,44 @@ document.querySelectorAll('.fc, .h3d-c').forEach(function(c){
   var m=(i.getAttribute('style')||'').match(/color:[^;]+/); if(m) w.style.cssText=m[0];
   c.appendChild(w);
 });
+</script>
+<script id="prem-layer-js">
+(function(){
+ var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+ // ilerleme cubugu
+ var prog=document.createElement('div');prog.id='px-prog';document.body.appendChild(prog);
+ var grain=document.createElement('div');grain.id='px-grain';document.body.appendChild(grain);
+ function onScroll(){var h=document.documentElement;var sc=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);prog.style.width=(sc*100)+'%';}
+ window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+ // aura + kart spotlight
+ if(!RM&&!(window.matchMedia&&window.matchMedia('(hover:none)').matches)){
+  var aura=document.createElement('div');aura.id='px-aura';document.body.appendChild(aura);
+  var cards=document.querySelectorAll('.fc,.h3d-c,.niti-card,.proj-card');
+  window.addEventListener('mousemove',function(e){
+   aura.style.transform='translate('+e.clientX+'px,'+e.clientY+'px)';
+   for(var i=0;i<cards.length;i++){var c=cards[i],r=c.getBoundingClientRect();
+    if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom){
+     c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');}}
+  },{passive:true});
+  // manyetik butonlar
+  document.querySelectorAll('.btn-r,.btn-g,.cf-btn,.pc-cta').forEach(function(b){
+   b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();var mx=e.clientX-r.left-r.width/2,my=e.clientY-r.top-r.height/2;b.style.transform='translate('+(mx*0.18)+'px,'+(my*0.22)+'px)';});
+   b.addEventListener('mouseleave',function(){b.style.transform='';});
+  });
+ }
+ // gradyan baslik
+ document.querySelectorAll('.sec-h').forEach(function(h){h.classList.add('px-grad');});
+ // scroll reveal (failsafe)
+ if(!RM){
+  var els=document.querySelectorAll('.sec-h,.fc,.h3d-c,.niti-card,.proj-card,.dm-item,.price-grid>*,.price-grid2>*,.proj-grid>*');
+  els.forEach(function(el,i){el.classList.add('px-rv');el.style.transitionDelay=((i%5)*0.07).toFixed(2)+'s';});
+  if('IntersectionObserver' in window){
+   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('px-in');io.unobserve(x.target);}});},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+   els.forEach(function(el){io.observe(el);});
+  }
+  setTimeout(function(){els.forEach(function(el){el.classList.add('px-in');});},2600); // GUVENLIK: ne olursa olsun goster
+ }
+})();
 </script>
 </body>
 </html>
