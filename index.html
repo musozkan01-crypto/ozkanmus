@@ -653,6 +653,26 @@ body{background:transparent!important}
 }
 @media(prefers-reduced-motion:reduce){.h3d-c{animation:none!important}}
 </style>
+<style id="prem-chart">
+/* ERP donut -> 3D donen + acilan kapanan disk */
+.erp-donut-rel{perspective:1100px;perspective-origin:50% 42%}
+.erp-donut{transform-origin:center center;animation:erp3d 6s ease-in-out infinite;
+  filter:drop-shadow(0 18px 16px rgba(15,23,42,.30)) drop-shadow(0 4px 6px rgba(15,23,42,.18)) saturate(1.12);will-change:transform}
+.erp-donut-rel:hover .erp-donut{animation-play-state:paused}
+@keyframes erp3d{
+  0%  {transform:rotateX(24deg) rotateZ(0deg)   scale(1)}      /* kapali-ish */
+  50% {transform:rotateX(62deg) rotateZ(180deg) scale(1.05)}   /* acik (yatik) */
+  100%{transform:rotateX(24deg) rotateZ(360deg) scale(1)}      /* tam tur + kapanir */
+}
+/* arkada premium isima halkasi */
+.erp-donut-rel::before{content:"";position:absolute;inset:6px;border-radius:50%;z-index:-1;
+  background:radial-gradient(circle,rgba(245,158,11,.22),rgba(59,130,246,.12) 55%,transparent 72%);
+  filter:blur(14px);animation:erpGlow 6s ease-in-out infinite}
+@keyframes erpGlow{0%,100%{opacity:.5;transform:scale(.92)}50%{opacity:.9;transform:scale(1.08)}}
+/* ortadaki etiket sabit & on planda */
+.erp-dc{z-index:3}
+@media(prefers-reduced-motion:reduce){.erp-donut{animation:none!important}.erp-donut-rel::before{animation:none!important}}
+</style>
 </head>
 <body>
 
