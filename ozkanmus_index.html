@@ -871,8 +871,13 @@ a,button,.btn-r,.btn-g,.nav-link,.proj-link,.cd-link,.dm-cta,.demo-bar-cta,i,svg
 /* Skill: metin seçimi accent rengi (sitenin vurgusuyla) */
 ::selection{background:#dc2626;color:#fff}
 ::-moz-selection{background:#dc2626;color:#fff}
+/* Skill: scroll-reveal'ı blur ile zenginleştir — her bölüm/kart netleşerek gelsin (showcase imza efekti) */
+.rv{filter:blur(8px);transition:opacity .58s cubic-bezier(.4,0,.2,1),transform .58s cubic-bezier(.4,0,.2,1),filter .58s cubic-bezier(.4,0,.2,1)}
+.rv.on{filter:blur(0)}
+/* gecikme skalasını uzat (daha uzun kart dizilerinde kademeli/merdiven giriş) */
+.d4{transition-delay:.32s}.d5{transition-delay:.40s}.d6{transition-delay:.48s}
 /* erişilebilirlik: hareket azaltma tercihi */
-@media(prefers-reduced-motion:reduce){.hero-in{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.hero-in{animation:none!important}.rv{filter:none!important}}
 </style>
 <script id="ent-dark-js">
 (function(){function k(){['px-bg','px-grain','px-aura'].forEach(function(i){var e=document.getElementById(i);if(e&&e.remove)e.remove();});
