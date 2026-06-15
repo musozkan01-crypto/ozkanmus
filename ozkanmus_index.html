@@ -865,14 +865,18 @@ a,button,.btn-r,.btn-g,.nav-link,.proj-link,.cd-link,.dm-cta,.demo-bar-cta,i,svg
   transition:color .25s cubic-bezier(.25,1,.5,1),background-color .25s cubic-bezier(.25,1,.5,1),
   border-color .25s cubic-bezier(.25,1,.5,1),transform .25s cubic-bezier(.34,1.56,.64,1),
   box-shadow .25s cubic-bezier(.25,1,.5,1),opacity .25s ease}
-/* Skill: hero girişi — blur + fade ile yavaşça netleşerek gelsin (tek seferlik, premium) */
-.hero-in{animation:edHeroIn 1s cubic-bezier(.25,1,.5,1) both}
+/* Skill: hero girişi — blur + fade, LUXE expo easing (hızlı başla → nazikçe otur) */
+.hero-in{animation:edHeroIn 1.05s cubic-bezier(.16,1,.3,1) both}
 @keyframes edHeroIn{from{opacity:0;transform:translateY(26px);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+/* lüks easing değişkenleri (tüm site için referans) */
+:root{--ease-luxe:cubic-bezier(.16,1,.3,1);--ease-bounce:cubic-bezier(.34,1.56,.64,1)}
+/* kart hover'ı default 'ease' yerine luxe expo eğriyle (giriş ease-out mantığı) */
+.fc,.pc,.proj-card,.niti-card,.h3d-c{transition:transform .34s var(--ease-luxe),box-shadow .34s var(--ease-luxe),border-color .25s ease}
 /* Skill: metin seçimi accent rengi (sitenin vurgusuyla) */
 ::selection{background:#dc2626;color:#fff}
 ::-moz-selection{background:#dc2626;color:#fff}
-/* Skill: scroll-reveal'ı blur ile zenginleştir — her bölüm/kart netleşerek gelsin (showcase imza efekti) */
-.rv{filter:blur(8px);transition:opacity .58s cubic-bezier(.4,0,.2,1),transform .58s cubic-bezier(.4,0,.2,1),filter .58s cubic-bezier(.4,0,.2,1)}
+/* Skill: scroll-reveal — ÖZELLİK BAŞINA AYRI EASING (opacity lineer eşit solar, transform/filter luxe expo ile nazikçe oturur) */
+.rv{filter:blur(8px);transition:opacity .55s linear,transform .72s cubic-bezier(.16,1,.3,1),filter .72s cubic-bezier(.16,1,.3,1)}
 .rv.on{filter:blur(0)}
 /* gecikme skalasını uzat (daha uzun kart dizilerinde kademeli/merdiven giriş) */
 .d4{transition-delay:.32s}.d5{transition-delay:.40s}.d6{transition-delay:.48s}
@@ -883,6 +887,25 @@ a,button,.btn-r,.btn-g,.nav-link,.proj-link,.cd-link,.dm-cta,.demo-bar-cta,i,svg
 (function(){function k(){['px-bg','px-grain','px-aura'].forEach(function(i){var e=document.getElementById(i);if(e&&e.remove)e.remove();});
 document.querySelectorAll('.hero-people,.hero .pt').forEach(function(e){e.remove&&e.remove();});}
 k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout(k,1200);})();
+</script>
+<script id="ent-parallax">
+/* ölçülü hero parallax: sadece dekoratif katmanlar (orb'lar + logo glow), metne dokunmaz */
+(function(){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var bg,logo,ticking=false,vh=window.innerHeight||800;
+  function grab(){bg=document.querySelector('.hero-bg');logo=document.querySelector('.hero-logo-bg');}
+  function upd(){
+    var y=window.scrollY||window.pageYOffset||0;
+    if(y<vh*1.3){ /* sadece hero görünürken çalış */
+      if(bg)   bg.style.transform='translate3d(0,'+(y*0.18)+'px,0)';
+      if(logo) logo.style.transform='translate(-50%,calc(-50% + '+(y*0.08)+'px)) scale(1)';
+    }
+    ticking=false;
+  }
+  function onScroll(){if(!ticking){requestAnimationFrame(upd);ticking=true;}}
+  function init(){grab();vh=window.innerHeight||800;window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',function(){vh=window.innerHeight||800;},{passive:true});upd();}
+  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
+})();
 </script>
 </head>
 <body>
