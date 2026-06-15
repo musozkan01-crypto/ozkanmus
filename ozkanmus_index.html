@@ -708,6 +708,83 @@ body{background:transparent!important}
 @media(max-width:600px){.pf-row{grid-template-columns:1fr}.pf-card{padding:24px 20px}}
 </style>
 <style id="prem-phone">.pf-emsg{display:none;color:#dc2626;font-size:.78rem;font-weight:600;margin-top:-6px}.pf-emsg.show{display:block}</style>
+<style id="ent-dark">
+/* ================= ENTERPRISE DARK RE-SKIN ================= */
+:root{--ed-bg:#0a0f1c;--ed-surf:rgba(255,255,255,.035);--ed-surf2:#0e1626;--ed-bd:rgba(255,255,255,.09);--ed-tx:#e9eef7;--ed-tx2:#9fb0c9;--ed-tx3:#6b7a93}
+html{background:#0a0f1c!important}
+body{background:#0a0f1c!important;color:var(--ed-tx)!important}
+/* canlı mesh / grain / aura / parçacık / yürüyen ikon -> KAPALI */
+#px-bg,#px-grain,#px-aura,.hero-people{display:none!important}
+.hero .pt{display:none!important}
+/* mesh yerine sakin, statik koyu zemin */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+  radial-gradient(58vw 58vw at 10% -8%,rgba(127,29,29,.15),transparent 60%),
+  radial-gradient(54vw 54vw at 96% 6%,rgba(30,58,138,.13),transparent 60%),
+  #0a0f1c}
+/* bölümler şeffaf -> koyu zemin görünür */
+.combo-section,.erp-section,.niti-section,.proj-section,.price-section,.contact-section,
+.feat-section,.banner-section,.h3d-section{background:transparent!important}
+/* başlık / eyebrow / paragraf */
+.sec-h,.px-grad{color:var(--ed-tx)!important;background:none!important;-webkit-text-fill-color:var(--ed-tx)!important;animation:none!important}
+.sec-p{color:var(--ed-tx2)!important}
+.sec-ey{background:rgba(239,68,68,.12)!important;border-color:rgba(239,68,68,.26)!important;color:#fca5a5!important}
+/* hero sakinleştir */
+.hero{min-height:auto!important}
+.orb{animation:none!important;opacity:.5!important}.mfloat,.fl1,.fl2{animation:none!important}
+.hero-fade{background:linear-gradient(to bottom,transparent,#0a0f1c)!important}
+/* ===== kart yüzeyleri (cam, kurumsal) ===== */
+.h3d-c,.fc,.erp-card,.niti-card,.proj-card,.pc,.ci-item,.demo-bar,.niti-diff,.sk-row,.price-note{
+  background:var(--ed-surf)!important;border-color:var(--ed-bd)!important;box-shadow:none!important;color:var(--ed-tx)!important}
+.h3d-c,.h3d-c:nth-child(n){animation:none!important;transform:none!important}
+.h3d-c:hover,.fc:hover,.niti-card:hover,.proj-card:hover,.pc:hover{transform:translateY(-4px)!important;border-color:rgba(239,68,68,.35)!important;box-shadow:0 16px 40px rgba(0,0,0,.45)!important}
+/* başlık metinleri açık */
+.h3d-title,.ft,.erp-card-title,.niti-card-title,.proj-name,.pc-name,.ci-val,.demo-bar-title,.niti-diff-title,.erp-title,.banner-title,.niti-name,.niti-title,.pc-price,.dm-item-title{color:var(--ed-tx)!important}
+/* ikincil metinler */
+.h3d-cat,.h3d-sub,.fd,.erp-card-desc,.niti-card-desc,.proj-desc,.pc-desc,.demo-bar-desc,.ci-label,.pc-tier,.erp-desc,.banner-sub,.erp-label,.banner-lbl,.niti-desc,.niti-diff-item,.demo-bar-tag,.pc-time{color:var(--ed-tx2)!important}
+/* tag / chip koyu */
+.h3d-tag,.ftag,.proj-tag,.demo-bar-tag,.pc-tag,.niti-tag,.erp-tag,.sk-mid{background:rgba(255,255,255,.05)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx2)!important}
+/* erp / banner kutuları koyu */
+.erp-in,.banner-in{background:linear-gradient(135deg,#101a2e,#0b1322)!important;border-color:var(--ed-bd)!important}
+.erp-donut{animation:none!important}.erp-donut-rel::before{animation:none!important;opacity:.35!important}
+.erp-dc-name{color:var(--ed-tx)!important}.ecb{background:rgba(255,255,255,.05)!important}
+/* niti (eski açık indigo) koyu */
+.niti-section{border-top-color:rgba(255,255,255,.06)!important;border-bottom-color:rgba(255,255,255,.06)!important}
+.niti-title span{color:#a5b4fc!important}
+.niti-standalone{background:rgba(99,102,241,.14)!important;border-color:rgba(99,102,241,.3)!important;color:#a5b4fc!important}
+.niti-tag{color:#c7d2fe!important}
+/* projeler */
+.proj-url{color:#f87171!important}
+.proj-link{background:rgba(255,255,255,.06)!important;border:1px solid var(--ed-bd)!important}
+.proj-cta{background:linear-gradient(135deg,#141d33,#0e1626)!important}
+/* fiyatlandırma */
+.pc-features .pf{color:var(--ed-tx2)!important}.pc-divider{background:var(--ed-bd)!important}
+.pc-cta{background:rgba(255,255,255,.05)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx2)!important}
+.pc.featured{border-color:rgba(239,68,68,.55)!important}.pc.featured::before{animation:none!important;background:rgba(239,68,68,.7)!important}
+.pc-badge{background:rgba(239,68,68,.14)!important;border-color:rgba(239,68,68,.3)!important;color:#fca5a5!important}
+/* iletişim + form */
+.cf-form,.pf-card{background:var(--ed-surf2)!important;border-color:var(--ed-bd)!important;box-shadow:none!important}
+.pf-card::before{display:none!important}
+.cf-input,.cf-select,.cf-textarea,.pf-in{background:rgba(255,255,255,.04)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx)!important}
+.pf-field>label,.pf-field>i{color:var(--ed-tx3)!important}.cf-label{color:var(--ed-tx2)!important}
+.cd-link{background:var(--ed-surf)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx)!important}
+/* modallar koyu */
+.pm-box,.dm-box{background:#0d1424!important;border-color:var(--ed-bd)!important}
+.pm-uc,.dm-item,.pm-tech-strip,.pm-uc{background:rgba(255,255,255,.04)!important;border-color:var(--ed-bd)!important}
+.pm-title,.pm-uc-title,.dm-title{color:var(--ed-tx)!important}
+.pm-uc-desc,.pm-section-lbl,.pmf,.dm-item-desc,.dm-lbl,.dm-note,.pm-footer,.pm-tech-chip,.pm-tier-lbl{color:var(--ed-tx2)!important}
+.pm-tech-chip{background:rgba(255,255,255,.05)!important;border-color:var(--ed-bd)!important}
+.pm-close,.dm-close{background:rgba(255,255,255,.05)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx2)!important}
+.pm-divider,.dm-head,.dm-footer{border-color:var(--ed-bd)!important}
+.pm-time-pill{background:rgba(255,255,255,.05)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx2)!important}
+.pm-stripe,.dm-stripe{animation:none!important}
+/* üst ilerleme çubuğu ince/sakin */
+#px-prog{height:2px!important;box-shadow:none!important;background:linear-gradient(90deg,#ef4444,#3b82f6)!important}
+</style>
+<script id="ent-dark-js">
+(function(){function k(){['px-bg','px-grain','px-aura'].forEach(function(i){var e=document.getElementById(i);if(e&&e.remove)e.remove();});
+document.querySelectorAll('.hero-people,.hero .pt').forEach(function(e){e.remove&&e.remove();});}
+k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout(k,1200);})();
+</script>
 </head>
 <body>
 
