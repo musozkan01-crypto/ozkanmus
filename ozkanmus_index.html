@@ -789,6 +789,20 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .pm-stripe,.dm-stripe{animation:none!important}
 /* üst ilerleme çubuğu ince/sakin */
 #px-prog{height:2px!important;box-shadow:none!important;background:linear-gradient(90deg,#ef4444,#3b82f6)!important}
+/* === İMLEÇ TAKİPLİ + KALAN DEKORATİF EFEKTLER TAMAMEN KAPALI === */
+#px-aura{display:none!important}
+.fc::after,.h3d-c::after,.niti-card::after,.proj-card::after{display:none!important;opacity:0!important}
+.hero-logo-bg{animation:none!important;opacity:.32!important}
+.demo-bar-live i,.pf-dot,.proj-live i{animation:none!important}
+.orb{opacity:.26!important}.bg-grid{opacity:.5!important}
+/* rengârenk ikon kutucuklarını kurumsal tek tona indir (inline rengi !important ile ez) */
+.fic,.h3d-ic,.niti-card-ic,.dm-ic,.ci-ic,.hfc-ic,.proj-ic,.erp-card .erp-card-title i{
+  background:rgba(255,255,255,.06)!important;border:1px solid var(--ed-bd)!important;color:#cbd5e1!important}
+.fic i,.h3d-ic i,.niti-card-ic i,.dm-ic i,.ci-ic i,.hfc-ic i{color:#cbd5e1!important}
+/* kart hover sadece hafif yükselme + ince kenar (renkli parıltı yok) */
+.fc:hover,.h3d-c:hover,.niti-card:hover,.proj-card:hover,.pc:hover{box-shadow:0 14px 36px rgba(0,0,0,.45)!important}
+/* tüm bölümlerde tutarlı dikey ritim */
+.combo-section,#moduller,.erp-section,.niti-section,.proj-section,.price-section,.contact-section{padding-top:64px!important;padding-bottom:64px!important}
 </style>
 <script id="ent-dark-js">
 (function(){function k(){['px-bg','px-grain','px-aura'].forEach(function(i){var e=document.getElementById(i);if(e&&e.remove)e.remove();});
