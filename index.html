@@ -803,6 +803,38 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .fc:hover,.h3d-c:hover,.niti-card:hover,.proj-card:hover,.pc:hover{box-shadow:0 14px 36px rgba(0,0,0,.45)!important}
 /* tüm bölümlerde tutarlı dikey ritim */
 .combo-section,#moduller,.erp-section,.niti-section,.proj-section,.price-section,.contact-section{padding-top:64px!important;padding-bottom:64px!important}
+/* === COMBO düzeni: yan yana uzun panel yerine ÜST tanıtım + ALT 3 kolon ızgara === */
+#moduller .combo-grid{grid-template-columns:1fr!important;gap:34px!important}
+#moduller .combo-left{position:static!important;top:auto!important;max-width:760px}
+#moduller .combo-right .sec-ey{margin-top:6px}
+#moduller .fgrid2{grid-template-columns:repeat(3,1fr)!important;gap:14px!important;margin-top:18px!important}
+#moduller .fgrid2 .sp2,#moduller .fgrid2 .fc{grid-column:auto!important}
+#moduller .fc{padding:20px 18px!important}
+@media(max-width:900px){#moduller .fgrid2{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:560px){#moduller .fgrid2{grid-template-columns:1fr!important}}
+/* ============ HEPSİ: sade CAMSI (glass) + hafif 3B derinlik ============ */
+.h3d-c,.fc,#moduller .fc,.erp-card,.niti-card,.proj-card,.pc,.ci-item,.demo-bar,.niti-diff,
+.sk-row,.price-note,.cf-form,.pf-card,.cd-link,.pm-uc,.dm-item,.pm-tech-strip{
+  background:linear-gradient(160deg,rgba(255,255,255,.085),rgba(255,255,255,.028))!important;
+  -webkit-backdrop-filter:blur(14px) saturate(135%);backdrop-filter:blur(14px) saturate(135%);
+  border:1px solid rgba(255,255,255,.13)!important;
+  box-shadow:0 10px 30px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.16)!important;
+  border-radius:16px!important;
+}
+.h3d-c:hover,.fc:hover,#moduller .fc:hover,.erp-card:hover,.niti-card:hover,.proj-card:hover,.pc:hover,.ci-item:hover{
+  transform:translateY(-5px)!important;
+  box-shadow:0 20px 46px rgba(0,0,0,.52),inset 0 1px 0 rgba(255,255,255,.24)!important;
+  border-color:rgba(255,255,255,.22)!important;
+}
+/* büyük paneller de aynı camsı dilden, biraz daha belirgin */
+.erp-in,.banner-in{
+  background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02))!important;
+  -webkit-backdrop-filter:blur(16px) saturate(130%);backdrop-filter:blur(16px) saturate(130%);
+  border:1px solid rgba(255,255,255,.12)!important;
+  box-shadow:0 14px 40px rgba(0,0,0,.40),inset 0 1px 0 rgba(255,255,255,.14)!important}
+/* ikon kutucukları da minik camsı */
+.fic,.h3d-ic,.niti-card-ic,.dm-ic,.ci-ic,.hfc-ic,.proj-ic{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 4px 12px rgba(0,0,0,.3)!important}
 </style>
 <script id="ent-dark-js">
 (function(){function k(){['px-bg','px-grain','px-aura'].forEach(function(i){var e=document.getElementById(i);if(e&&e.remove)e.remove();});
