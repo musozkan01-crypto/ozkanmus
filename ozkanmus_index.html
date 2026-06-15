@@ -724,6 +724,16 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 /* bölümler şeffaf -> koyu zemin görünür */
 .combo-section,.erp-section,.niti-section,.proj-section,.price-section,.contact-section,
 .feat-section,.banner-section,.h3d-section{background:transparent!important}
+/* #moduller (Kim İçin + Geliştirdiğim Sistemler) ID seçici, class'tan güçlü -> ID ile ez */
+#moduller{background:transparent!important;border-top-color:rgba(255,255,255,.06)!important;border-bottom-color:rgba(255,255,255,.06)!important}
+#moduller .sec-h{color:var(--ed-tx)!important}
+#moduller .sec-p{color:var(--ed-tx2)!important}
+#moduller .sec-ey{background:rgba(239,68,68,.12)!important;border-color:rgba(239,68,68,.26)!important;color:#fca5a5!important}
+#moduller .fc{background:var(--ed-surf)!important;border-color:var(--ed-bd)!important;box-shadow:none!important}
+#moduller .fc:hover{border-color:rgba(239,68,68,.35)!important;box-shadow:0 16px 40px rgba(0,0,0,.45)!important}
+#moduller .fc .ft{color:var(--ed-tx)!important}
+#moduller .fc .fd,#moduller .fc .ftag{color:var(--ed-tx2)!important}
+#moduller .card-wm{opacity:.06!important}
 /* başlık / eyebrow / paragraf */
 .sec-h,.px-grad{color:var(--ed-tx)!important;background:none!important;-webkit-text-fill-color:var(--ed-tx)!important;animation:none!important}
 .sec-p{color:var(--ed-tx2)!important}
