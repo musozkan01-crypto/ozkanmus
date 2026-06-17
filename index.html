@@ -911,6 +911,49 @@ k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout
   if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
 })();
 </script>
+<style id="ent-3d">
+/* ================= 2026 HYPER-DEPTH KATMANI ================= */
+/* Kartlar: gerçek 3B yüzey (perspektif transform'un içinde, parent gerekmez) */
+.fc,.pc,.proj-card,.niti-card,.h3d-c{
+  transform-style:preserve-3d!important;
+  backface-visibility:hidden!important;
+  will-change:transform,box-shadow!important;
+  transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .35s cubic-bezier(.25,1,.5,1),border-color .25s ease!important;
+  /* Volumetrik çift gölge: sıkı occlusion + geniş accent ambiyans */
+  box-shadow:0 4px 14px rgba(0,0,0,.55),0 22px 46px rgba(99,102,241,.10)!important;
+}
+/* Hover: mouse konumuna göre 3B eğilme + öne çıkma (translateZ) */
+.fc:hover,.pc:hover,.proj-card:hover,.niti-card:hover,.h3d-c:hover{
+  transform:perspective(1300px) translateZ(20px)
+            rotateX(calc(var(--my,0)*-9deg)) rotateY(calc(var(--mx,0)*9deg))!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.62),0 36px 74px rgba(99,102,241,.22),
+             0 0 26px rgba(124,131,255,.12)!important;
+  border-color:rgba(150,160,255,.32)!important;
+}
+/* İçerik & ikonlar farklı Z düzlemlerinde -> katmanlı derinlik (parallax hissi) */
+.fc:hover .fic,.pc:hover .pc-tier,.proj-card:hover .proj-ic,.niti-card:hover .niti-card-ic,.h3d-c:hover .h3d-ic{
+  transform:translateZ(30px)!important;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+@media(prefers-reduced-motion:reduce){
+  .fc:hover,.pc:hover,.proj-card:hover,.niti-card:hover,.h3d-c:hover{transform:translateZ(0)!important}
+}
+</style>
+<script id="ent-3d-js">
+/* Hyper-depth mouse-tilt: kart üstünde imleç -> --mx/--my (-0.5..0.5) */
+(function(){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var SEL='.fc,.pc,.proj-card,.niti-card,.h3d-c';
+  function bind(c){
+    c.addEventListener('mousemove',function(e){
+      var r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',((e.clientX-r.left)/r.width-0.5).toFixed(3));
+      c.style.setProperty('--my',((e.clientY-r.top)/r.height-0.5).toFixed(3));
+    },{passive:true});
+    c.addEventListener('mouseleave',function(){c.style.setProperty('--mx',0);c.style.setProperty('--my',0);},{passive:true});
+  }
+  function init(){document.querySelectorAll(SEL).forEach(bind);}
+  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
 </head>
 <body>
 
