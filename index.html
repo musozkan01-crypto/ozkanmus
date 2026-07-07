@@ -1248,6 +1248,7 @@ k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout
     <div class="rv d2">
       <div class="pf-card">
   <form class="pf-form" id="pf-form" novalidate>
+    <input id="pf-website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
     <div class="pf-row">
       <div class="pf-field"><input class="pf-in" id="pf-name" type="text" placeholder=" " required><label>Ad</label><i class="fa-solid fa-user"></i></div>
       <div class="pf-field"><input class="pf-in" id="pf-surname" type="text" placeholder=" " required><label>Soyad</label><i class="fa-solid fa-user"></i></div>
@@ -1530,13 +1531,14 @@ document.querySelectorAll('.fc, .h3d-c').forEach(function(c){
 <script id="prem-form-js">
 (function(){
  var f=document.getElementById('pf-form'); if(!f) return;
- // Web3Forms Access Key (hedef e-posta Web3Forms panelinde tanimli, burada gorunmez)
- var ACCESS_KEY='004cb40e-b7a5-4d01-824e-a1de159fda69';
+ // İletişim formu → kendi sunucumdaki markalı e-posta endpoint'i
+ var ENDPOINT='https://nevasdestek.online/ozkanmus_iletisim.php';
  function v(id){var e=document.getElementById(id);return e?e.value.trim():'';}
  function mark(id,ok){var el=document.getElementById(id);if(el)el.classList.toggle('pf-err',!ok);}
  f.addEventListener('submit',async function(e){
    e.preventDefault();
    var ad=v('pf-name'),soyad=v('pf-surname'),em=v('pf-email'),ph=v('pf-phone'),msg=v('pf-msg');
+   var hp=v('pf-website');
    var emsg=document.getElementById('pf-emsg'),bad=false;
    mark('pf-name',!!ad); if(!ad)bad=true;
    mark('pf-surname',!!soyad); if(!soyad)bad=true;
@@ -1546,19 +1548,10 @@ document.querySelectorAll('.fc, .h3d-c').forEach(function(c){
    if(emsg) emsg.classList.remove('show');
    var btn=document.getElementById('pf-btn'),btnHtml=btn.innerHTML; btn.disabled=true; btn.innerHTML='<span>Gönderiliyor…</span>';
    try{
-     var r=await fetch('https://api.web3forms.com/submit',{
+     var r=await fetch(ENDPOINT,{
        method:'POST',
-       headers:{'Content-Type':'application/json',Accept:'application/json'},
-       body:JSON.stringify({
-         access_key:ACCESS_KEY,
-         subject:'Yeni İletişim — '+ad+' '+soyad+' (ozkanmus.com.tr)',
-         from_name:'ozkanmus.com.tr',
-         name:ad+' '+soyad,
-         email:em,
-         replyto:em,
-         Telefon:ph||'Belirtilmedi',
-         Mesaj:msg
-       })
+       headers:{'Content-Type':'application/json'},
+       body:JSON.stringify({ ad:ad, soyad:soyad, email:em, telefon:ph, mesaj:msg, website:hp })
      });
      var d=await r.json();
      if(d.success){ f.style.display='none'; var sb=document.getElementById('pf-sent'); if(sb) sb.style.display='flex'; }
