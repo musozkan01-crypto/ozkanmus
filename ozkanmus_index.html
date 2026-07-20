@@ -55,7 +55,9 @@
   --dp:'Space Grotesk',sans-serif; --hd:'Plus Jakarta Sans',sans-serif; --bd:'Inter',sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{overflow-x:clip}
+.hero-stats .stat{min-width:0}
 body{font-family:var(--bd);background:var(--bg);color:var(--txt);overflow-x:hidden;min-height:100vh;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.55;letter-spacing:-.011em}
 img{max-width:100%;display:block}
 ::selection{background:rgba(79,70,229,.16);color:#0f1629}
@@ -458,13 +460,36 @@ footer{border-top:1px solid var(--stroke);padding:38px 32px;background:var(--bg-
   .pm-body{grid-template-columns:1fr}
 }
 @media(max-width:640px){
-  nav{padding:9px 18px}.nav-center{display:none}
-  .wrap,.hero,.about,.systems,.erp-section,.niti-section,.proj-section,.process,.price-section,.contact-section,.stats,.skills-sec{padding-left:18px;padding-right:18px}
-  .hero{padding-top:110px}
-  .bento,.sk-grid,.stats-grid,.proc-grid,.price-grid,.price-grid2,.niti-cards,.dm-grid{grid-template-columns:1fr}
-  .fdual{grid-template-columns:1fr;gap:26px}
+  nav{padding:9px 14px}.nav-center{display:none}.logo-im{height:44px}.nav-cta{padding:8px 13px;font-size:.72rem}
+  /* içerik ekrana daha geniş yayılsın */
+  .wrap,.hero,.systems,.erp-section,.niti-section,.proj-section,.price-section,.contact-section,.skills-sec{padding-left:14px;padding-right:14px}
+  .hero{padding:94px 14px 22px;min-height:auto}
+  .hero-in{gap:24px}
+  .hero h1{font-size:clamp(2.3rem,10.5vw,3rem);line-height:1.02}
+  .hero-sub{font-size:1rem}
+  .bento,.sk-grid,.price-grid,.price-grid2,.niti-cards,.dm-grid{grid-template-columns:1fr}
+  .hero-stats{gap:10px}
+  .fdual{grid-template-columns:1fr;gap:22px}
   .pf-row{grid-template-columns:1fr}
-  .hero-mini{gap:12px}
+  .hero-mini{gap:10px;font-size:.78rem}
+  /* kart içleri daralt → içerik daha geniş görünsün */
+  .fc,.pc,.niti-card{padding:20px 16px}
+  .stat{padding:18px 15px}
+  .pf-card{padding:24px 18px}
+  .erp-in{padding:26px 18px;gap:26px}
+  .niti-in,.contact-in{gap:30px}
+  .proj-body{padding:22px 18px}
+  .glass,.pc,.fc,.stat,.sk-row,.niti-card,.erp-in,.pf-card,.proj-card{border-radius:16px}
+  .sec-h{font-size:clamp(1.6rem,7.4vw,2.1rem)}
+  .sec-p{font-size:.95rem;margin-bottom:22px}
+  .erp-donut-rel{width:172px;height:172px}
+  .cd-link{flex:1;justify-content:center}
+  section{scroll-margin-top:66px}
+}
+@media(max-width:400px){
+  .wrap,.hero,.systems,.erp-section,.niti-section,.proj-section,.price-section,.contact-section,.skills-sec{padding-left:11px;padding-right:11px}
+  .hero-stats{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(2rem,11vw,2.6rem)}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
 
@@ -480,7 +505,7 @@ footer{border-top:1px solid var(--stroke);padding:38px 32px;background:var(--bg-
 /* richer glass depth */
 .glass{box-shadow:0 1px 3px rgba(17,24,45,.05),0 14px 34px rgba(17,24,45,.06)}
 /* soft section washes + glows */
-.systems{background:linear-gradient(180deg,#fbfaff 0%,transparent 46%)}
+.systems{background:linear-gradient(180deg,#fbfaff 0%,transparent 46%);overflow:hidden}
 .proj-section{background:linear-gradient(180deg,#faf9ff 0%,transparent 34%)}
 .price-section{overflow:hidden}
 .price-section::before{content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:1000px;max-width:120%;height:460px;background:radial-gradient(circle,rgba(99,102,241,.09),transparent 66%);pointer-events:none;z-index:0}
