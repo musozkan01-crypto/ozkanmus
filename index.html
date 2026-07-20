@@ -17,7 +17,7 @@
 <meta name="author" content="Özkan Muş">
 <meta name="keywords" content="Özkan Muş, kurumsal yazılım, ERP entegrasyon, Nebim V3, SQL Server, web tabanlı canlı veri, e-Dönüşüm, e-İrsaliye, e-Fatura, web sitesi, yazılım geliştirici, Antalya yazılım">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#09111f">
+<meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://ozkanmus.com.tr/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Özkan Muş">
@@ -36,1070 +36,558 @@
 <link rel="icon" type="image/png" href="/favicon-512.png?v=9" sizes="512x512">
 <link rel="apple-touch-icon" href="https://ozkanmus.com.tr/icon.png?v=8">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Özkan Muş","url":"https://ozkanmus.com.tr/","image":"https://ozkanmus.com.tr/og.png","description":"Kurumsal yazılım, Nebim V3 / SQL Server ERP entegrasyonu, web üzerinden canlı veri panelleri, e-Dönüşüm ve işletmeler için web siteleri.","founder":{"@type":"Person","name":"Özkan Muş","jobTitle":"Yazılım Geliştirici / IT Uzmanı"},"areaServed":"TR","sameAs":["https://www.linkedin.com/in/%C3%B6zkan-m-994927323/","https://www.instagram.com/ozkannmuss/"],"knowsAbout":["Nebim V3","SQL Server","ERP Entegrasyon","e-Dönüşüm","Web Geliştirme","PHP","T-SQL"],"priceRange":"₺₺"}</script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;450;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
+/* ============ ÖZKAN MUŞ · LIGHT PREMIUM (indigo) ============ */
+:root{
+  --bg:#ffffff; --bg-2:#f6f7fb; --bg-soft:#f4f5fa;
+  --panel:#ffffff; --panel-2:#fafaff;
+  --stroke:rgba(17,24,45,.09); --stroke-2:rgba(17,24,45,.15);
+  --txt:#0f1629; --dim:rgba(15,22,41,.66); --mute:rgba(15,22,41,.46);
+  --acc:#4f46e5; --acc-2:#6366f1; --acc-3:#4338ca; --vio:#7c3aed;
+  --acc-soft:rgba(79,70,229,.08); --acc-line:rgba(79,70,229,.24);
+  --glow:0 22px 60px rgba(79,70,229,.16);
+  --card-sh:0 1px 3px rgba(17,24,45,.06),0 8px 24px rgba(17,24,45,.05);
+  --r:20px; --r-lg:26px; --r-sm:13px;
+  --blur:saturate(160%) blur(16px);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --dp:'Space Grotesk',sans-serif; --hd:'Plus Jakarta Sans',sans-serif; --bd:'Inter',sans-serif;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#0f172a;overflow-x:hidden;min-height:100vh}
+body{font-family:var(--bd);background:var(--bg);color:var(--txt);overflow-x:hidden;min-height:100vh;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.55;letter-spacing:-.011em}
 img{max-width:100%;display:block}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 32px;background:rgba(9,17,31,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.08);gap:8px}
-.nav-logo{display:flex;align-items:center;gap:10px;min-width:0;flex-shrink:0}
-.logo-ic{height:36px;padding:0 11px;border-radius:10px;flex-shrink:0;width:auto;background:linear-gradient(135deg,#dc2626,#7f1d1d);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-style:italic;color:#fff;letter-spacing:-.07em;box-shadow:0 4px 16px rgba(220,38,38,.38);white-space:nowrap;gap:1px}
-.logo-bolt{font-style:normal;color:#fbbf24;font-size:.8rem;letter-spacing:0;margin:0 1px;vertical-align:-.05em;transform:none}
-.logo-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:.7rem;font-weight:900;color:rgba(255,255,255,.78);letter-spacing:.09em;text-transform:uppercase}
-.logo-im{height:60px;width:auto;display:block}
-.nav-center{display:flex;align-items:center;gap:4px}
-.nav-link{padding:6px 14px;border-radius:999px;color:rgba(255,255,255,.52);font-size:.76rem;font-weight:600;text-decoration:none;transition:all .2s;white-space:nowrap}
-.nav-link:hover{color:#fff;background:rgba(255,255,255,.08)}
-main{position:relative;z-index:1}
-.wrap{max-width:1160px;margin:0 auto;padding:0 32px}
-.sec-ey{display:inline-flex;align-items:center;gap:7px;padding:4px 13px;border-radius:999px;background:#fee2e2;border:1px solid #fecaca;font-size:.6rem;font-weight:800;color:#dc2626;letter-spacing:.12em;text-transform:uppercase;margin-bottom:13px}
-.sec-h{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.7rem,4vw,2.3rem);font-weight:900;letter-spacing:-.04em;margin-bottom:9px;line-height:1.12;color:#0f172a}
-.sec-p{font-size:.92rem;color:#64748b;line-height:1.78;max-width:520px;margin-bottom:44px}
-.hero{position:relative;overflow:hidden;background:#09111f;min-height:100svh;display:flex;align-items:center;padding:100px 32px 80px}
-.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);will-change:transform;pointer-events:none}
-.orb1{width:min(680px,120vw);height:min(680px,120vw);background:radial-gradient(circle,rgba(127,29,29,.42) 0%,transparent 70%);top:-15%;left:-10%;animation:o1 16s ease-in-out infinite alternate}
-.orb2{width:min(520px,100vw);height:min(520px,100vw);background:radial-gradient(circle,rgba(30,58,138,.3) 0%,transparent 70%);top:30%;right:-10%;animation:o2 20s ease-in-out infinite alternate}
-.orb3{width:min(400px,90vw);height:min(400px,90vw);background:radial-gradient(circle,rgba(220,38,38,.18) 0%,transparent 70%);bottom:-5%;left:25%;animation:o3 14s ease-in-out infinite alternate}
-.orb4{width:min(280px,70vw);height:min(280px,70vw);background:radial-gradient(circle,rgba(109,40,217,.15) 0%,transparent 70%);top:55%;left:55%;animation:o4 18s ease-in-out infinite alternate}
-@keyframes o1{to{transform:translate(50px,-35px) scale(1.08)}}
-@keyframes o2{to{transform:translate(-45px,55px) scale(1.11)}}
-@keyframes o3{to{transform:translate(35px,-45px) scale(.93)}}
-@keyframes o4{to{transform:translate(-28px,35px) scale(1.07)}}
-.bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px}
-.bg-vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 35%,rgba(9,17,31,.75) 100%)}
-.pt{position:absolute;border-radius:50%;pointer-events:none;animation:ptrise linear infinite}
-@keyframes ptrise{0%{transform:translateY(105vh);opacity:0}10%{opacity:1}90%{opacity:.5}100%{transform:translateY(-5vh);opacity:0}}
-.pt:nth-child(1){width:3px;height:3px;background:rgba(239,68,68,.8);left:8%;animation-duration:14s}
-.pt:nth-child(2){width:4px;height:4px;background:rgba(255,255,255,.06);left:22%;animation-duration:20s;animation-delay:3s}
-.pt:nth-child(3){width:3px;height:3px;background:rgba(239,68,68,.6);left:43%;animation-duration:11s;animation-delay:6s}
-.pt:nth-child(4){width:4px;height:4px;background:rgba(255,255,255,.05);left:64%;animation-duration:17s;animation-delay:1s}
-.pt:nth-child(5){width:3px;height:3px;background:rgba(239,68,68,.5);left:82%;animation-duration:13s;animation-delay:8s}
-.pt:nth-child(6){width:2px;height:2px;background:rgba(239,68,68,.7);left:56%;animation-duration:15s;animation-delay:4s}
-.pt:nth-child(7){width:3px;height:3px;background:rgba(255,255,255,.05);left:35%;animation-duration:22s;animation-delay:10s}
-.pt:nth-child(8){width:3px;height:3px;background:rgba(239,68,68,.4);left:76%;animation-duration:16s;animation-delay:7s}
-.hero-fade{position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to bottom,transparent,#f1f5f9);z-index:4;pointer-events:none}
-.hero-in{position:relative;z-index:2;max-width:1160px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap;padding:5px 13px;border-radius:999px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.22);font-size:.62rem;font-weight:800;color:#f87171;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px}
-.hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.1rem,5vw,3.6rem);font-weight:900;line-height:1.06;letter-spacing:-.05em;margin-bottom:20px;color:#fff}
-.h-red{color:#ef4444}
-.h-dim{color:rgba(255,255,255,.26)}
-.hero-sub{font-size:clamp(.88rem,2.2vw,.97rem);line-height:1.85;color:rgba(255,255,255,.48);margin-bottom:34px;max-width:480px}
-.hero-sub strong{color:rgba(255,255,255,.8);font-weight:600}
-.cta-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.btn-r{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:14px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;font-weight:700;font-size:.86rem;text-decoration:none;box-shadow:0 6px 28px rgba(220,38,38,.36);transition:all .22s}
-.btn-r:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(220,38,38,.5)}
-.btn-g{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:rgba(255,255,255,.65);font-weight:600;font-size:.86rem;text-decoration:none;transition:all .22s}
-.btn-g:hover{background:rgba(255,255,255,.12);color:#fff}
-.hero-right{position:relative}
-.mfloat{animation:mfl 5s ease-in-out infinite alternate}
-@keyframes mfl{0%{transform:translateY(0) rotate(-.7deg)}100%{transform:translateY(-16px) rotate(.4deg)}}
-.mcard{background:rgba(15,23,40,.95);border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;box-shadow:0 48px 96px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.09)}
-.mbar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:rgba(9,17,31,.85);border-bottom:1px solid rgba(255,255,255,.08)}
-.md{width:9px;height:9px;border-radius:50%}
-.mlbl{font-family:'Plus Jakarta Sans',sans-serif;font-size:.64rem;font-weight:700;color:rgba(255,255,255,.28);margin-left:4px}
-.mbody{padding:16px}
-.mstats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px}
-.ms{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:11px 10px}
-.ms-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;line-height:1}
-.ms-l{font-size:.53rem;color:rgba(255,255,255,.28);margin-top:4px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.ms-b{height:3px;border-radius:99px;margin-top:8px}
-.mc-chart{margin:0 0 10px;padding:2px 0}
-.mc-chart-lbl{font-size:.49rem;font-weight:700;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;display:flex;justify-content:space-between}
-.mc-chart-lbl span{color:rgba(34,197,94,.6)}
-.mc-svg{width:100%;height:40px;display:block;overflow:visible}
-.mtbl{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden}
-.mr{display:flex;align-items:center;padding:8px 11px;border-bottom:1px solid rgba(255,255,255,.05);gap:8px}
-.mr:last-child{border-bottom:none}
-.mdt{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.mb{border-radius:4px;background:rgba(255,255,255,.08);height:7px}
-.mcp{padding:2px 7px;border-radius:999px;font-size:.5rem;font-weight:800;white-space:nowrap}
-.fl{position:absolute;background:rgba(15,23,40,.95);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px 14px;font-size:.67rem;font-weight:600;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:7px;box-shadow:0 10px 28px rgba(0,0,0,.4);backdrop-filter:blur(8px);white-space:nowrap}
-.fl1{top:-16px;right:-16px;border-color:rgba(220,38,38,.26);animation:mfl 4s ease-in-out infinite alternate}
-.fl2{bottom:-14px;left:-14px;border-color:rgba(37,99,235,.22);animation:mfl 6s ease-in-out infinite alternate-reverse}
-/* Hero 3D flip cards — GPU composited, sıfır JS */
-.hfc-col{display:flex;flex-direction:column;gap:12px}
-.hfc-wrap{perspective:900px}
-.hfc-inner{
-  position:relative;height:82px;
-  transform-style:preserve-3d;
-  will-change:transform;
-}
-@keyframes hfc-intro{
-  0%  {transform:rotateY(0deg)}
-  100%{transform:rotateY(360deg)}
-}
-.hfc-col .hfc-wrap:nth-child(1) .hfc-inner{animation:hfc-intro .9s cubic-bezier(.25,.46,.45,.94) .15s both}
-.hfc-col .hfc-wrap:nth-child(2) .hfc-inner{animation:hfc-intro .9s cubic-bezier(.25,.46,.45,.94) .35s both}
-.hfc-col .hfc-wrap:nth-child(3) .hfc-inner{animation:hfc-intro .9s cubic-bezier(.25,.46,.45,.94) .55s both}
-.hfc-col .hfc-wrap:nth-child(4) .hfc-inner{animation:hfc-intro .9s cubic-bezier(.25,.46,.45,.94) .75s both}
-.hfc-face{
-  position:absolute;inset:0;
-  backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  border-radius:14px;padding:12px 16px;
-  display:flex;align-items:center;gap:12px;
-  box-shadow:0 4px 22px rgba(0,0,0,.45);
-  will-change:transform;
-}
-.hfc-front{background:rgba(15,23,40,.94);border:1px solid rgba(255,255,255,.13)}
-.hfc-back{background:rgba(9,17,31,.9);border:1px solid rgba(255,255,255,.06);transform:rotateY(180deg)}
-.hfc-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0}
-.hfc-body{flex:1;min-width:0}
-.hfc-lbl{font-size:.5rem;font-weight:800;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
-.hfc-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;font-weight:900;color:#fff;line-height:1.2;margin-bottom:5px}
-.hfc-tags{display:flex;gap:4px;flex-wrap:wrap}
-.hfc-tag{font-size:.52rem;font-weight:700;color:rgba(255,255,255,.42);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);padding:1px 7px;border-radius:999px}
-/* 3D card section */
-.h3d-section{padding:0 32px;margin-top:-42px;position:relative;z-index:10}
-.h3d-wrap{max-width:1160px;margin:0 auto;perspective:1100px;perspective-origin:50% 35%}
-.h3d-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;transform-style:preserve-3d}
-.h3d-c{background:#fff;border:1.5px solid #e2e8f0;border-radius:18px;overflow:hidden;
-  box-shadow:0 6px 24px rgba(0,0,0,.09),0 1px 4px rgba(0,0,0,.05);
-  transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .45s;
-  display:flex;flex-direction:column;padding:20px 20px 18px}
-.h3d-c:nth-child(1){transform:rotateY(9deg) translateZ(-10px)}
-.h3d-c:nth-child(2){transform:rotateY(3deg) translateZ(10px)}
-.h3d-c:nth-child(3){transform:rotateY(-3deg) translateZ(10px)}
-.h3d-c:nth-child(4){transform:rotateY(-9deg) translateZ(-10px)}
-.h3d-c:hover{transform:rotateY(0deg) translateZ(36px) scale(1.02)!important;box-shadow:0 20px 52px rgba(0,0,0,.16),0 4px 14px rgba(0,0,0,.08)!important}
-.h3d-ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:.9rem}
-.h3d-cat{font-size:.56rem;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
-.h3d-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.92rem;font-weight:900;color:#0f172a;margin-bottom:10px;line-height:1.2}
-.h3d-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
-.h3d-tag{padding:2px 8px;border-radius:999px;font-size:.58rem;font-weight:700;background:#f8fafc;border:1px solid #e2e8f0;color:#64748b}
-.h3d-sub{font-size:.66rem;color:#94a3b8;font-weight:700;margin-top:auto;padding-top:9px;border-top:1px solid #f1f5f9}
-.banner-section{background:#fff;padding:72px 32px}
-.banner-in{max-width:1160px;margin:0 auto;background:linear-gradient(135deg,#fef2f2 0%,#eff6ff 100%);border:1px solid #fecaca;border-radius:22px;padding:40px 44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.banner-lbl{font-family:'Plus Jakarta Sans',sans-serif;font-size:.6rem;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px}
-.banner-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.6rem;font-weight:900;letter-spacing:-.04em;margin-bottom:14px;line-height:1.2;color:#0f172a}
-.banner-sub{font-size:.88rem;line-height:1.8;color:#475569}
-.skills{display:flex;flex-direction:column;gap:10px}
-.sk-list{display:flex;flex-direction:column;gap:8px}
-.sk-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 14px;background:#fff;border:1px solid #e2e8f0;border-radius:10px}
-.sk-name{font-size:.8rem;font-weight:700;color:#374151}
-.sk-badge{padding:3px 10px;border-radius:999px;font-size:.64rem;font-weight:700;white-space:nowrap}
-.sk-main{background:#fee2e2;border:1px solid #fecaca;color:#dc2626}
-.sk-active{background:#dcfce7;border:1px solid #bbf7d0;color:#15803d}
-.sk-mid{background:#f1f5f9;border:1px solid #e2e8f0;color:#64748b}
-.feat-section{background:#f8fafc;padding:80px 32px}
-.feat-wrap{max-width:1160px;margin:0 auto}
-.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
-.fc{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:24px 20px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.fc::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(220,38,38,.04) 0%,transparent 55%);opacity:0;transition:opacity .25s;pointer-events:none;border-radius:20px}
-.fc:hover{border-color:rgba(220,38,38,.35);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
-.fc:hover::after{opacity:1}
-.sp2{grid-column:span 2}
-.fic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:.88rem;margin-bottom:16px;border:1px solid}
-.ft{font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;font-weight:800;margin-bottom:7px;letter-spacing:-.02em;color:#0f172a}
-.fd{font-size:.8rem;color:#64748b;line-height:1.76}
-.ftags{display:flex;flex-wrap:wrap;gap:4px;margin-top:12px}
-.ftag{padding:2px 8px;border-radius:999px;font-size:.58rem;font-weight:700;background:#f1f5f9;border:1px solid #e2e8f0;color:#64748b}
-.fdual{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.erp-section{background:#fff;padding:80px 32px}
-.erp-in{max-width:1160px;margin:0 auto;background:linear-gradient(135deg,#fef2f2 0%,#eff6ff 100%);border:1px solid #fde8e8;border-radius:22px;padding:36px 40px;display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:center}
-.erp-label{font-size:.6rem;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px}
-.erp-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.55rem;font-weight:900;letter-spacing:-.04em;line-height:1.2;margin-bottom:14px;color:#0f172a}
-.erp-desc{font-size:.86rem;color:#475569;line-height:1.8;margin-bottom:20px}
-.erp-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
-.erp-tag{padding:5px 13px;border-radius:999px;font-size:.68rem;font-weight:700;background:#fff;border:1px solid #e2e8f0;color:#475569;display:flex;align-items:center;gap:6px}
-.erp-tag i{font-size:.6rem}
-.erp-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.erp-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:18px 18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.erp-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;font-weight:800;margin-bottom:5px;display:flex;align-items:center;gap:7px;color:#0f172a}
-.erp-card-desc{font-size:.73rem;color:#64748b;line-height:1.65}
-/* ERP donut chart */
-.erp-chart-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;margin-top:36px}
-.erp-donut-rel{position:relative;width:190px;height:190px;flex-shrink:0}
-.erp-donut{display:block}
-.ec-seg{stroke-dasharray:0 439.82;stroke-linecap:butt;transition:stroke-dasharray 1.1s cubic-bezier(.4,0,.2,1),stroke-width .28s,opacity .28s}
-.ec-seg.faded{opacity:.2}
-.erp-dc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;gap:2px}
-.erp-dc-icon{font-size:.95rem}
-.erp-dc-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:.62rem;font-weight:800;color:#0f172a;text-align:center;line-height:1.25;padding:0 14px}
-.erp-dc-pct{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.55rem;font-weight:900;line-height:1;transition:color .3s}
-.erp-chart-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.ecb{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:10px;border:1.5px solid;font-size:.7rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:all .2s;background:#fff}
-.ecb::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--ec);flex-shrink:0}
-.ecb[data-s="0"]{border-color:#fecaca;color:#dc2626;--ec:#dc2626}
-.ecb[data-s="0"].active,.ecb[data-s="0"]:hover{background:#fee2e2}
-.ecb[data-s="1"]{border-color:#fcd34d;color:#d97706;--ec:#d97706}
-.ecb[data-s="1"].active,.ecb[data-s="1"]:hover{background:#fef3c7}
-.ecb[data-s="2"]{border-color:#bfdbfe;color:#2563eb;--ec:#2563eb}
-.ecb[data-s="2"].active,.ecb[data-s="2"]:hover{background:#dbeafe}
-.niti-section{background:#eef2ff;border-top:1px solid #c7d2fe;border-bottom:1px solid #c7d2fe;padding:80px 32px}
-.niti-in{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
-.niti-standalone{display:inline-flex;align-items:center;gap:6px;padding:4px 13px;border-radius:999px;background:#e0e7ff;border:1px solid #c7d2fe;font-size:.6rem;font-weight:800;color:#4f46e5;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
-.niti-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.niti-icon{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#f97316,#ea580c);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:#fff;letter-spacing:-.02em;box-shadow:0 8px 24px rgba(234,88,12,.38)}
-.niti-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:900;color:#1e1b4b;letter-spacing:-.05em}
-.niti-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:900;letter-spacing:-.04em;line-height:1.2;color:#1e1b4b;margin-bottom:14px}
-.niti-title span{color:#6366f1}
-.niti-desc{font-size:.9rem;color:#3730a3;opacity:.8;line-height:1.8;margin-bottom:22px}
-.niti-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
-.niti-tag{padding:5px 13px;border-radius:999px;font-size:.68rem;font-weight:700;background:#fff;border:1px solid #c7d2fe;color:#4338ca;display:flex;align-items:center;gap:6px}
-.niti-diff{background:#fff;border:1px solid #c7d2fe;border-radius:16px;padding:18px 20px;margin-top:4px}
-.niti-diff-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:800;color:#1e1b4b;margin-bottom:8px;display:flex;align-items:center;gap:7px}
-.niti-diff-list{display:flex;flex-direction:column;gap:6px}
-.niti-diff-item{display:flex;align-items:flex-start;gap:8px;font-size:.78rem;color:#4338ca;opacity:.85;line-height:1.55}
-.niti-diff-item i{color:#6366f1;font-size:.62rem;margin-top:3px;flex-shrink:0}
-.niti-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.niti-card{background:#fff;border:1px solid #c7d2fe;border-radius:16px;padding:20px;box-shadow:0 1px 4px rgba(99,102,241,.08);transition:transform .22s,box-shadow .22s,border-color .22s}
-.niti-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(99,102,241,.14);border-color:#a5b4fc}
-.niti-card-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:.88rem}
-.niti-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;font-weight:800;color:#1e1b4b;margin-bottom:6px}
-.niti-card-desc{font-size:.76rem;color:#4338ca;opacity:.75;line-height:1.65}
-/* PROJELER */
-.proj-section{background:#fff;padding:80px 32px}
-.proj-wrap{max-width:1290px;margin:0 auto}
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
-.proj-card{display:flex;flex-direction:column;background:#fff;border:1px solid #e2e8f0;border-radius:20px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .25s,box-shadow .25s,border-color .25s}
-.proj-card:hover{transform:translateY(-5px);box-shadow:0 16px 44px rgba(0,0,0,.12);border-color:rgba(220,38,38,.3)}
-.proj-thumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#0f172a,#1e293b);overflow:hidden;display:flex;align-items:center;justify-content:center}
-.proj-thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-.proj-thumb .ph{display:none;font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:#fff;font-size:1.25rem;letter-spacing:-.02em;text-align:center;padding:0 14px}
-.proj-thumb.noimg img{display:none}
-.proj-thumb.noimg .ph{display:block}
-.proj-live{position:absolute;top:10px;left:10px;z-index:2;display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.93);font-size:.56rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
-.proj-live.on{color:#16a34a}.proj-live.lock{color:#64748b}
-.proj-body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
-.proj-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.12rem;font-weight:900;color:#0f172a;margin-bottom:4px;letter-spacing:-.02em}
-.proj-url{font-size:.74rem;color:#dc2626;font-weight:700;margin-bottom:10px}
-.proj-desc{font-size:.83rem;color:#64748b;line-height:1.7;margin-bottom:14px;flex:1}
-.proj-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
-.proj-tag{padding:2px 9px;border-radius:999px;font-size:.58rem;font-weight:700;background:#f1f5f9;border:1px solid #e2e8f0;color:#64748b}
-.proj-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px;border-radius:11px;background:#0f172a;color:#fff;font-size:.74rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;text-decoration:none;transition:background .2s}
-.proj-link:hover{background:#dc2626}
-.proj-cta{align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#fef2f2,#eff6ff);border-style:dashed}
-.proj-cta .proj-ic{width:46px;height:46px;border-radius:13px;background:#fff;border:1px solid #fecaca;display:flex;align-items:center;justify-content:center;color:#dc2626;font-size:1.1rem;margin-bottom:14px}
-@media(max-width:960px){.proj-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.proj-section{padding:56px 16px}.proj-grid{grid-template-columns:1fr}}
-.price-section{background:#f8fafc;padding:80px 32px}
-.price-wrap{max-width:1160px;margin:0 auto}
-.price-note{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:10px 18px;margin-bottom:40px;font-size:.76rem;color:#64748b;line-height:1.6}
-.price-note i{color:#dc2626;flex-shrink:0;font-size:.78rem}
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
-.price-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.pc{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:26px 22px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;box-shadow:0 1px 3px rgba(0,0,0,.05);cursor:pointer}
-.pc:hover{border-color:rgba(220,38,38,.35);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
-.pc.featured{border-color:#dc2626}
-.pc.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#dc2626,#ef4444,#dc2626);background-size:200%;animation:shine 2.5s linear infinite}
-@keyframes shine{0%{background-position:0%}100%{background-position:200%}}
-.pc-badge{position:absolute;top:14px;right:14px;padding:3px 9px;border-radius:999px;font-size:.56rem;font-weight:800;background:#fee2e2;border:1px solid #fecaca;color:#dc2626;letter-spacing:.07em;text-transform:uppercase}
-.pc-tier{font-size:.58rem;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
-.pc-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:900;letter-spacing:-.03em;margin-bottom:5px;line-height:1.2;color:#0f172a}
-.pc-desc{font-size:.76rem;color:#64748b;line-height:1.65;margin-bottom:16px;flex:1}
-.pc-price{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.55rem;font-weight:900;color:#0f172a;letter-spacing:-.04em;margin-bottom:4px;line-height:1}
-.pc-price .cur{font-size:.82rem;font-weight:700;color:#dc2626;vertical-align:super;margin-right:2px;font-style:normal}
-.pc-price .suf{font-size:.72rem;color:#94a3b8;font-weight:600}
-.pc-time{font-size:.66rem;color:#94a3b8;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:5px}
-.pc-divider{height:1px;background:#e2e8f0;margin-bottom:16px}
-.pc-features{display:flex;flex-direction:column;gap:7px}
-.pf{display:flex;align-items:flex-start;gap:8px;font-size:.74rem;color:#475569;line-height:1.5}
-.pf i{font-size:.6rem;color:#22c55e;margin-top:3px;flex-shrink:0;width:10px}
-.pf.no{color:#cbd5e1}
-.pf.no i{color:#cbd5e1}
-.pc-cta{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:20px;padding:10px;border-radius:12px;font-size:.76rem;font-weight:700;background:#f1f5f9;border:1px solid #e2e8f0;color:#94a3b8}
-.pc.featured .pc-cta{background:#fee2e2;border-color:#fecaca;color:#dc2626}
-.pc-tag{display:inline-flex;align-items:center;gap:5px;margin-top:10px;padding:3px 9px;border-radius:999px;font-size:.6rem;font-weight:700;background:#eff6ff;border:1px solid #bfdbfe;color:#3b82f6}
-.pm-backdrop{position:fixed;inset:0;z-index:500;background:rgba(15,23,40,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .28s cubic-bezier(.4,0,.2,1)}
-.pm-backdrop.open{opacity:1;pointer-events:all}
-.pm-box{background:#fff;border:1px solid #e2e8f0;border-radius:24px;width:100%;max-width:720px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.14),0 4px 16px rgba(0,0,0,.07);transform:scale(.94) translateY(12px);transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0}
-.pm-backdrop.open .pm-box{transform:scale(1) translateY(0);opacity:1}
-.pm-box::-webkit-scrollbar{width:4px}
-.pm-box::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
-.pm-stripe{height:4px;border-radius:24px 24px 0 0;background:linear-gradient(90deg,#dc2626,#ef4444,#dc2626);background-size:200%;animation:shine 2.5s linear infinite}
-.pm-head{padding:26px 28px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
-.pm-meta{flex:1}
-.pm-tier-lbl{font-size:.58rem;font-weight:800;color:#94a3b8!important;text-transform:uppercase;letter-spacing:.14em;margin-bottom:7px}
-.pm-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.45rem;font-weight:900;letter-spacing:-.04em;line-height:1.15;margin-bottom:10px;color:#0f172a!important}
-.pm-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.pm-price{font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:900;color:#dc2626!important;letter-spacing:-.04em;line-height:1}
-.pm-price .suf{font-size:.9rem;color:#94a3b8!important;font-weight:600}
-.pm-time-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:999px;background:#f1f5f9!important;border:1px solid #e2e8f0!important;font-size:.67rem;font-weight:700;color:#64748b!important}
-.pm-close{width:36px;height:36px;border-radius:10px;flex-shrink:0;background:#f8fafc!important;border:1px solid #e2e8f0!important;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#94a3b8!important;font-size:.85rem;transition:all .18s}
-.pm-close:hover{background:#fee2e2!important;border-color:#fecaca!important;color:#dc2626!important}
-.pm-divider{height:1px;background:#e2e8f0!important;margin:0 28px}
-.pm-body{padding:24px 28px 28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media(max-width:580px){.pm-body{grid-template-columns:1fr}}
-.pm-section-lbl{font-size:.6rem;font-weight:800;color:#94a3b8!important;text-transform:uppercase;letter-spacing:.13em;margin-bottom:12px}
-.pm-feat-list{display:flex;flex-direction:column;gap:8px}
-.pmf{display:flex;align-items:flex-start;gap:9px;font-size:.8rem;color:#475569!important;line-height:1.55}
-.pmf i{margin-top:3px;flex-shrink:0;width:12px;font-size:.62rem}
-.pmf.yes i{color:#22c55e!important}.pmf.no i{color:#cbd5e1!important}.pmf.no{color:#cbd5e1!important}
-.pm-use-cases{display:flex;flex-direction:column;gap:8px}
-.pm-uc{background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:12px;padding:11px 14px}
-.pm-uc-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:800;margin-bottom:3px;display:flex;align-items:center;gap:7px;color:#0f172a!important}
-.pm-uc-desc{font-size:.72rem;color:#64748b!important;line-height:1.6}
-.pm-tech-strip{margin:20px 28px 0;padding:14px 16px;background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:14px;display:flex;flex-wrap:wrap;gap:7px;align-items:center}
-.pm-tech-lbl{font-size:.58rem;font-weight:800;color:#94a3b8!important;text-transform:uppercase;letter-spacing:.13em;margin-right:4px}
-.pm-tech-chip{padding:3px 10px;border-radius:999px;font-size:.64rem;font-weight:700;background:#fff!important;border:1px solid #e2e8f0!important;color:#475569!important}
-.pm-footer{margin:16px 28px 0;padding:14px 16px 0;border-top:1px solid #e2e8f0!important;font-size:.72rem;color:#94a3b8!important;line-height:1.65}
-.contact-section{background:#fff;padding:80px 32px}
-.contact-in{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:start}
-.contact-info-list{display:flex;flex-direction:column;gap:14px;margin-top:28px}
-.ci-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;background:#f8fafc;border:1px solid #e2e8f0}
-.ci-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
-.ci-label{font-size:.68rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em}
-.ci-val{font-size:.86rem;font-weight:600;color:#0f172a}
-.cf-sent-box{background:#dcfce7;border:1px solid #bbf7d0;color:#166534;padding:14px 18px;border-radius:12px;font-size:.86rem;font-weight:600;display:flex;align-items:center;gap:10px;margin-bottom:20px}
-.cf-form{display:flex;flex-direction:column;gap:14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:28px}
-.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.cf-field{display:flex;flex-direction:column;gap:5px}
-.cf-label{font-size:.76rem;font-weight:700;color:#374151}
-.cf-req{color:#dc2626}
-.cf-input,.cf-select,.cf-textarea{padding:11px 14px;border-radius:10px;border:1.5px solid #e2e8f0;background:#fff;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:.9rem;transition:border-color .2s,box-shadow .2s;outline:none;width:100%}
-.cf-input:focus,.cf-select:focus,.cf-textarea:focus{border-color:#dc2626;box-shadow:0 0 0 3px rgba(220,38,38,.1)}
-.cf-textarea{min-height:110px;resize:vertical;line-height:1.6}
-.cf-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:12px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;font-weight:700;font-size:.9rem;border:none;cursor:pointer;width:100%;transition:all .22s;box-shadow:0 4px 16px rgba(220,38,38,.28);font-family:'DM Sans',sans-serif}
-.cf-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(220,38,38,.4)}
-footer{background:#0f172a;border-top:1px solid rgba(255,255,255,.08);padding:28px 32px;position:relative;z-index:1}
-.foot-in{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
-.foot-copy{font-size:.7rem;color:rgba(255,255,255,.3)}
-.foot-legal{font-size:.62rem;color:rgba(255,255,255,.18);margin-top:4px;line-height:1.55}
-.foot-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.sc{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:none;transition:all .22s}
-.sc:hover{transform:translateY(-2px)}
-/* Demo callout */
-.demo-bar{background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:18px 22px;margin-top:28px;display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
-.demo-bar-live{display:flex;align-items:center;gap:6px;font-size:.58rem;font-weight:800;color:#16a34a;text-transform:uppercase;letter-spacing:.1em;flex-shrink:0;padding-top:2px}
+::selection{background:rgba(79,70,229,.16);color:#0f1629}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+section{position:relative}
+
+#neo-bg{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(1000px 620px at 86% -12%,rgba(99,102,241,.12),transparent 58%),
+  radial-gradient(760px 520px at 2% 6%,rgba(124,58,237,.07),transparent 60%),
+  radial-gradient(720px 720px at 50% 122%,rgba(79,70,229,.08),transparent 60%),
+  var(--bg)}
+#neo-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.6;
+  background-image:linear-gradient(rgba(17,24,45,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(17,24,45,.035) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 120% 55% at 50% 0%,#000 20%,transparent 72%);
+  -webkit-mask-image:radial-gradient(ellipse 120% 55% at 50% 0%,#000 20%,transparent 72%)}
+#neo-prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:300;background:linear-gradient(90deg,var(--acc-3),var(--acc-2));box-shadow:0 1px 10px rgba(79,70,229,.5)}
+#neo-aura{position:fixed;top:0;left:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(99,102,241,.08),transparent 62%);will-change:transform}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:12px 32px;
+  background:rgba(255,255,255,.72);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-bottom:1px solid var(--stroke);gap:8px;transition:padding .3s var(--ease),box-shadow .3s,background .3s}
+nav.shrink{padding:8px 32px;background:rgba(255,255,255,.9);box-shadow:0 6px 24px rgba(17,24,45,.06)}
+.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;text-decoration:none;cursor:pointer}
+.logo-im{height:50px;width:auto;display:block}
+.logo-name{font-family:var(--dp);font-size:.7rem;font-weight:600;color:var(--dim);letter-spacing:.16em;text-transform:uppercase}
+.nav-center{display:flex;align-items:center;gap:2px}
+.nav-link{padding:8px 16px;border-radius:999px;color:var(--mute);font-size:.8rem;font-weight:500;text-decoration:none;transition:color .25s,background .25s}
+.nav-link:hover{color:var(--acc);background:var(--acc-soft)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;font-size:.8rem;font-weight:600;text-decoration:none;
+  background:var(--acc);border:1px solid var(--acc);color:#fff;box-shadow:0 6px 18px rgba(79,70,229,.28);transition:all .25s var(--ease)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(79,70,229,.4)}
+
+/* HEADERS */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:999px;
+  background:var(--acc-soft);border:1px solid var(--acc-line);font-family:var(--dp);font-size:.64rem;font-weight:600;color:var(--acc);letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px rgba(79,70,229,.6);animation:pulse 1.8s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.demo-bar-live i{animation:pulse 2s ease-in-out infinite}
-.demo-bar-body{flex:1;min-width:180px}
-.demo-bar-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;font-weight:900;color:#0f172a;margin-bottom:4px}
-.demo-bar-desc{font-size:.74rem;color:#475569;line-height:1.6;margin-bottom:10px}
-.demo-bar-tags{display:flex;flex-wrap:wrap;gap:5px}
-.demo-bar-tag{padding:2px 9px;border-radius:999px;font-size:.58rem;font-weight:700;background:#f1f5f9;border:1px solid #e2e8f0;color:#475569}
-.demo-bar-cta{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:10px;background:#0f172a;color:#fff;font-size:.74rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;text-decoration:none;flex-shrink:0;transition:all .2s;align-self:center}
-.demo-bar-cta:hover{background:#1e293b;transform:translateY(-1px)}
-.demo-lock{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;background:#f1f5f9;border:1px solid #e2e8f0;font-size:.58rem;font-weight:700;color:#64748b;margin-left:6px}
-/* Demo modal */
-.dm-backdrop{position:fixed;inset:0;z-index:500;background:rgba(15,23,40,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .28s cubic-bezier(.4,0,.2,1)}
-.dm-backdrop.open{opacity:1;pointer-events:all}
-.dm-box{background:#fff;border:1px solid #e2e8f0;border-radius:24px;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.14),0 4px 16px rgba(0,0,0,.07);transform:scale(.94) translateY(12px);transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0}
-.dm-backdrop.open .dm-box{transform:scale(1) translateY(0);opacity:1}
-.dm-box::-webkit-scrollbar{width:4px}.dm-box::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
-.dm-stripe{height:4px;border-radius:24px 24px 0 0;background:linear-gradient(90deg,#dc2626,#ef4444,#dc2626);background-size:200%;animation:shine 2.5s linear infinite}
-.dm-head{padding:20px 24px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid #e2e8f0}
-.dm-lbl{font-size:.58rem;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:.13em;margin-bottom:5px}
-.dm-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.15rem;font-weight:900;color:#0f172a;letter-spacing:-.03em}
-.dm-close{width:34px;height:34px;border-radius:9px;background:#f8fafc;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#94a3b8;font-size:.85rem;transition:all .18s;flex-shrink:0}
-.dm-close:hover{background:#fee2e2;border-color:#fecaca;color:#dc2626}
-.dm-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:18px 24px}
-.dm-item{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:14px}
-.dm-ic{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.82rem;margin-bottom:9px}
-.dm-item-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:800;color:#0f172a;margin-bottom:4px}
-.dm-item-desc{font-size:.7rem;color:#64748b;line-height:1.6}
-.dm-footer{padding:4px 24px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.dm-note{font-size:.72rem;color:#94a3b8;display:flex;align-items:center;gap:6px}
-.dm-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:12px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;font-weight:700;font-size:.84rem;text-decoration:none;box-shadow:0 4px 16px rgba(220,38,38,.28);transition:all .22s}
-.dm-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(220,38,38,.4)}
-/* Demo browser mockup */
-.dm-browser{background:#111827;border-radius:12px;overflow:hidden;margin:16px 24px 0}
-.dm-bbar{background:#0a1120;padding:8px 14px;display:flex;align-items:center;gap:8px}
-.dm-bdots{display:flex;gap:5px}
-.dm-bdot{width:8px;height:8px;border-radius:50%}
-.dm-burl{flex:1;background:rgba(255,255,255,.07);border-radius:5px;padding:3px 12px;font-size:.56rem;color:rgba(255,255,255,.3);font-family:monospace}
-.dm-bscreen{padding:16px;display:flex;justify-content:center}
-.dm-bcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 18px;width:160px;display:flex;flex-direction:column;align-items:center;gap:8px}
-.dm-bico{width:32px;height:32px;background:linear-gradient(135deg,#dc2626,#7f1d1d);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.56rem;font-weight:900;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-style:italic}
-.dm-bname{font-size:.58rem;font-weight:800;color:rgba(255,255,255,.5);font-family:'Plus Jakarta Sans',sans-serif}
-.dm-bfield{width:100%;height:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:5px}
-.dm-bbtn{width:100%;height:22px;background:linear-gradient(135deg,#dc2626,#b91c1c);border-radius:5px}
-@media(max-width:520px){.dm-grid{grid-template-columns:1fr}.dm-footer{flex-direction:column;align-items:stretch}.dm-cta{justify-content:center}}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .58s cubic-bezier(.4,0,.2,1),transform .58s cubic-bezier(.4,0,.2,1)}
-.rv.on{opacity:1;transform:none}
-.d1{transition-delay:.07s}.d2{transition-delay:.15s}.d3{transition-delay:.24s}
-@media(max-width:960px){
-  .hero-in{grid-template-columns:1fr}
-  .hero-right{display:none}
-  .banner-in{grid-template-columns:1fr;gap:28px}
-  .erp-in{grid-template-columns:1fr;gap:16px}
-  .erp-cards{margin-top:36px}
-  .niti-in{grid-template-columns:1fr;gap:32px}
-  .contact-in{grid-template-columns:1fr;gap:32px}
-  .fgrid{grid-template-columns:1fr 1fr}
-  .sp2{grid-column:span 2}
-  .fdual{grid-template-columns:1fr}
-}
-@media(max-width:640px){
-  nav{padding:11px 16px}
-  .nav-center{display:none}
-  .hero{padding:88px 16px 60px;min-height:auto}
-  .cta-row{flex-direction:column;align-items:stretch}
-  .btn-r,.btn-g{justify-content:center}
-  .h3d-section{padding:0 16px;margin-top:-28px}
-  .h3d-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .h3d-c:nth-child(n){transform:none}
-  .banner-section,.erp-section,.feat-section,.niti-section,.price-section,.contact-section{padding:56px 16px}
-  .banner-in{padding:28px 22px;border-radius:18px}
-  .banner-title{font-size:1.3rem}
-  .skill-name{width:110px}
-  .fgrid{grid-template-columns:1fr}
-  .sp2{grid-column:span 1}
-  .fdual{grid-template-columns:1fr;gap:24px}
-  .erp-in{padding:24px 20px;border-radius:18px}
-  .erp-cards,.niti-cards{grid-template-columns:1fr}
-  .price-grid,.price-grid2{grid-template-columns:1fr}
-  .cf-form{padding:20px}
-  .cf-row{grid-template-columns:1fr}
-  .sec-h{font-size:1.55rem}
-  footer{padding:22px 16px}
-  .foot-in{flex-direction:column;align-items:flex-start;gap:12px}
-}
-@media(max-width:390px){
-  .hero h1{font-size:1.9rem}
-}
-/* ── Ek mobil düzeltmeleri ── */
-@media(max-width:640px){
-  /* Price kartı: absolute badge başlık üstüne binmesin */
-  .pc-tier{padding-right:76px}
-  .pc-name{overflow-wrap:break-word;word-break:break-word}
-  /* Niti bölümü büyük yazılar */
-  .niti-name{font-size:1.5rem}
-  .niti-title{font-size:1.2rem}
-  /* ERP başlık */
-  .erp-title{font-size:1.2rem}
-  /* İletişim e-posta taşma */
-  .ci-val{overflow-wrap:break-word;word-break:break-all;font-size:.82rem}
-  /* Tag satırları */
-  .erp-tag,.niti-tag{font-size:.62rem;padding:4px 10px;gap:5px}
-  /* Genel section başlıkları */
-  .sec-p{font-size:.87rem}
-  /* Modal padding daraltma */
-  .pm-head{padding:20px 18px 16px}
-  .pm-body{padding:18px 18px 22px}
-  .pm-divider{margin:0 18px}
-  .pm-tech-strip{margin:16px 18px 0}
-  .pm-footer{margin:14px 18px 0}
-  /* Hero eyebrow sarma */
-  .hero-eyebrow{font-size:.58rem;gap:5px;padding:4px 10px}
-}
-@media(max-width:420px){
-  .sec-h{font-size:1.3rem}
-  .niti-name{font-size:1.2rem}
-  .niti-title,.erp-title{font-size:1.05rem}
-  .banner-title{font-size:1.1rem}
-  .skill-name{width:86px;font-size:.66rem}
-  .skill-pct{width:28px;font-size:.63rem}
-  .pc-name{font-size:.88rem}
-  .pc-price{font-size:1.15rem}
-  .erp-tag,.niti-tag{font-size:.58rem;padding:3px 8px}
-  .ci-val{font-size:.76rem}
-  .pc-tier{padding-right:70px}
-  .fcard{height:auto;min-height:186px}
-}
-</style>
-<style>
-/* --- profesyonel ince ayar (erişilebilirlik + cila) --- */
-::selection{background:#dc2626;color:#fff}
-body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid #dc2626;outline-offset:3px;border-radius:6px}
-img{max-width:100%;height:auto}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
-</style>
-<style>
-/* === PREMIUM: cam kart + derin golge + bol bosluk === */
-:root{--prem-sh:0 8px 24px rgba(15,23,42,.06),0 28px 56px rgba(15,23,42,.09);--prem-shh:0 16px 40px rgba(15,23,42,.13),0 46px 88px rgba(220,38,38,.10)}
-.feat-section,.price-section,.erp-section,.niti-section,.banner-section,.contact-section,.proj-section{padding-top:56px!important;padding-bottom:56px!important}
-.feat-section{background:linear-gradient(180deg,#f4f7fb,#eaeef5)!important}
-.price-section{background:linear-gradient(180deg,#eaeef5,#f4f7fb)!important}
-.proj-section{background:linear-gradient(180deg,#ffffff,#f1f5fb)!important}
-.contact-section{background:linear-gradient(180deg,#f7f9fc,#eaeef5)!important}
-.fc,.pc,.niti-card,.erp-card,.proj-card,.ci-item,.cf-form,.sk-row{
-  background:rgba(255,255,255,.60)!important;
-  -webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);
-  border:1px solid rgba(255,255,255,.72)!important;
-  box-shadow:var(--prem-sh)!important;border-radius:20px!important;
-  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease!important;
-}
-.fc:hover,.pc:hover,.niti-card:hover,.erp-card:hover,.proj-card:hover{transform:translateY(-7px)!important;box-shadow:var(--prem-shh)!important}
-.pc.featured{box-shadow:0 20px 52px rgba(220,38,38,.17),0 46px 88px rgba(15,23,42,.10)!important;border-color:rgba(220,38,38,.45)!important}
-.proj-thumb{border-radius:16px 16px 0 0!important}
-.sec-h{letter-spacing:-.045em}
-@media(max-width:640px){.feat-section,.price-section,.erp-section,.niti-section,.banner-section,.contact-section,.proj-section{padding-top:60px!important;padding-bottom:60px!important}}
-</style>
-<style>
-/* === PREMIUM 2: koyu kontrast + kompakt === */
-.feat-section,.price-section,.erp-section,.niti-section,.contact-section,.proj-section{padding-top:48px!important;padding-bottom:48px!important}
-.banner-section{padding-top:30px!important;padding-bottom:34px!important}
-.h3d-section{margin-top:-30px!important}
-/* Kim Icin: yetenek listesi 2 kolon -> daha kisa */
-.sk-list{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
-@media(max-width:640px){.sk-list{grid-template-columns:1fr!important}}
-/* Gelistirdigim Sistemler = koyu premium bolum, beyaz cam kartlar */
-#moduller{background:radial-gradient(900px 420px at 82% -12%,rgba(220,38,38,.18),transparent 60%),linear-gradient(160deg,#0a1120,#0f1830)!important;border-top:1px solid #0a1120;border-bottom:1px solid #0a1120}
-#moduller .sec-ey{background:rgba(220,38,38,.16)!important;border-color:rgba(220,38,38,.34)!important;color:#fca5a5!important}
-#moduller .sec-h{color:#fff!important}
-#moduller .sec-p{color:rgba(255,255,255,.55)!important}
-#moduller .fc{background:rgba(255,255,255,.97)!important;border:1px solid rgba(255,255,255,.5)!important;box-shadow:0 14px 32px rgba(0,0,0,.30),0 42px 74px rgba(0,0,0,.34)!important}
-#moduller .fc:hover{box-shadow:0 22px 48px rgba(0,0,0,.42),0 54px 96px rgba(220,38,38,.20)!important}
-</style>
-<style>
-/* === TUTARLI ACIK + MODERN KART/IKON + KOMPAKT === */
-#moduller{background:linear-gradient(180deg,#f4f7fb,#eef2f7)!important}
-#moduller .sec-ey{background:#fee2e2!important;border-color:#fecaca!important;color:#dc2626!important}
-#moduller .sec-h{color:#0f172a!important}
-#moduller .sec-p{color:#64748b!important}
-#moduller .fc{box-shadow:0 1px 2px rgba(16,24,40,.04),0 14px 30px rgba(16,24,40,.07)!important}
-/* modern kartlar */
-.fc,.pc,.niti-card,.erp-card,.proj-card,.ci-item,.cf-form{
-  background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
-  border:1px solid #eceef3!important;border-radius:18px!important;
-  box-shadow:0 1px 2px rgba(16,24,40,.04),0 14px 30px rgba(16,24,40,.07)!important;
-  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .3s!important;
-}
-.fc:hover,.pc:hover,.niti-card:hover,.erp-card:hover,.proj-card:hover{
-  transform:translateY(-6px)!important;border-color:#dfe3ec!important;
-  box-shadow:0 6px 14px rgba(16,24,40,.06),0 26px 52px rgba(16,24,40,.13)!important;
-}
-/* kompakt boslukla */
-.banner-section,.feat-section,.erp-section,.niti-section,.price-section,.contact-section,.proj-section{padding-top:44px!important;padding-bottom:44px!important}
-.h3d-section{margin-top:-30px!important}
-</style>
-<style>
-/* COMBO: Kim Icin + Sistemler yan yana */
-.combo-section{padding:46px 0!important;background:#f6f7fb}
-.combo-grid{display:grid;grid-template-columns:.84fr 1.16fr;gap:38px;align-items:start}
-.combo-left{position:sticky;top:84px}
-.combo-left .sec-h{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:12px}
-.combo-left .sec-p{margin-bottom:16px}
-.combo-right .sec-h{margin-bottom:2px}
-.fgrid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
-.fgrid2 .sp2{grid-column:span 2}
-/* renkli sembol kart arka plani */
-.fc,.h3d-c{position:relative;overflow:hidden}
-.fc .fic,.fc .ft,.fc .fd,.fc .ftags,.fc .fdual,.h3d-c>:not(.card-wm){position:relative;z-index:1}
-.fc>.card-wm,.h3d-c>.card-wm{position:absolute;right:-16px;bottom:-24px;font-size:6.6rem;opacity:.10;z-index:0;pointer-events:none}
-@media(max-width:960px){.combo-grid{grid-template-columns:1fr;gap:26px}.combo-left{position:static}}
-@media(max-width:600px){.fgrid2{grid-template-columns:1fr}.fgrid2 .sp2{grid-column:span 1}.fc .fdual{grid-template-columns:1fr}}
-</style>
-<style>
-.hero-logo-bg{position:absolute;top:50%;left:50%;width:min(320px,42vw);transform:translate(-50%,-50%) scale(1);opacity:.85;z-index:1;pointer-events:none;animation:heroLogoPulse 4s ease-in-out infinite;filter:drop-shadow(0 0 14px rgba(220,38,38,.28))}
-@keyframes heroLogoPulse{0%,100%{opacity:.70;transform:translate(-50%,-50%) scale(.97)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}}
-</style>
-<style>
-.hero-people{position:absolute;left:0;right:0;top:94px;z-index:1;overflow:hidden;pointer-events:none;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.hp-track{display:flex;gap:56px;width:max-content;align-items:flex-end;animation:hpwalk 30s linear infinite}
-.hp-track i{font-size:2.4rem;animation:hpbob 1.1s ease-in-out infinite;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3))}
-.hp-track i:nth-child(2n){animation-delay:.55s;font-size:2.1rem}
-.hp-track i:nth-child(3n){animation-delay:.3s}
-@keyframes hpwalk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes hpbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-@media(max-width:640px){.hp-track i{font-size:1.6rem}.hero-people{top:78px}}
-</style>
-<style id="prem-layer">
-/* ===== PREMIUM LAYER ===== */
-#px-prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:9999;background:linear-gradient(90deg,#dc2626,#60a5fa);box-shadow:0 0 12px rgba(220,38,38,.5);transition:width .12s linear}
-#px-grain{position:fixed;inset:0;z-index:6;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-#px-aura{position:fixed;top:0;left:0;width:640px;height:640px;margin:-320px;z-index:0;pointer-events:none;border-radius:50%;background:radial-gradient(circle,rgba(220,38,38,.10),rgba(96,165,250,.06) 42%,transparent 66%);transform:translate(-100px,-100px);transition:transform .25s cubic-bezier(.16,1,.3,1);will-change:transform;filter:blur(8px)}
-@media(hover:none){#px-aura{display:none}}
-/* scroll reveal (failsafe'li) */
-.px-rv{opacity:0;transform:translateY(28px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
-.px-rv.px-in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.px-rv{opacity:1!important;transform:none!important}}
-/* kart imlec-spotlight + lift */
-.fc,.h3d-c,.niti-card,.proj-card{position:relative;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s ease}
-.fc::after,.h3d-c::after,.niti-card::after,.proj-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s ease;background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),rgba(220,38,38,.13),transparent 62%);z-index:2}
-.fc:hover::after,.h3d-c:hover::after,.niti-card:hover::after,.proj-card:hover::after{opacity:1}
-.fc:hover,.niti-card:hover,.proj-card:hover{transform:translateY(-5px)}
-/* animasyonlu gradyan baslik */
-.px-grad{background:linear-gradient(100deg,#0f172a 0%,#dc2626 38%,#60a5fa 60%,#0f172a 100%);background-size:240% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:pxGrad 7s linear infinite}
-@keyframes pxGrad{to{background-position:240% center}}
-/* manyetik buton yumusaklik */
-.btn-r,.btn-g,.cf-btn,.pc-cta{transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .25s ease,background .2s ease}
-</style>
+.sec-h{font-family:var(--hd);font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:9px;color:var(--txt)}
+.sec-h .g{background:linear-gradient(115deg,var(--acc),var(--vio) 55%,var(--acc-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec-p{font-size:1rem;color:var(--dim);line-height:1.8;max-width:600px;margin-bottom:16px}
+.sec-p strong{color:var(--txt);font-weight:600}
+.sec-num{font-family:var(--dp);font-size:.72rem;font-weight:600;color:var(--acc);letter-spacing:.2em;margin-bottom:12px;display:block}
 
+.glass{background:var(--panel);border:1px solid var(--stroke);border-radius:var(--r);box-shadow:var(--card-sh);
+  transition:transform .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease),background .4s var(--ease)}
+.glass:hover{border-color:var(--acc-line);box-shadow:0 22px 54px rgba(79,70,229,.14),0 2px 8px rgba(17,24,45,.05)}
 
-<style id="prem-people">
-/* ikon serit: dar + nav alti + dikissiz (hep dolu, uc gorunmez) */
-.hero-people{left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:min(820px,92%)!important;top:98px!important;z-index:1!important}
-.hp-track{gap:22px!important;align-items:center!important;animation-duration:42s!important}
-.hp-track i{font-size:1.4rem!important;width:54px;height:54px;display:grid;place-items:center;border-radius:16px;
-  background:linear-gradient(160deg,rgba(255,255,255,.13),rgba(255,255,255,.02));
-  -webkit-backdrop-filter:blur(13px) saturate(1.2);backdrop-filter:blur(13px) saturate(1.2);
-  border:1px solid rgba(255,255,255,.16);
-  box-shadow:0 14px 34px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.22),inset 0 -10px 22px rgba(0,0,0,.18);
-  filter:brightness(1.5) saturate(1.35) drop-shadow(0 0 12px currentColor);
-  animation:none!important;transition:transform .35s cubic-bezier(.16,1,.3,1)}
-.hp-track:hover{animation-play-state:paused}
-.hp-track i:hover{transform:translateY(-6px) scale(1.06)}
-@media(max-width:640px){.hero-people{width:96%!important;top:82px!important}.hp-track i{font-size:1.2rem!important;width:44px;height:44px;border-radius:13px}}
-</style>
-<style id="prem-bg">
-/* CANLI PREMIUM MESH ARKA PLAN */
-body{background:transparent!important}
-#px-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:linear-gradient(180deg,#eef2f8,#e7ecf5)}
-#px-bg b{position:absolute;display:block;border-radius:50%;filter:blur(72px);opacity:.42;will-change:transform}
-#px-bg .b1{width:46vw;height:46vw;left:-8vw;top:-6vw;background:radial-gradient(circle,rgba(220,38,38,.55),transparent 66%);animation:pbA 28s ease-in-out infinite alternate}
-#px-bg .b2{width:50vw;height:50vw;right:-10vw;top:0;background:radial-gradient(circle,rgba(59,130,246,.5),transparent 66%);animation:pbB 33s ease-in-out infinite alternate}
-#px-bg .b3{width:48vw;height:48vw;left:2vw;bottom:-14vw;background:radial-gradient(circle,rgba(139,92,246,.5),transparent 66%);animation:pbC 30s ease-in-out infinite alternate}
-#px-bg .b4{width:42vw;height:42vw;right:-4vw;bottom:-10vw;background:radial-gradient(circle,rgba(20,184,166,.42),transparent 66%);animation:pbD 36s ease-in-out infinite alternate}
-@keyframes pbA{to{transform:translate(9vw,7vw) scale(1.16)}}
-@keyframes pbB{to{transform:translate(-8vw,9vw) scale(1.12)}}
-@keyframes pbC{to{transform:translate(10vw,-7vw) scale(1.14)}}
-@keyframes pbD{to{transform:translate(-9vw,-8vw) scale(1.2)}}
-@media(prefers-reduced-motion:reduce){#px-bg b{animation:none!important}}
-/* acik bolumleri seffaf yap -> mesh gorunsun (hero/footer koyu kalir) */
-.combo-section,.erp-section,.niti-section,.proj-section,.price-section,.contact-section{background:transparent!important}
-</style>
-<style id="prem-h3d">
-/* h3d kartlar: 3D acil-kapan + sirali + yukselme, 3sn dongu */
-.h3d-c{opacity:1!important;transform-origin:center bottom;backface-visibility:hidden;animation:h3dFlow 3s ease-in-out infinite;will-change:transform}
-.h3d-c:nth-child(1){animation-delay:0s!important}
-.h3d-c:nth-child(2){animation-delay:.2s!important}
-.h3d-c:nth-child(3){animation-delay:.4s!important}
-.h3d-c:nth-child(4){animation-delay:.6s!important}
-.h3d-c:hover{animation-play-state:paused}
-@keyframes h3dFlow{
- 0%,66%,100%{transform:rotateX(0deg) translateY(0)}
- 10%{transform:rotateX(-56deg) translateY(0)}   /* acil (3D) */
- 22%{transform:rotateX(0deg) translateY(0)}      /* kapan */
- 40%{transform:rotateX(0deg) translateY(-22px)}  /* yuksel */
- 56%{transform:rotateX(0deg) translateY(0)}       /* in */
-}
-@media(prefers-reduced-motion:reduce){.h3d-c{animation:none!important}}
-</style>
-<style id="prem-chart">
-/* ERP donut -> 3D donen + acilan kapanan disk */
-.erp-donut-rel{perspective:1100px;perspective-origin:50% 42%}
-.erp-donut{transform-origin:center center;animation:erp3d 6s ease-in-out infinite;
-  filter:drop-shadow(0 18px 16px rgba(15,23,42,.30)) drop-shadow(0 4px 6px rgba(15,23,42,.18)) saturate(1.12);will-change:transform}
-.erp-donut-rel:hover .erp-donut{animation-play-state:paused}
-@keyframes erp3d{
-  0%  {transform:rotateX(24deg) rotateZ(0deg)   scale(1)}      /* kapali-ish */
-  50% {transform:rotateX(62deg) rotateZ(180deg) scale(1.05)}   /* acik (yatik) */
-  100%{transform:rotateX(24deg) rotateZ(360deg) scale(1)}      /* tam tur + kapanir */
-}
-/* arkada premium isima halkasi */
-.erp-donut-rel::before{content:"";position:absolute;inset:6px;border-radius:50%;z-index:-1;
-  background:radial-gradient(circle,rgba(245,158,11,.22),rgba(59,130,246,.12) 55%,transparent 72%);
-  filter:blur(14px);animation:erpGlow 6s ease-in-out infinite}
-@keyframes erpGlow{0%,100%{opacity:.5;transform:scale(.92)}50%{opacity:.9;transform:scale(1.08)}}
-/* ortadaki etiket sabit & on planda */
-.erp-dc{z-index:3}
-@media(prefers-reduced-motion:reduce){.erp-donut{animation:none!important}.erp-donut-rel::before{animation:none!important}}
-</style>
-<style id="prem-social">
-.contact-direct{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.cd-link{display:inline-flex;align-items:center;gap:8px;padding:11px 17px;border-radius:12px;background:#fff;border:1px solid #e2e8f0;color:#0f172a;font-size:.85rem;font-weight:600;text-decoration:none;box-shadow:0 4px 14px rgba(15,23,42,.06);transition:transform .2s,box-shadow .2s}
-.cd-link:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,23,42,.13)}
-.cd-link i{font-size:1.05rem}
-.cd-mail i{color:#dc2626}.cd-li i{color:#0a66c2}.cd-ig i{color:#e1306c}
-.foot-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-</style>
+/* BUTTONS */
+.btn-r{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:15px;
+  background:linear-gradient(135deg,var(--acc-2),var(--acc-3));color:#fff;font-family:var(--hd);font-weight:700;font-size:.92rem;text-decoration:none;
+  box-shadow:0 10px 30px rgba(79,70,229,.32);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.btn-r:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(79,70,229,.44)}
+.btn-g{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:15px;background:#fff;border:1px solid var(--stroke-2);
+  color:var(--txt);font-family:var(--hd);font-weight:600;font-size:.92rem;text-decoration:none;box-shadow:var(--card-sh);transition:all .3s var(--ease)}
+.btn-g:hover{border-color:var(--acc-line);color:var(--acc);transform:translateY(-3px)}
 
-<style id="prem-form">
-.pf-card{background:#fff;border:1px solid #e8edf4;border-radius:24px;padding:30px 28px;position:relative;overflow:hidden;
-  box-shadow:0 8px 24px rgba(15,23,42,.06),0 28px 56px rgba(15,23,42,.09)}
-.pf-card::before{content:"";position:absolute;right:-50px;top:-50px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(220,38,38,.10),transparent 70%);pointer-events:none}
-.pf-head{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;font-weight:700;color:#15803d;background:#f0fdf4;border:1px solid #bbf7d0;padding:7px 14px;border-radius:999px;margin-bottom:22px}
-.pf-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pfPulse 2s infinite}
-@keyframes pfPulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
-.pf-form{display:flex;flex-direction:column;gap:18px}
+/* HERO */
+.hero{display:flex;align-items:center;padding:80px 32px 26px;min-height:auto;overflow:hidden}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
+.hero-orb.o1{width:min(640px,110vw);height:min(640px,110vw);background:radial-gradient(circle,rgba(99,102,241,.16),transparent 70%);top:-16%;right:-8%;animation:oA 20s ease-in-out infinite alternate}
+.hero-orb.o2{width:min(500px,90vw);height:min(500px,90vw);background:radial-gradient(circle,rgba(124,58,237,.1),transparent 70%);bottom:-14%;left:-10%;animation:oB 24s ease-in-out infinite alternate}
+@keyframes oA{to{transform:translate(-50px,50px) scale(1.12)}}
+@keyframes oB{to{transform:translate(50px,-40px) scale(1.1)}}
+.hero-in{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 16px;border-radius:999px;
+  background:var(--acc-soft);border:1px solid var(--acc-line);font-family:var(--dp);font-size:.68rem;font-weight:600;color:var(--acc);letter-spacing:.13em;text-transform:uppercase;margin-bottom:16px}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#16a34a;box-shadow:0 0 10px rgba(22,163,74,.6);animation:pulse 1.6s infinite}
+.hero h1{font-family:var(--dp);font-size:clamp(2.5rem,6.4vw,4.7rem);font-weight:700;line-height:1;letter-spacing:-.045em;margin-bottom:24px;color:var(--txt)}
+.hero h1 .l1{display:block}
+.hero-rotate{display:inline-block;background:linear-gradient(115deg,var(--acc),var(--vio) 55%,var(--acc-3));-webkit-background-clip:text;background-clip:text;color:transparent;transition:opacity .35s,transform .35s;min-width:1ch}
+.hero-sub{font-size:clamp(1rem,2vw,1.1rem);line-height:1.82;color:var(--dim);margin-bottom:34px;max-width:520px}
+.hero-sub strong{color:var(--txt);font-weight:600}
+.cta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.hero-mini{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:.82rem;color:var(--mute)}
+.hero-mini span{display:inline-flex;align-items:center;gap:8px}
+.hero-mini i{color:#16a34a}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hero-stats .stat{padding:22px 20px}
+.hero-visual{position:relative;perspective:1200px}
+.hv-card{position:relative;border-radius:var(--r-lg);padding:32px;transform-style:preserve-3d;transition:transform .18s ease-out;
+  background:#fff;border:1px solid var(--stroke);box-shadow:0 30px 70px rgba(79,70,229,.14),0 2px 8px rgba(17,24,45,.06)}
+.hv-mono{width:96px;height:96px;margin:6px auto 20px;border-radius:24px;display:flex;align-items:center;justify-content:center;transform:translateZ(48px);
+  background:linear-gradient(135deg,rgba(99,102,241,.14),rgba(124,58,237,.05));border:1px solid var(--acc-line);box-shadow:0 12px 30px rgba(79,70,229,.2)}
+.hv-mono img{width:60px;height:auto}
+.hv-name{text-align:center;transform:translateZ(30px)}
+.hv-name .n{font-family:var(--dp);font-size:1.5rem;font-weight:700;color:var(--txt);letter-spacing:-.03em}
+.hv-name .r{font-size:.78rem;color:var(--acc);font-weight:600;margin-top:4px;letter-spacing:.04em}
+.hv-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:22px;transform:translateZ(24px)}
+.hv-chip{font-family:var(--dp);font-size:.64rem;font-weight:600;color:var(--dim);background:var(--bg-soft);border:1px solid var(--stroke);padding:5px 11px;border-radius:999px}
+.hv-line{height:1px;background:var(--stroke);margin:22px 0;transform:translateZ(10px)}
+.hv-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;transform:translateZ(20px)}
+.hv-st{text-align:center}
+.hv-st .v{font-family:var(--dp);font-size:1.25rem;font-weight:700;color:var(--acc);line-height:1}
+.hv-st .k{font-size:.56rem;color:var(--mute);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-top:5px}
+.hv-badge{position:absolute;top:-16px;right:-14px;transform:translateZ(70px);display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:12px;
+  background:#fff;border:1px solid var(--stroke-2);font-size:.68rem;font-weight:600;color:#16a34a;box-shadow:0 12px 30px rgba(17,24,45,.12)}
+
+/* MARQUEE */
+.marquee{overflow:hidden;padding:18px 0;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);background:var(--bg-soft);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-track{display:flex;gap:0;width:max-content;animation:mq 34s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-item{display:inline-flex;align-items:center;gap:14px;padding:0 26px;font-family:var(--dp);font-size:1rem;font-weight:600;color:var(--dim);white-space:nowrap}
+.mq-item i{color:var(--acc);font-size:.6rem}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* STATS */
+.stats{padding:30px 32px}
+.stats-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stat{padding:22px 20px;position:relative;overflow:hidden}
+.stat .v{font-family:var(--dp);font-size:clamp(2.1rem,3.6vw,2.8rem);font-weight:700;line-height:1;color:var(--txt);letter-spacing:-.03em}
+.stat .v .s{background:linear-gradient(115deg,var(--acc),var(--acc-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .k{font-size:.82rem;color:var(--dim);font-weight:500;margin-top:11px}
+.stat .ic{position:absolute;top:20px;right:20px;font-size:1.05rem;color:var(--acc);opacity:.5}
+
+/* ABOUT */
+.about{padding:34px 32px}
+.about-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr .82fr;gap:44px;align-items:center}
+.about-lead{font-family:var(--hd);font-size:clamp(1.45rem,2.7vw,2.05rem);font-weight:700;line-height:1.32;letter-spacing:-.025em;color:var(--txt)}
+.about-lead .g{background:linear-gradient(115deg,var(--acc),var(--vio) 55%,var(--acc-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-lead .dim{color:var(--mute)}
+.about-p{font-size:1rem;color:var(--dim);line-height:1.88;margin-top:22px;max-width:560px}
+.about-p strong{color:var(--txt);font-weight:600}
+.about-sign{margin-top:26px;display:flex;align-items:center;gap:14px}
+.about-sign .sm{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:var(--acc-soft);border:1px solid var(--acc-line)}
+.about-sign .sm img{width:28px}
+.about-sign .st .a{font-family:var(--dp);font-weight:700;color:var(--txt);font-size:.95rem}
+.about-sign .st .b{font-size:.76rem;color:var(--acc)}
+.about-card{padding:22px 22px}
+.about-now{display:inline-flex;align-items:center;gap:9px;font-family:var(--dp);font-size:.66rem;font-weight:600;color:#16a34a;text-transform:uppercase;letter-spacing:.12em;margin-bottom:18px}
+.about-now .dot{width:7px;height:7px;border-radius:50%;background:#16a34a;box-shadow:0 0 10px rgba(22,163,74,.6);animation:pulse 1.6s infinite}
+.about-row{display:flex;align-items:flex-start;gap:14px;padding:15px 0;border-bottom:1px solid var(--stroke)}
+.about-row:last-child{border-bottom:none}
+.about-row .ic{width:40px;height:40px;flex-shrink:0;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--acc);background:var(--acc-soft);border:1px solid var(--acc-line)}
+.about-row .tt{font-family:var(--hd);font-weight:700;font-size:.9rem;color:var(--txt)}
+.about-row .dd{font-size:.8rem;color:var(--dim);line-height:1.55;margin-top:3px}
+
+/* SKILLS */
+.skills-sec{padding:6px 32px 8px}
+.skills-in{max-width:1200px;margin:0 auto}
+.sk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+.sk-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 20px;transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s}
+.sk-row:hover{transform:translateY(-3px);border-color:var(--acc-line)}
+.sk-name{font-family:var(--hd);font-size:.92rem;font-weight:600;color:var(--txt)}
+.sk-badge{padding:5px 12px;border-radius:999px;font-family:var(--dp);font-size:.62rem;font-weight:600;white-space:nowrap}
+.sk-main{background:var(--acc-soft);border:1px solid var(--acc-line);color:var(--acc)}
+.sk-active{background:rgba(16,163,74,.09);border:1px solid rgba(16,163,74,.26);color:#15803d}
+.sk-mid{background:var(--bg-soft);border:1px solid var(--stroke-2);color:var(--dim)}
+
+/* SYSTEMS */
+.systems{padding:32px 32px}
+.systems-in{max-width:1200px;margin:0 auto}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;grid-auto-flow:dense}
+.fc{padding:22px 22px;position:relative;overflow:hidden;grid-column:span 2;transform-style:preserve-3d;transition:transform .18s ease-out,border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.fc.sp2{grid-column:span 4}
+.fc::after{content:'';position:absolute;inset:0;border-radius:var(--r);background:radial-gradient(280px 280px at var(--mx,50%) var(--my,50%),rgba(79,70,229,.06),transparent 70%);opacity:0;transition:opacity .35s;pointer-events:none}
+.fc:hover{border-color:var(--acc-line);box-shadow:0 24px 56px rgba(79,70,229,.14),0 2px 8px rgba(17,24,45,.05)}
+.fc:hover::after{opacity:1}
+.fic{width:50px;height:50px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:18px;color:var(--acc);
+  background:var(--acc-soft);border:1px solid var(--acc-line)}
+.ft{font-family:var(--hd);font-size:1.1rem;font-weight:700;margin-bottom:9px;letter-spacing:-.02em;color:var(--txt)}
+.fd{font-size:.89rem;color:var(--dim);line-height:1.74}
+.ftags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.ftag{padding:4px 11px;border-radius:999px;font-family:var(--dp);font-size:.62rem;font-weight:600;background:var(--bg-soft);border:1px solid var(--stroke);color:var(--dim)}
+.fdual{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+
+/* ERP DONUT */
+.erp-section{padding:32px 32px}
+.erp-in{max-width:1200px;margin:0 auto;border-radius:var(--r-lg);padding:34px 36px;display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center;
+  background:linear-gradient(135deg,rgba(99,102,241,.06),rgba(124,58,237,.03));border:1px solid var(--stroke-2);box-shadow:0 24px 60px rgba(79,70,229,.08)}
+.erp-label{font-family:var(--dp);font-size:.66rem;font-weight:600;color:var(--acc);text-transform:uppercase;letter-spacing:.16em;margin-bottom:12px}
+.erp-title{font-family:var(--hd);font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:800;letter-spacing:-.035em;line-height:1.12;margin-bottom:16px;color:var(--txt)}
+.erp-desc{font-size:.95rem;color:var(--dim);line-height:1.82;margin-bottom:24px}
+.erp-tags{display:flex;flex-wrap:wrap;gap:9px}
+.erp-tag{padding:8px 15px;border-radius:999px;font-size:.76rem;font-weight:500;background:#fff;border:1px solid var(--stroke);color:var(--dim);display:flex;align-items:center;gap:8px}
+.erp-tag i{font-size:.66rem;color:var(--acc)}
+.erp-feats{display:flex;flex-direction:column;gap:13px;margin-top:2px}
+.erp-feat{display:flex;align-items:flex-start;gap:13px}
+.erp-feat>i{width:40px;height:40px;flex-shrink:0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:.92rem;color:var(--acc);background:var(--acc-soft);border:1px solid var(--acc-line)}
+.erp-feat b{display:block;font-family:var(--hd);font-size:.92rem;font-weight:700;color:var(--txt);margin-bottom:2px}
+.erp-feat span{font-size:.8rem;color:var(--dim);line-height:1.5}
+.erp-chart-wrap{display:flex;flex-direction:column;align-items:center;gap:22px}
+.erp-donut-rel{position:relative;width:185px;height:185px;flex-shrink:0}
+.erp-donut{display:block;filter:drop-shadow(0 10px 26px rgba(79,70,229,.12))}
+.ec-seg{stroke-dasharray:0 439.82;stroke-linecap:butt;transition:stroke-dasharray 1.2s var(--ease),stroke-width .3s,opacity .3s}
+.ec-seg.faded{opacity:.18}
+.erp-dc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;gap:3px}
+.erp-dc-icon{font-size:1.1rem}
+.erp-dc-name{font-family:var(--hd);font-size:.7rem;font-weight:600;color:var(--dim);text-align:center;line-height:1.25;padding:0 18px}
+.erp-dc-pct{font-family:var(--dp);font-size:2rem;font-weight:700;line-height:1;transition:color .3s}
+.erp-chart-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.ecb{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:12px;border:1px solid var(--stroke-2);font-family:var(--dp);font-size:.74rem;font-weight:600;cursor:pointer;transition:all .25s var(--ease);background:#fff;color:var(--dim)}
+.ecb::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--ec);flex-shrink:0}
+.ecb[data-s="0"]{--ec:#ef4444}.ecb[data-s="1"]{--ec:#f59e0b}.ecb[data-s="2"]{--ec:#4f46e5}
+.ecb:hover{color:var(--txt);border-color:var(--acc-line);transform:translateY(-2px)}
+.ecb.active{background:var(--acc-soft);border-color:var(--acc-line);color:var(--txt)}
+
+/* NITI */
+.niti-section{padding:32px 32px;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);background:linear-gradient(180deg,rgba(124,58,237,.04),transparent)}
+.niti-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:42px;align-items:start}
+.niti-standalone{display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:999px;background:rgba(124,58,237,.09);border:1px solid rgba(124,58,237,.24);font-family:var(--dp);font-size:.64rem;font-weight:600;color:var(--vio);letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px}
+.niti-logo-row{display:flex;align-items:center;gap:15px;margin-bottom:18px}
+.niti-icon{width:58px;height:58px;border-radius:18px;background:linear-gradient(135deg,#7c3aed,#6d28d9);display:flex;align-items:center;justify-content:center;font-family:var(--dp);font-size:.8rem;font-weight:700;color:#fff;letter-spacing:-.02em;box-shadow:0 10px 28px rgba(109,40,217,.34)}
+.niti-name{font-family:var(--dp);font-size:2.1rem;font-weight:700;color:var(--txt);letter-spacing:-.04em}
+.niti-title{font-family:var(--hd);font-size:clamp(1.55rem,2.7vw,1.95rem);font-weight:800;letter-spacing:-.035em;line-height:1.14;color:var(--txt);margin-bottom:16px}
+.niti-title span{background:linear-gradient(115deg,var(--vio),#6d28d9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.niti-desc{font-size:.96rem;color:var(--dim);line-height:1.85;margin-bottom:16px}
+.niti-tags{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:16px}
+.niti-tag{padding:7px 15px;border-radius:999px;font-size:.76rem;font-weight:500;background:#fff;border:1px solid var(--stroke);color:var(--dim);display:flex;align-items:center;gap:8px}
+.niti-diff{background:#fff;border:1px solid var(--stroke);border-radius:18px;padding:22px 24px;margin-top:6px;box-shadow:var(--card-sh)}
+.niti-diff-title{font-family:var(--hd);font-size:.88rem;font-weight:700;color:var(--txt);margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.niti-diff-list{display:flex;flex-direction:column;gap:10px}
+.niti-diff-item{display:flex;align-items:flex-start;gap:10px;font-size:.86rem;color:var(--dim);line-height:1.6}
+.niti-diff-item i{color:var(--vio);font-size:.66rem;margin-top:5px;flex-shrink:0}
+.niti-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.niti-card{padding:20px 18px}
+.niti-card-ic{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:15px;font-size:1rem;background:rgba(124,58,237,.09);border:1px solid rgba(124,58,237,.22);color:var(--vio)}
+.niti-card-title{font-family:var(--hd);font-size:.94rem;font-weight:700;color:var(--txt);margin-bottom:8px}
+.niti-card-desc{font-size:.82rem;color:var(--dim);line-height:1.72}
+
+/* PROJECTS */
+.proj-section{padding:32px 32px}
+.proj-wrap{max-width:1200px;margin:0 auto}
+.proj-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;grid-auto-flow:dense}
+.proj-card{overflow:hidden;display:flex;flex-direction:column;position:relative;grid-column:span 3}
+.proj-card.big{grid-column:span 6;flex-direction:row}
+.proj-thumb{position:relative;overflow:hidden;background:linear-gradient(135deg,#eef0f7,#e6e9f3);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--stroke)}
+.proj-card:not(.big) .proj-thumb{aspect-ratio:16/10}
+.proj-card.big .proj-thumb{width:50%;border-bottom:none;border-right:1px solid var(--stroke);min-height:330px}
+.proj-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.proj-card:hover .proj-thumb img{transform:scale(1.06)}
+.proj-thumb .ph{display:none;font-family:var(--dp);font-weight:700;font-size:1.4rem;color:var(--mute)}
+.proj-thumb.noimg img{display:none}.proj-thumb.noimg .ph{display:block}
+.proj-live{position:absolute;top:14px;left:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;font-family:var(--dp);font-size:.6rem;font-weight:600;letter-spacing:.04em;backdrop-filter:blur(8px)}
+.proj-live.on{background:rgba(16,163,74,.12);border:1px solid rgba(16,163,74,.34);color:#15803d}
+.proj-live.on i{color:#16a34a;animation:pulse 1.6s infinite}
+.proj-live.lock{background:rgba(17,24,45,.05);border:1px solid var(--stroke-2);color:var(--mute)}
+.proj-body{padding:28px;display:flex;flex-direction:column;flex:1;justify-content:center}
+.proj-name{font-family:var(--hd);font-size:1.2rem;font-weight:700;color:var(--txt);margin-bottom:5px}
+.proj-url{font-family:var(--dp);font-size:.76rem;color:var(--acc);font-weight:600;margin-bottom:14px}
+.proj-desc{font-size:.9rem;color:var(--dim);line-height:1.76;margin-bottom:18px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.proj-tag{padding:4px 11px;border-radius:999px;font-family:var(--dp);font-size:.62rem;font-weight:600;background:var(--bg-soft);border:1px solid var(--stroke);color:var(--dim)}
+.proj-link{display:inline-flex;align-items:center;gap:9px;padding:11px 20px;border-radius:13px;font-family:var(--hd);font-size:.82rem;font-weight:700;text-decoration:none;
+  background:var(--acc-soft);border:1px solid var(--acc-line);color:var(--acc);transition:all .3s var(--ease);align-self:flex-start}
+a.proj-link:hover{background:rgba(79,70,229,.14);transform:translateY(-2px)}
+.proj-cta{align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,rgba(99,102,241,.06),rgba(124,58,237,.03))}
+.proj-ic{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:16px;background:var(--acc-soft);border:1px solid var(--acc-line);color:var(--acc)}
+
+/* PROCESS */
+.process{padding:32px 32px;border-top:1px solid var(--stroke)}
+.process-in{max-width:1200px;margin:0 auto}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+.proc-step{padding:22px 20px;position:relative;overflow:hidden}
+.proc-num{font-family:var(--dp);font-size:2.3rem;font-weight:700;line-height:1;letter-spacing:-.04em;
+  background:linear-gradient(160deg,var(--acc),rgba(79,70,229,.28));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:16px}
+.proc-t{font-family:var(--hd);font-size:1.05rem;font-weight:700;color:var(--txt);margin-bottom:9px}
+.proc-d{font-size:.86rem;color:var(--dim);line-height:1.72}
+.proc-step .ic{position:absolute;top:26px;right:24px;font-size:1rem;color:var(--acc);opacity:.4}
+
+/* PRICING */
+.price-section{padding:32px 32px}
+.price-wrap{max-width:1200px;margin:0 auto}
+.price-note{display:inline-flex;align-items:flex-start;gap:10px;padding:13px 18px;border-radius:13px;background:var(--bg-soft);border:1px solid var(--stroke);font-size:.82rem;color:var(--dim);line-height:1.6;margin-bottom:34px;max-width:680px}
+.price-note i{color:var(--acc);margin-top:2px}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.price-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pc{padding:24px 22px;cursor:pointer;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.pc::after{content:'';position:absolute;inset:0;border-radius:var(--r);background:radial-gradient(280px 280px at var(--mx,50%) var(--my,50%),rgba(79,70,229,.05),transparent 70%);opacity:0;transition:opacity .35s;pointer-events:none}
+.pc:hover{transform:translateY(-5px)}
+.pc:hover::after{opacity:1}
+.pc.featured{border-color:var(--acc-line);box-shadow:0 22px 54px rgba(79,70,229,.16)}
+.pc.featured::before{content:'Popüler';position:absolute;top:16px;right:16px;padding:4px 12px;border-radius:999px;font-family:var(--dp);font-size:.58rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--acc);border:1px solid var(--acc);color:#fff}
+.pc-tier{font-family:var(--dp);font-size:.64rem;font-weight:600;color:var(--acc);text-transform:uppercase;letter-spacing:.14em;margin-bottom:12px}
+.pc-name{font-family:var(--hd);font-size:1.16rem;font-weight:700;color:var(--txt);margin-bottom:10px}
+.pc-desc{font-size:.85rem;color:var(--dim);line-height:1.7;margin-bottom:18px}
+.pc-price{font-family:var(--dp);font-size:1.75rem;font-weight:700;color:var(--txt);line-height:1;margin-bottom:10px}
+.pc-price .cur{font-style:normal;font-size:1.05rem;color:var(--acc);margin-right:3px}
+.pc-price .suf{font-size:.95rem;color:var(--mute);font-weight:500}
+.pc-time{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;color:var(--dim);margin-bottom:18px}
+.pc-time i{color:var(--acc)}
+.pc-divider{height:1px;background:var(--stroke);margin-bottom:18px}
+.pc-features{display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
+.pf{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:var(--dim);line-height:1.5}
+.pf i{color:var(--acc);font-size:.74rem;margin-top:3px;flex-shrink:0}
+.pf.no{color:var(--mute)}.pf.no i{color:var(--mute)}
+.pc-cta{margin-top:auto;display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border-radius:12px;font-family:var(--dp);font-size:.74rem;font-weight:600;background:var(--bg-soft);border:1px solid var(--stroke);color:var(--dim);align-self:flex-start}
+
+/* CONTACT */
+.contact-section{padding:30px 32px 42px;border-top:1px solid var(--stroke)}
+.contact-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.contact-lead{font-family:var(--hd);font-size:clamp(1.8rem,3.2vw,2.5rem);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:var(--txt);margin-bottom:14px}
+.contact-lead .g{background:linear-gradient(115deg,var(--acc),var(--vio) 55%,var(--acc-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.contact-direct{display:flex;gap:13px;flex-wrap:wrap;margin-top:24px}
+.cd-link{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:13px;text-decoration:none;font-family:var(--hd);font-size:.86rem;font-weight:600;background:#fff;border:1px solid var(--stroke-2);color:var(--txt);box-shadow:var(--card-sh);transition:all .3s var(--ease)}
+.cd-link:hover{transform:translateY(-3px);border-color:var(--acc-line);color:var(--acc)}
+.cd-li i{color:#0a66c2}.cd-ig i{color:#e1306c}
+.pf-card{padding:34px 32px 28px;border-radius:var(--r-lg)}
+.pf-form{display:flex;flex-direction:column;gap:16px}
 .pf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .pf-field{position:relative}
-.pf-in{width:100%;font:inherit;font-size:.95rem;color:#0f172a;background:#f8fafc;border:1.6px solid #e2e8f0;border-radius:13px;padding:16px 16px 16px 44px;outline:none;transition:border-color .2s,box-shadow .2s,background .2s}
-.pf-ta{padding-top:17px;resize:vertical;min-height:96px}
-.pf-field>i{position:absolute;left:16px;top:17px;color:#94a3b8;font-size:.92rem;transition:color .2s;pointer-events:none}
-.pf-field>label{position:absolute;left:44px;top:16px;color:#94a3b8;font-size:.95rem;pointer-events:none;transition:all .16s ease}
-.pf-in:focus{border-color:#dc2626;background:#fff;box-shadow:0 0 0 4px rgba(220,38,38,.10)}
-.pf-in:focus + label,.pf-in:not(:placeholder-shown) + label{top:-8px;left:14px;font-size:.68rem;font-weight:800;letter-spacing:.02em;color:#dc2626;background:#fff;padding:0 7px;border-radius:4px}
-.pf-in:focus ~ i{color:#dc2626}
-.pf-in:invalid.pf-err{border-color:#ef4444;box-shadow:0 0 0 4px rgba(239,68,68,.1)}
-.pf-btn{margin-top:4px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1rem;color:#fff;background:linear-gradient(135deg,#dc2626,#b91c1c);border:none;border-radius:14px;padding:16px;cursor:pointer;box-shadow:0 10px 26px rgba(220,38,38,.30);transition:transform .2s,box-shadow .25s}
-.pf-btn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(220,38,38,.44)}
-.pf-btn i{transition:transform .25s}.pf-btn:hover i{transform:translateX(3px)}
-.pf-note{display:flex;align-items:center;justify-content:center;gap:7px;text-align:center;font-size:.74rem;color:#94a3b8}.pf-note i{color:#22c55e}
-.pf-sent{display:none;align-items:center;gap:9px;color:#15803d;font-weight:700;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:13px;padding:15px 16px;margin-top:10px}
-@media(max-width:600px){.pf-row{grid-template-columns:1fr}.pf-card{padding:24px 20px}}
+.pf-in{width:100%;padding:16px 16px 16px 46px;border-radius:13px;background:var(--bg-soft);border:1px solid var(--stroke-2);color:var(--txt);font-family:var(--bd);font-size:.9rem;transition:border-color .3s var(--ease),box-shadow .3s var(--ease),background .3s}
+.pf-in::placeholder{color:transparent}
+.pf-ta{resize:vertical;min-height:104px;padding-top:16px}
+.pf-field label{position:absolute;left:46px;top:16px;font-size:.9rem;color:var(--mute);pointer-events:none;transition:all .22s var(--ease)}
+.pf-field>i{position:absolute;left:17px;top:17px;color:var(--mute);font-size:.86rem;transition:color .25s}
+.pf-in:focus{outline:none;background:#fff;border-color:var(--acc-line);box-shadow:0 0 0 3px rgba(79,70,229,.12)}
+.pf-in:focus~i{color:var(--acc)}
+.pf-in:focus~label,.pf-in:not(:placeholder-shown)~label{top:-9px;left:13px;font-family:var(--dp);font-size:.64rem;font-weight:600;color:var(--acc);background:#fff;padding:0 7px;border-radius:5px}
+.pf-in.pf-err{border-color:#dc2626;box-shadow:0 0 0 3px rgba(220,38,38,.12)}
+.pf-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px;border:none;border-radius:13px;cursor:pointer;background:linear-gradient(135deg,var(--acc-2),var(--acc-3));color:#fff;font-family:var(--hd);font-weight:700;font-size:.95rem;box-shadow:0 10px 30px rgba(79,70,229,.32);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.pf-btn:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(79,70,229,.44)}
+.pf-btn:disabled{opacity:.6;cursor:default;transform:none}
+.pf-note{display:flex;align-items:center;gap:9px;font-size:.72rem;color:var(--mute);justify-content:center}
+.pf-note i{color:var(--acc)}
+.pf-emsg{display:none;color:#dc2626;font-size:.8rem;font-weight:600}
+.pf-emsg.show{display:block}
+.pf-sent{display:none;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:46px 28px;border-radius:var(--r-lg);background:rgba(16,163,74,.06);border:1px solid rgba(16,163,74,.26);color:var(--dim);font-size:.95rem;line-height:1.6}
+.pf-sent i{font-size:2.4rem;color:#16a34a}
+
+/* MODALS */
+.pm-backdrop,.dm-backdrop{position:fixed;inset:0;z-index:400;background:rgba(17,24,45,.5);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .28s}
+.pm-backdrop.open,.dm-backdrop.open{display:flex;opacity:1}
+.pm-box,.dm-box{width:100%;max-width:680px;max-height:88vh;overflow-y:auto;border-radius:var(--r-lg);background:#fff!important;border:1px solid var(--stroke-2)!important;color:var(--txt)!important;box-shadow:0 34px 90px rgba(17,24,45,.28);transform:translateY(20px) scale(.97);transition:transform .34s var(--ease)}
+.pm-backdrop.open .pm-box,.dm-backdrop.open .dm-box{transform:none}
+.pm-stripe,.dm-stripe{height:4px;border-radius:var(--r-lg) var(--r-lg) 0 0;background:linear-gradient(90deg,var(--acc-3),var(--acc-2))}
+.pm-head,.dm-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:26px 30px 16px}
+.pm-tier-lbl,.dm-lbl{font-family:var(--dp);font-size:.64rem;font-weight:600;color:var(--acc);text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.pm-title,.dm-title{font-family:var(--hd);font-size:1.4rem;font-weight:800;color:var(--txt);letter-spacing:-.03em;line-height:1.15}
+.pm-price-row{display:flex;align-items:center;gap:13px;margin-top:11px;flex-wrap:wrap}
+.pm-price{font-family:var(--dp);font-size:1.6rem;font-weight:700;color:var(--txt)}
+.pm-time-pill{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;font-size:.7rem;font-weight:500;background:var(--bg-soft);border:1px solid var(--stroke);color:var(--dim)}
+.pm-close,.dm-close{width:36px;height:36px;flex-shrink:0;border-radius:11px;border:1px solid var(--stroke-2);background:#fff;color:var(--dim);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .22s}
+.pm-close:hover,.dm-close:hover{color:var(--acc);border-color:var(--acc-line)}
+.pm-divider{height:1px;background:var(--stroke);margin:0 30px}
+.pm-body{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:24px 30px}
+.pm-section-lbl{font-family:var(--dp);font-size:.62rem;font-weight:600;color:var(--mute);text-transform:uppercase;letter-spacing:.14em;margin-bottom:14px}
+.pm-feat-list{display:flex;flex-direction:column;gap:10px}
+.pmf{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:var(--dim);line-height:1.5}
+.pmf i{font-size:.74rem;margin-top:3px;flex-shrink:0}
+.pmf.yes i{color:var(--acc)}
+.pmf.no{color:var(--mute)}.pmf.no i{color:var(--mute)}
+.pm-use-cases{display:flex;flex-direction:column;gap:14px}
+.pm-uc-title{display:flex;align-items:center;gap:9px;font-family:var(--hd);font-size:.84rem;font-weight:700;color:var(--txt);margin-bottom:4px}
+.pm-uc-desc{font-size:.78rem;color:var(--dim);line-height:1.6}
+.pm-tech-strip{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:18px 30px;border-top:1px solid var(--stroke)}
+.pm-tech-lbl{font-family:var(--dp);font-size:.62rem;font-weight:600;color:var(--mute);text-transform:uppercase;letter-spacing:.12em;margin-right:5px}
+.pm-tech-chip{padding:5px 12px;border-radius:999px;font-family:var(--dp);font-size:.66rem;font-weight:600;background:var(--bg-soft);border:1px solid var(--stroke);color:var(--dim)}
+.pm-footer{padding:18px 30px;font-size:.8rem;color:var(--mute);line-height:1.6;font-style:italic}
+.dm-browser{margin:0 30px 20px;border-radius:15px;overflow:hidden;border:1px solid var(--stroke-2);background:var(--bg-soft)}
+.dm-bbar{display:flex;align-items:center;gap:11px;padding:10px 13px;background:#fff;border-bottom:1px solid var(--stroke)}
+.dm-bdots{display:flex;gap:6px}.dm-bdot{width:10px;height:10px;border-radius:50%}
+.dm-burl{font-family:var(--dp);font-size:.66rem;color:var(--mute);background:#fff;padding:5px 13px;border-radius:7px;flex:1;border:1px solid var(--stroke)}
+.dm-bscreen{padding:28px;display:flex;align-items:center;justify-content:center;min-height:160px;background:radial-gradient(circle at 50% 0,rgba(79,70,229,.06),transparent 70%)}
+.dm-bcard{width:210px;padding:24px;border-radius:15px;background:#fff;border:1px solid var(--stroke);text-align:center;box-shadow:var(--card-sh)}
+.dm-bico{font-family:var(--dp);font-weight:700;font-size:.95rem;color:var(--acc);margin-bottom:11px}
+.dm-bname{font-family:var(--hd);font-weight:700;font-size:.84rem;color:var(--txt);margin-bottom:15px}
+.dm-bfield{height:10px;border-radius:6px;background:var(--bg-soft);margin-bottom:9px}
+.dm-bbtn{height:26px;border-radius:8px;background:linear-gradient(135deg,var(--acc-2),var(--acc-3));margin-top:13px}
+.dm-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;padding:0 30px 8px}
+.dm-item{padding:18px;border-radius:13px;background:#fff;border:1px solid var(--stroke);box-shadow:var(--card-sh)}
+.dm-ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:11px;font-size:.9rem;background:var(--acc-soft);border:1px solid var(--acc-line);color:var(--acc)}
+.dm-item-title{font-family:var(--hd);font-size:.84rem;font-weight:700;color:var(--txt);margin-bottom:6px}
+.dm-item-desc{font-size:.74rem;color:var(--dim);line-height:1.6}
+.dm-footer{padding:22px 30px 28px;display:flex;justify-content:center}
+.dm-cta{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:13px;text-decoration:none;font-family:var(--hd);font-weight:700;font-size:.88rem;background:linear-gradient(135deg,var(--acc-2),var(--acc-3));color:#fff;box-shadow:0 10px 30px rgba(79,70,229,.32);transition:transform .3s}
+.dm-cta:hover{transform:translateY(-3px)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--stroke);padding:38px 32px;background:var(--bg-2)}
+.foot-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.foot-copy{font-family:var(--hd);font-size:.9rem;font-weight:700;color:var(--txt);margin-bottom:5px}
+.foot-legal{font-size:.74rem;color:var(--mute);line-height:1.6;max-width:540px}
+.foot-right{margin-left:auto;display:flex;gap:11px}
+.sc{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1rem;background:#fff;border:1px solid var(--stroke);color:var(--dim);box-shadow:var(--card-sh);transition:all .3s var(--ease)}
+.sc:hover{color:var(--acc);border-color:var(--acc-line);transform:translateY(-3px)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.4s}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .hero-in{grid-template-columns:1fr;gap:44px}
+  .about-in{grid-template-columns:1fr;gap:38px}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .fc,.fc.sp2{grid-column:span 1}
+  .erp-in{grid-template-columns:1fr;gap:36px;padding:36px 30px}
+  .niti-in{grid-template-columns:1fr;gap:40px}
+  .proj-grid{grid-template-columns:1fr}
+  .proj-card,.proj-card.big{grid-column:span 1;flex-direction:column}
+  .proj-card.big .proj-thumb{width:100%;border-right:none;border-bottom:1px solid var(--stroke);aspect-ratio:16/9;min-height:auto}
+  .sk-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-grid,.proc-grid{grid-template-columns:repeat(2,1fr)}
+  .price-grid,.price-grid2{grid-template-columns:1fr 1fr}
+  .contact-in{grid-template-columns:1fr;gap:38px}
+  .pm-body{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  nav{padding:9px 18px}.nav-center{display:none}
+  .wrap,.hero,.about,.systems,.erp-section,.niti-section,.proj-section,.process,.price-section,.contact-section,.stats,.skills-sec{padding-left:18px;padding-right:18px}
+  .hero{padding-top:110px}
+  .bento,.sk-grid,.stats-grid,.proc-grid,.price-grid,.price-grid2,.niti-cards,.dm-grid{grid-template-columns:1fr}
+  .fdual{grid-template-columns:1fr;gap:26px}
+  .pf-row{grid-template-columns:1fr}
+  .hero-mini{gap:12px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+
+/* ============ PREMIUM RICHNESS LAYER ============ */
+/* gradient icon tiles */
+.fic{background:linear-gradient(140deg,#edefff,#f5edff)!important;border:1px solid rgba(99,102,241,.22)!important;box-shadow:0 8px 18px rgba(79,70,229,.13),inset 0 1px 0 #fff;color:var(--acc)}
+.niti-card-ic{background:linear-gradient(140deg,#f0ebff,#f8efff)!important;border:1px solid rgba(124,58,237,.22)!important;box-shadow:0 8px 18px rgba(124,58,237,.11),inset 0 1px 0 #fff}
+.erp-feat>i{background:linear-gradient(140deg,#edefff,#f5edff)!important;border:1px solid rgba(99,102,241,.22)!important;box-shadow:0 6px 14px rgba(79,70,229,.11)}
+.dm-ic,.proj-ic{background:linear-gradient(140deg,#edefff,#f5edff)!important;border:1px solid rgba(99,102,241,.22)!important;box-shadow:0 6px 14px rgba(79,70,229,.11)}
+.stat .ic{opacity:.9}
+/* gradient section numbers */
+.sec-num{background:linear-gradient(90deg,var(--acc),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
+/* richer glass depth */
+.glass{box-shadow:0 1px 3px rgba(17,24,45,.05),0 14px 34px rgba(17,24,45,.06)}
+/* soft section washes + glows */
+.systems{background:linear-gradient(180deg,#fbfaff 0%,transparent 46%)}
+.proj-section{background:linear-gradient(180deg,#faf9ff 0%,transparent 34%)}
+.price-section{overflow:hidden}
+.price-section::before{content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:1000px;max-width:120%;height:460px;background:radial-gradient(circle,rgba(99,102,241,.09),transparent 66%);pointer-events:none;z-index:0}
+.price-wrap{position:relative;z-index:1}
+.systems::after{content:'';position:absolute;top:6%;right:-80px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.07),transparent 68%);pointer-events:none;z-index:0}
+.systems-in{position:relative;z-index:1}
+/* hero: stronger glow + soft panel behind stats */
+.hero-orb.o1{background:radial-gradient(circle,rgba(99,102,241,.22),transparent 70%)!important}
+.hero-orb.o2{background:radial-gradient(circle,rgba(124,58,237,.15),transparent 70%)!important}
+.hero-visual::before{content:'';position:absolute;inset:-28px -22px;border-radius:32px;background:radial-gradient(440px 320px at 72% 24%,rgba(99,102,241,.12),transparent 70%);pointer-events:none;z-index:-1}
+/* featured pricing: gradient border */
+.pc.featured{border:1.5px solid transparent!important;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,var(--acc),var(--vio)) border-box!important;box-shadow:0 24px 56px rgba(79,70,229,.17)}
+/* contact: rich gradient panel */
+.contact-section{overflow:hidden}
+.contact-section::before{content:'';position:absolute;bottom:-120px;left:50%;transform:translateX(-50%);width:1100px;max-width:130%;height:520px;background:radial-gradient(circle,rgba(124,58,237,.08),transparent 64%);pointer-events:none;z-index:0}
+.contact-in{position:relative;z-index:1}
+/* eyebrow shimmer accent */
+.eyebrow,.hero-eyebrow{box-shadow:0 4px 14px rgba(79,70,229,.1)}
+/* skill badges pop */
+.sk-row:hover{box-shadow:0 12px 28px rgba(79,70,229,.12)}
+/* button subtle sheen */
+.btn-r::after,.pf-btn::after,.dm-cta::after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(120deg,rgba(255,255,255,.28),transparent 40%);pointer-events:none}
+.btn-r,.pf-btn,.dm-cta{position:relative;overflow:hidden}
+@media(max-width:640px){.systems::after,.hero-visual::before{display:none}}
 </style>
-<style id="prem-phone">.pf-emsg{display:none;color:#dc2626;font-size:.78rem;font-weight:600;margin-top:-6px}.pf-emsg.show{display:block}</style>
-<style id="ent-dark">
-/* ================= ENTERPRISE DARK RE-SKIN ================= */
-:root{--ed-bg:#0a0f1c;--ed-surf:rgba(255,255,255,.035);--ed-surf2:#0e1626;--ed-bd:rgba(255,255,255,.09);--ed-tx:#eef3fb;--ed-tx2:#c2cfe2;--ed-tx3:#93a2bb}
-html{background:#0a0f1c!important}
-body{background:#0a0f1c!important;color:var(--ed-tx)!important}
-/* canlı mesh / grain / aura / parçacık / yürüyen ikon -> KAPALI */
-#px-bg,#px-grain,#px-aura,.hero-people{display:none!important}
-.hero .pt{display:none!important}
-/* mesh yerine sakin, statik koyu zemin */
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
-  radial-gradient(58vw 58vw at 10% -8%,rgba(127,29,29,.15),transparent 60%),
-  radial-gradient(54vw 54vw at 96% 6%,rgba(30,58,138,.13),transparent 60%),
-  #0a0f1c}
-/* bölümler şeffaf -> koyu zemin görünür */
-.combo-section,.erp-section,.niti-section,.proj-section,.price-section,.contact-section,
-.feat-section,.banner-section,.h3d-section{background:transparent!important}
-/* #moduller (Kim İçin + Geliştirdiğim Sistemler) ID seçici, class'tan güçlü -> ID ile ez */
-#moduller{background:transparent!important;border-top-color:rgba(255,255,255,.06)!important;border-bottom-color:rgba(255,255,255,.06)!important}
-#moduller .sec-h{color:var(--ed-tx)!important}
-#moduller .sec-p{color:var(--ed-tx2)!important}
-#moduller .sec-ey{background:rgba(239,68,68,.12)!important;border-color:rgba(239,68,68,.26)!important;color:#fca5a5!important}
-#moduller .fc{background:var(--ed-surf)!important;border-color:var(--ed-bd)!important;box-shadow:none!important}
-#moduller .fc:hover{border-color:rgba(239,68,68,.35)!important;box-shadow:0 16px 40px rgba(0,0,0,.45)!important}
-#moduller .fc .ft{color:var(--ed-tx)!important}
-#moduller .fc .fd,#moduller .fc .ftag{color:var(--ed-tx2)!important}
-#moduller .card-wm{opacity:.06!important}
-/* başlık / eyebrow / paragraf */
-.sec-h,.px-grad{color:var(--ed-tx)!important;background:none!important;-webkit-text-fill-color:var(--ed-tx)!important;animation:none!important}
-.sec-p{color:var(--ed-tx2)!important}
-.sec-ey{background:rgba(239,68,68,.12)!important;border-color:rgba(239,68,68,.26)!important;color:#fca5a5!important}
-/* hero sakinleştir */
-.hero{min-height:auto!important}
-.orb{opacity:.85!important}.mfloat,.fl1,.fl2{animation:none!important}
-.hero-fade{background:linear-gradient(to bottom,transparent,#0a0f1c)!important}
-/* ===== kart yüzeyleri (cam, kurumsal) ===== */
-.h3d-c,.fc,.erp-card,.niti-card,.proj-card,.pc,.ci-item,.demo-bar,.niti-diff,.sk-row,.price-note{
-  background:var(--ed-surf)!important;border-color:var(--ed-bd)!important;box-shadow:none!important;color:var(--ed-tx)!important}
-.h3d-c,.h3d-c:nth-child(n){animation:none!important;transform:none!important}
-.h3d-c:hover,.fc:hover,.niti-card:hover,.proj-card:hover,.pc:hover{transform:translateY(-4px)!important;border-color:rgba(239,68,68,.35)!important;box-shadow:0 16px 40px rgba(0,0,0,.45)!important}
-/* başlık metinleri açık */
-.h3d-title,.ft,.erp-card-title,.niti-card-title,.proj-name,.pc-name,.ci-val,.demo-bar-title,.niti-diff-title,.erp-title,.banner-title,.niti-name,.niti-title,.pc-price,.dm-item-title{color:var(--ed-tx)!important}
-/* ikincil metinler */
-.h3d-cat,.h3d-sub,.fd,.erp-card-desc,.niti-card-desc,.proj-desc,.pc-desc,.demo-bar-desc,.ci-label,.pc-tier,.erp-desc,.banner-sub,.erp-label,.banner-lbl,.niti-desc,.niti-diff-item,.demo-bar-tag,.pc-time{color:var(--ed-tx2)!important}
-/* tag / chip koyu */
-.h3d-tag,.ftag,.proj-tag,.demo-bar-tag,.pc-tag,.niti-tag,.erp-tag,.sk-mid{background:rgba(255,255,255,.05)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx2)!important}
-/* erp / banner kutuları koyu */
-.erp-in,.banner-in{background:linear-gradient(135deg,#101a2e,#0b1322)!important;border-color:var(--ed-bd)!important}
-.erp-donut{animation:none!important}.erp-donut-rel::before{animation:none!important;opacity:.35!important}
-.erp-dc-name{color:var(--ed-tx)!important}.ecb{background:rgba(255,255,255,.05)!important}
-/* niti (eski açık indigo) koyu */
-.niti-section{border-top-color:rgba(255,255,255,.06)!important;border-bottom-color:rgba(255,255,255,.06)!important}
-.niti-title span{color:#a5b4fc!important}
-.niti-standalone{background:rgba(99,102,241,.14)!important;border-color:rgba(99,102,241,.3)!important;color:#a5b4fc!important}
-.niti-tag{color:#c7d2fe!important}
-/* projeler */
-.proj-url{color:#f87171!important}
-.proj-link{background:rgba(255,255,255,.06)!important;border:1px solid var(--ed-bd)!important}
-.proj-cta{background:linear-gradient(135deg,#141d33,#0e1626)!important}
-/* fiyatlandırma */
-.pc-features .pf{color:var(--ed-tx2)!important}.pc-divider{background:var(--ed-bd)!important}
-.pc-cta{background:rgba(255,255,255,.05)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx2)!important}
-.pc.featured{border-color:rgba(239,68,68,.55)!important}.pc.featured::before{animation:none!important;background:rgba(239,68,68,.7)!important}
-.pc-badge{background:rgba(239,68,68,.14)!important;border-color:rgba(239,68,68,.3)!important;color:#fca5a5!important}
-/* iletişim + form */
-.cf-form,.pf-card{background:var(--ed-surf2)!important;border-color:var(--ed-bd)!important;box-shadow:none!important}
-.pf-card::before{display:none!important}
-.cf-input,.cf-select,.cf-textarea,.pf-in{background:rgba(255,255,255,.04)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx)!important}
-.pf-field>label,.pf-field>i{color:var(--ed-tx3)!important}.cf-label{color:var(--ed-tx2)!important}
-.cd-link{background:var(--ed-surf)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx)!important}
-/* modallar koyu */
-.pm-box,.dm-box{background:#0d1424!important;border-color:var(--ed-bd)!important}
-.pm-uc,.dm-item,.pm-tech-strip,.pm-uc{background:rgba(255,255,255,.04)!important;border-color:var(--ed-bd)!important}
-.pm-title,.pm-uc-title,.dm-title{color:var(--ed-tx)!important}
-.pm-uc-desc,.pm-section-lbl,.pmf,.dm-item-desc,.dm-lbl,.dm-note,.pm-footer,.pm-tech-chip,.pm-tier-lbl{color:var(--ed-tx2)!important}
-.pm-tech-chip{background:rgba(255,255,255,.05)!important;border-color:var(--ed-bd)!important}
-.pm-close,.dm-close{background:rgba(255,255,255,.05)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx2)!important}
-.pm-divider,.dm-head,.dm-footer{border-color:var(--ed-bd)!important}
-.pm-time-pill{background:rgba(255,255,255,.05)!important;border-color:var(--ed-bd)!important;color:var(--ed-tx2)!important}
-.pm-stripe,.dm-stripe{animation:none!important}
-/* üst ilerleme çubuğu ince/sakin */
-#px-prog{height:2px!important;box-shadow:none!important;background:linear-gradient(90deg,#ef4444,#3b82f6)!important}
-/* === İMLEÇ TAKİPLİ + KALAN DEKORATİF EFEKTLER TAMAMEN KAPALI === */
-#px-aura{display:none!important}
-.fc::after,.h3d-c::after,.niti-card::after,.proj-card::after{display:none!important;opacity:0!important}
-.hero-logo-bg{animation:none!important;opacity:.5!important}
-.proj-live i{animation:none!important}
-.bg-grid{opacity:.6!important}
-/* ikon kutucukları RENKLİ kalsın — renk inline rgba tonlarından gelir (canlılık) */
-/* kart hover sadece hafif yükselme + ince kenar (renkli parıltı yok) */
-.fc:hover,.h3d-c:hover,.niti-card:hover,.proj-card:hover,.pc:hover{box-shadow:0 14px 36px rgba(0,0,0,.45)!important}
-/* tüm bölümlerde tutarlı dikey ritim */
-.combo-section,#moduller,.erp-section,.niti-section,.proj-section,.price-section,.contact-section{padding-top:64px!important;padding-bottom:64px!important}
-/* === COMBO düzeni: yan yana uzun panel yerine ÜST tanıtım + ALT 3 kolon ızgara === */
-#moduller .combo-grid{grid-template-columns:1fr!important;gap:34px!important}
-#moduller .combo-left{position:static!important;top:auto!important;max-width:760px}
-#moduller .combo-right .sec-ey{margin-top:6px}
-#moduller .fgrid2{grid-template-columns:repeat(3,1fr)!important;gap:14px!important;margin-top:18px!important}
-#moduller .fgrid2 .sp2,#moduller .fgrid2 .fc{grid-column:auto!important}
-#moduller .fc{padding:20px 18px!important}
-@media(max-width:900px){#moduller .fgrid2{grid-template-columns:repeat(2,1fr)!important}}
-@media(max-width:560px){#moduller .fgrid2{grid-template-columns:1fr!important}}
-/* ============ HEPSİ: sade CAMSI (glass) + hafif 3B derinlik ============ */
-.h3d-c,.fc,#moduller .fc,.erp-card,.niti-card,.proj-card,.pc,.ci-item,.demo-bar,.niti-diff,
-.sk-row,.price-note,.cf-form,.pf-card,.cd-link,.pm-uc,.dm-item,.pm-tech-strip{
-  background:linear-gradient(160deg,rgba(23,33,54,.78),rgba(13,20,35,.72))!important;
-  -webkit-backdrop-filter:blur(14px) saturate(130%);backdrop-filter:blur(14px) saturate(130%);
-  border:1px solid rgba(255,255,255,.11)!important;
-  box-shadow:0 10px 30px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.10)!important;
-  border-radius:16px!important;
-}
-.h3d-c:hover,.fc:hover,#moduller .fc:hover,.erp-card:hover,.niti-card:hover,.proj-card:hover,.pc:hover,.ci-item:hover{
-  transform:translateY(-5px)!important;
-  box-shadow:0 20px 46px rgba(0,0,0,.52),inset 0 1px 0 rgba(255,255,255,.24)!important;
-  border-color:rgba(255,255,255,.22)!important;
-}
-/* büyük paneller de aynı camsı dilden, biraz daha belirgin */
-.erp-in,.banner-in{
-  background:linear-gradient(160deg,rgba(20,29,48,.74),rgba(11,19,33,.70))!important;
-  -webkit-backdrop-filter:blur(16px) saturate(125%);backdrop-filter:blur(16px) saturate(125%);
-  border:1px solid rgba(255,255,255,.10)!important;
-  box-shadow:0 14px 40px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.10)!important}
-/* ikon kutucukları da minik camsı */
-.fic,.h3d-ic,.niti-card-ic,.dm-ic,.ci-ic,.hfc-ic,.proj-ic{
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 4px 12px rgba(0,0,0,.3)!important}
-/* ============ CANLILIK: renkli ambiyans + accent (gimmick yok) ============ */
-/* bölümlere ince, sabit renkli ışık (her bölüm farklı nefes alsın) */
-#moduller{background:radial-gradient(70vw 46vw at 85% -8%,rgba(239,68,68,.12),transparent 58%)!important}
-.erp-section{background:radial-gradient(64vw 44vw at 8% 0,rgba(239,68,68,.10),transparent 58%)!important}
-.niti-section{background:radial-gradient(64vw 44vw at 88% 4%,rgba(99,102,241,.13),transparent 58%)!important}
-.proj-section{background:radial-gradient(64vw 44vw at 12% 100%,rgba(59,130,246,.10),transparent 58%)!important}
-.price-section{background:radial-gradient(64vw 44vw at 88% 100%,rgba(239,68,68,.09),transparent 58%)!important}
-.contact-section{background:radial-gradient(60vw 40vw at 10% 0,rgba(59,130,246,.10),transparent 58%)!important}
-/* kart hover: hafif KIRMIZI ışıma — canlı ama sade */
-.fc:hover,.h3d-c:hover,.proj-card:hover,.pc:hover,.erp-card:hover,.niti-card:hover{
-  border-color:rgba(239,68,68,.4)!important;
-  box-shadow:0 18px 44px rgba(0,0,0,.5),0 0 28px rgba(239,68,68,.14),inset 0 1px 0 rgba(255,255,255,.22)!important}
-/* accent metinler daha canlı */
-.sec-ey,#moduller .sec-ey{color:#f87171!important}
-.proj-url{color:#fb7185!important}
-.niti-title span{color:#a5b4fc!important}
-.pc-price .cur{color:#f87171!important}
-/* hero başlık vurgu kelimesi canlı kırmızı */
-.h-red{color:#f43f5e!important}
-/* hero CTA biraz daha ışıltılı */
-.btn-r{box-shadow:0 8px 30px rgba(239,68,68,.4)!important}
-/* === KALAN GÖRÜNMEZ KOYU YAZILAR (açık tema artığı, koyu zeminde okunmuyordu) === */
-.sk-name{color:var(--ed-tx)!important}
-.pc-price .suf,.pm-tech-lbl,.demo-lock,.pc-cta{color:var(--ed-tx2)!important}
-.proj-live.lock{color:var(--ed-tx3)!important}
-</style>
-<style id="ent-polish">
-/* ===== PREMIUM CİLA (showcase skill'leri) ===== */
-/* Skill: tıklama hissi — hafif içeri çökme (active state) */
-.btn-r:active,.btn-g:active,.cf-btn:active,.pf-btn:active,.nav-link:active,
-.pc:active,.fc:active,.proj-card:active,.niti-card:active,.cd-link:active,.ecb:active,.demo-bar-cta:active{
-  transform:scale(.97)!important;transition:transform .1s ease!important}
-/* Skill: ikon/link/buton yumuşak geçiş (layout zıplaması olmadan, sadece görsel özellikler) */
-a,button,.btn-r,.btn-g,.nav-link,.proj-link,.cd-link,.dm-cta,.demo-bar-cta,i,svg{
-  transition:color .25s cubic-bezier(.25,1,.5,1),background-color .25s cubic-bezier(.25,1,.5,1),
-  border-color .25s cubic-bezier(.25,1,.5,1),transform .25s cubic-bezier(.34,1.56,.64,1),
-  box-shadow .25s cubic-bezier(.25,1,.5,1),opacity .25s ease}
-/* Skill: hero girişi — blur + fade, LUXE expo easing (hızlı başla → nazikçe otur) */
-.hero-in{animation:edHeroIn 1.05s cubic-bezier(.16,1,.3,1) both}
-@keyframes edHeroIn{from{opacity:0;transform:translateY(26px);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
-/* lüks easing değişkenleri (tüm site için referans) */
-:root{--ease-luxe:cubic-bezier(.16,1,.3,1);--ease-bounce:cubic-bezier(.34,1.56,.64,1)}
-/* kart hover'ı default 'ease' yerine luxe expo eğriyle (giriş ease-out mantığı) */
-.fc,.pc,.proj-card,.niti-card,.h3d-c{transition:transform .34s var(--ease-luxe),box-shadow .34s var(--ease-luxe),border-color .25s ease}
-/* Skill: metin seçimi accent rengi (sitenin vurgusuyla) */
-::selection{background:#dc2626;color:#fff}
-::-moz-selection{background:#dc2626;color:#fff}
-/* Skill: scroll-reveal — ÖZELLİK BAŞINA AYRI EASING (opacity lineer eşit solar, transform/filter luxe expo ile nazikçe oturur) */
-.rv{filter:blur(8px);transition:opacity .55s linear,transform .72s cubic-bezier(.16,1,.3,1),filter .72s cubic-bezier(.16,1,.3,1)}
-.rv.on{filter:blur(0)}
-/* gecikme skalasını uzat (daha uzun kart dizilerinde kademeli/merdiven giriş) */
-.d4{transition-delay:.32s}.d5{transition-delay:.40s}.d6{transition-delay:.48s}
-/* erişilebilirlik: hareket azaltma tercihi */
-@media(prefers-reduced-motion:reduce){.hero-in{animation:none!important}.rv{filter:none!important}}
-</style>
-<script id="ent-dark-js">
-(function(){function k(){['px-bg','px-grain','px-aura'].forEach(function(i){var e=document.getElementById(i);if(e&&e.remove)e.remove();});
-document.querySelectorAll('.hero-people,.hero .pt').forEach(function(e){e.remove&&e.remove();});}
-k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout(k,1200);})();
-</script>
-<script id="ent-parallax">
-/* ölçülü hero parallax: sadece dekoratif katmanlar (orb'lar + logo glow), metne dokunmaz */
-(function(){
-  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  var bg,logo,ticking=false,vh=window.innerHeight||800;
-  function grab(){bg=document.querySelector('.hero-bg');logo=document.querySelector('.hero-logo-bg');}
-  function upd(){
-    var y=window.scrollY||window.pageYOffset||0;
-    if(y<vh*1.3){ /* sadece hero görünürken çalış */
-      if(bg)   bg.style.transform='translate3d(0,'+(y*0.18)+'px,0)';
-      if(logo) logo.style.transform='translate(-50%,calc(-50% + '+(y*0.08)+'px)) scale(1)';
-    }
-    ticking=false;
-  }
-  function onScroll(){if(!ticking){requestAnimationFrame(upd);ticking=true;}}
-  function init(){grab();vh=window.innerHeight||800;window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',function(){vh=window.innerHeight||800;},{passive:true});upd();}
-  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
-})();
-</script>
-<style id="ent-3d">
-/* ================= 2026 HYPER-DEPTH KATMANI ================= */
-/* Kartlar: gerçek 3B yüzey (perspektif transform'un içinde, parent gerekmez) */
-.fc,.pc,.proj-card,.niti-card,.h3d-c{
-  transform-style:preserve-3d!important;
-  backface-visibility:hidden!important;
-  will-change:transform,box-shadow!important;
-  transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .35s cubic-bezier(.25,1,.5,1),border-color .25s ease!important;
-  /* Volumetrik çift gölge: sıkı occlusion + geniş accent ambiyans */
-  box-shadow:0 4px 14px rgba(0,0,0,.55),0 22px 46px rgba(99,102,241,.10)!important;
-}
-/* Hover: mouse konumuna göre 3B eğilme + öne çıkma (translateZ) */
-.fc:hover,.pc:hover,.proj-card:hover,.niti-card:hover,.h3d-c:hover{
-  transform:perspective(1300px) translateZ(20px)
-            rotateX(calc(var(--my,0)*-9deg)) rotateY(calc(var(--mx,0)*9deg))!important;
-  box-shadow:0 12px 28px rgba(0,0,0,.62),0 36px 74px rgba(99,102,241,.22),
-             0 0 26px rgba(124,131,255,.12)!important;
-  border-color:rgba(150,160,255,.32)!important;
-}
-/* İçerik & ikonlar farklı Z düzlemlerinde -> katmanlı derinlik (parallax hissi) */
-.fc:hover .fic,.pc:hover .pc-tier,.proj-card:hover .proj-ic,.niti-card:hover .niti-card-ic,.h3d-c:hover .h3d-ic{
-  transform:translateZ(30px)!important;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
-@media(prefers-reduced-motion:reduce){
-  .fc:hover,.pc:hover,.proj-card:hover,.niti-card:hover,.h3d-c:hover{transform:translateZ(0)!important}
-}
-</style>
-<style id="ent-refine">
-/* --- görünüm cilası: tilt/transform'a dokunmadan sadece ışıma & mikro-etkileşim --- */
-.pc.featured{box-shadow:0 18px 44px -16px rgba(220,38,38,.30)!important}
-.cd-link i{transition:transform .2s}
-.cd-link:hover i{transform:scale(1.14)}
-.pf-in:focus{border-color:rgba(220,38,38,.55)!important;box-shadow:0 0 0 3px rgba(220,38,38,.12)!important}
-@media(prefers-reduced-motion:no-preference){
-  .pf-btn{transition:transform .22s,box-shadow .25s,filter .2s}
-  .pf-btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -8px rgba(220,38,38,.5);filter:brightness(1.06)}
-  .pf-btn:active{transform:translateY(0) scale(.98)}
-}
-</style>
-<script id="ent-3d-js">
-/* Hyper-depth mouse-tilt: kart üstünde imleç -> --mx/--my (-0.5..0.5) */
-(function(){
-  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  var SEL='.fc,.pc,.proj-card,.niti-card,.h3d-c';
-  function bind(c){
-    c.addEventListener('mousemove',function(e){
-      var r=c.getBoundingClientRect();
-      c.style.setProperty('--mx',((e.clientX-r.left)/r.width-0.5).toFixed(3));
-      c.style.setProperty('--my',((e.clientY-r.top)/r.height-0.5).toFixed(3));
-    },{passive:true});
-    c.addEventListener('mouseleave',function(){c.style.setProperty('--mx',0);c.style.setProperty('--my',0);},{passive:true});
-  }
-  function init(){document.querySelectorAll(SEL).forEach(bind);}
-  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
-})();
-</script>
 </head>
 <body>
+<div id="neo-bg"></div>
+<div id="neo-grid"></div>
+<div id="neo-prog"></div>
+<div id="neo-aura"></div>
 
-<nav>
-  <a href="#" onclick="location.reload();return false;" class="nav-logo" style="text-decoration:none;cursor:pointer">
+<nav id="nav">
+  <a href="#" onclick="location.reload();return false;" class="nav-logo">
     <img class="logo-im" src="icon.png?v=8" alt="Özkan Muş">
-    <span class="logo-name">V3 Entegrasyon</span>
+    <span class="logo-name">Özkan Muş</span>
   </a>
   <div class="nav-center">
     <a href="#moduller" class="nav-link">Modüller</a>
     <a href="#projeler" class="nav-link">Projeler</a>
     <a href="#fiyatlar" class="nav-link">Fiyatlar</a>
-    <a href="#iletisim" class="nav-link">İletişim</a>
   </div>
+  <a href="#iletisim" class="nav-cta"><i class="fa-solid fa-arrow-right" style="font-size:.7rem"></i> İletişime Geç</a>
 </nav>
 
 <main>
 
-<section class="hero"><img src="icon.png?v=8" class="hero-logo-bg" alt=""><div class="hero-people"><div class="hp-track"><i class="fa-solid fa-user-tie" style="color:rgba(96,165,250,.55)"></i><i class="fa-solid fa-store" style="color:rgba(248,113,113,.55)"></i><i class="fa-solid fa-utensils" style="color:rgba(251,191,36,.55)"></i><i class="fa-solid fa-person-digging" style="color:rgba(74,222,128,.55)"></i><i class="fa-solid fa-truck-fast" style="color:rgba(167,139,250,.55)"></i><i class="fa-solid fa-briefcase" style="color:rgba(56,189,248,.55)"></i><i class="fa-solid fa-helmet-safety" style="color:rgba(251,146,60,.55)"></i><i class="fa-solid fa-cart-shopping" style="color:rgba(244,114,182,.55)"></i><i class="fa-solid fa-user-doctor" style="color:rgba(45,212,191,.55)"></i><i class="fa-solid fa-laptop-code" style="color:rgba(129,140,248,.55)"></i><i class="fa-solid fa-screwdriver-wrench" style="color:rgba(148,163,184,.55)"></i><i class="fa-solid fa-scissors" style="color:rgba(252,165,165,.55)"></i><i class="fa-solid fa-user-tie" style="color:rgba(96,165,250,.55)"></i><i class="fa-solid fa-store" style="color:rgba(248,113,113,.55)"></i><i class="fa-solid fa-utensils" style="color:rgba(251,191,36,.55)"></i><i class="fa-solid fa-person-digging" style="color:rgba(74,222,128,.55)"></i><i class="fa-solid fa-truck-fast" style="color:rgba(167,139,250,.55)"></i><i class="fa-solid fa-briefcase" style="color:rgba(56,189,248,.55)"></i><i class="fa-solid fa-helmet-safety" style="color:rgba(251,146,60,.55)"></i><i class="fa-solid fa-cart-shopping" style="color:rgba(244,114,182,.55)"></i><i class="fa-solid fa-user-doctor" style="color:rgba(45,212,191,.55)"></i><i class="fa-solid fa-laptop-code" style="color:rgba(129,140,248,.55)"></i><i class="fa-solid fa-screwdriver-wrench" style="color:rgba(148,163,184,.55)"></i><i class="fa-solid fa-scissors" style="color:rgba(252,165,165,.55)"></i></div></div>
-  <div class="hero-bg">
-    <div class="orb orb1"></div><div class="orb orb2"></div>
-    <div class="orb orb3"></div><div class="orb orb4"></div>
-    <div class="bg-grid"></div><div class="bg-vig"></div>
-    <div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div>
-    <div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div>
-  </div>
+<section class="hero">
+  <div class="hero-orb o1"></div>
+  <div class="hero-orb o2"></div>
   <div class="hero-in">
     <div>
-      <div class="hero-eyebrow rv"><i class="fa-solid fa-user" style="font-size:.58rem"></i> Özkan Muş &nbsp;·&nbsp; IT Uzmanı</div>
-      <h1 class="rv d1">Kurumsal<br>Yazılım<br><span class="h-red">Geliştiriyorum.</span></h1>
+      <div class="hero-eyebrow rv"><span class="dot"></span> Yeni projelere müsait · IT Uzmanı</div>
+      <h1 class="rv d1"><span class="l1">Kurumsal</span><span class="l1"><span class="hero-rotate" id="hero-rotate">yazılım</span></span><span class="l1">geliştiriyorum.</span></h1>
       <p class="hero-sub rv d2">Programların karmaşasından kurtulup <strong>web üzerinden canlı veri</strong> isteyen işletmeler için özel sistem geliştiriyorum. Aynı zamanda internette yer almak isteyen küçük işletmeler için <strong>sade ve hızlı web sitesi</strong> de yapıyorum.</p>
       <div class="cta-row rv d3">
-        <a href="#iletisim" class="btn-r"><i class="fa-solid fa-envelope" style="font-size:.78rem"></i> İletişime Geç</a>
-        <a href="#moduller" class="btn-g"><i class="fa-solid fa-layer-group" style="font-size:.76rem"></i> Modülleri İncele</a>
+        <a href="#iletisim" class="btn-r"><i class="fa-solid fa-envelope" style="font-size:.84rem"></i> İletişime Geç</a>
+        <a href="#projeler" class="btn-g"><i class="fa-solid fa-folder-open" style="font-size:.82rem"></i> İşleri Gör</a>
+      </div>
+      <div class="hero-mini rv d4">
+        <span><i class="fa-solid fa-circle-check"></i> 5+ yıl deneyim</span>
+        <span><i class="fa-solid fa-circle-check"></i> Nebim V3 · SQL Server</span>
+        <span><i class="fa-solid fa-circle-check"></i> %100 özel kod</span>
       </div>
     </div>
-    <div class="hero-right rv d2">
-      <div class="hfc-col">
-        <div class="hfc-wrap">
-          <div class="hfc-inner">
-            <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(220,38,38,.2)"><i class="fa-solid fa-headset" style="color:#f87171"></i></div><div class="hfc-body"><div class="hfc-lbl">Örnek Proje</div><div class="hfc-name">Kurumsal Panel</div><div class="hfc-tags"><span class="hfc-tag">Ticket Sistemi</span><span class="hfc-tag">Rol Bazlı</span><span class="hfc-tag">ERP Bağlantısı</span></div></div></div>
-            <div class="hfc-face hfc-back"><div class="hfc-ic" style="background:rgba(220,38,38,.2)"><i class="fa-solid fa-cubes" style="color:#f87171"></i></div><div class="hfc-body"><div class="hfc-lbl">8 Modül</div><div class="hfc-name">Tam Kapsam</div><div class="hfc-tags"><span class="hfc-tag">Ticket</span><span class="hfc-tag">TT Fiber</span><span class="hfc-tag">Superbox</span></div></div></div>
-          </div>
-        </div>
-        <div class="hfc-wrap">
-          <div class="hfc-inner">
-            <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(245,158,11,.2)"><i class="fa-solid fa-server" style="color:#fbbf24"></i></div><div class="hfc-body"><div class="hfc-lbl">ERP Uzmanlığı</div><div class="hfc-name">Nebim V3</div><div class="hfc-tags"><span class="hfc-tag">IT Yöneticisi</span><span class="hfc-tag">e-İrsaliye</span><span class="hfc-tag">SQL Server</span></div></div></div>
-            <div class="hfc-face hfc-back"></div>
-          </div>
-        </div>
-        <div class="hfc-wrap">
-          <div class="hfc-inner">
-            <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(249,115,22,.2)"><i class="fa-solid fa-chart-gantt" style="color:#fb923c"></i></div><div class="hfc-body"><div class="hfc-lbl">Yazılım</div><div class="hfc-name">Niti Go</div><div class="hfc-tags"><span class="hfc-tag">Raporlama</span><span class="hfc-tag">Muhasebe</span><span class="hfc-tag">ERP Bağlantısı</span></div></div></div>
-            <div class="hfc-face hfc-back"></div>
-          </div>
-        </div>
-        <div class="hfc-wrap">
-          <div class="hfc-inner">
-            <div class="hfc-face hfc-front"><div class="hfc-ic" style="background:rgba(37,99,235,.2)"><i class="fa-solid fa-code" style="color:#60a5fa"></i></div><div class="hfc-body"><div class="hfc-lbl">Geliştirici</div><div class="hfc-name">Kurumsal Yazılım</div><div class="hfc-tags"><span class="hfc-tag">PHP 8</span><span class="hfc-tag">MySQL</span><span class="hfc-tag">JavaScript</span></div></div></div>
-            <div class="hfc-face hfc-back"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="hero-fade"></div>
-</section>
-
-<section class="h3d-section rv">
-  <div class="h3d-wrap">
-    <div class="h3d-grid">
-      <div class="h3d-c">
-        <div class="h3d-ic" style="background:#f1f5f9"><i class="fa-solid fa-briefcase" style="color:#475569"></i></div>
-        <div class="h3d-cat">Aktif Rol</div>
-        <div class="h3d-title">IT Yönetici & Geliştirici</div>
-        <div class="h3d-tags"><span class="h3d-tag">Kurumsal IT</span><span class="h3d-tag">ERP</span><span class="h3d-tag">Yazılım</span></div>
-        <div class="h3d-sub">İki alanda aynı anda üretim</div>
-      </div>
-      <div class="h3d-c">
-        <div class="h3d-ic" style="background:#fef3c7"><i class="fa-solid fa-medal" style="color:#d97706"></i></div>
-        <div class="h3d-cat">Uzmanlık</div>
-        <div class="h3d-title">ERP & IT Yönetimi</div>
-        <div class="h3d-tags"><span class="h3d-tag">Nebim V3</span><span class="h3d-tag">SQL Server</span><span class="h3d-tag">GİB</span></div>
-        <div class="h3d-sub">5+ yıl aktif sektör deneyimi</div>
-      </div>
-      <div class="h3d-c">
-        <div class="h3d-ic" style="background:#f0fdf4"><i class="fa-solid fa-terminal" style="color:#16a34a"></i></div>
-        <div class="h3d-cat">Yazılım</div>
-        <div class="h3d-title">Kurumsal Geliştirme</div>
-        <div class="h3d-tags"><span class="h3d-tag">PHP 8</span><span class="h3d-tag">MySQL</span><span class="h3d-tag">AJAX</span><span class="h3d-tag">Session</span></div>
-        <div class="h3d-sub">Sıfırdan mimari tasarım</div>
-      </div>
-      <div class="h3d-c">
-        <div class="h3d-ic" style="background:#dbeafe"><i class="fa-solid fa-paper-plane" style="color:#2563eb"></i></div>
-        <div class="h3d-cat">Hizmet</div>
-        <div class="h3d-title">Serbest Projeler</div>
-        <div class="h3d-tags"><span class="h3d-tag">Web Uygulama</span><span class="h3d-tag">ERP Entgr.</span><span class="h3d-tag">Danışmanlık</span></div>
-        <div class="h3d-sub">Teklif için iletişime geçin</div>
+    <div class="hero-visual rv d2">
+      <div class="hero-stats">
+        <div class="stat glass"><i class="fa-solid fa-calendar-check ic"></i><div class="v"><span class="count" data-count="5">0</span><span class="s">+</span></div><div class="k">Yıl aktif sektör deneyimi</div></div>
+        <div class="stat glass"><i class="fa-solid fa-cubes ic"></i><div class="v"><span class="count" data-count="8">0</span></div><div class="k">Kurumsal modül geliştirdim</div></div>
+        <div class="stat glass"><i class="fa-solid fa-signal ic"></i><div class="v"><span class="count" data-count="3">0</span></div><div class="k">Canlı sistem & web sitesi</div></div>
+        <div class="stat glass"><i class="fa-solid fa-code ic"></i><div class="v"><span class="count" data-count="100">0</span><span class="s">%</span></div><div class="k">Şablonsuz, özel yazılım</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="moduller" class="combo-section">
-  <div class="wrap combo-grid rv">
-    <div class="combo-left">
-      <div class="banner-lbl">Hizmet Profili</div>
-      <h2 class="sec-h">Kim İçin Geliştiriyorum?</h2>
+<section class="skills-sec">
+  <div class="skills-in">
+    <div class="rv">
+      <span class="eyebrow"><i class="fa-solid fa-layer-group" style="font-size:.6rem"></i> Yetenekler</span>
+      <h2 class="sec-h">Kullandığım <span class="g">teknolojiler</span></h2>
+    </div>
+    <div class="sk-grid">
+      <div class="sk-row glass rv"><span class="sk-name">PHP / MySQL</span><span class="sk-badge sk-main">Ana dil</span></div>
+      <div class="sk-row glass rv d1"><span class="sk-name">Nebim V3 ERP</span><span class="sk-badge sk-active">Günlük kullanım</span></div>
+      <div class="sk-row glass rv d2"><span class="sk-name">SQL / T-SQL</span><span class="sk-badge sk-active">İleri düzey</span></div>
+      <div class="sk-row glass rv"><span class="sk-name">JavaScript</span><span class="sk-badge sk-mid">Orta düzey</span></div>
+      <div class="sk-row glass rv d1"><span class="sk-name">HTML / CSS</span><span class="sk-badge sk-main">Aktif kullanım</span></div>
+      <div class="sk-row glass rv d2"><span class="sk-name">ERP Entegrasyonu</span><span class="sk-badge sk-active">Nebim V3 · SQL</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="moduller" class="systems">
+  <div class="systems-in">
+    <div class="rv">
+      <span class="sec-num">01 — NELER YAPABİLİRİM</span>
+      <h2 class="sec-h">Geliştirdiğim <span class="g">sistemler</span></h2>
       <p class="sec-p">Karmaşık programlar yerine web tabanlı, canlı veri çeken sistemler isteyen <strong>kurumsal işletmeler</strong> için — ve "sadece internette görünelim" diyen <strong>küçük işletmeler</strong> için. İki uçta da çözüm üretiyorum.</p>
-      <div class="sk-list"><div class="sk-row"><span class="sk-name">PHP / MySQL</span><span class="sk-badge sk-main">Ana dil · Aktif kullanım</span></div>
-      <div class="sk-row"><span class="sk-name">Nebim V3 ERP</span><span class="sk-badge sk-active">IT Yöneticisi · Günlük kullanım</span></div>
-      <div class="sk-row"><span class="sk-name">SQL / T-SQL</span><span class="sk-badge sk-active">İleri düzey · Aktif</span></div>
-      <div class="sk-row"><span class="sk-name">JavaScript</span><span class="sk-badge sk-mid">Orta düzey</span></div>
-      <div class="sk-row"><span class="sk-name">HTML / CSS</span><span class="sk-badge sk-main">Aktif kullanım</span></div>
-      <div class="sk-row"><span class="sk-name">ERP Entegrasyonu</span><span class="sk-badge sk-active">Nebim V3 · SQL Server</span></div></div>
     </div>
-    <div class="combo-right">
-      <div class="sec-ey"><i class="fa-solid fa-cubes" style="font-size:.58rem"></i> Neler Yapabilirim?</div>
-      <h2 class="sec-h">Geliştirdiğim Sistemler</h2>
-      <div class="fgrid2"><div class="fc rv d1"><div class="fic" style="background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.2)"><i class="fa-solid fa-ticket" style="color:#ef4444"></i></div><div class="ft">Destek & Talep Sistemi</div><div class="fd">Müşteri taleplerini aç, öncelik belirle, birime ata ve yanıtla. Chat arayüzü, e-posta bildirimi ve SLA takibi ile tam döngülü destek akışı.</div><div class="ftags"><span class="ftag">Chat Arayüzü</span><span class="ftag">E-posta Bildirim</span><span class="ftag">SLA Takibi</span></div></div>
-      <div class="fc rv d2"><div class="fic" style="background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.2)"><i class="fa-solid fa-database" style="color:#3b82f6"></i></div><div class="ft">Canlı ERP Veri Entegrasyonu</div><div class="fd">Nebim V3 veya herhangi bir kurumsal sistemden SQL bağlantısıyla web arayüzüne gerçek zamanlı veri çekme, sorgulama ve görselleştirme.</div><div class="ftags"><span class="ftag">SQL Server</span><span class="ftag">Gerçek Zamanlı</span><span class="ftag">T-SQL</span></div></div>
-      <div class="fc rv d3"><div class="fic" style="background:rgba(22,163,74,.1);border-color:rgba(22,163,74,.2)"><i class="fa-solid fa-globe" style="color:#16a34a"></i></div><div class="ft">Özel Web Uygulaması</div><div class="fd">Sıfırdan PHP/MySQL backend, kullanıcı kimlik doğrulama ve AJAX tabanlı dinamik arayüz. İş süreçlerinize özel mimari tasarım ve güvenli altyapı.</div><div class="ftags"><span class="ftag">PHP 8</span><span class="ftag">MySQL</span><span class="ftag">AJAX</span></div></div>
-      <div class="fc rv d1"><div class="fic" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.2)"><i class="fa-solid fa-money-bill-transfer" style="color:#f59e0b"></i></div><div class="ft">Finans & Maliyet Takibi</div><div class="fd">Nakit tahsilat, tediye ve maliyet kalemlerini kaydet, döneme göre raporla. ERP ile entegre veya bağımsız çalışan muhasebe modülü.</div><div class="ftags"><span class="ftag">Tahsilat</span><span class="ftag">Tediye</span><span class="ftag">Dönem Raporu</span></div></div>
-      <div class="fc rv d2"><div class="fic" style="background:rgba(236,72,153,.1);border-color:rgba(236,72,153,.2)"><i class="fa-solid fa-users-gear" style="color:#ec4899"></i></div><div class="ft">Personel & Yetki Yönetimi</div><div class="fd">Personel bilgileri, görev tanımları ve departman bazlı yetki sistemi. Rol tabanlı erişim kontrolü ile her kullanıcı sadece ilgili modülleri görür.</div><div class="ftags"><span class="ftag">RBAC</span><span class="ftag">Departman Bazlı</span><span class="ftag">Audit Log</span></div></div>
-      <div class="fc sp2 rv d1"><div class="fdual"><div><div class="fic" style="background:rgba(220,38,38,.08);border-color:rgba(220,38,38,.18)"><i class="fa-solid fa-shield-halved" style="color:#dc2626"></i></div><div class="ft">Güvenli Altyapı</div><div class="fd">Rol bazlı yetki sistemi (Admin, Birim Yetkilisi, Finans), CSRF koruması, risk skorlama ile IP bazlı giriş izleme ve oturum yönetimi.</div><div class="ftags"><span class="ftag">CSRF</span><span class="ftag">Risk Skoru</span><span class="ftag">IP Takibi</span></div></div><div><div class="fic" style="background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.18)"><i class="fa-solid fa-chart-pie" style="color:#3b82f6"></i></div><div class="ft">İstatistik & Raporlama</div><div class="fd">Fatura takvimi, aktif/pasif hizmet dağılımı, talep özeti ve quick-panel ile tıklanabilir istatistik kartları.</div><div class="ftags"><span class="ftag">Fatura Takvimi</span><span class="ftag">Quick Panel</span><span class="ftag">DataTables</span></div></div></div></div></div>
+    <div class="bento">
+      <div class="fc glass tilt rv"><div class="fic"><i class="fa-solid fa-ticket"></i></div><div class="ft">Destek & Talep Sistemi</div><div class="fd">Müşteri taleplerini aç, öncelik belirle, birime ata ve yanıtla. Chat arayüzü, e-posta bildirimi ve SLA takibi ile tam döngülü destek akışı.</div><div class="ftags"><span class="ftag">Chat Arayüzü</span><span class="ftag">E-posta Bildirim</span><span class="ftag">SLA Takibi</span></div></div>
+      <div class="fc glass tilt rv d1"><div class="fic"><i class="fa-solid fa-database"></i></div><div class="ft">Canlı ERP Veri Entegrasyonu</div><div class="fd">Nebim V3 veya herhangi bir kurumsal sistemden SQL bağlantısıyla web arayüzüne gerçek zamanlı veri çekme, sorgulama ve görselleştirme.</div><div class="ftags"><span class="ftag">SQL Server</span><span class="ftag">Gerçek Zamanlı</span><span class="ftag">T-SQL</span></div></div>
+      <div class="fc glass tilt rv d2"><div class="fic"><i class="fa-solid fa-globe"></i></div><div class="ft">Özel Web Uygulaması</div><div class="fd">Sıfırdan PHP/MySQL backend, kullanıcı kimlik doğrulama ve AJAX tabanlı dinamik arayüz. İş süreçlerinize özel mimari tasarım ve güvenli altyapı.</div><div class="ftags"><span class="ftag">PHP 8</span><span class="ftag">MySQL</span><span class="ftag">AJAX</span></div></div>
+      <div class="fc glass tilt rv d1"><div class="fic"><i class="fa-solid fa-money-bill-transfer"></i></div><div class="ft">Finans & Maliyet Takibi</div><div class="fd">Nakit tahsilat, tediye ve maliyet kalemlerini kaydet, döneme göre raporla. ERP ile entegre veya bağımsız çalışan muhasebe modülü.</div><div class="ftags"><span class="ftag">Tahsilat</span><span class="ftag">Tediye</span><span class="ftag">Dönem Raporu</span></div></div>
+      <div class="fc glass tilt rv d2"><div class="fic"><i class="fa-solid fa-users-gear"></i></div><div class="ft">Personel & Yetki Yönetimi</div><div class="fd">Personel bilgileri, görev tanımları ve departman bazlı yetki sistemi. Rol tabanlı erişim kontrolü ile her kullanıcı sadece ilgili modülleri görür.</div><div class="ftags"><span class="ftag">RBAC</span><span class="ftag">Departman Bazlı</span><span class="ftag">Audit Log</span></div></div>
+      <div class="fc sp2 glass rv d1"><div class="fdual"><div><div class="fic"><i class="fa-solid fa-shield-halved"></i></div><div class="ft">Güvenli Altyapı</div><div class="fd">Rol bazlı yetki sistemi (Admin, Birim Yetkilisi, Finans), CSRF koruması, risk skorlama ile IP bazlı giriş izleme ve oturum yönetimi.</div><div class="ftags"><span class="ftag">CSRF</span><span class="ftag">Risk Skoru</span><span class="ftag">IP Takibi</span></div></div><div><div class="fic"><i class="fa-solid fa-chart-pie"></i></div><div class="ft">İstatistik & Raporlama</div><div class="fd">Fatura takvimi, aktif/pasif hizmet dağılımı, talep özeti ve quick-panel ile tıklanabilir istatistik kartları.</div><div class="ftags"><span class="ftag">Fatura Takvimi</span><span class="ftag">Quick Panel</span><span class="ftag">DataTables</span></div></div></div></div>
     </div>
   </div>
 </section>
@@ -1108,19 +596,18 @@ k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout
   <div class="erp-in rv">
     <div>
       <div class="erp-label">ERP Entegrasyonu</div>
-      <div class="erp-title">Nebim V3 ile<br>Tam Entegrasyon</div>
-      <div class="erp-desc">Nebim V3 ERP üzerinde IT uzmanı olarak e-irsaliye, e-fatura ve muhasebe süreçlerini yönetiyorum. Veritabanı sorgulama, index/performans optimizasyonu ve iş akışı geliştirme tecrübesiyle her modülü doğrudan ERP'ye bağlıyorum.</div>
-      <div class="erp-tags">
-        <span class="erp-tag"><i class="fa-solid fa-file-invoice" style="color:#ef4444"></i> e-İrsaliye (GİB)</span>
-        <span class="erp-tag"><i class="fa-solid fa-receipt" style="color:#f59e0b"></i> e-Fatura</span>
-        <span class="erp-tag"><i class="fa-solid fa-database" style="color:#3b82f6"></i> SQL Server</span>
-        <span class="erp-tag"><i class="fa-solid fa-gears" style="color:#8b5cf6"></i> T-SQL</span>
+      <div class="erp-title">Nebim V3 ile Tam Entegrasyon</div>
+      <div class="erp-desc">Nebim V3 ERP üzerinde IT uzmanı olarak e-İrsaliye, e-Fatura ve muhasebe süreçlerini yönetiyorum. Veritabanı sorgulama, index/performans optimizasyonu ve iş akışı geliştirme tecrübesiyle her modülü doğrudan ERP'ye bağlıyorum.</div>
+      <div class="erp-feats">
+        <div class="erp-feat"><i class="fa-solid fa-file-invoice"></i><div><b>e-İrsaliye & e-Fatura (GİB)</b><span>Durum takibi, yeniden gönderim ve arşiv yönetimi</span></div></div>
+        <div class="erp-feat"><i class="fa-solid fa-database"></i><div><b>SQL Server & T-SQL</b><span>Sorgu, index ve performans optimizasyonu</span></div></div>
+        <div class="erp-feat"><i class="fa-solid fa-arrows-rotate"></i><div><b>Canlı veri akışı</b><span>ERP'den web arayüzüne gerçek zamanlı aktarım</span></div></div>
       </div>
     </div>
     <div class="erp-chart-wrap">
       <div class="erp-donut-rel">
-        <svg viewBox="0 0 200 200" width="190" height="190" class="erp-donut">
-          <circle cx="100" cy="100" r="70" fill="none" stroke="#f1f5f9" stroke-width="22"/>
+        <svg viewBox="0 0 200 200" width="185" height="185" class="erp-donut">
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#eceef5" stroke-width="22"/>
           <circle cx="100" cy="100" r="70" fill="none" stroke="#ef4444" stroke-width="22"
                   stroke-dasharray="0 439.82" transform="rotate(-90 100 100)"
                   class="ec-seg" data-dash="184.72" data-offset="0"/>
@@ -1149,18 +636,18 @@ k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout
 <section class="niti-section">
   <div class="niti-in">
     <div class="rv">
-      <div class="niti-standalone"><i class="fa-solid fa-cube" style="font-size:.56rem"></i> Bağımsız Yazılım</div>
+      <div class="niti-standalone"><i class="fa-solid fa-cube" style="font-size:.6rem"></i> Bağımsız Yazılım</div>
       <div class="niti-logo-row"><div class="niti-icon">Niti</div><span class="niti-name">Niti Go</span></div>
       <div class="niti-title">Standart Programlardan<br><span>Farklı Raporlama</span></div>
       <p class="niti-desc">Muhasebe ve operasyonel verileri standart yazılımların sunduğu şablonların ötesine taşıyan, sunum kalitesinde çıktılar üreten bağımsız bir raporlama platformu. Mevcut ERP sistemleriyle entegre çalışır; onların yerine geçmez, onları güçlendirir.</p>
       <div class="niti-tags">
-        <span class="niti-tag"><i class="fa-solid fa-check" style="color:#6366f1;font-size:.6rem"></i> Muhasebe Genel</span>
-        <span class="niti-tag"><i class="fa-solid fa-check" style="color:#6366f1;font-size:.6rem"></i> Özel Raporlar</span>
-        <span class="niti-tag"><i class="fa-solid fa-check" style="color:#6366f1;font-size:.6rem"></i> Nebim Entegrasyonu</span>
-        <span class="niti-tag"><i class="fa-solid fa-check" style="color:#6366f1;font-size:.6rem"></i> Bağımsız Yazılım</span>
+        <span class="niti-tag"><i class="fa-solid fa-check" style="color:#7c3aed;font-size:.64rem"></i> Muhasebe Genel</span>
+        <span class="niti-tag"><i class="fa-solid fa-check" style="color:#7c3aed;font-size:.64rem"></i> Özel Raporlar</span>
+        <span class="niti-tag"><i class="fa-solid fa-check" style="color:#7c3aed;font-size:.64rem"></i> Nebim Entegrasyonu</span>
+        <span class="niti-tag"><i class="fa-solid fa-check" style="color:#7c3aed;font-size:.64rem"></i> Bağımsız Yazılım</span>
       </div>
       <div class="niti-diff">
-        <div class="niti-diff-title"><i class="fa-solid fa-star" style="color:#6366f1;font-size:.75rem"></i> Diğer programlardan farkı</div>
+        <div class="niti-diff-title"><i class="fa-solid fa-star" style="color:#7c3aed;font-size:.8rem"></i> Diğer programlardan farkı</div>
         <div class="niti-diff-list">
           <div class="niti-diff-item"><i class="fa-solid fa-check"></i> Şablona bağlı değil — rapor yapısı tamamen özelleştirilebilir</div>
           <div class="niti-diff-item"><i class="fa-solid fa-check"></i> Sunum kalitesinde çıktı: yönetim toplantılarına hazır görsel raporlar</div>
@@ -1170,10 +657,10 @@ k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout
       </div>
     </div>
     <div class="niti-cards rv d2">
-      <div class="niti-card"><div class="niti-card-ic" style="background:#e0e7ff"><i class="fa-solid fa-book-open" style="color:#4f46e5"></i></div><div class="niti-card-title">Muhasebe Genel</div><div class="niti-card-desc">Gelir-gider dengesi, hesap bazlı dökümler ve dönem karşılaştırmalı muhasebe özeti raporları.</div></div>
-      <div class="niti-card"><div class="niti-card-ic" style="background:#ede9fe"><i class="fa-solid fa-chart-bar" style="color:#7c3aed"></i></div><div class="niti-card-title">Özel Rapor Tasarımı</div><div class="niti-card-desc">Standart çıktıların yetersiz kaldığı durumlarda projeye özel rapor şablonu ve veri modelleme.</div></div>
-      <div class="niti-card"><div class="niti-card-ic" style="background:#dbeafe"><i class="fa-solid fa-plug" style="color:#2563eb"></i></div><div class="niti-card-title">ERP Entegrasyonu</div><div class="niti-card-desc">Nebim V3 ve diğer veri kaynaklarından SQL bağlantısıyla gerçek zamanlı veri çekme ve analiz.</div></div>
-      <div class="niti-card"><div class="niti-card-ic" style="background:#f3e8ff"><i class="fa-solid fa-display" style="color:#9333ea"></i></div><div class="niti-card-title">Sunum Kalitesi</div><div class="niti-card-desc">Yönetim toplantıları ve denetim süreçleri için hazır, görsel ve profesyonel rapor çıktısı.</div></div>
+      <div class="niti-card glass"><div class="niti-card-ic"><i class="fa-solid fa-book-open"></i></div><div class="niti-card-title">Muhasebe Genel</div><div class="niti-card-desc">Gelir-gider dengesi, hesap bazlı dökümler ve dönem karşılaştırmalı muhasebe özeti raporları.</div></div>
+      <div class="niti-card glass"><div class="niti-card-ic"><i class="fa-solid fa-chart-bar"></i></div><div class="niti-card-title">Özel Rapor Tasarımı</div><div class="niti-card-desc">Standart çıktıların yetersiz kaldığı durumlarda projeye özel rapor şablonu ve veri modelleme.</div></div>
+      <div class="niti-card glass"><div class="niti-card-ic"><i class="fa-solid fa-plug"></i></div><div class="niti-card-title">ERP Entegrasyonu</div><div class="niti-card-desc">Nebim V3 ve diğer veri kaynaklarından SQL bağlantısıyla gerçek zamanlı veri çekme ve analiz.</div></div>
+      <div class="niti-card glass"><div class="niti-card-ic"><i class="fa-solid fa-display"></i></div><div class="niti-card-title">Sunum Kalitesi</div><div class="niti-card-desc">Yönetim toplantıları ve denetim süreçleri için hazır, görsel ve profesyonel rapor çıktısı.</div></div>
     </div>
   </div>
 </section>
@@ -1181,69 +668,70 @@ k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout
 <section id="projeler" class="proj-section">
   <div class="proj-wrap">
     <div class="rv">
-      <div class="sec-ey"><i class="fa-solid fa-globe" style="font-size:.58rem"></i> Projeler</div>
-      <h2 class="sec-h">Yaptığım web siteleri & sistemler</h2>
+      <span class="sec-num">02 — SEÇİLİ İŞLER</span>
+      <h2 class="sec-h">Canlı sistemler & <span class="g">web siteleri</span></h2>
       <p class="sec-p">İşletmeler için geliştirdiğim canlı sistem ve web sitelerinden örnekler.</p>
     </div>
     <div class="proj-grid">
-      <div class="proj-card rv">
-        <div class="proj-thumb"><span class="proj-live lock"><i class="fa-solid fa-lock" style="font-size:.5rem"></i> Kapalı sistem</span><img src="proj-nevas.jpg?v=3" alt="Nevas Destek" loading="lazy" onerror="this.closest('.proj-thumb').classList.add('noimg')"><span class="ph">Nevas Destek</span></div>
+      <div class="proj-card big glass rv">
+        <div class="proj-thumb"><span class="proj-live lock"><i class="fa-solid fa-lock" style="font-size:.54rem"></i> Kapalı sistem</span><img src="proj-nevas.jpg?v=3" alt="Nevas Destek" loading="lazy" onerror="this.closest('.proj-thumb').classList.add('noimg')"><span class="ph">Nevas Destek</span></div>
         <div class="proj-body">
           <div class="proj-name">Nevas Destek</div>
           <div class="proj-url">nevasdestek.online</div>
-          <div class="proj-desc">Kurumsal destek & ticket sistemi: rol bazlı erişim, Nebim V3 ERP entegrasyonu, tahsilat/tediye, personel yönetimi ve 8 modül.</div>
+          <div class="proj-desc">Kurumsal destek & ticket sistemi: rol bazlı erişim, Nebim V3 ERP entegrasyonu, tahsilat/tediye, personel yönetimi ve 8 modül. Canlı ERP verisini web'e taşıyan tam kapsamlı yönetim platformu.</div>
           <div class="proj-tags"><span class="proj-tag">PHP</span><span class="proj-tag">MySQL</span><span class="proj-tag">Nebim V3</span><span class="proj-tag">Rol Bazlı</span></div>
-          <span class="proj-link" style="background:#f1f5f9;color:#64748b;cursor:default"><i class="fa-solid fa-lock" style="font-size:.64rem"></i> Kapalı kurumsal sistem</span>
+          <span class="proj-link" style="background:var(--panel-2);border-color:var(--stroke);color:var(--mute);cursor:default"><i class="fa-solid fa-lock" style="font-size:.68rem"></i> Kapalı kurumsal sistem</span>
         </div>
       </div>
-      <div class="proj-card rv d1">
+      <div class="proj-card glass rv d1">
         <div class="proj-thumb"><span class="proj-live on"><i class="fa-solid fa-circle" style="font-size:.42rem"></i> Canlı</span><img src="proj-esat.jpg?v=3" alt="Esat Üzüm" loading="lazy" onerror="this.closest('.proj-thumb').classList.add('noimg')"><span class="ph">Esat Üzüm</span></div>
         <div class="proj-body">
           <div class="proj-name">Esat Üzüm — Dijital Pazarlama</div>
           <div class="proj-url">esatuzum.com</div>
           <div class="proj-desc">Dijital pazarlama uzmanı için kurumsal portföy sitesi: hizmetler, paketler (modal), blog sayfası, dron çekimi ve SMTP'li iletişim formu.</div>
           <div class="proj-tags"><span class="proj-tag">HTML/CSS</span><span class="proj-tag">JavaScript</span><span class="proj-tag">PHP Mail</span><span class="proj-tag">SEO</span></div>
-          <a class="proj-link" href="https://esatuzum.com" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.64rem"></i> Siteyi Gör</a>
+          <a class="proj-link" href="https://esatuzum.com" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.68rem"></i> Siteyi Gör</a>
         </div>
       </div>
-      <div class="proj-card rv d2">
-        <div class="proj-thumb"><span class="proj-live lock"><i class="fa-solid fa-lock" style="font-size:.5rem"></i> Özel sistem</span><img src="proj-nitigo.jpg?v=2" alt="NitiGO" loading="lazy" onerror="this.closest('.proj-thumb').classList.add('noimg')"><span class="ph">NitiGO</span></div>
+      <div class="proj-card glass rv d2">
+        <div class="proj-thumb"><span class="proj-live lock"><i class="fa-solid fa-lock" style="font-size:.54rem"></i> Özel sistem</span><img src="proj-nitigo.jpg?v=2" alt="NitiGO" loading="lazy" onerror="this.closest('.proj-thumb').classList.add('noimg')"><span class="ph">NitiGO</span></div>
         <div class="proj-body">
           <div class="proj-name">NitiGO — Ön Muhasebe & Finans</div>
           <div class="proj-url">React · Vite · .NET</div>
           <div class="proj-desc">Ön muhasebe & finans yönetim uygulaması: cari, stok, kasa & banka, çok firmalı yapı, anlık raporlar ve grid tabanlı veri ekranları. Premium arayüz tasarımı ve çift dil (TR/EN) desteği.</div>
           <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">TypeScript</span><span class="proj-tag">.NET</span><span class="proj-tag">ERP</span></div>
-          <span class="proj-link" style="background:#f1f5f9;color:#64748b;cursor:default"><i class="fa-solid fa-lock" style="font-size:.64rem"></i> Özel kurumsal yazılım</span>
+          <span class="proj-link" style="background:var(--panel-2);border-color:var(--stroke);color:var(--mute);cursor:default"><i class="fa-solid fa-lock" style="font-size:.68rem"></i> Özel kurumsal yazılım</span>
         </div>
       </div>
-      <div class="proj-card proj-cta rv d3">
+      <div class="proj-card proj-cta glass rv d3">
         <div class="proj-body" style="align-items:center;justify-content:center">
           <div class="proj-ic"><i class="fa-solid fa-plus"></i></div>
           <div class="proj-name">Sıradaki proje seninki olsun</div>
-          <div class="proj-desc" style="flex:none;margin-bottom:16px">İşletmen için hızlı, modern bir web sitesi ya da özel bir sistem geliştirelim.</div>
-          <a class="proj-link" href="#iletisim" style="background:linear-gradient(135deg,#dc2626,#b91c1c)"><i class="fa-solid fa-paper-plane" style="font-size:.66rem"></i> Proje Başlat</a>
+          <div class="proj-desc" style="flex:none;margin-bottom:18px;text-align:center">İşletmen için hızlı, modern bir web sitesi ya da özel bir sistem geliştirelim.</div>
+          <a class="proj-link" href="#iletisim" style="background:linear-gradient(135deg,var(--acc),var(--acc-3));color:#ffffff;border:none"><i class="fa-solid fa-paper-plane" style="font-size:.7rem"></i> Proje Başlat</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
 <section id="fiyatlar" class="price-section">
   <div class="price-wrap">
     <div class="rv">
-      <div class="sec-ey"><i class="fa-solid fa-tag" style="font-size:.58rem"></i> Hizmet Fiyatları</div>
-      <h2 class="sec-h">Geliştirme Paketleri</h2>
+      <span class="sec-num">03 — HİZMET FİYATLARI</span>
+      <h2 class="sec-h">Geliştirme <span class="g">paketleri</span></h2>
       <p class="sec-p">Projenin kapsamı ve teknik gereksinimlerine göre beş katmanda hizmet sunuyorum.</p>
       <div class="price-note"><i class="fa-solid fa-circle-info"></i> Fiyatlar proje kapsamına bağlı değişir. Aşağıdaki aralıklar 2026 Türkiye piyasası referans değerleridir.</div>
     </div>
     <div class="price-grid rv d1">
-      <div class="pc" onclick="openPM(1)"><div class="pc-tier">Katman 1</div><div class="pc-name">Statik / Tanıtım Sitesi</div><div class="pc-desc">Saf HTML, CSS ve JavaScript ile oluşturulan, arka uç veritabanı içermeyen tanıtım odaklı siteler.</div><div class="pc-price"><i class="cur">₺</i>6.000 <span class="suf">– 15.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 3 – 6 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Responsive (mobil uyumlu)</div><div class="pf"><i class="fa-solid fa-check"></i>SEO optimizasyonu</div><div class="pf no"><i class="fa-solid fa-xmark"></i>Veritabanı yok</div><div class="pf no"><i class="fa-solid fa-xmark"></i>Kullanıcı girişi yok</div></div><div class="pc-cta"><i class="fa-brands fa-html5"></i> HTML · CSS · JS</div></div>
-      <div class="pc" onclick="openPM(2)"><div class="pc-tier">Katman 2</div><div class="pc-name">CMS Tabanlı Site</div><div class="pc-desc">WordPress üzerinde özelleştirilmiş tema, eklenti entegrasyonu ve içerik yönetim paneli.</div><div class="pc-price"><i class="cur">₺</i>10.000 <span class="suf">– 25.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 7 – 14 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>WordPress kurulum &amp; tema</div><div class="pf"><i class="fa-solid fa-check"></i>İçerik yönetim paneli</div><div class="pf"><i class="fa-solid fa-check"></i>Blog / Haber modülü</div><div class="pf no"><i class="fa-solid fa-xmark"></i>Özel mimari yok</div></div><div class="pc-cta"><i class="fa-brands fa-wordpress"></i> WordPress · PHP</div></div>
-      <div class="pc featured" onclick="openPM(3)"><div class="pc-tier">Katman 3</div><div class="pc-name">Özel Web Uygulaması</div><div class="pc-desc">Sıfırdan yazılmış PHP/MySQL backend, kullanıcı kimlik doğrulama ve AJAX tabanlı asenkron mimari.</div><div class="pc-price"><i class="cur">₺</i>30.000 <span class="suf">– 70.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 15 – 25 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Özel PHP backend mimarisi</div><div class="pf"><i class="fa-solid fa-check"></i>MySQL veritabanı tasarımı</div><div class="pf"><i class="fa-solid fa-check"></i>CSRF &amp; session güvenliği</div><div class="pf"><i class="fa-solid fa-check"></i>Admin yönetim paneli</div></div><div class="pc-cta"><i class="fa-brands fa-php"></i> PHP · MySQL · AJAX</div></div>
+      <div class="pc glass" onclick="openPM(1)"><div class="pc-tier">Katman 1</div><div class="pc-name">Statik / Tanıtım Sitesi</div><div class="pc-desc">Saf HTML, CSS ve JavaScript ile oluşturulan, arka uç veritabanı içermeyen tanıtım odaklı siteler.</div><div class="pc-price"><i class="cur">₺</i>6.000 <span class="suf">– 15.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 3 – 6 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Responsive (mobil uyumlu)</div><div class="pf"><i class="fa-solid fa-check"></i>SEO optimizasyonu</div><div class="pf no"><i class="fa-solid fa-xmark"></i>Veritabanı yok</div><div class="pf no"><i class="fa-solid fa-xmark"></i>Kullanıcı girişi yok</div></div><div class="pc-cta"><i class="fa-brands fa-html5"></i> HTML · CSS · JS</div></div>
+      <div class="pc glass" onclick="openPM(2)"><div class="pc-tier">Katman 2</div><div class="pc-name">CMS Tabanlı Site</div><div class="pc-desc">WordPress üzerinde özelleştirilmiş tema, eklenti entegrasyonu ve içerik yönetim paneli.</div><div class="pc-price"><i class="cur">₺</i>10.000 <span class="suf">– 25.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 7 – 14 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>WordPress kurulum &amp; tema</div><div class="pf"><i class="fa-solid fa-check"></i>İçerik yönetim paneli</div><div class="pf"><i class="fa-solid fa-check"></i>Blog / Haber modülü</div><div class="pf no"><i class="fa-solid fa-xmark"></i>Özel mimari yok</div></div><div class="pc-cta"><i class="fa-brands fa-wordpress"></i> WordPress · PHP</div></div>
+      <div class="pc featured glass" onclick="openPM(3)"><div class="pc-tier">Katman 3</div><div class="pc-name">Özel Web Uygulaması</div><div class="pc-desc">Sıfırdan yazılmış PHP/MySQL backend, kullanıcı kimlik doğrulama ve AJAX tabanlı asenkron mimari.</div><div class="pc-price"><i class="cur">₺</i>30.000 <span class="suf">– 70.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 15 – 25 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Özel PHP backend mimarisi</div><div class="pf"><i class="fa-solid fa-check"></i>MySQL veritabanı tasarımı</div><div class="pf"><i class="fa-solid fa-check"></i>CSRF &amp; session güvenliği</div><div class="pf"><i class="fa-solid fa-check"></i>Admin yönetim paneli</div></div><div class="pc-cta"><i class="fa-brands fa-php"></i> PHP · MySQL · AJAX</div></div>
     </div>
     <div class="price-grid2 rv d2">
-      <div class="pc featured" onclick="openPM(4)"><div class="pc-tier">Katman 4 — Kurumsal</div><div class="pc-name">Kurumsal Yönetim Platformu</div><div class="pc-desc">Çoklu modül mimarisine sahip, rol ve departman bazlı yetki yönetimi olan, gerçek zamanlı raporlama panelleriyle donatılmış tam işlevli kurumsal sistem.</div><div class="pc-price"><i class="cur">₺</i>55.000 <span class="suf">– 130.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 25 – 45 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Çok modüllü sistem mimarisi</div><div class="pf"><i class="fa-solid fa-check"></i>Rol bazlı yetki yönetimi (RBAC)</div><div class="pf"><i class="fa-solid fa-check"></i>Gerçek zamanlı istatistik panelleri</div><div class="pf"><i class="fa-solid fa-check"></i>Tahsilat, tediye, maliyet modülleri</div></div><div class="pc-cta" style="margin-top:14px"><i class="fa-solid fa-layer-group"></i> PHP · MySQL · Multi-Modül</div></div>
-      <div class="pc" onclick="openPM(5)"><div class="pc-tier">Katman 5 — Enterprise ERP</div><div class="pc-name">ERP Entegre / Canlı Veri Platformu</div><div class="pc-desc">Nebim V3 veya özel ERP sistemlerine bağlanan, SQL Server üzerinden canlı veri çeken tam entegre kurumsal platform.</div><div class="pc-price" style="font-size:1.3rem;color:#f59e0b">Teklif Al</div><div class="pc-time"><i class="fa-regular fa-clock"></i> 45+ iş günü · Keşif zorunlu</div><div style="font-size:.66rem;color:#94a3b8;margin-bottom:18px">Piyasa: 120.000 TL – 500.000+ TL</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Nebim V3 / SAP ERP entegrasyonu</div><div class="pf"><i class="fa-solid fa-check"></i>SQL Server / T-SQL direkt bağlantı</div><div class="pf"><i class="fa-solid fa-check"></i>e-İrsaliye / e-Fatura (GİB)</div><div class="pf"><i class="fa-solid fa-check"></i>REST / SOAP API tasarımı</div></div><div class="pc-cta" style="background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.22);color:#f59e0b"><i class="fa-solid fa-gears"></i> Nebim V3 · SQL Server · ERP</div></div>
+      <div class="pc featured glass" onclick="openPM(4)"><div class="pc-tier">Katman 4 — Kurumsal</div><div class="pc-name">Kurumsal Yönetim Platformu</div><div class="pc-desc">Çoklu modül mimarisine sahip, rol ve departman bazlı yetki yönetimi olan, gerçek zamanlı raporlama panelleriyle donatılmış tam işlevli kurumsal sistem.</div><div class="pc-price"><i class="cur">₺</i>55.000 <span class="suf">– 130.000</span></div><div class="pc-time"><i class="fa-regular fa-clock"></i> 25 – 45 iş günü</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Çok modüllü sistem mimarisi</div><div class="pf"><i class="fa-solid fa-check"></i>Rol bazlı yetki yönetimi (RBAC)</div><div class="pf"><i class="fa-solid fa-check"></i>Gerçek zamanlı istatistik panelleri</div><div class="pf"><i class="fa-solid fa-check"></i>Tahsilat, tediye, maliyet modülleri</div></div><div class="pc-cta" style="margin-top:14px"><i class="fa-solid fa-layer-group"></i> PHP · MySQL · Multi-Modül</div></div>
+      <div class="pc glass" onclick="openPM(5)"><div class="pc-tier">Katman 5 — Enterprise ERP</div><div class="pc-name">ERP Entegre / Canlı Veri Platformu</div><div class="pc-desc">Nebim V3 veya özel ERP sistemlerine bağlanan, SQL Server üzerinden canlı veri çeken tam entegre kurumsal platform.</div><div class="pc-price" style="font-size:1.4rem;color:#7c3aed">Teklif Al</div><div class="pc-time"><i class="fa-regular fa-clock"></i> 45+ iş günü · Keşif zorunlu</div><div style="font-size:.7rem;color:var(--mute);margin-bottom:18px">Piyasa: 120.000 TL – 500.000+ TL</div><div class="pc-divider"></div><div class="pc-features"><div class="pf"><i class="fa-solid fa-check"></i>Nebim V3 / SAP ERP entegrasyonu</div><div class="pf"><i class="fa-solid fa-check"></i>SQL Server / T-SQL direkt bağlantı</div><div class="pf"><i class="fa-solid fa-check"></i>e-İrsaliye / e-Fatura (GİB)</div><div class="pf"><i class="fa-solid fa-check"></i>REST / SOAP API tasarımı</div></div><div class="pc-cta" style="background:rgba(124,58,237,.1);border-color:rgba(124,58,237,.28);color:#7c3aed"><i class="fa-solid fa-gears"></i> Nebim V3 · SQL Server · ERP</div></div>
     </div>
   </div>
 </section>
@@ -1251,12 +739,13 @@ k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout
 <section id="iletisim" class="contact-section">
   <div class="contact-in">
     <div class="rv">
-      <div class="sec-ey"><i class="fa-solid fa-envelope" style="font-size:.58rem"></i> İletişim</div>
-      <h2 class="sec-h">İletişim</h2>
-      <p class="sec-p">Proje fikriniz, fiyat sorunuz veya teknik danışmanlık talebiniz için formu doldurun.</p><div class="contact-direct"><a class="cd-link cd-li" href="https://www.linkedin.com/in/%C3%B6zkan-m-994927323/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a><a class="cd-link cd-ig" href="https://www.instagram.com/ozkannmuss/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a></div>
+      <span class="eyebrow"><i class="fa-solid fa-envelope" style="font-size:.6rem"></i> İletişim</span>
+      <div class="contact-lead">Bir fikrin mi var?<br><span class="g">Hadi konuşalım.</span></div>
+      <p class="sec-p" style="margin-bottom:0">Proje fikriniz, fiyat sorunuz veya teknik danışmanlık talebiniz için formu doldurun — en kısa sürede e-posta ile dönüş yapıyorum.</p>
+      <div class="contact-direct"><a class="cd-link cd-li" href="https://www.linkedin.com/in/%C3%B6zkan-m-994927323/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a><a class="cd-link cd-ig" href="https://www.instagram.com/ozkannmuss/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a></div>
     </div>
     <div class="rv d2">
-      <div class="pf-card">
+      <div class="pf-card glass">
   <form class="pf-form" id="pf-form" novalidate>
     <input id="pf-website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
     <div class="pf-row">
@@ -1279,7 +768,7 @@ k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout
 </main>
 
 <div class="pm-backdrop" id="pm-backdrop" onclick="closePMOnBackdrop(event)">
-  <div class="pm-box" id="pm-box" style="background:#fff!important;border:1px solid #e2e8f0!important;color:#0f172a!important">
+  <div class="pm-box" id="pm-box">
     <div class="pm-stripe" id="pm-stripe"></div>
     <div class="pm-head"><div class="pm-meta"><div class="pm-tier-lbl" id="pm-tier"></div><div class="pm-title" id="pm-title"></div><div class="pm-price-row"><div class="pm-price" id="pm-price"></div><div class="pm-time-pill" id="pm-time"><i class="fa-regular fa-clock" style="font-size:.58rem"></i> <span></span></div></div></div><div class="pm-close" onclick="closePM()"><i class="fa-solid fa-xmark"></i></div></div>
     <div class="pm-divider"></div>
@@ -1317,33 +806,33 @@ k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout
     </div>
     <div class="dm-grid">
       <div class="dm-item">
-        <div class="dm-ic" style="background:#fee2e2"><i class="fa-solid fa-ticket" style="color:#dc2626"></i></div>
-        <div class="dm-item-title">Destek & Talep Yönetimi</div>
+        <div class="dm-ic"><i class="fa-solid fa-ticket"></i></div>
+        <div class="dm-item-title">Destek &amp; Talep Yönetimi</div>
         <div class="dm-item-desc">Müşteri talepleri açılır, öncelik belirlenir, birime atanır. Chat arayüzü, e-posta bildirimi ve durum takibi.</div>
       </div>
       <div class="dm-item">
-        <div class="dm-ic" style="background:#fef3c7"><i class="fa-solid fa-server" style="color:#d97706"></i></div>
+        <div class="dm-ic"><i class="fa-solid fa-server"></i></div>
         <div class="dm-item-title">Nebim V3 ERP Entegrasyonu</div>
         <div class="dm-item-desc">SQL Server üzerinden canlı veri çekme. e-İrsaliye, e-fatura ve GİB durum takibi.</div>
       </div>
       <div class="dm-item">
-        <div class="dm-ic" style="background:#dcfce7"><i class="fa-solid fa-money-bill-transfer" style="color:#16a34a"></i></div>
-        <div class="dm-item-title">Finans & Maliyet Takibi</div>
+        <div class="dm-ic"><i class="fa-solid fa-money-bill-transfer"></i></div>
+        <div class="dm-item-title">Finans &amp; Maliyet Takibi</div>
         <div class="dm-item-desc">Nakit tahsilat, tediye ve maliyet kayıtları. Dönem filtreleme ve yönetim raporları.</div>
       </div>
       <div class="dm-item">
-        <div class="dm-ic" style="background:#ede9fe"><i class="fa-solid fa-users-gear" style="color:#7c3aed"></i></div>
-        <div class="dm-item-title">Personel & Yetki Yönetimi</div>
+        <div class="dm-ic"><i class="fa-solid fa-users-gear"></i></div>
+        <div class="dm-item-title">Personel &amp; Yetki Yönetimi</div>
         <div class="dm-item-desc">Admin, Birim Yetkilisi, Finans rolleri. Her kullanıcı sadece ilgili modülleri görür.</div>
       </div>
       <div class="dm-item">
-        <div class="dm-ic" style="background:#fef2f2"><i class="fa-solid fa-shield-halved" style="color:#dc2626"></i></div>
+        <div class="dm-ic"><i class="fa-solid fa-shield-halved"></i></div>
         <div class="dm-item-title">Güvenlik Altyapısı</div>
         <div class="dm-item-desc">CSRF koruması, IP bazlı giriş izleme, risk skorlama ve audit log.</div>
       </div>
       <div class="dm-item">
-        <div class="dm-ic" style="background:#dbeafe"><i class="fa-solid fa-chart-pie" style="color:#2563eb"></i></div>
-        <div class="dm-item-title">İstatistik & Canlı Panel</div>
+        <div class="dm-ic"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="dm-item-title">İstatistik &amp; Canlı Panel</div>
         <div class="dm-item-desc">Tıklanabilir istatistik kartları, fatura takvimi ve quick-panel ile anlık görünüm.</div>
       </div>
     </div>
@@ -1354,24 +843,23 @@ k();document.addEventListener('DOMContentLoaded',k);setTimeout(k,300);setTimeout
 </div>
 
 <footer>
-  <div class="foot-in"><img src="icon.png?v=8" alt="Özkan Muş" style="height:58px;width:auto;flex-shrink:0">
+  <div class="foot-in"><img src="icon.png?v=8" alt="Özkan Muş" style="height:50px;width:auto;flex-shrink:0;filter:drop-shadow(0 4px 16px rgba(0,210,255,.28))">
     <div>
       <div class="foot-copy">© 2026 Özkan Muş — Tüm hakları saklıdır.</div>
       <div class="foot-legal">Bu sitedeki tüm içerik, tasarım ve yazılım Özkan Muş'a aittir. İzinsiz kopyalanamaz veya dağıtılamaz.</div>
     </div><div class="foot-right"><a class="sc" href="https://www.linkedin.com/in/%C3%B6zkan-m-994927323/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a class="sc" href="https://www.instagram.com/ozkannmuss/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a class="sc" href="#iletisim" aria-label="İletişim"><i class="fa-solid fa-envelope"></i></a></div>
   </div>
 </footer>
-
 <script>
-const PM={1:{tier:'Katman 1',title:'Statik / Tanıtım Sitesi',price:'₺6.000 – 15.000',time:'3 – 6 iş günü',stripe:'linear-gradient(90deg,#64748b,#94a3b8,#64748b)',included:[['yes','Figma/XD tasarım → HTML/CSS/JS dönüşümü'],['yes','Tamamen responsive — mobil, tablet, masaüstü'],['yes','Google PageSpeed / Core Web Vitals optimizasyonu'],['yes','Temel SEO (meta, Open Graph, sitemap)'],['yes','İletişim formu (static endpoint)'],['no','Backend / veritabanı yok'],['no','Kullanıcı girişi yok'],['no','Dinamik içerik yönetimi yok']],usecases:[{icon:'fa-briefcase',color:'#60a5fa',title:'Şirket Tanıtım',desc:'Ürün veya hizmet tanıtımı yapan kurumsal vitrin sayfası.'},{icon:'fa-camera',color:'#a78bfa',title:'Portfolyo',desc:'Fotoğrafçı, tasarımcı veya serbest çalışanlar için kişisel portfolyo.'},{icon:'fa-calendar-days',color:'#4ade80',title:'Landing Page',desc:'Kampanya veya etkinlik için tek sayfalık tanıtım.'}],tech:['HTML5','CSS3 / Tailwind','Vanilla JS','Git','Google Analytics'],note:'Backend gerektirmeyen, içerik değişiminin seyrek olduğu projeler için idealdir.'},2:{tier:'Katman 2',title:'CMS Tabanlı Site',price:'₺10.000 – 25.000',time:'7 – 14 iş günü',stripe:'linear-gradient(90deg,#2563eb,#3b82f6,#2563eb)',included:[['yes','WordPress kurulum, tema seçimi &amp; tam özelleştirme'],['yes','İçerik yönetim paneli — teknik bilgi gerektirmez'],['yes','Eklenti entegrasyonu (SEO, iletişim, galeri)'],['yes','Güvenlik eklentisi &amp; yedekleme ayarı'],['no','Özel yazılım mimarisi yok'],['no','Gelişmiş rol/yetki yönetimi yok']],usecases:[{icon:'fa-newspaper',color:'#fbbf24',title:'Haber / Blog',desc:'Sürekli güncellenen içerik sitesi.'},{icon:'fa-building',color:'#60a5fa',title:'Kurumsal Tanıtım',desc:'Sık güncellenen içerik ihtiyacı olan kurumsal siteler.'},{icon:'fa-cart-shopping',color:'#4ade80',title:'Küçük E-ticaret',desc:'Az ürünlü WooCommerce mağazası.'}],tech:['WordPress','PHP','MySQL','WooCommerce','Yoast SEO'],note:'İçerik ekibinin kendi kendine güncelleme yapmasını gerektiren projeler için uygundur.'},3:{tier:'Katman 3',title:'Özel Web Uygulaması',price:'₺30.000 – 70.000',time:'15 – 25 iş günü',stripe:'linear-gradient(90deg,#dc2626,#ef4444,#dc2626)',included:[['yes','Sıfırdan PHP 8 backend mimarisi'],['yes','MySQL veritabanı şema tasarımı &amp; optimizasyonu'],['yes','Kullanıcı kayıt, giriş, şifre sıfırlama sistemi'],['yes','AJAX / JSON tabanlı asenkron API'],['yes','CSRF token koruması, güvenli session yönetimi'],['yes','E-posta bildirim entegrasyonu'],['yes','Admin yönetim paneli'],['yes','Responsive, mobil uyumlu tasarım']],usecases:[{icon:'fa-calendar-check',color:'#4ade80',title:'Rezervasyon Sistemi',desc:'Randevu, otel, klinik gibi zaman bazlı rezervasyon uygulamaları.'},{icon:'fa-users',color:'#a78bfa',title:'Müşteri / CRM Portalı',desc:'Müşteri kayıtları ve görev takibi.'},{icon:'fa-truck',color:'#fbbf24',title:'Lojistik / Sipariş Takip',desc:'Kargo, depo veya üretim süreç takip sistemleri.'}],tech:['PHP 8','MySQL','AJAX / JSON','PHPMailer','Tailwind CSS','DataTables'],note:'WordPress kullanılmaz — her satır özel yazılır. Tam kontrol ve yüksek güvenlik.'},4:{tier:'Katman 4 — Kurumsal',title:'Kurumsal Yönetim Platformu',price:'₺55.000 – 130.000',time:'25 – 45 iş günü',stripe:'linear-gradient(90deg,#dc2626,#ef4444,#f97316,#ef4444,#dc2626)',included:[['yes','Çok modüllü sistem mimarisi'],['yes','RBAC — rol ve departman bazlı yetki yönetimi'],['yes','Gerçek zamanlı istatistik &amp; quick panel'],['yes','DataTables: sıralama, filtre, arama'],['yes','Risk skorlama &amp; IP bazlı giriş güvenliği'],['yes','Tahsilat, tediye, maliyet takip modülleri'],['yes','Personel &amp; görev yönetimi'],['yes','Audit log — kim ne zaman ne yaptı']],usecases:[{icon:'fa-network-wired',color:'#ef4444',title:'Bayi / Şube Yönetim Sistemi',desc:'Çok lokasyonlu operasyonları merkezi admin panelden yönetme.'},{icon:'fa-headset',color:'#60a5fa',title:'Kurumsal Destek Merkezi',desc:'Ticket yönetimi, birim atama, SLA takibi.'},{icon:'fa-chart-pie',color:'#4ade80',title:'Finans &amp; Operasyon Portalı',desc:'Tahsilat, tediye, maliyet merkezi ve yönetim raporlaması.'}],tech:['PHP 8','MySQL','AJAX','DataTables','Chart.js','SweetAlert2','PHPMailer'],note:'Proje başlamadan önce keşif toplantısı yapılır, milestone bazlı ödeme planı kurulur.'},5:{tier:'Katman 5 — ERP / Enterprise',title:'ERP Entegre Canlı Veri Platformu',price:'Teklif Al',priceNote:'Piyasa: ₺120.000 – 500.000+',time:'45+ iş günü · Keşif zorunlu',stripe:'linear-gradient(90deg,#f59e0b,#fbbf24,#f59e0b)',included:[['yes','Nebim V3 / SAP / özel ERP direkt entegrasyon'],['yes','SQL Server &amp; T-SQL — karmaşık sorgular'],['yes','Canlı veri akışı — ERP\'den web arayüzüne'],['yes','e-İrsaliye (GİB) — durum takibi &amp; yeniden gönderim'],['yes','e-Fatura — gelen/giden, mutabakat, arşiv'],['yes','REST / SOAP API tasarımı &amp; dokümantasyon'],['yes','Index &amp; performans optimizasyonu']],usecases:[{icon:'fa-file-invoice',color:'#f87171',title:'e-Dönüşüm Portalı',desc:'e-İrsaliye ve e-Fatura süreçlerini GİB entegrasyonuyla web üzerinden yönetme.'},{icon:'fa-coins',color:'#fbbf24',title:'Canlı Finans Panosu',desc:'ERP\'den anlık tahsilat, tediye ve maliyet verilerini web arayüzünde görüntüleme.'},{icon:'fa-gears',color:'#a78bfa',title:'ERP Light Alternatif',desc:'Nebim V3\'ün belirli modüllerine web tabanlı arayüz.'}],tech:['Nebim V3','SQL Server','T-SQL','PHP 8','REST API','GİB Entegrasyonu','Stored Procedures'],note:'Mimari keşif ve analiz aşaması zorunludur. Keşif bedeli ayrıca fiyatlandırılır.'}};
+const PM={1:{tier:'Katman 1',title:'Statik / Tanıtım Sitesi',price:'₺6.000 – 15.000',time:'3 – 6 iş günü',stripe:'linear-gradient(90deg,#64748b,#94a3b8,#64748b)',included:[['yes','Figma/XD tasarım → HTML/CSS/JS dönüşümü'],['yes','Tamamen responsive — mobil, tablet, masaüstü'],['yes','Google PageSpeed / Core Web Vitals optimizasyonu'],['yes','Temel SEO (meta, Open Graph, sitemap)'],['yes','İletişim formu (static endpoint)'],['no','Backend / veritabanı yok'],['no','Kullanıcı girişi yok'],['no','Dinamik içerik yönetimi yok']],usecases:[{icon:'fa-briefcase',color:'#60a5fa',title:'Şirket Tanıtım',desc:'Ürün veya hizmet tanıtımı yapan kurumsal vitrin sayfası.'},{icon:'fa-camera',color:'#a78bfa',title:'Portfolyo',desc:'Fotoğrafçı, tasarımcı veya serbest çalışanlar için kişisel portfolyo.'},{icon:'fa-calendar-days',color:'#4ade80',title:'Landing Page',desc:'Kampanya veya etkinlik için tek sayfalık tanıtım.'}],tech:['HTML5','CSS3 / Tailwind','Vanilla JS','Git','Google Analytics'],note:'Backend gerektirmeyen, içerik değişiminin seyrek olduğu projeler için idealdir.'},2:{tier:'Katman 2',title:'CMS Tabanlı Site',price:'₺10.000 – 25.000',time:'7 – 14 iş günü',stripe:'linear-gradient(90deg,#2563eb,#3b82f6,#2563eb)',included:[['yes','WordPress kurulum, tema seçimi &amp; tam özelleştirme'],['yes','İçerik yönetim paneli — teknik bilgi gerektirmez'],['yes','Eklenti entegrasyonu (SEO, iletişim, galeri)'],['yes','Güvenlik eklentisi &amp; yedekleme ayarı'],['no','Özel yazılım mimarisi yok'],['no','Gelişmiş rol/yetki yönetimi yok']],usecases:[{icon:'fa-newspaper',color:'#7c3aed',title:'Haber / Blog',desc:'Sürekli güncellenen içerik sitesi.'},{icon:'fa-building',color:'#60a5fa',title:'Kurumsal Tanıtım',desc:'Sık güncellenen içerik ihtiyacı olan kurumsal siteler.'},{icon:'fa-cart-shopping',color:'#4ade80',title:'Küçük E-ticaret',desc:'Az ürünlü WooCommerce mağazası.'}],tech:['WordPress','PHP','MySQL','WooCommerce','Yoast SEO'],note:'İçerik ekibinin kendi kendine güncelleme yapmasını gerektiren projeler için uygundur.'},3:{tier:'Katman 3',title:'Özel Web Uygulaması',price:'₺30.000 – 70.000',time:'15 – 25 iş günü',stripe:'linear-gradient(90deg,#dc2626,#ef4444,#dc2626)',included:[['yes','Sıfırdan PHP 8 backend mimarisi'],['yes','MySQL veritabanı şema tasarımı &amp; optimizasyonu'],['yes','Kullanıcı kayıt, giriş, şifre sıfırlama sistemi'],['yes','AJAX / JSON tabanlı asenkron API'],['yes','CSRF token koruması, güvenli session yönetimi'],['yes','E-posta bildirim entegrasyonu'],['yes','Admin yönetim paneli'],['yes','Responsive, mobil uyumlu tasarım']],usecases:[{icon:'fa-calendar-check',color:'#4ade80',title:'Rezervasyon Sistemi',desc:'Randevu, otel, klinik gibi zaman bazlı rezervasyon uygulamaları.'},{icon:'fa-users',color:'#a78bfa',title:'Müşteri / CRM Portalı',desc:'Müşteri kayıtları ve görev takibi.'},{icon:'fa-truck',color:'#7c3aed',title:'Lojistik / Sipariş Takip',desc:'Kargo, depo veya üretim süreç takip sistemleri.'}],tech:['PHP 8','MySQL','AJAX / JSON','PHPMailer','Tailwind CSS','DataTables'],note:'WordPress kullanılmaz — her satır özel yazılır. Tam kontrol ve yüksek güvenlik.'},4:{tier:'Katman 4 — Kurumsal',title:'Kurumsal Yönetim Platformu',price:'₺55.000 – 130.000',time:'25 – 45 iş günü',stripe:'linear-gradient(90deg,#dc2626,#ef4444,#f97316,#ef4444,#dc2626)',included:[['yes','Çok modüllü sistem mimarisi'],['yes','RBAC — rol ve departman bazlı yetki yönetimi'],['yes','Gerçek zamanlı istatistik &amp; quick panel'],['yes','DataTables: sıralama, filtre, arama'],['yes','Risk skorlama &amp; IP bazlı giriş güvenliği'],['yes','Tahsilat, tediye, maliyet takip modülleri'],['yes','Personel &amp; görev yönetimi'],['yes','Audit log — kim ne zaman ne yaptı']],usecases:[{icon:'fa-network-wired',color:'#ef4444',title:'Bayi / Şube Yönetim Sistemi',desc:'Çok lokasyonlu operasyonları merkezi admin panelden yönetme.'},{icon:'fa-headset',color:'#60a5fa',title:'Kurumsal Destek Merkezi',desc:'Ticket yönetimi, birim atama, SLA takibi.'},{icon:'fa-chart-pie',color:'#4ade80',title:'Finans &amp; Operasyon Portalı',desc:'Tahsilat, tediye, maliyet merkezi ve yönetim raporlaması.'}],tech:['PHP 8','MySQL','AJAX','DataTables','Chart.js','SweetAlert2','PHPMailer'],note:'Proje başlamadan önce keşif toplantısı yapılır, milestone bazlı ödeme planı kurulur.'},5:{tier:'Katman 5 — ERP / Enterprise',title:'ERP Entegre Canlı Veri Platformu',price:'Teklif Al',priceNote:'Piyasa: ₺120.000 – 500.000+',time:'45+ iş günü · Keşif zorunlu',stripe:'linear-gradient(90deg,#f59e0b,#7c3aed,#f59e0b)',included:[['yes','Nebim V3 / SAP / özel ERP direkt entegrasyon'],['yes','SQL Server &amp; T-SQL — karmaşık sorgular'],['yes','Canlı veri akışı — ERP\'den web arayüzüne'],['yes','e-İrsaliye (GİB) — durum takibi &amp; yeniden gönderim'],['yes','e-Fatura — gelen/giden, mutabakat, arşiv'],['yes','REST / SOAP API tasarımı &amp; dokümantasyon'],['yes','Index &amp; performans optimizasyonu']],usecases:[{icon:'fa-file-invoice',color:'#f87171',title:'e-Dönüşüm Portalı',desc:'e-İrsaliye ve e-Fatura süreçlerini GİB entegrasyonuyla web üzerinden yönetme.'},{icon:'fa-coins',color:'#7c3aed',title:'Canlı Finans Panosu',desc:'ERP\'den anlık tahsilat, tediye ve maliyet verilerini web arayüzünde görüntüleme.'},{icon:'fa-gears',color:'#a78bfa',title:'ERP Light Alternatif',desc:'Nebim V3\'ün belirli modüllerine web tabanlı arayüz.'}],tech:['Nebim V3','SQL Server','T-SQL','PHP 8','REST API','GİB Entegrasyonu','Stored Procedures'],note:'Mimari keşif ve analiz aşaması zorunludur. Keşif bedeli ayrıca fiyatlandırılır.'}};
 
 function openPM(n){const d=PM[n];if(!d)return;document.getElementById('pm-tier').textContent=d.tier;document.getElementById('pm-title').textContent=d.title;const pe=document.getElementById('pm-price');pe.innerHTML=d.price+(d.priceNote?`<span class="suf" style="font-size:.7rem;display:block;margin-top:3px;color:#94a3b8">${d.priceNote}</span>`:'');document.getElementById('pm-time').querySelector('span').textContent=d.time;document.getElementById('pm-stripe').style.background=d.stripe;document.getElementById('pm-included').innerHTML=d.included.map(([t,tx])=>`<div class="pmf ${t}"><i class="fa-solid fa-${t==='yes'?'check':'xmark'}"></i>${tx}</div>`).join('');document.getElementById('pm-usecases').innerHTML=d.usecases.map(u=>`<div class="pm-uc"><div class="pm-uc-title"><i class="fa-solid ${u.icon}" style="color:${u.color};font-size:.75rem"></i>${u.title}</div><div class="pm-uc-desc">${u.desc}</div></div>`).join('');document.getElementById('pm-tech').innerHTML=`<span class="pm-tech-lbl">Teknoloji</span>`+d.tech.map(t=>`<span class="pm-tech-chip">${t}</span>`).join('');document.getElementById('pm-footer').textContent=d.note;
 const box=document.getElementById('pm-box');
-box.style.background='#fff';
-box.style.border='1px solid #e2e8f0';
-box.style.color='#0f172a';
-box.style.boxShadow='0 24px 60px rgba(0,0,0,.14),0 4px 16px rgba(0,0,0,.07)';
-document.getElementById('pm-backdrop').style.background='rgba(15,23,40,.55)';
+box.style.background='#ffffff';
+box.style.border='1px solid rgba(17,24,45,.15)';
+box.style.color='#0f1629';
+box.style.boxShadow='0 34px 90px rgba(17,24,45,.28)';
+document.getElementById('pm-backdrop').style.background='rgba(17,24,45,.5)';
 document.getElementById('pm-backdrop').classList.add('open');document.body.style.overflow='hidden';}
 function closePM(){document.getElementById('pm-backdrop').classList.remove('open');document.body.style.overflow='';}
 function closePMOnBackdrop(e){if(e.target===document.getElementById('pm-backdrop'))closePM();}
@@ -1463,81 +951,68 @@ function closeDM(e){if(!e||e.target===document.getElementById('dm-backdrop')){do
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
 </script>
-<canvas id="mtrail" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:45"></canvas>
-<script>
-(function(){
-  var cv=document.getElementById('mtrail'); if(!cv) return;
-  var ctx=cv.getContext('2d'), W, H, pts=[], last=0;
-  function rs(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;} rs(); window.addEventListener('resize',rs);
-  if(window.matchMedia && window.matchMedia('(hover:none)').matches) return;
-  window.addEventListener('mousemove',function(e){pts.push({x:e.clientX,y:e.clientY});last=Date.now();if(pts.length>28)pts.shift();});
-  (function loop(){
-    ctx.clearRect(0,0,W,H);
-    if(Date.now()-last>40 && pts.length) pts.shift();
-    for(var i=1;i<pts.length;i++){
-      var t=i/pts.length;
-      ctx.beginPath(); ctx.moveTo(pts[i-1].x,pts[i-1].y); ctx.lineTo(pts[i].x,pts[i].y);
-      ctx.lineWidth=t*7+0.6; ctx.lineCap='round';
-      ctx.strokeStyle='rgba('+(t>0.65?'248,113,113':'220,38,38')+','+t.toFixed(2)+')';
-      ctx.shadowColor='rgba(239,68,68,'+t.toFixed(2)+')'; ctx.shadowBlur=14*t; ctx.stroke();
-    }
-    if(pts.length){var h=pts[pts.length-1]; ctx.beginPath(); ctx.arc(h.x,h.y,3.6,0,6.2832);
-      ctx.fillStyle='#fecaca'; ctx.shadowColor='#ef4444'; ctx.shadowBlur=18; ctx.fill();}
-    ctx.shadowBlur=0; requestAnimationFrame(loop);
-  })();
-})();
-</script>
-<script>
-document.querySelectorAll('.fc, .h3d-c').forEach(function(c){
-  var i=c.querySelector('.fic i, .h3d-ic i'); if(!i) return;
-  var w=document.createElement('i'); w.className=i.className+' card-wm';
-  var m=(i.getAttribute('style')||'').match(/color:[^;]+/); if(m) w.style.cssText=m[0];
-  c.appendChild(w);
-});
-</script>
-<script id="prem-layer-js">
+<script id="neo-fx">
 (function(){
  var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
- // ilerleme cubugu
- var prog=document.createElement('div');prog.id='px-prog';document.body.appendChild(prog);
- var grain=document.createElement('div');grain.id='px-grain';document.body.appendChild(grain);
- function onScroll(){var h=document.documentElement;var sc=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);prog.style.width=(sc*100)+'%';}
+ var TOUCH=window.matchMedia&&window.matchMedia('(hover:none)').matches;
+
+ // scroll ilerleme + nav shrink
+ var prog=document.getElementById('neo-prog'), nav=document.getElementById('nav');
+ function onScroll(){var h=document.documentElement;var sc=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);if(prog)prog.style.width=(sc*100)+'%';if(nav)nav.classList.toggle('shrink',h.scrollTop>40);}
  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
- // aura + kart spotlight
- if(!RM&&!(window.matchMedia&&window.matchMedia('(hover:none)').matches)){
-  var aura=document.createElement('div');aura.id='px-aura';document.body.appendChild(aura);
-  var cards=document.querySelectorAll('.fc,.h3d-c,.niti-card,.proj-card');
+
+ // dönen kelime (hero)
+ var rot=document.getElementById('hero-rotate');
+ if(rot&&!RM){
+   var words=['yazılım','canlı veri','ERP entegrasyon','web sistemleri','e-Dönüşüm'],ri=0;
+   setInterval(function(){
+     rot.style.opacity='0';rot.style.transform='translateY(-8px)';
+     setTimeout(function(){ri=(ri+1)%words.length;rot.textContent=words[ri];rot.style.opacity='1';rot.style.transform='none';},350);
+   },2200);
+ }
+
+ // sayaç animasyonu
+ function animCount(el){
+   var target=parseFloat(el.getAttribute('data-count'))||0,dur=1400,t0=null;
+   function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);var e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(step);else el.textContent=target;}
+   requestAnimationFrame(step);
+ }
+ if('IntersectionObserver' in window){
+   var co=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){animCount(x.target);co.unobserve(x.target);}});},{threshold:.4});
+   document.querySelectorAll('.count').forEach(function(el){co.observe(el);});
+ } else { document.querySelectorAll('.count').forEach(animCount); }
+
+ if(!RM&&!TOUCH){
+  // imleç aurası + kart spotlight
+  var aura=document.getElementById('neo-aura');
+  var cards=document.querySelectorAll('.fc,.pc,.stat,.niti-card,.proj-card,.about-card,.proc-step,.sk-row');
   window.addEventListener('mousemove',function(e){
-   aura.style.transform='translate('+e.clientX+'px,'+e.clientY+'px)';
+   if(aura)aura.style.transform='translate('+e.clientX+'px,'+e.clientY+'px)';
    for(var i=0;i<cards.length;i++){var c=cards[i],r=c.getBoundingClientRect();
     if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom){
      c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');}}
   },{passive:true});
+
+  // 3D tilt (sistem kartları + hero görseli)
+  function bindTilt(el,max){
+   el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();var px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+     el.style.transform='perspective(900px) rotateY('+(px*max)+'deg) rotateX('+(-py*max)+'deg) translateY(-4px)';});
+   el.addEventListener('mouseleave',function(){el.style.transform='';});
+  }
+  document.querySelectorAll('.fc.tilt').forEach(function(el){bindTilt(el,7);});
+  var hv=document.getElementById('hv-card'); if(hv) bindTilt(hv,11);
+
   // manyetik butonlar
-  document.querySelectorAll('.btn-r,.btn-g,.cf-btn,.pc-cta').forEach(function(b){
-   b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();var mx=e.clientX-r.left-r.width/2,my=e.clientY-r.top-r.height/2;b.style.transform='translate('+(mx*0.18)+'px,'+(my*0.22)+'px)';});
+  document.querySelectorAll('.btn-r,.btn-g,.pc-cta,.pf-btn,.dm-cta,.nav-cta,.proj-link').forEach(function(b){
+   b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();var mx=e.clientX-r.left-r.width/2,my=e.clientY-r.top-r.height/2;b.style.transform='translate('+(mx*0.15)+'px,'+(my*0.2)+'px)';});
    b.addEventListener('mouseleave',function(){b.style.transform='';});
   });
  }
- // gradyan baslik
- document.querySelectorAll('.sec-h').forEach(function(h){h.classList.add('px-grad');});
- // scroll reveal (failsafe)
- if(!RM){
-  var els=document.querySelectorAll('.sec-h,.fc,.h3d-c,.niti-card,.proj-card,.dm-item,.price-grid>*,.price-grid2>*,.proj-grid>*');
-  els.forEach(function(el,i){el.classList.add('px-rv');el.style.transitionDelay=((i%5)*0.07).toFixed(2)+'s';});
-  if('IntersectionObserver' in window){
-   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('px-in');io.unobserve(x.target);}});},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-   els.forEach(function(el){io.observe(el);});
-  }
-  setTimeout(function(){els.forEach(function(el){el.classList.add('px-in');});},2600); // GUVENLIK: ne olursa olsun goster
- }
+
+ // reveal failsafe
+ setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on');});},2600);
 })();
 </script>
-<script id="prem-bg-js">
-(function(){var bg=document.createElement('div');bg.id='px-bg';bg.innerHTML='<b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>';document.body.insertBefore(bg,document.body.firstChild);})();
-</script>
-
-
 <script id="prem-form-js">
 (function(){
  var f=document.getElementById('pf-form'); if(!f) return;
