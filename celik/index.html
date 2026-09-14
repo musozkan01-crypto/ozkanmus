@@ -496,6 +496,26 @@ header,header.hide{transform:none!important;transition:none!important}
 .hcard img{width:88%!important;max-height:88%!important}
 .hdots{bottom:-6px}
 .hbox.b2{left:0;bottom:6%}
+.pay{position:relative;width:220px;height:280px}
+.term{position:absolute;left:30px;top:20px;width:160px;height:260px;filter:drop-shadow(0 25px 30px rgba(15,27,61,.3))}
+.scr{position:absolute;left:48px;top:36px;width:124px;height:96px;display:grid;place-items:center;text-align:center;font-size:12px;font-weight:700;color:#0f1b3d}
+.scr>div{grid-area:1/1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.s2{opacity:0;color:#12a150;animation:okIn .4s 1.75s forwards}
+.s2 b{width:34px;height:34px;border-radius:50%;background:#19c261;color:#fff;display:grid;place-items:center;font-size:18px;transform:scale(0);animation:pop2 .45s 1.75s cubic-bezier(.3,1.6,.5,1) forwards}
+.s1{animation:okOut .3s 1.7s forwards}
+.wv{display:flex;gap:3px;align-items:end;height:18px}.wv i{width:4px;border-radius:2px;background:#1b3a8c;animation:wv .8s infinite alternate}
+.wv i:nth-child(1){height:8px}.wv i:nth-child(2){height:13px;animation-delay:.15s}.wv i:nth-child(3){height:18px;animation-delay:.3s}
+@keyframes wv{to{opacity:.25}}
+.card{position:absolute;left:70px;top:-70px;width:150px;height:94px;border-radius:12px;background:linear-gradient(135deg,#e3162b,#8f0c1d);box-shadow:0 20px 30px -12px rgba(143,12,29,.55);color:#fff;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;transform:translate(90px,-60px) rotate(18deg);opacity:0;animation:tap 1.9s .15s cubic-bezier(.5,0,.3,1) forwards}
+.card span{font-weight:800;font-size:12px;letter-spacing:.15em;align-self:flex-end}
+.card em{font-style:normal;font-size:12px;letter-spacing:.1em;opacity:.9}
+.chipc{width:26px;height:20px;border-radius:4px;background:linear-gradient(135deg,#ffd978,#c99a2e);position:absolute;left:14px;top:14px}
+@keyframes tap{0%{opacity:0;transform:translate(90px,-60px) rotate(18deg)}30%{opacity:1}55%{transform:translate(-10px,70px) rotate(-6deg)}65%{transform:translate(-10px,78px) rotate(-6deg)}85%{opacity:1;transform:translate(-10px,70px) rotate(-6deg)}100%{opacity:0;transform:translate(60px,-40px) rotate(10deg)}}
+@keyframes okOut{to{opacity:0}}@keyframes okIn{to{opacity:1}}@keyframes pop2{to{transform:scale(1)}}
+.pre .lbl{color:var(--ink);font-weight:700}
+.panel .im{height:auto!important;overflow:visible!important;padding:32px 24px 8px!important}
+.panel .im img{max-height:230px!important;height:230px!important;width:auto!important;max-width:100%!important}
+.panel{overflow:visible!important}
 </style>
 </head>
 <body class="loading">
@@ -518,9 +538,17 @@ header,header.hide{transform:none!important;transition:none!important}
 <div class="pre" id="pre" aria-hidden="true">
   <div class="p t"></div><div class="p b"></div>
   <div class="c">
-    <div class="ring"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="56"/><circle class="fg" id="preRing" cx="60" cy="60" r="56"/></svg><img src="img/icon.png" alt=""></div>
-    <div class="num"><span id="preNum">0</span><small>%</small></div>
+    <div class="pay">
+      <svg class="term" viewBox="0 0 160 260"><rect x="4" y="4" width="152" height="252" rx="22" fill="#1d2433"/><rect x="4" y="4" width="152" height="252" rx="22" fill="none" stroke="#39445c" stroke-width="2"/>
+        <rect x="18" y="20" width="124" height="96" rx="8" fill="#eef3fb"/>
+        <g fill="#3a465f"><rect x="24" y="134" width="30" height="20" rx="6"/><rect x="62" y="134" width="30" height="20" rx="6"/><rect x="100" y="134" width="30" height="20" rx="6"/><rect x="24" y="162" width="30" height="20" rx="6"/><rect x="62" y="162" width="30" height="20" rx="6"/><rect x="100" y="162" width="30" height="20" rx="6"/><rect x="24" y="190" width="30" height="20" rx="6"/><rect x="62" y="190" width="30" height="20" rx="6"/><rect x="100" y="190" width="30" height="20" rx="6"/><rect x="24" y="218" width="30" height="20" rx="6"/><rect x="62" y="218" width="30" height="20" rx="6"/><rect x="100" y="218" width="30" height="20" rx="6"/></g>
+        <rect x="24" y="134" width="0" height="0"/><rect x="100" y="218" width="30" height="20" rx="6" fill="#19c261"/><rect x="24" y="218" width="30" height="20" rx="6" fill="#e3162b"/>
+      </svg>
+      <div class="scr"><div class="s1"><span class="wv"><i></i><i></i><i></i></span>Kartınızı okutun</div><div class="s2"><b>✓</b>Onaylandı</div></div>
+      <div class="card"><i class="chipc"></i><span>ÇELİK</span><em>•••• 2026</em></div>
+    </div>
     <div class="lbl">Çelik Elektronik</div>
+    <span id="preNum" hidden></span><svg hidden><circle id="preRing"/></svg>
   </div>
   <div class="bar" id="preBar"></div>
 </div>
@@ -934,12 +962,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* preloader */
 var pr={v:0},ring=$('#preRing'),num=$('#preNum'),bar=$('#preBar');
-function upd(){num.textContent=Math.round(pr.v);ring.style.strokeDashoffset=352-352*pr.v/100;bar.style.width=pr.v+'%'}
+var t0=Date.now();function upd(){bar.style.width=pr.v+'%'}
 var loadTween=gsap.to(pr,{v:88,duration:1.6,ease:'power2.out',onUpdate:upd});
 var done=false;
 function finish(){
   if(done)return;done=true;loadTween.kill();
-  gsap.timeline()
+  gsap.timeline({delay:Math.max(0,2.5-(Date.now()-t0)/1000)})
    .to(pr,{v:100,duration:.45,ease:'power2.inOut',onUpdate:upd})
    .to('.pre .c',{scale:.85,opacity:0,duration:.45,ease:'power3.in'})
    .to('.pre .p.t',{yPercent:-100,duration:1,ease:'expo.inOut'},'<.2')
