@@ -13,7 +13,7 @@
 <meta property="og:image" content="img/pos-hero.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/cut/pos-paygo.webp">
 <script>document.documentElement.className='js'</script>
 <script type="application/ld+json">
@@ -23,8 +23,8 @@
 :root{
   --bg:#05061a;--bg2:#0a0c2a;--ink:#eef0ff;--mute:#9499c4;--line:rgba(255,255,255,.09);
   --blue:#3340ff;--blue2:#6b74ff;--red:#ff2d3f;--red2:#ff6b77;--glass:rgba(255,255,255,.045);
-  --disp:"Unbounded","Plus Jakarta Sans",system-ui,sans-serif;
-  --body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --disp:"Manrope","Inter",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 *{box-sizing:border-box}
 html{background:var(--bg)}
@@ -374,6 +374,13 @@ footer ul a:hover{color:var(--red2)}
   .bigcta .btn{--h:64px;font-size:16px;padding:0 28px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* sade mod */
+.disp,h1,h2,h3{letter-spacing:-.02em!important}
+.noise,.cur,.cur-r,#dots,.scene .orbit,.chip,.mq,.panel .big{display:none!important}
+.fbig{font-size:clamp(60px,12vw,180px)}
+.state p{letter-spacing:-.01em;font-weight:500;font-size:clamp(22px,2.8vw,40px)}
+
 </style>
 </head>
 <body class="loading">
