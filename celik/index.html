@@ -1,675 +1,903 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" class="nojs">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Çelik Elektronik | Alanya Yazar Kasa POS, Fiş ve Barkod Yazıcı</title>
-<meta name="description" content="Alanya'da yeni nesil yazar kasa POS, dokunmatik POS bilgisayar, fiş yazıcı, barkod yazıcı ve barkod okuyucu satışı, kurulumu ve teknik desteği. Çelik Elektronik — Saray Mah. Su Gözü Cad. No:3/A.">
+<title>Çelik Elektronik | Alanya Yazar Kasa POS & Barkod Sistemleri</title>
+<meta name="description" content="Alanya'da yeni nesil yazar kasa POS, dokunmatik POS bilgisayar, fiş yazıcı, barkod yazıcı ve barkod okuyucu. Satış, kurulum, eğitim ve teknik destek — Çelik Elektronik.">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#131a6b">
+<meta name="theme-color" content="#05061a">
 <link rel="icon" href="img/icon.png">
-<meta property="og:title" content="Çelik Elektronik — Alanya Yazar Kasa POS & Barkod Sistemleri">
-<meta property="og:description" content="Yeni nesil yazar kasa, POS bilgisayar, fiş/barkod yazıcı ve okuyucu. Satış, kurulum, destek.">
+<meta property="og:title" content="Çelik Elektronik — Kasanızın geleceği">
+<meta property="og:description" content="Yeni nesil yazar kasa POS, POS bilgisayar, fiş & barkod sistemleri. Alanya.">
 <meta property="og:image" content="img/pos-hero.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/cut/pos-paygo.webp">
+<script>document.documentElement.className='js'</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Store","name":"Çelik Elektronik","image":"https://www.alanyacelikelektronik.com/images/celikelektronik.jpg","telephone":"+902425120226","email":"info@alanyacelikelektronik.com","url":"https://www.alanyacelikelektronik.com","address":{"@type":"PostalAddress","streetAddress":"Saray Mahallesi Su Gözü Caddesi No:3/A","addressLocality":"Alanya","addressRegion":"Antalya","postalCode":"07400","addressCountry":"TR"},"areaServed":["Alanya","Gazipaşa","Manavgat","Antalya"]}
+{"@context":"https://schema.org","@type":"Store","name":"Çelik Elektronik","telephone":"+902425120226","email":"info@alanyacelikelektronik.com","url":"https://www.alanyacelikelektronik.com","address":{"@type":"PostalAddress","streetAddress":"Saray Mahallesi Su Gözü Caddesi No:3/A","addressLocality":"Alanya","addressRegion":"Antalya","addressCountry":"TR"},"areaServed":["Alanya","Antalya"]}
 </script>
 <style>
 :root{
-  --navy:#131a6b;--navy-2:#1d2690;--ink:#0d1130;--red:#e11d2e;--red-2:#ff4453;
-  --bg:#f6f7fb;--card:#fff;--line:#e5e7f0;--muted:#5d6280;--radius:22px;
-  --shadow:0 1px 2px rgba(13,17,48,.05),0 12px 32px -12px rgba(13,17,48,.18);
+  --bg:#05061a;--bg2:#0a0c2a;--ink:#eef0ff;--mute:#9499c4;--line:rgba(255,255,255,.09);
+  --blue:#3340ff;--blue2:#6b74ff;--red:#ff2d3f;--red2:#ff6b77;--glass:rgba(255,255,255,.045);
+  --disp:"Unbounded","Plus Jakarta Sans",system-ui,sans-serif;
+  --body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{margin:0;font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{background:var(--bg)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.loading{overflow:hidden}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
-h1,h2,h3{line-height:1.12;letter-spacing:-.025em;margin:0}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
-.eyebrow::before{content:"";width:18px;height:2px;background:currentColor;border-radius:2px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;font-weight:700;font-size:15px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap;font-family:inherit}
-.btn:hover{transform:translateY(-2px)}
+button{font-family:inherit}
+::selection{background:var(--red);color:#fff}
+.wrap{width:min(1280px,100% - 48px);margin-inline:auto}
+.disp{font-family:var(--disp);letter-spacing:-.035em;line-height:1.02;font-weight:700}
+.grad{background:linear-gradient(100deg,var(--red) 0%,#ff8a5c 45%,var(--blue2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kick{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.kick i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 14px var(--red)}
+section{position:relative}
+.noise{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0)}33%{transform:translate(-3%,2%)}66%{transform:translate(2%,-3%)}}
+
+.btn{--h:58px;position:relative;display:inline-flex;align-items:center;gap:12px;height:var(--h);padding:0 28px;border-radius:999px;font-weight:700;font-size:15px;border:0;cursor:pointer;white-space:nowrap;overflow:hidden;isolation:isolate;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .btn svg{width:20px;height:20px;flex:none}
-.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 24px -8px rgba(225,29,46,.6)}
-.btn-red:hover{background:#c8101f}
-.btn-wa{background:#1fae53;color:#fff;box-shadow:0 10px 24px -8px rgba(31,174,83,.55)}
-.btn-ghost{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
-.btn-ghost:hover{background:rgba(255,255,255,.18)}
-.btn-line{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--line)}
-section{padding:110px 0}
-.head{max-width:680px;margin-bottom:52px}
-.head h2{font-size:clamp(32px,4.4vw,50px);margin:14px 0 14px}
-.head p{color:var(--muted);font-size:18px;margin:0}
-.head.center{text-align:center;margin-inline:auto}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.1) inset,0 18px 50px -12px rgba(255,45,63,.75)}
+.btn-red::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .9s}
+.btn-red:hover::before{transform:translateX(120%)}
+.btn-glass{background:var(--glass);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);backdrop-filter:blur(10px)}
+.btn-glass:hover{background:rgba(255,255,255,.1)}
+.btn-wa{background:#19c261;color:#fff;box-shadow:0 18px 50px -14px rgba(25,194,97,.7)}
+.btn .arr{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;margin-right:-14px;transition:transform .35s}
+.btn .arr svg{width:16px;height:16px}
+.btn:hover .arr{transform:rotate(-45deg)}
 
-/* topbar + header */
-.topbar{background:var(--ink);color:#c9cbe0;font-size:13px}
-.topbar .wrap{display:flex;justify-content:space-between;gap:16px;height:40px;align-items:center}
-.topbar a:hover{color:#fff}
-.topbar .l,.topbar .r{display:flex;gap:22px;align-items:center}
-.dot{width:8px;height:8px;border-radius:50%;background:#9aa;display:inline-block;margin-right:6px}
-.dot.on{background:#2ee07a;box-shadow:0 0 0 4px rgba(46,224,122,.2)}
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
-header.scrolled{border-color:var(--line);box-shadow:0 6px 24px -18px rgba(13,17,48,.4)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
-.logo img{height:38px;width:auto}
-nav.main{display:flex;gap:4px}
-nav.main a{padding:10px 14px;border-radius:999px;font-weight:600;font-size:15px;color:#2c3160;transition:background .2s,color .2s}
-nav.main a:hover{background:#eef0fa;color:var(--navy)}
-.hcta{display:flex;gap:10px;align-items:center}
-.hcta .btn{height:46px;padding:0 20px}
-.burger{display:none;width:46px;height:46px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
-.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:.3s}
-.burger span::before,.burger span::after{content:"";position:absolute;left:0}
-.burger span::before{top:-6px}.burger span::after{top:6px}
-.menu-open .burger span{background:transparent}
-.menu-open .burger span::before{top:0;transform:rotate(45deg)}
-.menu-open .burger span::after{top:0;transform:rotate(-45deg)}
-.mnav{display:none}
+.pre{position:fixed;inset:0;z-index:200;display:grid;place-items:center;pointer-events:none}
+.pre .p{position:absolute;left:0;right:0;height:50.5%;background:#03040f}
+.pre .p.t{top:0}.pre .p.b{bottom:0}
+.pre .c{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:26px}
+.pre .ring{width:120px;height:120px;position:relative}
+.pre .ring svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.pre .ring circle{fill:none;stroke-width:3}
+.pre .ring .bgc{stroke:rgba(255,255,255,.08)}
+.pre .ring .fg{stroke:url(#pg);stroke-linecap:round;stroke-dasharray:352;stroke-dashoffset:352}
+.pre .ring img{position:absolute;inset:22px;width:76px;height:76px;filter:drop-shadow(0 0 20px rgba(255,45,63,.6));animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(.92)}}
+.pre .num{font-family:var(--disp);font-size:56px;font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.pre .num small{font-size:20px;color:var(--mute);margin-left:4px}
+.pre .lbl{font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--mute)}
+.pre .bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--red));z-index:3}
+.nojs .pre{display:none}
 
-/* hero */
-.hero{position:relative;background:radial-gradient(1200px 600px at 85% -10%,#2a35c4 0%,transparent 60%),radial-gradient(800px 500px at -10% 110%,#3a0d2a 0%,transparent 60%),var(--navy);color:#fff;padding:90px 0 120px;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 70% 40%,#000 20%,transparent 70%);pointer-events:none}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);font-size:14px;font-weight:600}
-.pill b{background:var(--red);padding:3px 10px;border-radius:999px;font-size:12px;letter-spacing:.04em}
-.hero h1{font-size:clamp(40px,6vw,74px);font-weight:800;margin:24px 0 22px}
-.hero h1 em{font-style:normal;background:linear-gradient(90deg,#ff5a67,#ff9aa2);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p.lead{font-size:clamp(17px,1.6vw,20px);color:#cfd3f5;max-width:560px;margin:0 0 34px}
+.cur,.cur-r{position:fixed;left:0;top:0;z-index:150;pointer-events:none;border-radius:50%;display:none}
+.cur{width:8px;height:8px;background:#fff;mix-blend-mode:difference}
+.cur-r{width:42px;height:42px;border:1px solid rgba(255,255,255,.45);transition:width .3s,height .3s,background .3s,border-color .3s}
+.cur-r.hov{width:74px;height:74px;background:rgba(255,45,63,.14);border-color:var(--red)}
+@media (hover:hover) and (pointer:fine){.cur,.cur-r{display:block}}
+
+header{position:fixed;top:14px;left:0;right:0;z-index:80;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+header.hide{transform:translateY(-130%)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:70px;padding:0 10px 0 22px;border-radius:999px;background:rgba(10,12,40,.55);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);box-shadow:inset 0 0 0 1px rgba(255,255,255,.09),0 20px 50px -20px rgba(0,0,0,.6)}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:-.02em}
+.logo img{width:36px;height:36px}
+.logo span b{color:var(--red)}
+.nav nav{display:flex;gap:2px}
+.nav nav a{position:relative;padding:10px 16px;font-size:14.5px;font-weight:600;color:#c9ccef;border-radius:999px;transition:color .2s,background .2s}
+.nav nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.nav .btn{--h:50px;padding:0 22px;font-size:14px}
+.burger{display:none;width:50px;height:50px;border-radius:50%;border:0;background:rgba(255,255,255,.08);cursor:pointer;place-items:center}
+.burger i{display:block;width:18px;height:2px;background:#fff;position:relative;transition:.35s}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff;transition:.35s}
+.burger i::before{top:-6px}.burger i::after{top:6px}
+.mopen .burger i{background:transparent}.mopen .burger i::before{top:0;transform:rotate(45deg)}.mopen .burger i::after{top:0;transform:rotate(-45deg)}
+.mmenu{position:fixed;inset:0;z-index:70;background:rgba(5,6,26,.97);display:flex;flex-direction:column;justify-content:center;padding:100px 30px 40px;clip-path:circle(0 at calc(100% - 50px) 50px);visibility:hidden;transition:clip-path .7s cubic-bezier(.7,0,.2,1),visibility 0s .7s}
+.mopen .mmenu{clip-path:circle(150% at calc(100% - 50px) 50px);visibility:visible;transition:clip-path .7s cubic-bezier(.7,0,.2,1)}
+.mmenu a{font-family:var(--disp);font-size:clamp(30px,9vw,46px);font-weight:700;letter-spacing:-.03em;padding:8px 0;display:flex;gap:14px;align-items:baseline}
+.mmenu a small{font-family:var(--body);font-size:13px;color:var(--mute);font-weight:600}
+.mmenu .row{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+
+.hero{min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden}
+.aur{position:absolute;inset:0;overflow:hidden;z-index:0}
+.aur b{position:absolute;border-radius:50%;filter:blur(90px);opacity:.75;animation:drift 18s ease-in-out infinite alternate}
+.aur b:nth-child(1){width:720px;height:720px;background:#2530ff;left:40%;top:-25%}
+.aur b:nth-child(2){width:520px;height:520px;background:#ff2d3f;left:70%;top:35%;opacity:.45;animation-duration:22s}
+.aur b:nth-child(3){width:600px;height:600px;background:#6b1bff;left:-15%;top:40%;opacity:.35;animation-duration:26s}
+@keyframes drift{to{transform:translate(-120px,80px) scale(1.15)}}
+#dots{position:absolute;inset:0;z-index:1;width:100%;height:100%}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:220px;background:linear-gradient(transparent,var(--bg));z-index:2;pointer-events:none}
+.hero .wrap{position:relative;z-index:3;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:12px;padding:6px 16px 6px 6px;border-radius:999px;background:var(--glass);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);font-size:13.5px;font-weight:600;color:#d7daff;backdrop-filter:blur(8px)}
+.badge b{font-family:var(--disp);font-size:12px;background:linear-gradient(90deg,var(--red),#ff7a45);color:#fff;padding:5px 12px;border-radius:999px;letter-spacing:0}
+.hero h1{font-size:clamp(42px,6.6vw,100px);margin:28px 0 26px}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.hero h1 .ln>span{display:inline-block}
+.rot{display:inline-grid;vertical-align:bottom;overflow:hidden;padding-bottom:.1em}
+.rot span{grid-area:1/1;transform:translateY(115%);transition:transform .8s cubic-bezier(.7,0,.2,1)}
+.rot span.on{transform:none}
+.rot span.out{transform:translateY(-115%)}
+.hero p.lead{font-size:clamp(17px,1.5vw,20px);color:var(--mute);max-width:540px;margin:0 0 38px}
+.hero p.lead b{color:#fff;font-weight:600}
 .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
-.checks{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:38px;color:#dfe2ff;font-size:14.5px;font-weight:500}
-.checks span{display:inline-flex;gap:8px;align-items:center}
-.checks svg{width:18px;height:18px;color:#4ee38b}
-.visual{position:relative;aspect-ratio:1/1.02}
-.visual .main{position:absolute;inset:6% 4% 10% 12%;border-radius:32px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);transform:rotate(2deg)}
-.visual .main img{width:100%;height:100%;object-fit:cover}
-.visual .sub{position:absolute;left:0;bottom:2%;width:44%;aspect-ratio:1;border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -20px rgba(0,0,0,.55);transform:rotate(-5deg);border:6px solid #fff}
-.visual .sub img{width:100%;height:100%;object-fit:cover}
-.float{position:absolute;background:#fff;color:var(--ink);border-radius:18px;padding:12px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 20px 40px -16px rgba(0,0,0,.45);font-size:14px;animation:bob 6s ease-in-out infinite}
-.float i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none}
-.float i svg{width:22px;height:22px}
-.float b{display:block;font-size:15px}
-.float small{color:var(--muted)}
-.f1{top:2%;right:0}.f1 i{background:#e8fbef;color:#17a34a}
-.f2{bottom:22%;right:-2%;animation-delay:-3s}.f2 i{background:#fdecee;color:var(--red)}
-@keyframes bob{50%{transform:translateY(-10px)}}
+.scene{position:relative;aspect-ratio:1/1;perspective:1200px}
+.scene .halo{position:absolute;inset:8%;border-radius:50%;background:conic-gradient(from 0deg,var(--blue),var(--red),#6b1bff,var(--blue));filter:blur(60px);opacity:.55;animation:spin 14s linear infinite}
+.scene .orbit{position:absolute;inset:3%;border-radius:50%;border:1px dashed rgba(255,255,255,.14);animation:spin 60s linear infinite}
+.scene .orbit::before{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 20px var(--red)}
+.scene .orbit.o2{inset:17%;animation-direction:reverse;animation-duration:40s}
+.scene .orbit.o2::before{background:var(--blue2);box-shadow:0 0 20px var(--blue2);top:auto;bottom:-5px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stack{position:absolute;inset:0;transform-style:preserve-3d}
+.stack img{position:absolute;filter:drop-shadow(0 40px 50px rgba(0,0,0,.6));will-change:transform}
+.stack .s1{width:74%;left:14%;top:18%;z-index:3}
+.stack .s2{width:46%;right:-4%;top:2%;z-index:1;opacity:.95}
+.stack .s3{width:40%;left:-6%;bottom:6%;z-index:4}
+.chip{position:absolute;z-index:5;display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:18px;background:rgba(14,16,48,.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 20px 40px -20px rgba(0,0,0,.8);font-size:13px;white-space:nowrap;line-height:1.35}
+.chip i{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none}
+.chip i svg{width:20px;height:20px}
+.chip b{display:block;font-size:14px}
+.chip small{color:var(--mute)}
+.chip.c1{left:-2%;top:10%}.chip.c1 i{background:rgba(25,194,97,.16);color:#3ee58a}
+.chip.c2{right:0;bottom:14%}.chip.c2 i{background:rgba(255,45,63,.16);color:var(--red2)}
+.live{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3ee58a;box-shadow:0 0 0 0 rgba(62,229,138,.7);animation:lp 2s infinite;margin-right:6px;vertical-align:middle}
+@keyframes lp{70%{box-shadow:0 0 0 8px rgba(62,229,138,0)}100%{box-shadow:0 0 0 0 rgba(62,229,138,0)}}
+.scroll-hint{position:absolute;left:50%;bottom:28px;z-index:4;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.3em;color:var(--mute);text-transform:uppercase}
+.scroll-hint span{width:24px;height:38px;border-radius:14px;border:1.5px solid rgba(255,255,255,.3);position:relative}
+.scroll-hint span::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:8px;margin-left:-1.5px;border-radius:2px;background:#fff;animation:wheel 1.8s infinite}
+@keyframes wheel{to{transform:translateY(12px);opacity:0}}
 
-/* brands strip */
-.strip{background:#fff;border-bottom:1px solid var(--line)}
-.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.stat{padding:30px 22px;display:flex;gap:16px;align-items:center;border-left:1px solid var(--line)}
-.stat:first-child{border-left:0}
-.stat i{width:48px;height:48px;border-radius:14px;background:#eef0fa;color:var(--navy);display:grid;place-items:center;flex:none}
-.stat i svg{width:24px;height:24px}
-.stat b{display:block;font-size:16px}
-.stat span{color:var(--muted);font-size:14px}
+.mq{padding:34px 0;border-block:1px solid var(--line);overflow:hidden;background:linear-gradient(90deg,rgba(51,64,255,.06),rgba(255,45,63,.06))}
+.mq .tr{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mq span{font-family:var(--disp);font-size:clamp(30px,4.6vw,64px);font-weight:700;letter-spacing:-.03em;padding-left:60px;white-space:nowrap;display:flex;align-items:center;gap:60px}
+.mq span:nth-child(even){color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.4)}
+.mq span::after{content:"✦";color:var(--red);font-size:.5em;-webkit-text-stroke:0}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-/* products */
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
-.tab{height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-family:inherit;font-weight:600;font-size:14.5px;color:#2c3160;cursor:pointer;transition:.2s}
-.tab:hover{border-color:#c4c8e4}
-.tab.active{background:var(--navy);border-color:var(--navy);color:#fff}
-.grid-p{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.pcard{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
-.pcard:hover{transform:translateY(-6px);box-shadow:0 1px 2px rgba(13,17,48,.05),0 30px 50px -20px rgba(13,17,48,.3)}
-.pcard .ph{aspect-ratio:4/3;background:linear-gradient(160deg,#f3f4fa,#e6e8f3);overflow:hidden;position:relative}
-.pcard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.pcard .ph:has(.contain){background:#fff}.pcard .ph img.contain{object-fit:contain;padding:22px}
-.pcard:hover .ph img{transform:scale(1.05)}
-.tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.94);color:var(--navy);font-size:12px;font-weight:700;padding:6px 11px;border-radius:999px}
-.tag.red{background:var(--red);color:#fff;left:auto;right:14px}
-.pcard .bd{padding:22px 24px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
-.pcard h3{font-size:21px}
-.pcard p{margin:0;color:var(--muted);font-size:15px}
-.feat{list-style:none;padding:0;margin:2px 0 6px;display:flex;flex-wrap:wrap;gap:6px}
-.feat li{font-size:12.5px;font-weight:600;background:#f1f2f9;color:#3a3f6b;padding:5px 10px;border-radius:8px}
-.pcard .act{margin-top:auto;display:flex;gap:8px}
-.pcard .act .btn{height:44px;font-size:14px;flex:1;padding:0 14px}
-.pcard[hidden]{display:none!important}
+.state{padding:170px 0 150px}
+.state p{font-family:var(--disp);font-size:clamp(26px,4vw,58px);font-weight:600;letter-spacing:-.035em;line-height:1.18;margin:30px 0 0;max-width:1180px}
+.js .state .w{opacity:.14}
+.state .w.hl{color:var(--red2)}
 
-/* sectors */
-.sectors{background:#fff}
-.grid-s{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.sec{border:1px solid var(--line);border-radius:18px;padding:22px 18px;text-align:center;transition:.25s;background:#fff}
-.sec:hover{border-color:transparent;box-shadow:var(--shadow);transform:translateY(-4px)}
-.sec i{width:56px;height:56px;margin:0 auto 12px;border-radius:16px;background:linear-gradient(135deg,#eef0fa,#fbeef0);display:grid;place-items:center;color:var(--navy)}
-.sec i svg{width:28px;height:28px}
-.sec b{display:block;font-size:15.5px}
-.sec span{font-size:13px;color:var(--muted)}
+.prod{padding:40px 0 0}
+.prod .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:50px}
+.prod h2{font-size:clamp(38px,5.6vw,84px);margin:18px 0 0}
+.prod .head p{max-width:360px;color:var(--mute);margin:0}
+.hs{position:relative;overflow:hidden}
+.htrack{display:flex;gap:26px;padding:0 max(24px,calc((100vw - 1280px)/2));width:max-content}
+.panel{position:relative;width:min(78vw,980px);height:min(68vh,600px);min-height:470px;border-radius:36px;overflow:hidden;background:linear-gradient(145deg,#12154a 0%,#0a0c2a 60%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);display:grid;grid-template-columns:1fr 1.05fr;flex:none}
+.panel::before{content:"";position:absolute;width:70%;aspect-ratio:1;right:-12%;top:50%;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle,var(--pc,#3340ff) 0%,transparent 62%);opacity:.55}
+.panel .big{position:absolute;right:-2%;bottom:-6%;font-family:var(--disp);font-weight:800;font-size:clamp(140px,22vw,300px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.07);letter-spacing:-.06em;pointer-events:none}
+.panel .tx{position:relative;z-index:2;padding:48px;display:flex;flex-direction:column;gap:18px}
+.panel .cat{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red2)}
+.panel h3{font-family:var(--disp);font-size:clamp(28px,3.2vw,46px);letter-spacing:-.035em;line-height:1.02;margin:0}
+.panel p{margin:0;color:var(--mute);font-size:16px;max-width:380px}
+.panel ul{list-style:none;padding:0;margin:4px 0 0;display:grid;gap:10px}
+.panel li{display:flex;gap:10px;align-items:center;font-size:15px;font-weight:600;color:#d8dbff}
+.panel li::before{content:"";width:18px;height:18px;border-radius:50%;flex:none;background:rgba(255,45,63,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff6b77' stroke-width='3.5' stroke-linecap='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/11px no-repeat}
+.panel .tx .btn{margin-top:auto;align-self:flex-start}
+.panel .im{position:relative;z-index:1;display:grid;place-items:center;padding:30px;min-height:0}
+.panel .im img{max-height:420px;width:auto;max-width:100%;filter:drop-shadow(0 50px 50px rgba(0,0,0,.55))}
+.hprog{height:2px;background:var(--line);margin:40px auto 0;width:min(1280px,100% - 48px);border-radius:2px;overflow:hidden}
+.hprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--red))}
 
-/* bundle */
-.bundle{background:var(--ink);color:#fff;border-radius:32px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden}
-.bundle::before{content:"";position:absolute;width:520px;height:520px;right:-160px;top:-200px;background:radial-gradient(circle,rgba(225,29,46,.45),transparent 65%)}
-.bundle>*{position:relative}
-.bundle h2{font-size:clamp(30px,3.8vw,44px);margin:14px 0 16px}
-.bundle p{color:#b9bddc;margin:0 0 26px;font-size:17px}
-.bl{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.bl div{background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);border-radius:18px;padding:18px;display:flex;gap:12px;align-items:center;font-weight:600;font-size:15px}
-.bl img{width:56px;height:56px;border-radius:12px;object-fit:cover;flex:none;background:#fff}
+.why{padding:150px 0 110px}
+.why h2,.cfg h2,.proc h2,.faq h2{font-size:clamp(34px,5vw,70px);margin:18px 0 0}
+.bento{margin-top:56px;display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(230px,auto);gap:16px}
+.cell{--mx:50%;--my:50%;position:relative;border-radius:28px;padding:32px;background:var(--bg2);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;isolation:isolate}
+.cell::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(255,45,63,.16),transparent 45%);opacity:0;transition:opacity .4s}
+.cell::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:radial-gradient(300px circle at var(--mx) var(--my),rgba(255,120,130,.7),transparent 45%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;pointer-events:none}
+.cell:hover::before,.cell:hover::after{opacity:1}
+.cell h3{font-family:var(--disp);font-size:23px;letter-spacing:-.03em;line-height:1.12;margin:0}
+.cell p{margin:0;color:var(--mute);font-size:15px}
+.cell .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);margin-bottom:auto}
+.cell .ic svg{width:26px;height:26px;color:var(--red2)}
+.c-a{grid-column:span 7;grid-row:span 2;background:linear-gradient(160deg,#171b5e,#0a0c2a 70%)}
+.c-a img{position:absolute;right:-4%;top:8%;width:60%;filter:drop-shadow(0 40px 40px rgba(0,0,0,.5));z-index:-1;transition:transform .8s}
+.c-a:hover img{transform:translateY(-10px) rotate(-3deg)}
+.c-a h3{font-size:clamp(28px,3vw,40px);max-width:420px}
+.c-b{grid-column:span 5}.c-c{grid-column:span 5}
+.c-d{grid-column:span 4}.c-e{grid-column:span 4}.c-f{grid-column:span 4}
+.c-c{background:linear-gradient(135deg,#ff2d3f,#b3122a);box-shadow:none}
+.c-c p{color:rgba(255,255,255,.85)}.c-c .ic{background:rgba(255,255,255,.18)}.c-c .ic svg{color:#fff}
+.sectors{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:auto}
+.sectors span{font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
 
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
-.step{background:#fff;border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow);position:relative}
-.step::before{counter-increment:s;content:"0" counter(s);font-size:44px;font-weight:800;letter-spacing:-.04em;background:linear-gradient(135deg,var(--navy),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:10px}
-.step h3{font-size:19px;margin-bottom:8px}
-.step p{margin:0;color:var(--muted);font-size:15px}
+.cfg{padding:110px 0}
+.cbox{margin-top:50px;display:grid;grid-template-columns:1fr 1fr;border-radius:36px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);background:var(--bg2)}
+.csteps{padding:44px;display:flex;flex-direction:column;gap:34px;border-right:1px solid var(--line)}
+.cst h4{margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);display:flex;gap:10px;align-items:center}
+.cst h4 b{font-family:var(--disp);color:#fff;font-size:12px;width:26px;height:26px;border-radius:50%;background:var(--red);display:grid;place-items:center;letter-spacing:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{height:46px;padding:0 18px;border-radius:999px;border:0;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);color:#d8dbff;font-weight:600;font-size:14.5px;cursor:pointer;transition:.25s}
+.opt:hover{background:rgba(255,255,255,.1)}
+.opt.on{background:#fff;color:#070820;box-shadow:0 10px 30px -10px rgba(255,255,255,.5)}
+.qty{display:flex;align-items:center;gap:18px}
+.qty button{width:52px;height:52px;border-radius:50%;border:0;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);color:#fff;font-size:24px;cursor:pointer;transition:.25s}
+.qty button:hover{background:var(--red)}
+.qty output{font-family:var(--disp);font-size:52px;font-weight:700;min-width:60px;text-align:center;line-height:1}
+.qty small{color:var(--mute)}
+.cres{padding:44px;display:flex;flex-direction:column;gap:18px;background:radial-gradient(600px 400px at 100% 0%,rgba(51,64,255,.25),transparent 60%),radial-gradient(500px 300px at 0% 100%,rgba(255,45,63,.14),transparent 60%)}
+.cres h3{font-family:var(--disp);font-size:26px;letter-spacing:-.03em;margin:0}
+.cres .sub{color:var(--mute);margin:-10px 0 0;font-size:15px}
+.items{display:grid;gap:10px}
+.item{display:flex;align-items:center;gap:16px;padding:12px 18px 12px 12px;border-radius:20px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);animation:pop .5s cubic-bezier(.2,.9,.3,1.3) both;line-height:1.35}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}}
+.item .th{width:64px;height:54px;border-radius:14px;background:rgba(255,255,255,.06);display:grid;place-items:center;flex:none}
+.item .th img{max-width:52px;max-height:44px;object-fit:contain}
+.item b{display:block;font-size:15.5px}
+.item small{color:var(--mute);font-size:13px}
+.item .x{margin-left:auto;font-family:var(--disp);font-size:20px;font-weight:700;color:var(--red2)}
+.cres .btn{margin-top:auto;align-self:stretch;justify-content:center}
 
-/* about */
-.about{background:#fff}
-.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:220px 220px;gap:14px}
-.collage img{width:100%;height:100%;object-fit:cover;border-radius:20px}
-.collage img:first-child{grid-row:span 2}
-.about h2{font-size:clamp(32px,4.2vw,48px);margin:14px 0 20px}
-.about p{color:var(--muted);font-size:17px;margin:0 0 16px}
-.vals{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
-.vals div{display:flex;gap:12px;align-items:flex-start}
-.vals i{width:36px;height:36px;border-radius:10px;background:#fdecee;color:var(--red);display:grid;place-items:center;flex:none}
-.vals i svg{width:18px;height:18px}
-.vals b{display:block;font-size:15px}
-.vals span{font-size:14px;color:var(--muted);line-height:1.45}
+.proc{padding:110px 0}
+.tl{margin-top:60px;position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.tl .ln{position:absolute;left:0;right:0;top:34px;height:2px;background:var(--line)}
+.tl .ln i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--red));box-shadow:0 0 16px var(--red)}
+.nojs .tl .ln i{width:100%}
+.st .n{width:70px;height:70px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:20px;position:relative;z-index:1;margin-bottom:26px;transition:.5s}
+.st.on .n{background:var(--red);box-shadow:0 0 0 8px rgba(255,45,63,.15),0 0 40px rgba(255,45,63,.6)}
+.st h3{font-family:var(--disp);font-size:21px;letter-spacing:-.03em;margin:0 0 10px}
+.st p{margin:0;color:var(--mute);font-size:15px}
 
-/* gallery */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:14px}
-.gal button{border:0;padding:0;border-radius:18px;overflow:hidden;cursor:zoom-in;background:#ddd}
-.gal button:nth-child(1){grid-column:span 2;grid-row:span 2}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.gal button:hover img{transform:scale(1.06)}
-.lb{position:fixed;inset:0;background:rgba(8,10,30,.92);z-index:100;display:grid;place-items:center;padding:24px}
-.lb img{max-height:88vh;border-radius:14px}
-.lb button{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;border:0;background:#fff;font-size:26px;cursor:pointer}
+.gal{padding:60px 0 120px;overflow:hidden}
+.grow{display:flex;gap:18px;width:max-content;will-change:transform}
+.grow+.grow{margin-top:18px}
+.grow figure{margin:0;width:clamp(260px,30vw,420px);aspect-ratio:4/3;border-radius:26px;overflow:hidden;flex:none;position:relative}
+.grow figure img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.grow figure:hover img{transform:scale(1.08)}
 
-/* faq */
-.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
-details{background:#fff;border-radius:18px;margin-bottom:12px;box-shadow:var(--shadow);overflow:hidden}
-summary{list-style:none;cursor:pointer;padding:22px 26px;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:16px;align-items:center}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:26px;font-weight:400;color:var(--red);transition:transform .3s;flex:none}
-details[open] summary::after{transform:rotate(45deg)}
-details p{margin:0;padding:0 26px 24px;color:var(--muted)}
+.faq{padding:60px 0 120px}
+.faq .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px}
+.faq .side p{color:var(--mute);margin:22px 0 28px}
+.q{border-bottom:1px solid var(--line)}
+.q button{width:100%;background:none;border:0;color:#fff;text-align:left;padding:28px 0;display:flex;justify-content:space-between;gap:24px;align-items:center;font-size:clamp(17px,1.5vw,20px);font-weight:600;cursor:pointer}
+.q button i{width:40px;height:40px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);position:relative;transition:.4s}
+.q button i::before,.q button i::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;margin:-1px 0 0 -7px;background:#fff;transition:.4s}
+.q button i::after{transform:rotate(90deg)}
+.q.open button i{background:var(--red);box-shadow:none;transform:rotate(180deg)}
+.q.open button i::after{transform:rotate(0)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.8,.2,1)}
+.q.open .a{grid-template-rows:1fr}
+.q .a>div{overflow:hidden}
+.q .a p{margin:0;padding:0 60px 28px 0;color:var(--mute)}
 
-/* quote + contact */
-.contact{background:linear-gradient(180deg,var(--bg),#fff)}
-.cbox{display:grid;grid-template-columns:1fr 1.1fr;background:#fff;border-radius:32px;box-shadow:var(--shadow);overflow:hidden}
-.cinfo{background:var(--navy);color:#fff;padding:52px;display:flex;flex-direction:column;gap:26px;position:relative;overflow:hidden}
-.cinfo::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;border:60px solid rgba(225,29,46,.25);right:-160px;bottom:-160px}
-.cinfo h2{font-size:clamp(30px,3.4vw,40px)}
-.cinfo p{color:#c3c7ee;margin:-10px 0 0}
-.ci{display:flex;gap:16px;align-items:center;position:relative;z-index:1}
-.ci i{width:50px;height:50px;border-radius:15px;background:rgba(255,255,255,.1);display:grid;place-items:center;flex:none}
+.bigcta{padding:120px 0;text-align:center;overflow:hidden}
+.bigcta h2{font-size:clamp(46px,10vw,170px);letter-spacing:-.05em;margin:0 0 40px;line-height:.95}
+.bigcta h2 em{font-style:normal;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.55)}
+.mag{display:inline-block}
+.bigcta .btn{--h:80px;font-size:18px;padding:0 40px}
+
+.contact{padding:40px 0 120px}
+.cgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
+.info{border-radius:36px;padding:44px;background:linear-gradient(160deg,#171b5e,#0a0c2a);box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.info h2{font-size:clamp(30px,3.2vw,44px);margin:12px 0 18px}
+.ci{display:flex;align-items:center;gap:16px;padding:16px;border-radius:20px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);transition:.3s;line-height:1.35;min-width:0}
+.ci:hover{background:rgba(255,255,255,.08);transform:translateX(6px)}
+.ci i{width:48px;height:48px;border-radius:14px;background:rgba(255,45,63,.15);color:var(--red2);display:grid;place-items:center;flex:none}
 .ci i svg{width:22px;height:22px}
-.ci small{display:block;color:#aeb3e2;font-size:13px}
-.ci b{font-size:17px}
-.ci a:hover b{text-decoration:underline}
-form{padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-content:start}
-form h3{grid-column:1/-1;font-size:26px}
-form .sub{grid-column:1/-1;color:var(--muted);margin:-8px 0 6px}
-.fld{display:flex;flex-direction:column;gap:6px}
-.fld.full{grid-column:1/-1}
-label{font-size:13.5px;font-weight:700;color:#343962}
-input,select,textarea{font:inherit;font-size:15.5px;border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;background:#fafbfe;color:var(--ink);transition:border-color .2s,box-shadow .2s;width:100%}
-textarea{min-height:110px;resize:vertical}
-input:focus,select:focus,textarea:focus{outline:0;border-color:var(--navy-2);box-shadow:0 0 0 4px rgba(29,38,144,.12);background:#fff}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips label{font-weight:600;font-size:14px;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;color:#3a3f6b;transition:.2s;user-select:none}
-.chips input{display:none}
-.chips input:checked+span{color:#fff}
-.chips label:has(input:checked){background:var(--navy);border-color:var(--navy);color:#fff}
+.ci div{min-width:0}
+.ci small{display:block;color:var(--mute);font-size:12.5px}
+.ci b{font-size:16px;font-weight:600;overflow-wrap:anywhere}
+.hours{display:flex;align-items:center;font-size:14px;color:#d8dbff;margin-top:6px}
+form{border-radius:36px;padding:44px;background:var(--bg2);box-shadow:inset 0 0 0 1px var(--line);display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;align-content:start}
+form h3{grid-column:1/-1;font-family:var(--disp);font-size:28px;letter-spacing:-.03em;margin:0 0 8px}
+.f{position:relative}
+.f.full{grid-column:1/-1}
+.f input,.f textarea,.f select{width:100%;font:inherit;font-size:16px;color:#fff;background:rgba(255,255,255,.04);border:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);border-radius:18px;padding:26px 18px 10px;transition:box-shadow .3s,background .3s;appearance:none}
+.f select{padding:18px;height:100%}
+.f select option{background:#0a0c2a}
+.f textarea{min-height:120px;resize:vertical}
+.f label{position:absolute;left:18px;top:18px;color:var(--mute);font-size:15px;pointer-events:none;transition:.25s}
+.f input:focus,.f textarea:focus,.f select:focus{outline:0;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1.5px var(--red),0 0 0 5px rgba(255,45,63,.12)}
+.f input:focus+label,.f input:not(:placeholder-shown)+label,.f textarea:focus+label,.f textarea:not(:placeholder-shown)+label{top:7px;font-size:11.5px;letter-spacing:.06em;color:var(--red2)}
+.f.err input{box-shadow:inset 0 0 0 1.5px var(--red)}
 form .btns{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-form .btns .btn{flex:1}
-.map{margin-top:22px;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);height:360px;background:#e6e8f3}
-.map iframe{width:100%;height:100%;border:0;display:block}
+form .btns .btn{flex:1;justify-content:center}
+.map{margin-top:18px;border-radius:36px;overflow:hidden;height:380px;box-shadow:inset 0 0 0 1px var(--line);position:relative}
+.map iframe{width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(200deg) saturate(.7) brightness(.95)}
 
-/* footer */
-footer{background:var(--ink);color:#aeb2d3;padding:70px 0 30px;font-size:15px}
-.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px}
-.flogo{background:#fff;display:inline-block;padding:10px 14px;border-radius:14px;margin-bottom:18px}
-.flogo img{height:30px}
-footer h4{color:#fff;font-size:15px;margin:0 0 16px}
-footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-footer a:hover{color:#fff}
-.fbot{border-top:1px solid rgba(255,255,255,.1);margin-top:50px;padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px}
+footer{border-top:1px solid var(--line);padding:70px 0 26px;overflow:hidden}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+footer h4{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15px}
+footer ul a{color:#d0d3f5;transition:color .2s}
+footer ul a:hover{color:var(--red2)}
+.fbig{font-family:var(--disp);font-weight:800;font-size:clamp(70px,18.5vw,300px);letter-spacing:-.06em;line-height:.9;text-align:center;margin:60px 0 20px;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,0) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;white-space:nowrap}
+.fb{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--mute)}
 
-/* floating */
-.fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;flex-direction:column;gap:12px}
-.fab a{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 14px 30px -10px rgba(0,0,0,.45);transition:transform .2s}
-.fab a:hover{transform:scale(1.08)}
-.fab svg{width:30px;height:30px}
-.fab .wa{background:#1fae53}
-.fab .wa::after{content:"";position:absolute;width:60px;height:60px;border-radius:50%;box-shadow:0 0 0 0 rgba(31,174,83,.6);animation:ping 2.4s infinite}
-@keyframes ping{70%{box-shadow:0 0 0 18px rgba(31,174,83,0)}100%{box-shadow:0 0 0 0 rgba(31,174,83,0)}}
-.fab .tel{background:var(--red);display:none}
+.fab{position:fixed;right:22px;bottom:22px;z-index:75;width:64px;height:64px;border-radius:50%;background:#19c261;display:grid;place-items:center;box-shadow:0 20px 40px -12px rgba(25,194,97,.8);transition:transform .3s}
+.fab:hover{transform:scale(1.1) rotate(-8deg)}
+.fab svg{width:32px;height:32px;color:#fff}
+.fab::before{content:"";position:absolute;inset:0;border-radius:50%;animation:lp2 2.4s infinite}
+@keyframes lp2{0%{box-shadow:0 0 0 0 rgba(25,194,97,.6)}70%{box-shadow:0 0 0 20px rgba(25,194,97,0)}100%{box-shadow:0 0 0 0 rgba(25,194,97,0)}}
 .mbar{display:none}
+.toTop{position:fixed;right:30px;bottom:100px;z-index:75;width:48px;height:48px;border-radius:50%;border:0;background:rgba(14,16,48,.7);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);color:#fff;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .4s;display:grid;place-items:center;font-size:18px}
+.toTop svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.toTop circle{fill:none;stroke:var(--red);stroke-width:2;stroke-dasharray:138;stroke-dashoffset:138}
+.toTop.show{opacity:1;pointer-events:auto}
 
-@media (max-width:1080px){
-  nav.main,.hcta .btn-line{display:none}
-  .burger{display:flex}
-  .mnav{display:block;position:fixed;inset:116px 0 0;background:#fff;z-index:49;padding:20px;transform:translateY(-12px);opacity:0;pointer-events:none;transition:.3s}
-  .menu-open .mnav{transform:none;opacity:1;pointer-events:auto}
-  .mnav a{display:block;padding:16px 8px;font-size:20px;font-weight:700;border-bottom:1px solid var(--line)}
-  .hero .wrap,.about .wrap,.faq .wrap,.bundle,.cbox{grid-template-columns:1fr}
-  .visual{max-width:540px;margin:0 auto;width:100%}
-  .grid-p{grid-template-columns:repeat(2,1fr)}
-  .grid-s{grid-template-columns:repeat(3,1fr)}
-  .steps{grid-template-columns:repeat(2,1fr)}
-  .strip .wrap{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(3){border-left:0}
-  .stat{border-top:1px solid var(--line)}
-  .stat:nth-child(-n+2){border-top:0}
-  .fgrid{grid-template-columns:1fr 1fr}
-  .faq .head{margin-bottom:10px}
+.js .rv{opacity:0;transform:translateY(50px)}
+.js .cell{opacity:0;transform:translateY(50px)}
+
+@media (max-width:1100px){
+  .nav nav,.nav>.btn{display:none}
+  .burger{display:grid}
+  .hero .wrap,.cbox,.cgrid,.faq .wrap{grid-template-columns:1fr}
+  .faq .wrap{gap:30px}
+  .scene{max-width:600px;width:100%;margin:10px auto 0}
+  .csteps{border-right:0;border-bottom:1px solid var(--line)}
+  .c-a{grid-column:span 12}.c-b,.c-c{grid-column:span 6}.c-d,.c-e,.c-f{grid-column:span 12}
+  .tl{grid-template-columns:1fr 1fr;row-gap:40px}.tl .ln{display:none}
+  .fg{grid-template-columns:1fr 1fr}
+  .prod .head{flex-direction:column;align-items:flex-start}
 }
-@media (max-width:640px){
+@media (max-width:760px){
   .wrap{width:calc(100% - 32px)}
-  section{padding:76px 0}
-  .topbar .l span.h,.topbar .r{display:none}
-  header .wrap{height:66px}
-  .mnav{inset:106px 0 0}
-  .logo img{height:30px}
-  .hcta .btn-red{display:none}
-  .hero{padding:56px 0 80px}
-  .hero .cta .btn{flex:1}
-  .grid-p,.steps,.vals,.bl{grid-template-columns:1fr}
-  .grid-s{grid-template-columns:repeat(2,1fr)}
-  .strip .wrap{grid-template-columns:1fr}
-  .stat{border-left:0!important;border-top:1px solid var(--line)!important;padding:20px 4px}
-  .stat:first-child{border-top:0!important}
-  .bundle,.cinfo,form{padding:32px 22px}
+  header{top:10px}
+  .nav{height:62px;padding-left:16px}
+  .logo{font-size:15px}.logo img{width:30px;height:30px}
+  .hero{padding:110px 0 70px}
+  .hero .cta .mag{flex:1}
+  .hero .cta .btn{width:100%;justify-content:center;padding:0 18px}
+  .chip{padding:8px 12px 8px 8px}
+  .chip i{width:30px;height:30px}
+  .chip b{font-size:12px}.chip small{font-size:11px}
+  .chip.c1{left:0;top:2%}.chip.c2{right:0;bottom:2%}
+  .scroll-hint{display:none}
+  .mq{padding:22px 0}
+  .state{padding:100px 0 80px}
+  .htrack{flex-direction:column;width:auto;padding:0 16px}
+  .panel{width:100%;height:auto;min-height:0;grid-template-columns:1fr;border-radius:28px}
+  .panel .im{order:-1;height:250px;padding:26px 20px 0}
+  .panel .im img{max-height:100%}
+  .panel .tx{padding:22px 24px 30px}
+  .panel .big{font-size:140px}
+  .hprog{display:none}
+  .why{padding:100px 0 70px}
+  .c-b,.c-c{grid-column:span 12}
+  .c-a{min-height:440px}.c-a img{width:78%;right:-8%;top:4%}
+  .csteps,.cres,.info,form{padding:28px 22px}
+  .cbox,.info,form{border-radius:28px}
   form{grid-template-columns:1fr}
-  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
-  .collage{grid-template-rows:160px 160px}
-  .fgrid{grid-template-columns:1fr}
-  .f2{display:none}
-  .fab{bottom:84px}
-  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
-  .mbar .btn{height:48px}
-  .fab{display:none}
-  footer{padding-bottom:100px}
+  .tl{grid-template-columns:1fr}
+  .st{display:grid;grid-template-columns:70px 1fr;gap:0 18px}.st .n{margin:0}
+  .fg{grid-template-columns:1fr}
+  .fab,.toTop{display:none}
+  .mbar{display:grid;grid-template-columns:1fr 1.3fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:75;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(5,6,26,.85);backdrop-filter:blur(16px);border-top:1px solid var(--line)}
+  .mbar .btn{--h:52px;justify-content:center;padding:0 16px}
+  footer{padding-bottom:110px}
+  .q .a p{padding-right:0}
+  .map{height:300px;border-radius:28px}
+  .bigcta .btn{--h:64px;font-size:16px;padding:0 28px}
 }
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
-<body>
-<svg width="0" height="0" style="position:absolute">
+<body class="loading">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3340ff"/><stop offset="1" stop-color="#ff2d3f"/></linearGradient></defs>
   <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.4 13.4 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.3-.6-.4zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.9 17.8L.2 24l6.4-1.7a11.8 11.8 0 0 0 5.6 1.4A11.8 11.8 0 0 0 20.4 3.6z"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
   <symbol id="i-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></symbol>
-  <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
   <symbol id="i-head" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></symbol>
   <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
-  <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></symbol>
-  <symbol id="i-coffee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4zM6 1v3M10 1v3M14 1v3"/></symbol>
-  <symbol id="i-food" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></symbol>
-  <symbol id="i-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 3.5 16 2a4 4 0 0 1-8 0L3.6 3.5a2 2 0 0 0-1.3 2.2l.6 3.5a1 1 0 0 0 1 .8H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.1a1 1 0 0 0 1-.8l.6-3.5a2 2 0 0 0-1.3-2.2z"/></symbol>
-  <symbol id="i-pill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.9 4.9 0 0 0-7-7l-10 10a4.9 4.9 0 0 0 7 7zM8.5 8.5l7 7"/></symbol>
-  <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></symbol>
-  <symbol id="i-bed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
   <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9M3 9v11h18V9M3 9h18M9 20v-6h6v6"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
 </svg>
 
-<div class="topbar">
-  <div class="wrap">
-    <div class="l"><span id="status"><span class="dot"></span>Çalışma saatleri</span><span class="h">Saray Mah. Su Gözü Cad. No:3/A, Alanya</span></div>
-    <div class="r"><a href="tel:+902425120226">+90 242 512 02 26</a><a href="mailto:info@alanyacelikelektronik.com">info@alanyacelikelektronik.com</a></div>
+<div class="pre" id="pre" aria-hidden="true">
+  <div class="p t"></div><div class="p b"></div>
+  <div class="c">
+    <div class="ring"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="56"/><circle class="fg" id="preRing" cx="60" cy="60" r="56"/></svg><img src="img/icon.png" alt=""></div>
+    <div class="num"><span id="preNum">0</span><small>%</small></div>
+    <div class="lbl">Çelik Elektronik · 2026</div>
   </div>
+  <div class="bar" id="preBar"></div>
 </div>
+
+<div class="noise"></div>
+<div class="cur" id="cur"></div><div class="cur-r" id="curR"></div>
 
 <header id="hdr">
-  <div class="wrap">
-    <a href="#" class="logo" aria-label="Çelik Elektronik ana sayfa"><img src="img/logo.png" alt="Çelik Elektronik" width="900" height="160"></a>
-    <nav class="main">
-      <a href="#urunler">Ürünler</a><a href="#sektorler">Sektörler</a><a href="#hizmet">Hizmet</a><a href="#hakkimizda">Hakkımızda</a><a href="#galeri">Galeri</a><a href="#sss">SSS</a><a href="#iletisim">İletişim</a>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><img src="img/icon.png" alt=""><span>ÇELİK <b>ELEKTRONİK</b></span></a>
+    <nav>
+      <a href="#urunler">Ürünler</a><a href="#neden">Neden Biz</a><a href="#olustur">Kasanı Oluştur</a><a href="#surec">Süreç</a><a href="#sss">SSS</a><a href="#iletisim">İletişim</a>
     </nav>
-    <div class="hcta">
-      <a class="btn btn-line" href="tel:+902425120226"><svg><use href="#i-phone"/></svg>Hemen Ara</a>
-      <a class="btn btn-red" href="#teklif">Teklif Al</a>
-      <button class="burger" aria-label="Menü" onclick="document.querySelector('.mnav').style.top=document.getElementById('hdr').getBoundingClientRect().bottom+'px';document.body.classList.toggle('menu-open')"><span></span></button>
-    </div>
+    <a class="btn btn-red" href="#iletisim">Teklif Al <span class="arr"><svg><use href="#i-arr"/></svg></span></a>
+    <button class="burger" aria-label="Menü" id="burger"><i></i></button>
   </div>
 </header>
-<nav class="mnav" onclick="if(event.target.tagName==='A')document.body.classList.remove('menu-open')">
-  <a href="#urunler">Ürünler</a><a href="#sektorler">Sektörler</a><a href="#hizmet">Hizmet</a><a href="#hakkimizda">Hakkımızda</a><a href="#galeri">Galeri</a><a href="#sss">SSS</a><a href="#teklif">Teklif Al</a>
-</nav>
-
-<main>
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <span class="pill"><b>2026</b> Yeni nesil ödeme ve kasa sistemleri</span>
-      <h1>İşletmenizin kasası <em>hızlı, yasal</em> ve hep çalışır.</h1>
-      <p class="lead">Alanya'da yazar kasa POS, dokunmatik POS bilgisayar, fiş ve barkod yazıcı, barkod okuyucu — ürün seçiminden kuruluma, eğitimden teknik desteğe tek adres.</p>
-      <div class="cta">
-        <a class="btn btn-red" href="#teklif">Ücretsiz Teklif Al <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="https://wa.me/905078641184?text=Merhaba%2C%20yazar%20kasa%20POS%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
-      </div>
-      <div class="checks">
-        <span><svg><use href="#i-check"/></svg>Yerinde kurulum</span>
-        <span><svg><use href="#i-check"/></svg>Kullanım eğitimi</span>
-        <span><svg><use href="#i-check"/></svg>Satış sonrası destek</span>
-      </div>
-    </div>
-    <div class="visual reveal">
-      <div class="main"><img src="img/pos-hero.webp" alt="Temassız ödeme alan yeni nesil yazar kasa POS" fetchpriority="high"></div>
-      <div class="sub"><img src="img/pc-bar.webp" alt="Dokunmatik POS bilgisayar kullanan işletme"></div>
-      <div class="float f1"><i><svg><use href="#i-card"/></svg></i><div><b>Temassız ödeme</b><small>Kart, telefon, saat</small></div></div>
-      <div class="float f2"><i><svg><use href="#i-bolt"/></svg></i><div><b>Aynı gün kurulum</b><small>Stoktaki ürünlerde*</small></div></div>
-    </div>
-  </div>
-</section>
-
-<div class="strip">
-  <div class="wrap">
-    <div class="stat"><i><svg><use href="#i-shield"/></svg></i><div><b>Yetkili ürünler</b><span>Faturalı, garantili cihazlar</span></div></div>
-    <div class="stat"><i><svg><use href="#i-tool"/></svg></i><div><b>Kurulum & eğitim</b><span>İşletmenizde, yerinde</span></div></div>
-    <div class="stat"><i><svg><use href="#i-head"/></svg></i><div><b>Teknik destek</b><span>Telefon ve WhatsApp</span></div></div>
-    <div class="stat"><i><svg><use href="#i-truck"/></svg></i><div><b>Alanya ve çevresi</b><span>Mağazamız Saray Mahallesi'nde</span></div></div>
-  </div>
+<div class="mmenu" id="mmenu">
+  <a href="#urunler"><small>01</small>Ürünler</a>
+  <a href="#neden"><small>02</small>Neden Biz</a>
+  <a href="#olustur"><small>03</small>Kasanı Oluştur</a>
+  <a href="#surec"><small>04</small>Süreç</a>
+  <a href="#iletisim"><small>05</small>İletişim</a>
+  <div class="row"><a class="btn btn-red" href="tel:+902425120226" style="font-size:15px;font-family:var(--body)"><svg><use href="#i-phone"/></svg>Hemen Ara</a></div>
 </div>
 
-<section id="urunler">
+<main id="top">
+<section class="hero">
+  <div class="aur"><b></b><b></b><b></b></div>
+  <canvas id="dots"></canvas>
   <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">Ürünlerimiz</span>
-      <h2>Kasadan depoya, ihtiyacınız olan her cihaz.</h2>
-      <p>Satış noktanızı baştan kuruyor ya da tek bir cihazı yeniliyor olun; işletmenize uygun modeli birlikte seçelim.</p>
-    </div>
-    <div class="tabs" role="tablist">
-      <button class="tab active" data-f="all">Tümü</button>
-      <button class="tab" data-f="pos">Yazar Kasa POS</button>
-      <button class="tab" data-f="pc">Dokunmatik Bilgisayar</button>
-      <button class="tab" data-f="fis">Fiş Yazıcı</button>
-      <button class="tab" data-f="barkod">Barkod</button>
-    </div>
-    <div class="grid-p">
-      <article class="pcard reveal" data-c="pos">
-        <div class="ph"><span class="tag">Yazar Kasa POS</span><span class="tag red">Mobil</span><img src="img/pos-profilo.webp" alt="Profilo S900 ECR yazar kasa POS" loading="lazy"></div>
-        <div class="bd"><h3>Profilo S900 ECR</h3><p>Dokunmatik ekranlı, taşınabilir yeni nesil yazar kasa POS. Masada, teslimatta, kapıda ödeme almak için.</p>
-          <ul class="feat"><li>Dokunmatik ekran</li><li>Temassız</li><li>Taşınabilir</li></ul>
-          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Profilo S900 ECR">Fiyat Sor</a></div></div>
-      </article>
-      <article class="pcard reveal" data-c="pos">
-        <div class="ph"><span class="tag">Yazar Kasa POS</span><img src="img/pos-cam.webp" alt="inPOS M530 yazar kasa POS" loading="lazy"></div>
-        <div class="bd"><h3>inPOS M530</h3><p>Hızlı işlem, geniş ekran ve temassız ödeme desteğiyle yoğun kasalar için yeni nesil ÖKC.</p>
-          <ul class="feat"><li>Temassız</li><li>Hızlı işlem</li><li>Kolay menü</li></ul>
-          <div class="act"><a class="btn btn-red" href="#teklif" data-p="inPOS M530">Fiyat Sor</a></div></div>
-      </article>
-      <article class="pcard reveal" data-c="pos">
-        <div class="ph"><span class="tag">Yazar Kasa POS</span><img src="img/pos-temassiz.webp" alt="SP 630 ECR yazar kasa POS" loading="lazy"></div>
-        <div class="bd"><h3>SP 630 ECR</h3><p>Kompakt ve dayanıklı gövdesiyle tezgâh üstünde az yer kaplayan, her gün güvenle çalışan yazar kasa POS.</p>
-          <ul class="feat"><li>Kompakt</li><li>Temassız</li><li>Kolay kullanım</li></ul>
-          <div class="act"><a class="btn btn-red" href="#teklif" data-p="SP 630 ECR">Fiyat Sor</a></div></div>
-      </article>
-      <article class="pcard reveal" data-c="pc">
-        <div class="ph"><span class="tag">Dokunmatik Bilgisayar</span><img class="contain" src="img/pc-1.webp" alt="Çift ekranlı dokunmatik POS bilgisayar" loading="lazy"></div>
-        <div class="bd"><h3>Dokunmatik POS PC</h3><p>Market, restoran ve mağaza programlarıyla çalışan, müşteri ekranı seçenekli hepsi bir arada POS bilgisayar.</p>
-          <ul class="feat"><li>Hepsi bir arada</li><li>Müşteri ekranı</li><li>Windows</li></ul>
-          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Dokunmatik POS PC">Fiyat Sor</a></div></div>
-      </article>
-      <article class="pcard reveal" data-c="pc">
-        <div class="ph"><span class="tag">Dokunmatik Bilgisayar</span><img class="contain" src="img/pc-2.webp" alt="İnce çerçeveli dokunmatik ekran" loading="lazy"></div>
-        <div class="bd"><h3>Dokunmatik Panel PC</h3><p>İnce çerçeveli, şık tasarımıyla kafe ve butiklerde tezgâhınıza modern bir görünüm katar.</p>
-          <ul class="feat"><li>İnce tasarım</li><li>Çoklu dokunmatik</li><li>Sessiz</li></ul>
-          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Dokunmatik Panel PC">Fiyat Sor</a></div></div>
-      </article>
-      <article class="pcard reveal" data-c="fis">
-        <div class="ph"><span class="tag">Fiş Yazıcı</span><img src="img/fis.webp" alt="Termal fiş yazıcı" loading="lazy"></div>
-        <div class="bd"><h3>Termal Fiş Yazıcı</h3><p>Mürekkepsiz, hızlı ve sessiz baskı. Adisyon, mutfak siparişi ve bilgi fişi için ideal.</p>
-          <ul class="feat"><li>Termal baskı</li><li>Hızlı</li><li>Sessiz</li></ul>
-          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Termal Fiş Yazıcı">Fiyat Sor</a></div></div>
-      </article>
-      <article class="pcard reveal" data-c="barkod">
-        <div class="ph"><span class="tag">Barkod Yazıcı</span><img src="img/barkod-yazici.webp" alt="Barkod ve etiket yazıcı" loading="lazy"></div>
-        <div class="bd"><h3>Barkod & Etiket Yazıcı</h3><p>Raf etiketi, ürün barkodu ve kargo etiketi için net, dayanıklı baskı alan masaüstü yazıcılar.</p>
-          <ul class="feat"><li>Termal transfer</li><li>Raf etiketi</li><li>Kargo etiketi</li></ul>
-          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Barkod Yazıcı">Fiyat Sor</a></div></div>
-      </article>
-      <article class="pcard reveal" data-c="barkod">
-        <div class="ph"><span class="tag">Barkod Okuyucu</span><img src="img/barkod-okuyucu.webp" alt="Kablosuz barkod okuyucu" loading="lazy"></div>
-        <div class="bd"><h3>Barkod Okuyucular</h3><p>Kablolu, kablosuz ve masaüstü modellerle kasada saniyeler kazanın; depo sayımını hızlandırın.</p>
-          <ul class="feat"><li>1D / 2D (QR)</li><li>Kablosuz</li><li>Masaüstü</li></ul>
-          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Barkod Okuyucu">Fiyat Sor</a></div></div>
-      </article>
-      <article class="pcard reveal" data-c="pos">
-        <div class="ph"><span class="tag">Hazır Paket</span><img src="img/pos-kasa.webp" alt="Kasa noktası kurulumu" loading="lazy"></div>
-        <div class="bd"><h3>Komple Kasa Kurulumu</h3><p>POS, bilgisayar, yazıcı ve okuyucuyu birbirine uyumlu şekilde tek seferde kurup çalışır teslim ediyoruz.</p>
-          <ul class="feat"><li>Anahtar teslim</li><li>Uyumlu cihazlar</li><li>Eğitim dahil</li></ul>
-          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Komple Kasa Kurulumu">Paket Teklifi</a></div></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="sectors" id="sektorler">
-  <div class="wrap">
-    <div class="head center reveal">
-      <span class="eyebrow">Sektörler</span>
-      <h2>Her işletmeye göre doğru kurulum</h2>
-      <p>Alanya'nın market, restoran, otel ve mağazalarına göre cihaz ve yazılım önerisi.</p>
-    </div>
-    <div class="grid-s">
-      <div class="sec reveal"><i><svg><use href="#i-cart"/></svg></i><b>Market</b><span>Barkodlu hızlı satış</span></div>
-      <div class="sec reveal"><i><svg><use href="#i-food"/></svg></i><b>Restoran</b><span>Adisyon & mutfak</span></div>
-      <div class="sec reveal"><i><svg><use href="#i-coffee"/></svg></i><b>Kafe & Bar</b><span>Masada ödeme</span></div>
-      <div class="sec reveal"><i><svg><use href="#i-shirt"/></svg></i><b>Butik</b><span>Etiket & stok</span></div>
-      <div class="sec reveal"><i><svg><use href="#i-bed"/></svg></i><b>Otel</b><span>Resepsiyon & bar</span></div>
-      <div class="sec reveal"><i><svg><use href="#i-pill"/></svg></i><b>Eczane</b><span>Karekod okuma</span></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="bundle reveal">
-      <div>
-        <span class="eyebrow">Anahtar teslim</span>
-        <h2>Kasanızı tek seferde, eksiksiz kuralım.</h2>
-        <p>Farklı yerlerden alınan cihazların birbiriyle çalışmaması tarihe karışsın. Uyumlu ürünleri seçer, kurar, test eder ve personelinize kullanımı gösteririz.</p>
-        <a class="btn btn-red" href="#teklif" data-p="Komple Kasa Kurulumu">Paket Teklifi İste</a>
-      </div>
-      <div class="bl">
-        <div><img src="img/pos-profilo.webp" alt="">Yazar Kasa POS</div>
-        <div><img src="img/pc-1.webp" alt="" style="object-fit:contain">Dokunmatik PC</div>
-        <div><img src="img/fis.webp" alt="">Fiş Yazıcı</div>
-        <div><img src="img/barkod-okuyucu.webp" alt="">Barkod Okuyucu</div>
+    <div>
+      <div class="badge h-in"><b>2026</b>Yeni nesil ödeme & kasa teknolojileri</div>
+      <h1 class="disp">
+        <span class="ln"><span>Kasanızın</span></span>
+        <span class="ln"><span class="grad">geleceği</span></span>
+        <span class="ln"><span><span class="rot" id="rot"><span class="on">Alanya'da.</span><span>markette.</span><span>restoranda.</span><span>kafede.</span><span>otelde.</span><span>butikte.</span></span></span></span>
+      </h1>
+      <p class="lead h-in">Yeni nesil <b>yazar kasa POS</b>, dokunmatik POS bilgisayar, fiş ve barkod sistemleri — seçimden kuruluma, eğitimden desteğe <b>tek adres.</b></p>
+      <div class="cta h-in">
+        <span class="mag"><a class="btn btn-red" href="#olustur">Kasanı Oluştur <span class="arr"><svg><use href="#i-arr"/></svg></span></a></span>
+        <span class="mag"><a class="btn btn-glass" href="https://wa.me/905078641184?text=Merhaba%2C%20yazar%20kasa%20POS%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></span>
       </div>
     </div>
+    <div class="scene" id="scene">
+      <div class="halo"></div><div class="orbit"></div><div class="orbit o2"></div>
+      <div class="stack">
+        <img class="s2" data-d="-18" src="img/cut/pc-1.webp" alt="Dokunmatik POS bilgisayar">
+        <img class="s1" data-d="30" src="img/cut/pos-paygo.webp" alt="Yeni nesil yazar kasa POS">
+        <img class="s3" data-d="50" src="img/cut/fis.webp" alt="Termal fiş yazıcı">
+      </div>
+      <div class="chip c1" data-d="60"><i><svg><use href="#i-card"/></svg></i><div><b>Temassız ödeme</b><small><span class="live"></span>Kart · Telefon · Saat</small></div></div>
+      <div class="chip c2" data-d="-40"><i><svg><use href="#i-bolt"/></svg></i><div><b>Yerinde kurulum</b><small>Kurulum + eğitim</small></div></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span>Kaydır</div>
+</section>
+
+<div class="mq" aria-hidden="true"><div class="tr">
+  <span>Yazar Kasa POS</span><span>Dokunmatik PC</span><span>Fiş Yazıcı</span><span>Barkod Yazıcı</span><span>Barkod Okuyucu</span><span>Kurulum & Destek</span>
+  <span>Yazar Kasa POS</span><span>Dokunmatik PC</span><span>Fiş Yazıcı</span><span>Barkod Yazıcı</span><span>Barkod Okuyucu</span><span>Kurulum & Destek</span>
+</div></div>
+
+<section class="state">
+  <div class="wrap">
+    <span class="kick"><i></i>Çelik Elektronik</span>
+    <p id="statement">Müşteriniz sırada beklemesin, kasanız asla durmasın. Alanya'daki işletmelere doğru cihazı seçiyor, yerinde kuruyor, ekibinize öğretiyor ve her zaman yanlarında oluyoruz.</p>
   </div>
 </section>
 
-<section id="hizmet" style="padding-top:0">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">Nasıl çalışıyoruz</span>
-      <h2>Aradığınız andan kasanız çalışana kadar</h2>
+<section class="prod" id="urunler">
+  <div class="wrap head">
+    <div><span class="kick"><i></i>Ürünler</span><h2 class="disp">Kasadan depoya<br><span class="grad">her cihaz.</span></h2></div>
+    <p>Tek bir cihazı yenileyin ya da satış noktanızı baştan kurun. Kaydırın, keşfedin.</p>
+  </div>
+  <div class="hs" id="hs">
+    <div class="htrack" id="htrack">
+      <article class="panel" style="--pc:#ff2d3f">
+        <div class="big">01</div>
+        <div class="tx"><span class="cat">Yazar Kasa POS</span><h3>Yeni nesil<br>yazar kasa POS</h3><p>Satışı kaydeder, fişi keser, kartla ödemeyi aynı cihazda alır. Profilo S900 ECR ve daha fazlası.</p>
+          <ul><li>Temassız ödeme</li><li>Dokunmatik ekran</li><li>Taşınabilir modeller</li></ul>
+          <a class="btn btn-red" href="#iletisim" data-p="Yazar Kasa POS">Fiyat Sor <span class="arr"><svg><use href="#i-arr"/></svg></span></a></div>
+        <div class="im"><img src="img/cut/pos-profilo.webp" alt="Profilo yeni nesil yazar kasa POS" loading="lazy"></div>
+      </article>
+      <article class="panel" style="--pc:#3340ff">
+        <div class="big">02</div>
+        <div class="tx"><span class="cat">Masaüstü POS</span><h3>inPOS M530 &<br>SP 630 ECR</h3><p>Yoğun kasalar için hızlı, dayanıklı ve kolay kullanılan yeni nesil ÖKC modelleri.</p>
+          <ul><li>Hızlı işlem</li><li>Kompakt gövde</li><li>Kolay menü</li></ul>
+          <a class="btn btn-red" href="#iletisim" data-p="Yazar Kasa POS">Fiyat Sor <span class="arr"><svg><use href="#i-arr"/></svg></span></a></div>
+        <div class="im"><img src="img/cut/pos-temassiz.webp" alt="Masaüstü yazar kasa POS" loading="lazy"></div>
+      </article>
+      <article class="panel" style="--pc:#7b3dff">
+        <div class="big">03</div>
+        <div class="tx"><span class="cat">Dokunmatik Bilgisayar</span><h3>Hepsi bir arada<br>POS PC</h3><p>Market, restoran ve mağaza programlarınızla çalışan dokunmatik POS bilgisayarlar.</p>
+          <ul><li>Dokunmatik ekran</li><li>Müşteri ekranı seçeneği</li><li>Az yer kaplar</li></ul>
+          <a class="btn btn-red" href="#iletisim" data-p="Dokunmatik Bilgisayar">Fiyat Sor <span class="arr"><svg><use href="#i-arr"/></svg></span></a></div>
+        <div class="im"><img src="img/cut/pc-2.webp" alt="Dokunmatik POS bilgisayar" loading="lazy"></div>
+      </article>
+      <article class="panel" style="--pc:#ff7a45">
+        <div class="big">04</div>
+        <div class="tx"><span class="cat">Fiş Yazıcı</span><h3>Termal<br>fiş yazıcı</h3><p>Mürekkepsiz, hızlı ve sessiz. Adisyon, mutfak siparişi ve bilgi fişleri için.</p>
+          <ul><li>Termal baskı</li><li>Mürekkep gerektirmez</li><li>Mutfak & kasa</li></ul>
+          <a class="btn btn-red" href="#iletisim" data-p="Fiş Yazıcı">Fiyat Sor <span class="arr"><svg><use href="#i-arr"/></svg></span></a></div>
+        <div class="im"><img src="img/cut/fis.webp" alt="Termal fiş yazıcı" loading="lazy"></div>
+      </article>
+      <article class="panel" style="--pc:#19c29b">
+        <div class="big">05</div>
+        <div class="tx"><span class="cat">Barkod Sistemleri</span><h3>Barkod yazıcı<br>& okuyucu</h3><p>Raf etiketi, ürün barkodu, kargo etiketi; okuyucularla kasada saniyeler kazanın.</p>
+          <ul><li>Etiket & barkod baskı</li><li>Hızlı barkod okuma</li><li>Stok takibine uygun</li></ul>
+          <a class="btn btn-red" href="#iletisim" data-p="Barkod Yazıcı">Fiyat Sor <span class="arr"><svg><use href="#i-arr"/></svg></span></a></div>
+        <div class="im"><img src="img/cut/barkod-yazici.webp" alt="Barkod ve etiket yazıcı" loading="lazy"></div>
+      </article>
     </div>
-    <div class="steps">
-      <div class="step reveal"><h3>İhtiyaç analizi</h3><p>İşletmenizi, satış yoğunluğunuzu ve kullandığınız programı dinliyoruz.</p></div>
-      <div class="step reveal"><h3>Doğru ürün & teklif</h3><p>Bütçenize uygun, işinizi görecek cihazları net fiyatla sunuyoruz.</p></div>
-      <div class="step reveal"><h3>Kurulum & eğitim</h3><p>Cihazları işletmenizde kurar, test eder, personele kullanımı öğretiriz.</p></div>
-      <div class="step reveal"><h3>Satış sonrası destek</h3><p>Sorun yaşadığınızda bir telefon ya da WhatsApp mesajı uzağınızdayız.</p></div>
+  </div>
+  <div class="hprog"><i id="hprog"></i></div>
+</section>
+
+<section class="why" id="neden">
+  <div class="wrap">
+    <span class="kick rv"><i></i>Neden Çelik Elektronik</span>
+    <h2 class="disp rv">Cihaz satmıyoruz,<br><span class="grad">kasanızı çalıştırıyoruz.</span></h2>
+    <div class="bento">
+      <div class="cell c-a"><img src="img/cut/pc-1.webp" alt="" loading="lazy"><div class="ic"><svg><use href="#i-grid"/></svg></div><h3>Anahtar teslim kasa kurulumu</h3><p>POS, bilgisayar, yazıcı ve okuyucuyu uyumlu seçer, kurar, test eder ve çalışır halde teslim ederiz.</p></div>
+      <div class="cell c-b"><div class="ic"><svg><use href="#i-tool"/></svg></div><h3>Yerinde kurulum & eğitim</h3><p>İşletmenize gelir, personelinize kullanımı birebir gösteririz.</p></div>
+      <div class="cell c-c"><div class="ic"><svg><use href="#i-head"/></svg></div><h3>Satış sonrası yanınızdayız</h3><p>Bir telefon ya da WhatsApp mesajı kadar yakınız.</p></div>
+      <div class="cell c-d"><div class="ic"><svg><use href="#i-shield"/></svg></div><h3>Güvenilir markalar</h3><p>Profilo, inPOS ve sektörün bilinen markalarıyla çalışıyoruz.</p></div>
+      <div class="cell c-e"><div class="sectors"><span>Market</span><span>Restoran</span><span>Kafe</span><span>Otel</span><span>Butik</span><span>Eczane</span></div><h3>Her sektöre uygun</h3><p>İşinizin akışına göre doğru donanım önerisi.</p></div>
+      <div class="cell c-f"><div class="ic"><svg><use href="#i-store"/></svg></div><h3>Gelin, yerinde görün</h3><p>Saray Mah. Su Gözü Cad. No:3/A — Alanya.</p></div>
     </div>
   </div>
 </section>
 
-<section class="about" id="hakkimizda">
+<section class="cfg" id="olustur">
   <div class="wrap">
-    <div class="collage reveal">
-      <img src="img/pos-kasa.webp" alt="Kasa noktasında yazar kasa POS" loading="lazy">
-      <img src="img/pos-el.webp" alt="Yazar kasa POS" loading="lazy">
-      <img src="img/pos-paygo.webp" alt="POS cihazı" loading="lazy">
-    </div>
-    <div class="reveal">
-      <span class="eyebrow">Hakkımızda</span>
-      <h2>Alanya'da perakende teknolojisinin güvenilir adresi</h2>
-      <p>Çelik Elektronik; yazar kasa POS sistemleri, fiş yazıcılar, dokunmatik bilgisayarlar, barkod yazıcılar ve barkod okuyucular gibi teknolojik çözümlerin satışını yapan bir firmadır.</p>
-      <p>Amacımız işletmelerin satış işlemlerini hızlandırmak, belgelemeyi doğru ve kolay hâle getirmek ve teknolojik altyapılarını güçlendirerek rekabet avantajı sağlamak. Satış öncesi ve sonrası desteği işimizin merkezine koyuyoruz.</p>
-      <div class="vals">
-        <div><i><svg><use href="#i-check"/></svg></i><div><b>Uygun maliyet</b><span>İhtiyacınız kadar cihaz, fazlası değil</span></div></div>
-        <div><i><svg><use href="#i-check"/></svg></i><div><b>Uzman kadro</b><span>Kurulum, kullanım ve bakımda yanınızda</span></div></div>
-        <div><i><svg><use href="#i-check"/></svg></i><div><b>Güncel teknoloji</b><span>Yeni nesil, temassız ödeme uyumlu</span></div></div>
-        <div><i><svg><use href="#i-check"/></svg></i><div><b>Yerel mağaza</b><span>Gelin, cihazları yerinde deneyin</span></div></div>
+    <span class="kick rv"><i></i>Etkileşimli araç</span>
+    <h2 class="disp rv">Kasanı <span class="grad">30 saniyede</span> oluştur.</h2>
+    <div class="cbox rv">
+      <div class="csteps">
+        <div class="cst"><h4><b>1</b>İşletme türü</h4>
+          <div class="opts" id="oSector">
+            <button class="opt on" data-v="market">Market</button><button class="opt" data-v="restoran">Restoran</button><button class="opt" data-v="kafe">Kafe & Bar</button><button class="opt" data-v="butik">Butik / Mağaza</button><button class="opt" data-v="otel">Otel</button><button class="opt" data-v="eczane">Eczane</button>
+          </div></div>
+        <div class="cst"><h4><b>2</b>Kaç kasa noktası?</h4>
+          <div class="qty"><button type="button" id="qMinus" aria-label="Azalt">−</button><output id="qVal">1</output><button type="button" id="qPlus" aria-label="Artır">+</button><small>kasa</small></div></div>
+        <div class="cst"><h4><b>3</b>Ekstralar</h4>
+          <div class="opts" id="oExtra">
+            <button class="opt" data-v="mobil">Masada / kapıda ödeme</button><button class="opt" data-v="etiket">Raf & ürün etiketi</button><button class="opt" data-v="musteri">Müşteri ekranı</button><button class="opt" data-v="mutfak">Mutfak yazıcısı</button>
+          </div></div>
+      </div>
+      <div class="cres">
+        <h3>Önerilen kurulumunuz</h3>
+        <p class="sub" id="cSub">Market · 1 kasa</p>
+        <div class="items" id="cItems"></div>
+        <a class="btn btn-wa" id="cSend" href="https://wa.me/905078641184" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Bu kurulum için fiyat al</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="galeri">
+<section class="proc" id="surec">
   <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">Foto galeri</span>
-      <h2>Ürünlerimizden kareler</h2>
-    </div>
-    <div class="gal reveal">
-      <button><img src="img/pos-temassiz.webp" alt="Temassız ödeme özellikli POS" loading="lazy"></button>
-      <button><img src="img/pos-kasa.webp" alt="Kasada kartla ödeme" loading="lazy"></button>
-      <button><img src="img/pos-cam.webp" alt="Yazar kasa POS" loading="lazy"></button>
-      <button><img src="img/pc-bar.webp" alt="Dokunmatik POS bilgisayar" loading="lazy"></button>
-      <button><img src="img/barkod-yazici.webp" alt="Barkod yazıcı" loading="lazy"></button>
+    <span class="kick rv"><i></i>Süreç</span>
+    <h2 class="disp rv">Aradığınız andan<br><span class="grad">ilk satışa kadar.</span></h2>
+    <div class="tl" id="tl">
+      <div class="ln"><i id="tlLine"></i></div>
+      <div class="st"><div class="n">01</div><div><h3>İhtiyaç analizi</h3><p>İşletmenizi, yoğunluğunuzu ve kullandığınız programı dinliyoruz.</p></div></div>
+      <div class="st"><div class="n">02</div><div><h3>Net teklif</h3><p>Bütçenize uygun, işinizi görecek cihazları açık fiyatla sunuyoruz.</p></div></div>
+      <div class="st"><div class="n">03</div><div><h3>Kurulum & eğitim</h3><p>Yerinde kurar, test eder, ekibinize kullanımı öğretiriz.</p></div></div>
+      <div class="st"><div class="n">04</div><div><h3>Sürekli destek</h3><p>Sorun olduğunda telefon ve WhatsApp'tan hızlıca ilgileniyoruz.</p></div></div>
     </div>
   </div>
 </section>
 
-<section class="faq" id="sss" style="padding-top:0">
+<section class="gal" aria-label="Galeri">
+  <div class="grow" id="g1">
+    <figure><img src="img/pos-hero.webp" alt="Elde yazar kasa POS" loading="lazy"></figure>
+    <figure><img src="img/pos-kasa.webp" alt="Kasada kartla ödeme" loading="lazy"></figure>
+    <figure><img src="img/pc-bar.webp" alt="Dokunmatik POS kullanımı" loading="lazy"></figure>
+    <figure><img src="img/pos-el.webp" alt="Yazar kasa POS" loading="lazy"></figure>
+    <figure><img src="img/fis.webp" alt="Fiş yazıcı" loading="lazy"></figure>
+  </div>
+  <div class="grow" id="g2">
+    <figure><img src="img/barkod-okuyucu.webp" alt="Barkod okuyucu" loading="lazy"></figure>
+    <figure><img src="img/pos-cam.webp" alt="Yazar kasa POS" loading="lazy"></figure>
+    <figure><img src="img/barkod-yazici.webp" alt="Barkod yazıcı" loading="lazy"></figure>
+    <figure><img src="img/pos-profilo.webp" alt="Profilo POS" loading="lazy"></figure>
+    <figure><img src="img/pos-paygo.webp" alt="POS cihazı" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="faq" id="sss">
   <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">Sık sorulanlar</span>
-      <h2>Aklınıza takılanlar</h2>
-      <p>Cevabını bulamadığınız soru için bize WhatsApp'tan yazın.</p>
-      <p style="margin-top:22px"><a class="btn btn-wa" href="https://wa.me/905078641184" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Soru Sor</a></p>
+    <div class="side">
+      <span class="kick rv"><i></i>SSS</span>
+      <h2 class="disp rv">Aklınıza<br><span class="grad">takılanlar.</span></h2>
+      <p class="rv">Cevabını bulamadığınız her soru için bir mesaj uzağınızdayız.</p>
+      <div class="rv"><a class="btn btn-wa" href="https://wa.me/905078641184" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Soru Sor</a></div>
     </div>
-    <div class="reveal">
-      <details open><summary>Yeni nesil yazar kasa POS nedir, zorunlu mu?</summary><p>Yeni nesil ödeme kaydedici cihaz (ÖKC); satışı kaydedip fişi keserken kartla ödeme de alabilen, Gelir İdaresi sistemine bağlı çalışan cihazdır. Hangi işletmenin kullanması gerektiği faaliyet türüne göre değişir; sizin durumunuza uygun modeli birlikte belirleriz.</p></details>
-      <details><summary>Hangi bankayla çalışır?</summary><p>Modele ve anlaşmalı bankaya göre değişir. Mevcut banka tercihinizi söyleyin, uyumlu cihazı ona göre önerelim.</p></details>
-      <details><summary>Kurulum ve eğitim veriyor musunuz?</summary><p>Evet. Cihazları işletmenizde kurar, mevcut programınızla bağlantısını yapar ve çalışanlarınıza kullanımını gösteririz.</p></details>
-      <details><summary>Arıza olursa ne yapmalıyım?</summary><p>Bizi telefonla ya da WhatsApp'tan arayın. Uzaktan çözülebilen sorunları hemen, diğerlerini mağazamızda veya yerinde çözüyoruz.</p></details>
-      <details><summary>Market / restoran programım ile uyumlu mu?</summary><p>Dokunmatik POS bilgisayarlarımız, fiş ve barkod yazıcılarımız yaygın satış programlarıyla çalışır. Kullandığınız programın adını iletin, uyumluluğu kontrol edelim.</p></details>
+    <div id="faq">
+      <div class="q open rv"><button>Yeni nesil yazar kasa POS nedir?<i></i></button><div class="a"><div><p>Yeni nesil ödeme kaydedici cihaz (ÖKC); satışı kaydedip fişi keserken kartla ödeme de alabilen, Gelir İdaresi sistemine bağlı çalışan cihazdır. İşletmenize uygun modeli birlikte belirleriz.</p></div></div></div>
+      <div class="q rv"><button>Hangi bankayla çalışır?<i></i></button><div class="a"><div><p>Modele ve anlaşmalı bankaya göre değişir. Banka tercihinizi söyleyin, uyumlu cihazı ona göre önerelim.</p></div></div></div>
+      <div class="q rv"><button>Kurulum ve eğitim veriyor musunuz?<i></i></button><div class="a"><div><p>Evet. Cihazları işletmenizde kurar, çalışanlarınıza kullanımını gösteririz.</p></div></div></div>
+      <div class="q rv"><button>Arıza olursa ne yapmalıyım?<i></i></button><div class="a"><div><p>Bizi telefonla ya da WhatsApp'tan arayın; sorununuzla hızlıca ilgilenelim.</p></div></div></div>
+      <div class="q rv"><button>Kullandığım satış programıyla uyumlu mu?<i></i></button><div class="a"><div><p>Programınızın adını iletin, cihazlarla uyumluluğunu kontrol edip size doğru donanımı önerelim.</p></div></div></div>
     </div>
+  </div>
+</section>
+
+<section class="bigcta">
+  <div class="wrap">
+    <h2 class="disp rv">Kasanızı<br><em>yenileyelim.</em></h2>
+    <div class="rv"><span class="mag"><a class="btn btn-red" href="#iletisim">Ücretsiz Teklif Al <span class="arr"><svg><use href="#i-arr"/></svg></span></a></span></div>
   </div>
 </section>
 
 <section class="contact" id="iletisim">
   <div class="wrap">
-    <div class="cbox reveal" id="teklif">
-      <div class="cinfo">
-        <span class="eyebrow" style="color:#ff8791">İletişim</span>
-        <h2>Size özel fiyatı hemen iletelim.</h2>
-        <p>Formu doldurun, talebiniz WhatsApp üzerinden doğrudan bize ulaşsın.</p>
+    <div class="cgrid">
+      <div class="info rv">
+        <span class="kick"><i></i>İletişim</span>
+        <h2 class="disp">Konuşalım.</h2>
         <a class="ci" href="tel:+902425120226"><i><svg><use href="#i-phone"/></svg></i><div><small>Telefon</small><b>+90 242 512 02 26</b></div></a>
         <a class="ci" href="https://wa.me/905078641184" target="_blank" rel="noopener"><i><svg><use href="#i-wa"/></svg></i><div><small>WhatsApp / Mobil</small><b>+90 507 864 11 84</b></div></a>
         <a class="ci" href="mailto:info@alanyacelikelektronik.com"><i><svg><use href="#i-mail"/></svg></i><div><small>E-posta</small><b>info@alanyacelikelektronik.com</b></div></a>
-        <a class="ci" href="https://www.google.com/maps/search/?api=1&query=%C3%87elik+Elektronik+Saray+Mahallesi+Su+G%C3%B6z%C3%BC+Caddesi+No%3A3%2FA+Alanya" target="_blank" rel="noopener"><i><svg><use href="#i-pin"/></svg></i><div><small>Adres</small><b>Saray Mah. Su Gözü Cad. No:3/A<br>Alanya / Antalya</b></div></a>
+        <a class="ci" href="https://www.google.com/maps/search/?api=1&query=Saray+Mahallesi+Su+G%C3%B6z%C3%BC+Caddesi+No%3A3%2FA+Alanya" target="_blank" rel="noopener"><i><svg><use href="#i-pin"/></svg></i><div><small>Adres</small><b>Saray Mah. Su Gözü Cad. No:3/A, Alanya</b></div></a>
+        <div class="hours" id="hours"></div>
       </div>
-      <form id="qf" novalidate>
+      <form id="qf" class="rv" novalidate>
         <h3>Teklif formu</h3>
-        <p class="sub">Yaklaşık 1 dakika sürer.</p>
-        <div class="fld"><label for="ad">Ad Soyad *</label><input id="ad" required autocomplete="name"></div>
-        <div class="fld"><label for="tel">Telefon *</label><input id="tel" type="tel" required autocomplete="tel" placeholder="05xx xxx xx xx" inputmode="tel"></div>
-        <div class="fld"><label for="isl">İşletme adı</label><input id="isl" autocomplete="organization"></div>
-        <div class="fld"><label for="sek">Sektör</label><select id="sek"><option>Seçiniz</option><option>Market</option><option>Restoran</option><option>Kafe / Bar</option><option>Butik / Mağaza</option><option>Otel</option><option>Eczane</option><option>Diğer</option></select></div>
-        <div class="fld full"><label>İlgilendiğiniz ürünler</label>
-          <div class="chips" id="chips">
-            <label><input type="checkbox" value="Yazar Kasa POS">Yazar Kasa POS</label>
-            <label><input type="checkbox" value="Dokunmatik Bilgisayar">Dokunmatik Bilgisayar</label>
-            <label><input type="checkbox" value="Fiş Yazıcı">Fiş Yazıcı</label>
-            <label><input type="checkbox" value="Barkod Yazıcı">Barkod Yazıcı</label>
-            <label><input type="checkbox" value="Barkod Okuyucu">Barkod Okuyucu</label>
-            <label><input type="checkbox" value="Komple Kasa Kurulumu">Komple Kurulum</label>
-          </div>
-        </div>
-        <div class="fld full"><label for="msj">Mesajınız</label><textarea id="msj" placeholder="Örn. 2 kasalı market için POS ve barkod okuyucu istiyorum."></textarea></div>
+        <div class="f"><input id="ad" placeholder=" " autocomplete="name"><label for="ad">Ad Soyad *</label></div>
+        <div class="f"><input id="tel" type="tel" placeholder=" " inputmode="tel" autocomplete="tel"><label for="tel">Telefon *</label></div>
+        <div class="f"><input id="isl" placeholder=" " autocomplete="organization"><label for="isl">İşletme adı</label></div>
+        <div class="f"><select id="urun" aria-label="İlgilendiğiniz ürün"><option value="">İlgilendiğiniz ürün</option><option>Yazar Kasa POS</option><option>Dokunmatik Bilgisayar</option><option>Fiş Yazıcı</option><option>Barkod Yazıcı</option><option>Barkod Okuyucu</option><option>Komple Kasa Kurulumu</option></select></div>
+        <div class="f full"><textarea id="msj" placeholder=" "></textarea><label for="msj">Mesajınız</label></div>
         <div class="btns">
           <button class="btn btn-wa" type="submit"><svg><use href="#i-wa"/></svg>WhatsApp ile Gönder</button>
-          <button class="btn btn-line" type="button" id="mailbtn"><svg><use href="#i-mail"/></svg>E-posta</button>
+          <button class="btn btn-glass" type="button" id="mailbtn"><svg><use href="#i-mail"/></svg>E-posta</button>
         </div>
       </form>
     </div>
-    <div class="map reveal"><iframe title="Çelik Elektronik konum" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Saray%20Mahallesi%20Su%20G%C3%B6z%C3%BC%20Caddesi%20No%3A3%2FA%20Alanya&z=16&output=embed"></iframe></div>
+    <div class="map rv"><iframe title="Çelik Elektronik konum" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Saray%20Mahallesi%20Su%20G%C3%B6z%C3%BC%20Caddesi%20No%3A3%2FA%20Alanya&z=16&output=embed"></iframe></div>
   </div>
 </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="fgrid">
-      <div><span class="flogo"><img src="img/logo.png" alt="Çelik Elektronik"></span><p style="margin:0;max-width:320px">Alanya'da yazar kasa POS, POS bilgisayar, fiş ve barkod çözümleri. Satış, kurulum ve teknik destek.</p></div>
-      <div><h4>Ürünler</h4><ul><li><a href="#urunler">Yazar Kasa POS</a></li><li><a href="#urunler">Dokunmatik Bilgisayar</a></li><li><a href="#urunler">Fiş Yazıcı</a></li><li><a href="#urunler">Barkod Yazıcı</a></li><li><a href="#urunler">Barkod Okuyucu</a></li></ul></div>
-      <div><h4>Kurumsal</h4><ul><li><a href="#hakkimizda">Hakkımızda</a></li><li><a href="#hizmet">Hizmetlerimiz</a></li><li><a href="#galeri">Foto Galeri</a></li><li><a href="#sss">Sık Sorulanlar</a></li><li><a href="#teklif">Teklif Al</a></li></ul></div>
-      <div><h4>İletişim</h4><ul><li><a href="tel:+902425120226">+90 242 512 02 26</a></li><li><a href="https://wa.me/905078641184">+90 507 864 11 84</a></li><li><a href="mailto:info@alanyacelikelektronik.com">info@alanyacelikelektronik.com</a></li><li>Saray Mah. Su Gözü Cad. No:3/A<br>Alanya / Antalya</li></ul></div>
+    <div class="fg">
+      <div><a href="#top" class="logo"><img src="img/icon.png" alt=""><span>ÇELİK <b>ELEKTRONİK</b></span></a><p style="color:var(--mute);max-width:320px;margin:18px 0 0;font-size:15px">Alanya'da yazar kasa POS, POS bilgisayar, fiş ve barkod çözümleri. Satış öncesi ve sonrası destek.</p></div>
+      <div><h4>Ürünler</h4><ul><li><a href="#urunler">Yazar Kasa POS</a></li><li><a href="#urunler">Dokunmatik PC</a></li><li><a href="#urunler">Fiş Yazıcı</a></li><li><a href="#urunler">Barkod Sistemleri</a></li></ul></div>
+      <div><h4>Keşfet</h4><ul><li><a href="#neden">Neden Biz</a></li><li><a href="#olustur">Kasanı Oluştur</a></li><li><a href="#surec">Süreç</a></li><li><a href="#sss">SSS</a></li></ul></div>
+      <div><h4>İletişim</h4><ul><li><a href="tel:+902425120226">+90 242 512 02 26</a></li><li><a href="https://wa.me/905078641184">+90 507 864 11 84</a></li><li><a href="mailto:info@alanyacelikelektronik.com">E-posta gönder</a></li></ul></div>
     </div>
-    <div class="fbot"><span>© <span id="yr">2026</span> Çelik Elektronik. Tüm hakları saklıdır.</span><span>* Stok ve konuma göre değişebilir.</span></div>
+    <div class="fbig">ÇELİK</div>
+    <div class="fb"><span>© <span id="yr">2026</span> Çelik Elektronik. Tüm hakları saklıdır.</span><span>Alanya / Antalya</span></div>
   </div>
 </footer>
 
-<div class="fab"><a class="wa" href="https://wa.me/905078641184?text=Merhaba%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a></div>
-<div class="mbar"><a class="btn btn-line" href="tel:+902425120226"><svg><use href="#i-phone"/></svg>Ara</a><a class="btn btn-wa" href="https://wa.me/905078641184" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></div>
+<a class="fab" href="https://wa.me/905078641184?text=Merhaba%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+<button class="toTop" id="toTop" aria-label="Yukarı"><svg viewBox="0 0 48 48"><circle id="ttc" cx="24" cy="24" r="22"/></svg>↑</button>
+<div class="mbar"><a class="btn btn-glass" href="tel:+902425120226"><svg><use href="#i-phone"/></svg>Ara</a><a class="btn btn-wa" href="https://wa.me/905078641184" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
-  var hdr=document.getElementById('hdr');
-  addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>10)},{passive:true});
-  document.getElementById('yr').textContent=new Date().getFullYear();
+var $=function(s,c){return (c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+var hasG=!!(window.gsap&&window.ScrollTrigger)&&!reduce&&!/[?&]static/.test(location.search);
+$('#yr').textContent=new Date().getFullYear();
 
-  // reveal
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(el.parentElement.children.length>2?(Array.prototype.indexOf.call(el.parentElement.children,el)%4)*70:0)+'ms';io.observe(el)});
+/* smooth scroll */
+var lenis=null;
+if(window.Lenis&&hasG){
+  lenis=new Lenis({duration:1.15,smoothWheel:true});
+  lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
+}
+function goTo(h){
+  if(h==='#top'){if(lenis)lenis.scrollTo(0,{duration:1.4});else scrollTo({top:0,behavior:'smooth'});return}
+  var el=document.querySelector(h);if(!el)return;
+  if(lenis)lenis.scrollTo(el,{offset:-20,duration:1.4});else el.scrollIntoView({behavior:'smooth'});
+}
+$$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.length<2)return;e.preventDefault();document.body.classList.remove('mopen');goTo(h)})});
 
-  // open status (Mon-Sat 09:00-19:00, Europe/Istanbul) — teyit edilecek
-  try{
-    var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Istanbul',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
-    var g=function(t){return p.find(function(x){return x.type===t}).value};
-    var d=g('weekday'),m=+g('hour')*60+ +g('minute');
-    var open=d!=='Sun'&&m>=540&&m<1140;
-    document.getElementById('status').innerHTML='<span class="dot'+(open?' on':'')+'"></span>'+(open?'Şu an açığız':'Şu an kapalıyız · WhatsApp\'tan yazın');
-  }catch(e){}
+/* menu / header */
+$('#burger').addEventListener('click',function(){document.body.classList.toggle('mopen');if(lenis){document.body.classList.contains('mopen')?lenis.stop():lenis.start()}});
+$$('#mmenu a').forEach(function(a){a.addEventListener('click',function(){if(lenis)lenis.start()})});
+var lastY=0,hdr=$('#hdr'),tt=$('#toTop'),ttc=$('#ttc');
+function onScroll(){
+  var y=scrollY,max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+  hdr.classList.toggle('hide',y>lastY+2&&y>300&&!document.body.classList.contains('mopen'));if(Math.abs(y-lastY)>2)lastY=y;
+  tt.classList.toggle('show',y>800);ttc.style.strokeDashoffset=138-138*(y/max);
+}
+addEventListener('scroll',onScroll,{passive:true});
+tt.addEventListener('click',function(){goTo('#top')});
 
-  // product filter
-  var tabs=document.querySelectorAll('.tab');
-  tabs.forEach(function(t){t.addEventListener('click',function(){
-    tabs.forEach(function(x){x.classList.remove('active')});t.classList.add('active');
-    var f=t.dataset.f;
-    document.querySelectorAll('.pcard').forEach(function(c){c.hidden=!(f==='all'||c.dataset.c===f);c.classList.add('in')});
-  })});
+/* open status (assumed hours: Mon-Sat 09-19) */
+try{
+  var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Istanbul',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+  var g=function(t){return p.filter(function(x){return x.type===t})[0].value};
+  var m=+g('hour')%24*60+ +g('minute'),open=g('weekday')!=='Sun'&&m>=540&&m<1140;
+  $('#hours').innerHTML=open?'<span class="live"></span>Şu an açığız · Hemen arayın':'<span class="live" style="background:#8a8fb8;animation:none"></span>Şu an kapalıyız · WhatsApp\'tan yazın';
+}catch(e){}
 
-  // preselect product
-  var map={'Profilo S900 ECR':'Yazar Kasa POS','inPOS M530':'Yazar Kasa POS','SP 630 ECR':'Yazar Kasa POS','Dokunmatik POS PC':'Dokunmatik Bilgisayar','Dokunmatik Panel PC':'Dokunmatik Bilgisayar','Termal Fiş Yazıcı':'Fiş Yazıcı','Barkod Yazıcı':'Barkod Yazıcı','Barkod Okuyucu':'Barkod Okuyucu','Komple Kasa Kurulumu':'Komple Kasa Kurulumu'};
-  document.querySelectorAll('[data-p]').forEach(function(a){a.addEventListener('click',function(){
-    var v=map[a.dataset.p];
-    document.querySelectorAll('#chips input').forEach(function(i){if(i.value===v)i.checked=true});
-    var msj=document.getElementById('msj');if(!msj.value)msj.value=a.dataset.p+' için fiyat almak istiyorum.';
-  })});
+/* rotating word */
+var rs=$$('#rot span'),ri=0;
+if(!reduce)setInterval(function(){var o=rs[ri];o.classList.remove('on');o.classList.add('out');setTimeout(function(){o.classList.remove('out')},850);ri=(ri+1)%rs.length;rs[ri].classList.add('on')},2400);
 
-  // form
-  var f=document.getElementById('qf');
-  function build(){
-    var ad=f.ad.value.trim(),tel=f.tel.value.trim();
-    [f.ad,f.tel].forEach(function(i){i.style.borderColor=i.value.trim()?'':'#e11d2e'});
-    if(!ad||tel.replace(/\D/g,'').length<10){(ad?f.tel:f.ad).focus();return null}
-    var urun=[].map.call(document.querySelectorAll('#chips input:checked'),function(i){return i.value}).join(', ');
-    return 'Merhaba, web sitesinden teklif talebi:\n\nAd Soyad: '+ad+'\nTelefon: '+tel+(f.isl.value?'\nİşletme: '+f.isl.value:'')+(f.sek.selectedIndex?'\nSektör: '+f.sek.value:'')+(urun?'\nÜrünler: '+urun:'')+(f.msj.value.trim()?'\n\nMesaj: '+f.msj.value.trim():'');
+/* dots canvas */
+(function(){
+  var c=$('#dots'),x=c.getContext('2d'),W,H,DPR=Math.min(devicePixelRatio||1,2),mx=-999,my=-999,pts=[],vis=true;
+  function size(){var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*DPR;c.height=H*DPR;x.setTransform(DPR,0,0,DPR,0,0);pts=[];var gap=W<700?30:38;for(var i=gap/2;i<W;i+=gap)for(var j=gap/2;j<H;j+=gap)pts.push([i,j])}
+  size();addEventListener('resize',size);
+  var hero=c.parentElement;
+  hero.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+  hero.addEventListener('mouseleave',function(){mx=my=-999});
+  if('IntersectionObserver' in window)new IntersectionObserver(function(en){vis=en[0].isIntersecting;if(vis&&!reduce)requestAnimationFrame(draw)}).observe(hero);
+  var t=0;
+  function draw(){
+    t+=.012;x.clearRect(0,0,W,H);
+    for(var k=0;k<pts.length;k++){var q=pts[k],dx=q[0]-mx,dy=q[1]-my,d=Math.sqrt(dx*dx+dy*dy),inf=Math.max(0,1-d/180);
+      var w=Math.sin(q[0]*.012+t)*Math.cos(q[1]*.012+t*.8)*.5+.5;
+      var a=.06+w*.12+inf*.7,r=.8+inf*2.2;
+      x.fillStyle=inf>.05?'rgba(255,'+(90+inf*80|0)+','+(110+inf*60|0)+','+a+')':'rgba(170,178,255,'+a+')';
+      x.beginPath();x.arc(q[0]-dx*inf*.12,q[1]-dy*inf*.12,r,0,6.283);x.fill()}
+    if(!reduce&&vis)requestAnimationFrame(draw);
   }
-  f.addEventListener('submit',function(e){e.preventDefault();var t=build();if(t)window.open('https://wa.me/905078641184?text='+encodeURIComponent(t),'_blank')});
-  document.getElementById('mailbtn').addEventListener('click',function(){var t=build();if(t)location.href='mailto:info@alanyacelikelektronik.com?subject='+encodeURIComponent('Teklif Talebi - '+f.ad.value)+'&body='+encodeURIComponent(t)});
+  draw();
+})();
 
-  // lightbox
-  document.querySelectorAll('.gal button').forEach(function(b){b.addEventListener('click',function(){
-    var lb=document.createElement('div');lb.className='lb';
-    lb.innerHTML='<img src="'+b.querySelector('img').src+'" alt=""><button aria-label="Kapat">×</button>';
-    lb.addEventListener('click',function(){lb.remove()});
-    document.body.appendChild(lb);
-  })});
-  addEventListener('keydown',function(e){if(e.key==='Escape'){var l=document.querySelector('.lb');l&&l.remove();document.body.classList.remove('menu-open')}});
+/* 3D scene parallax */
+var scene=$('#scene');
+if(fine&&!reduce){
+  var tx=0,ty=0,cx=0,cy=0,stk=$('.stack',scene),dd=$$('[data-d]',scene);
+  addEventListener('mousemove',function(e){tx=(e.clientX/innerWidth-.5);ty=(e.clientY/innerHeight-.5)});
+  (function loop(){cx+=(tx-cx)*.06;cy+=(ty-cy)*.06;
+    if(scrollY<innerHeight){stk.style.transform='rotateY('+(cx*16)+'deg) rotateX('+(-cy*12)+'deg)';
+    dd.forEach(function(el){var d=+el.dataset.d;el.style.translate=(cx*d)+'px '+(cy*d)+'px'})}
+    requestAnimationFrame(loop)})();
+}
+
+/* cursor */
+if(fine){
+  var cur=$('#cur'),cr=$('#curR'),px=-100,py=-100,rx=-100,ry=-100;
+  addEventListener('mousemove',function(e){px=e.clientX;py=e.clientY;cur.style.transform='translate('+(px-4)+'px,'+(py-4)+'px)'});
+  (function l(){rx+=(px-rx)*.16;ry+=(py-ry)*.16;var s=cr.offsetWidth/2;cr.style.transform='translate('+(rx-s)+'px,'+(ry-s)+'px)';requestAnimationFrame(l)})();
+  document.addEventListener('mouseover',function(e){cr.classList.toggle('hov',!!e.target.closest('a,button,.panel'))});
+}
+
+/* magnetic */
+if(fine&&!reduce)$$('.mag').forEach(function(m){
+  var b=m.firstElementChild;
+  m.addEventListener('mousemove',function(e){var r=m.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.3)+'px,'+((e.clientY-r.top-r.height/2)*.4)+'px)'});
+  m.addEventListener('mouseleave',function(){b.style.transform=''});
+});
+
+/* bento spotlight */
+$$('.cell').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+
+/* statement words */
+var st=$('#statement'),hl=['asla','durmasın.','yerinde','her','zaman'];
+st.innerHTML=st.textContent.split(' ').map(function(w){return '<span class="w'+(hl.indexOf(w)>-1?' hl':'')+'">'+w+'</span>'}).join(' ');
+
+/* FAQ */
+$$('#faq .q button').forEach(function(b){b.addEventListener('click',function(){var q=b.parentElement,o=q.classList.contains('open');$$('#faq .q').forEach(function(x){x.classList.remove('open')});if(!o)q.classList.add('open');if(hasG)setTimeout(function(){ScrollTrigger.refresh()},550)})});
+
+/* configurator */
+var IMG={pos:'img/cut/pos-temassiz.webp',mob:'img/cut/pos-paygo.webp',pc:'img/cut/pc-1.webp',scr:'img/cut/pc-2.webp',fis:'img/cut/fis.webp',bar:'img/cut/barkod-yazici.webp',oku:'img/barkod-okuyucu.webp'};
+var K='Kasa başına';
+var SECT={market:{n:'Market',base:[['pos','Yeni nesil yazar kasa POS',K,1],['pc','Dokunmatik POS bilgisayar',K,1],['oku','Barkod okuyucu',K,1],['fis','Fiş yazıcı',K,1]]},
+ restoran:{n:'Restoran',base:[['pc','Dokunmatik POS bilgisayar','Adisyon & sipariş',1],['pos','Yeni nesil yazar kasa POS',K,1],['fis','Adisyon fiş yazıcısı',K,1]]},
+ kafe:{n:'Kafe & Bar',base:[['pc','Dokunmatik POS bilgisayar','Hızlı sipariş',1],['pos','Yeni nesil yazar kasa POS',K,1],['fis','Fiş yazıcı',K,1]]},
+ butik:{n:'Butik / Mağaza',base:[['pos','Yeni nesil yazar kasa POS',K,1],['pc','Dokunmatik POS bilgisayar','Stok & satış',1],['oku','Barkod okuyucu',K,1]]},
+ otel:{n:'Otel',base:[['pos','Yeni nesil yazar kasa POS','Resepsiyon & bar',1],['pc','Dokunmatik POS bilgisayar',K,1],['fis','Fiş yazıcı',K,1]]},
+ eczane:{n:'Eczane',base:[['pos','Yeni nesil yazar kasa POS',K,1],['oku','Karekod okuyucu',K,1],['fis','Fiş yazıcı',K,1]]}};
+var EXTRA={mobil:['mob','Taşınabilir POS','Masada / kapıda ödeme',1],etiket:['bar','Barkod & etiket yazıcı','İşletme geneli',0],musteri:['scr','Müşteri ekranı',K,1],mutfak:['fis','Mutfak yazıcısı','İşletme geneli',0]};
+var state={s:'market',q:1,x:[]};
+function render(){
+  var S=SECT[state.s],rows=S.base.map(function(r){return [r[0],r[1],r[2],r[3]?state.q:1]});
+  state.x.forEach(function(k){var e=EXTRA[k];rows.push([e[0],e[1],e[2],e[3]?state.q:1])});
+  $('#cSub').textContent=S.n+' · '+state.q+' kasa noktası';
+  $('#qVal').textContent=state.q;
+  $('#cItems').innerHTML=rows.map(function(r,i){return '<div class="item" style="animation-delay:'+(i*60)+'ms"><div class="th"><img src="'+IMG[r[0]]+'" alt=""></div><div><b>'+r[1]+'</b><small>'+r[2]+'</small></div><span class="x">×'+r[3]+'</span></div>'}).join('');
+  var txt='Merhaba, sitenizdeki "Kasanı Oluştur" aracıyla bir kurulum hazırladım:\n\nİşletme: '+S.n+'\nKasa sayısı: '+state.q+'\n\n'+rows.map(function(r){return '• '+r[1]+' ×'+r[3]}).join('\n')+'\n\nBu kurulum için fiyat teklifi alabilir miyim?';
+  $('#cSend').href='https://wa.me/905078641184?text='+encodeURIComponent(txt);
+}
+$$('#oSector .opt').forEach(function(b){b.addEventListener('click',function(){$$('#oSector .opt').forEach(function(x){x.classList.remove('on')});b.classList.add('on');state.s=b.dataset.v;render()})});
+$$('#oExtra .opt').forEach(function(b){b.addEventListener('click',function(){b.classList.toggle('on');state.x=$$('#oExtra .opt.on').map(function(x){return x.dataset.v});render()})});
+$('#qMinus').addEventListener('click',function(){state.q=Math.max(1,state.q-1);render()});
+$('#qPlus').addEventListener('click',function(){state.q=Math.min(10,state.q+1);render()});
+render();
+
+/* form */
+$$('[data-p]').forEach(function(a){a.addEventListener('click',function(){$('#urun').value=a.dataset.p;if(!$('#msj').value)$('#msj').value=a.dataset.p+' için fiyat almak istiyorum.'})});
+function build(){
+  var ad=$('#ad'),tel=$('#tel'),ok=true;
+  [ad,tel].forEach(function(i){var bad=i===tel?i.value.replace(/\D/g,'').length<10:!i.value.trim();i.parentElement.classList.toggle('err',bad);if(bad&&ok){i.focus();ok=false}});
+  if(!ok)return null;
+  return 'Merhaba, web sitesinden teklif talebi:\n\nAd Soyad: '+ad.value.trim()+'\nTelefon: '+tel.value.trim()+($('#isl').value.trim()?'\nİşletme: '+$('#isl').value.trim():'')+($('#urun').value?'\nÜrün: '+$('#urun').value:'')+($('#msj').value.trim()?'\n\nMesaj: '+$('#msj').value.trim():'');
+}
+$('#qf').addEventListener('submit',function(e){e.preventDefault();var t=build();if(t)window.open('https://wa.me/905078641184?text='+encodeURIComponent(t),'_blank')});
+$('#mailbtn').addEventListener('click',function(){var t=build();if(t)location.href='mailto:info@alanyacelikelektronik.com?subject='+encodeURIComponent('Teklif Talebi')+'&body='+encodeURIComponent(t)});
+
+/* no GSAP fallback */
+if(!hasG){
+  document.documentElement.className='nojs';document.body.classList.remove('loading');var pe=$('#pre');if(pe)pe.remove();
+  $$('.state .w').forEach(function(w){w.style.opacity=1});
+  $$('.st').forEach(function(s){s.classList.add('on')});
+  if(/static/.test(location.search))$('.hero').style.minHeight='900px';
+  return;
+}
+gsap.registerPlugin(ScrollTrigger);
+
+/* preloader */
+var pr={v:0},ring=$('#preRing'),num=$('#preNum'),bar=$('#preBar');
+function upd(){num.textContent=Math.round(pr.v);ring.style.strokeDashoffset=352-352*pr.v/100;bar.style.width=pr.v+'%'}
+var loadTween=gsap.to(pr,{v:88,duration:1.6,ease:'power2.out',onUpdate:upd});
+var done=false;
+function finish(){
+  if(done)return;done=true;loadTween.kill();
+  gsap.timeline()
+   .to(pr,{v:100,duration:.45,ease:'power2.inOut',onUpdate:upd})
+   .to('.pre .c',{scale:.85,opacity:0,duration:.45,ease:'power3.in'})
+   .to('.pre .p.t',{yPercent:-100,duration:1,ease:'expo.inOut'},'<.2')
+   .to('.pre .p.b',{yPercent:100,duration:1,ease:'expo.inOut'},'<')
+   .to('.pre .bar',{opacity:0,duration:.3},'<')
+   .add(function(){document.body.classList.remove('loading');heroIn()},'-=.55')
+   .add(function(){$('#pre').remove();ScrollTrigger.refresh()});
+}
+Promise.race([
+  Promise.all([document.fonts?document.fonts.ready:0,new Promise(function(r){if(document.readyState==='complete')r();else addEventListener('load',r)})]),
+  new Promise(function(r){setTimeout(r,4000)})
+]).then(function(){setTimeout(finish,Math.max(0,1700-performance.now()))});
+setTimeout(function(){if(document.body.classList.contains('loading')){document.body.classList.remove('loading');var pe=$('#pre');if(pe)pe.remove();gsap.set('.hero h1 .ln>span,.h-in,.stack img,.chip,.halo,.orbit',{clearProps:'all'})}},9000);
+
+/* hero intro */
+gsap.set('.hero h1 .ln>span',{yPercent:115});
+gsap.set('.h-in',{y:30,opacity:0});
+gsap.set('.stack img',{y:120,opacity:0,scale:.85});
+gsap.set('.chip',{scale:.6,opacity:0});
+gsap.set('.halo,.orbit',{opacity:0,scale:.6});
+function heroIn(){
+  var tl=gsap.timeline({defaults:{ease:'expo.out'}});
+  tl.to('.badge',{y:0,opacity:1,duration:1})
+    .to('.hero h1 .ln>span',{yPercent:0,duration:1.4,stagger:.12},'<.1')
+    .to('.lead,.hero .cta',{y:0,opacity:1,duration:1.2,stagger:.1},'<.5')
+    .to('.halo',{opacity:.55,scale:1,duration:2},'<-.6')
+    .to('.orbit',{opacity:1,scale:1,duration:1.6,stagger:.1},'<')
+    .to('.stack img',{y:0,opacity:1,scale:1,duration:1.6,stagger:.14},'<.1')
+    .to('.chip',{scale:1,opacity:1,duration:1,ease:'back.out(1.8)',stagger:.15},'<.8')
+    .add(function(){
+      gsap.to('.stack .s1',{y:-14,duration:3,repeat:-1,yoyo:true,ease:'sine.inOut'});
+      gsap.to('.stack .s3',{y:10,rotation:-3,duration:3.6,repeat:-1,yoyo:true,ease:'sine.inOut'});
+      gsap.to('.stack .s2',{y:12,duration:4.2,repeat:-1,yoyo:true,ease:'sine.inOut'});
+    });
+}
+
+/* hero scroll-out */
+gsap.to('.hero .wrap',{yPercent:14,opacity:.15,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('.aur',{yPercent:30,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+/* statement words */
+gsap.to('.state .w',{opacity:1,stagger:.1,ease:'none',scrollTrigger:{trigger:'.state',start:'top 70%',end:'bottom 60%',scrub:true}});
+
+/* reveals */
+$$('.rv').forEach(function(el){gsap.to(el,{y:0,opacity:1,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}})});
+ScrollTrigger.batch('.cell',{start:'top 92%',onEnter:function(b){gsap.to(b,{y:0,opacity:1,duration:1.1,stagger:.08,ease:'expo.out',overwrite:true})}});
+
+/* horizontal products */
+var mm=gsap.matchMedia();
+mm.add('(min-width:761px)',function(){
+  var track=$('#htrack'),hp=$('#hprog');
+  function dist(){return Math.max(0,track.scrollWidth-innerWidth)}
+  var tw=gsap.to(track,{x:function(){return -dist()},ease:'none',scrollTrigger:{trigger:'#hs',start:'center center',end:function(){return '+='+dist()},pin:true,scrub:1,invalidateOnRefresh:true,anticipatePin:1,onUpdate:function(s){hp.style.width=(s.progress*100)+'%'}}});
+  $$('.panel .im img').forEach(function(im){gsap.fromTo(im,{xPercent:20,rotation:6},{xPercent:-8,rotation:-3,ease:'none',scrollTrigger:{trigger:im.closest('.panel'),containerAnimation:tw,start:'left right',end:'right left',scrub:true}})});
+});
+mm.add('(max-width:760px)',function(){
+  $$('.panel').forEach(function(p){gsap.from(p,{y:60,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:p,start:'top 92%'}})});
+});
+
+/* timeline */
+gsap.to('#tlLine',{width:'100%',ease:'none',scrollTrigger:{trigger:'#tl',start:'top 75%',end:'bottom 55%',scrub:true}});
+$$('.st').forEach(function(s,i){
+  ScrollTrigger.create({trigger:s,start:'top '+(80-i*5)+'%',onEnter:function(){s.classList.add('on')},onLeaveBack:function(){s.classList.remove('on')}});
+  gsap.from(s,{y:40,opacity:0,duration:1,delay:i*.1,ease:'expo.out',scrollTrigger:{trigger:'#tl',start:'top 88%'}});
+});
+
+/* gallery rows */
+function gdist(id){return Math.max(0,$(id).scrollWidth-innerWidth)}
+gsap.fromTo('#g1',{x:0},{x:function(){return -gdist('#g1')},ease:'none',scrollTrigger:{trigger:'.gal',start:'top bottom',end:'bottom top',scrub:true,invalidateOnRefresh:true}});
+gsap.fromTo('#g2',{x:function(){return -gdist('#g2')}},{x:0,ease:'none',scrollTrigger:{trigger:'.gal',start:'top bottom',end:'bottom top',scrub:true,invalidateOnRefresh:true}});
+
+/* big cta + footer */
+gsap.fromTo('.bigcta h2',{scale:.82},{scale:1,ease:'none',scrollTrigger:{trigger:'.bigcta',start:'top bottom',end:'center center',scrub:true}});
+gsap.fromTo('.fbig',{yPercent:50,opacity:0},{yPercent:0,opacity:1,ease:'none',scrollTrigger:{trigger:'footer',start:'top bottom',end:'bottom bottom',scrub:true}});
+
+addEventListener('load',function(){ScrollTrigger.refresh()});
 })();
 </script>
 </body>
