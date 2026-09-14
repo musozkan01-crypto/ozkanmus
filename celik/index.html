@@ -464,6 +464,19 @@ footer .logo,footer h2,footer h3{color:#fff}
 @media (max-width:1100px) and (min-width:761px){.htrack{grid-template-columns:repeat(2,1fr)}}
 header,header.hide{transform:none!important;transition:none!important}
 .nav{height:72px!important}
+.hero .wrap{grid-template-columns:1fr 1fr!important;gap:60px}
+.hvis{position:relative;padding:20px 0 30px}
+.hcard{position:relative;aspect-ratio:1/1;border-radius:32px;background:radial-gradient(circle at 70% 25%,#2c56c9 0%,#1b3a8c 45%,#0f1b3d 100%);display:grid;place-items:center;overflow:hidden;box-shadow:0 40px 80px -40px rgba(15,27,61,.55)}
+.hcard::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(circle,#000 30%,transparent 75%)}
+.hcard img{position:relative;width:78%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
+.hbox{position:absolute;display:flex;align-items:center;gap:12px;padding:14px 20px 14px 14px;border-radius:18px;background:#fff;box-shadow:0 20px 40px -15px rgba(15,27,61,.3);line-height:1.3}
+.hbox i{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(227,22,43,.1);color:var(--red)}
+.hbox i svg{width:22px;height:22px}.hbox b{display:block;font-size:15px;color:var(--ink)}.hbox small{color:var(--mute);font-size:13px}
+.hbox.b1{left:-36px;top:14%}.hbox.b2{right:-24px;bottom:4%}
+.trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid var(--line);font-size:14.5px;font-weight:600;color:var(--ink)}
+.trust span{display:flex;align-items:center;gap:8px}.trust span::before{content:"✓";width:22px;height:22px;border-radius:50%;background:rgba(27,58,140,.1);color:var(--blue);display:grid;place-items:center;font-size:12px}
+@media (max-width:1100px){.hero .wrap{grid-template-columns:1fr!important}.hvis{max-width:520px;margin:0 auto;width:100%}}
+@media (max-width:760px){.hbox.b1{left:-6px}.hbox.b2{right:-6px}.hbox{padding:10px 14px 10px 10px}.hbox b{font-size:13px}.trust{gap:12px;font-size:13px}}
 </style>
 </head>
 <body class="loading">
@@ -532,16 +545,12 @@ header,header.hide{transform:none!important;transition:none!important}
         <span class="mag"><a class="btn btn-red" href="#olustur">Kasanı Oluştur <span class="arr"><svg><use href="#i-arr"/></svg></span></a></span>
         <span class="mag"><a class="btn btn-glass" href="https://wa.me/905078641184?text=Merhaba%2C%20yazar%20kasa%20POS%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></span>
       </div>
+      <div class="trust h-in"><span>Yerinde kurulum</span><span>Personel eğitimi</span><span>Satış sonrası destek</span></div>
     </div>
-    <div class="scene" id="scene">
-      <div class="halo"></div><div class="orbit"></div><div class="orbit o2"></div>
-      <div class="stack">
-        <img class="s2" data-d="-18" src="img/cut/pc-1.webp" alt="Dokunmatik POS bilgisayar">
-        <img class="s1" data-d="30" src="img/cut/pos-paygo.webp" alt="Yeni nesil yazar kasa POS">
-        <img class="s3" data-d="50" src="img/cut/fis.webp" alt="Termal fiş yazıcı">
-      </div>
-      <div class="chip c1" data-d="60"><i><svg><use href="#i-card"/></svg></i><div><b>Temassız ödeme</b><small><span class="live"></span>Kart · Telefon · Saat</small></div></div>
-      <div class="chip c2" data-d="-40"><i><svg><use href="#i-bolt"/></svg></i><div><b>Yerinde kurulum</b><small>Kurulum + eğitim</small></div></div>
+    <div class="hvis">
+      <div class="hcard"><img src="img/cut/pos-profilo.webp" alt="Yeni nesil yazar kasa POS"></div>
+      <div class="hbox b1"><i><svg><use href="#i-card"/></svg></i><div><b>Temassız ödeme</b><small>Kart · Telefon · Saat</small></div></div>
+      <div class="hbox b2"><i><svg><use href="#i-bolt"/></svg></i><div><b>Yerinde kurulum</b><small>Kurulum + eğitim</small></div></div>
     </div>
   </div>
   <div class="scroll-hint"><span></span>Kaydır</div>
@@ -824,7 +833,7 @@ if(!reduce)setInterval(function(){var o=rs[ri];o.classList.remove('on');o.classL
 
 /* 3D scene parallax */
 var scene=$('#scene');
-if(fine&&!reduce){
+if(scene&&fine&&!reduce){
   var tx=0,ty=0,cx=0,cy=0,stk=$('.stack',scene),dd=$$('[data-d]',scene);
   addEventListener('mousemove',function(e){tx=(e.clientX/innerWidth-.5);ty=(e.clientY/innerHeight-.5)});
   (function loop(){cx+=(tx-cx)*.06;cy+=(ty-cy)*.06;
