@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Çelik Elektronik | Alanya Yazar Kasa POS, Fiş ve Barkod Yazıcı</title>
+<meta name="description" content="Alanya'da yeni nesil yazar kasa POS, dokunmatik POS bilgisayar, fiş yazıcı, barkod yazıcı ve barkod okuyucu satışı, kurulumu ve teknik desteği. Çelik Elektronik — Saray Mah. Su Gözü Cad. No:3/A.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#131a6b">
+<link rel="icon" href="img/icon.png">
+<meta property="og:title" content="Çelik Elektronik — Alanya Yazar Kasa POS & Barkod Sistemleri">
+<meta property="og:description" content="Yeni nesil yazar kasa, POS bilgisayar, fiş/barkod yazıcı ve okuyucu. Satış, kurulum, destek.">
+<meta property="og:image" content="img/pos-hero.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Store","name":"Çelik Elektronik","image":"https://www.alanyacelikelektronik.com/images/celikelektronik.jpg","telephone":"+902425120226","email":"info@alanyacelikelektronik.com","url":"https://www.alanyacelikelektronik.com","address":{"@type":"PostalAddress","streetAddress":"Saray Mahallesi Su Gözü Caddesi No:3/A","addressLocality":"Alanya","addressRegion":"Antalya","postalCode":"07400","addressCountry":"TR"},"areaServed":["Alanya","Gazipaşa","Manavgat","Antalya"]}
+</script>
+<style>
+:root{
+  --navy:#131a6b;--navy-2:#1d2690;--ink:#0d1130;--red:#e11d2e;--red-2:#ff4453;
+  --bg:#f6f7fb;--card:#fff;--line:#e5e7f0;--muted:#5d6280;--radius:22px;
+  --shadow:0 1px 2px rgba(13,17,48,.05),0 12px 32px -12px rgba(13,17,48,.18);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+h1,h2,h3{line-height:1.12;letter-spacing:-.025em;margin:0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.eyebrow::before{content:"";width:18px;height:2px;background:currentColor;border-radius:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;font-weight:700;font-size:15px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 24px -8px rgba(225,29,46,.6)}
+.btn-red:hover{background:#c8101f}
+.btn-wa{background:#1fae53;color:#fff;box-shadow:0 10px 24px -8px rgba(31,174,83,.55)}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
+.btn-ghost:hover{background:rgba(255,255,255,.18)}
+.btn-line{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--line)}
+section{padding:110px 0}
+.head{max-width:680px;margin-bottom:52px}
+.head h2{font-size:clamp(32px,4.4vw,50px);margin:14px 0 14px}
+.head p{color:var(--muted);font-size:18px;margin:0}
+.head.center{text-align:center;margin-inline:auto}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* topbar + header */
+.topbar{background:var(--ink);color:#c9cbe0;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;height:40px;align-items:center}
+.topbar a:hover{color:#fff}
+.topbar .l,.topbar .r{display:flex;gap:22px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:#9aa;display:inline-block;margin-right:6px}
+.dot.on{background:#2ee07a;box-shadow:0 0 0 4px rgba(46,224,122,.2)}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+header.scrolled{border-color:var(--line);box-shadow:0 6px 24px -18px rgba(13,17,48,.4)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.logo img{height:38px;width:auto}
+nav.main{display:flex;gap:4px}
+nav.main a{padding:10px 14px;border-radius:999px;font-weight:600;font-size:15px;color:#2c3160;transition:background .2s,color .2s}
+nav.main a:hover{background:#eef0fa;color:var(--navy)}
+.hcta{display:flex;gap:10px;align-items:center}
+.hcta .btn{height:46px;padding:0 20px}
+.burger{display:none;width:46px;height:46px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:.3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.menu-open .burger span{background:transparent}
+.menu-open .burger span::before{top:0;transform:rotate(45deg)}
+.menu-open .burger span::after{top:0;transform:rotate(-45deg)}
+.mnav{display:none}
+
+/* hero */
+.hero{position:relative;background:radial-gradient(1200px 600px at 85% -10%,#2a35c4 0%,transparent 60%),radial-gradient(800px 500px at -10% 110%,#3a0d2a 0%,transparent 60%),var(--navy);color:#fff;padding:90px 0 120px;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 70% 40%,#000 20%,transparent 70%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);font-size:14px;font-weight:600}
+.pill b{background:var(--red);padding:3px 10px;border-radius:999px;font-size:12px;letter-spacing:.04em}
+.hero h1{font-size:clamp(40px,6vw,74px);font-weight:800;margin:24px 0 22px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#ff5a67,#ff9aa2);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(17px,1.6vw,20px);color:#cfd3f5;max-width:560px;margin:0 0 34px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.checks{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:38px;color:#dfe2ff;font-size:14.5px;font-weight:500}
+.checks span{display:inline-flex;gap:8px;align-items:center}
+.checks svg{width:18px;height:18px;color:#4ee38b}
+.visual{position:relative;aspect-ratio:1/1.02}
+.visual .main{position:absolute;inset:6% 4% 10% 12%;border-radius:32px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);transform:rotate(2deg)}
+.visual .main img{width:100%;height:100%;object-fit:cover}
+.visual .sub{position:absolute;left:0;bottom:2%;width:44%;aspect-ratio:1;border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -20px rgba(0,0,0,.55);transform:rotate(-5deg);border:6px solid #fff}
+.visual .sub img{width:100%;height:100%;object-fit:cover}
+.float{position:absolute;background:#fff;color:var(--ink);border-radius:18px;padding:12px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 20px 40px -16px rgba(0,0,0,.45);font-size:14px;animation:bob 6s ease-in-out infinite}
+.float i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none}
+.float i svg{width:22px;height:22px}
+.float b{display:block;font-size:15px}
+.float small{color:var(--muted)}
+.f1{top:2%;right:0}.f1 i{background:#e8fbef;color:#17a34a}
+.f2{bottom:22%;right:-2%;animation-delay:-3s}.f2 i{background:#fdecee;color:var(--red)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+
+/* brands strip */
+.strip{background:#fff;border-bottom:1px solid var(--line)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{padding:30px 22px;display:flex;gap:16px;align-items:center;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat i{width:48px;height:48px;border-radius:14px;background:#eef0fa;color:var(--navy);display:grid;place-items:center;flex:none}
+.stat i svg{width:24px;height:24px}
+.stat b{display:block;font-size:16px}
+.stat span{color:var(--muted);font-size:14px}
+
+/* products */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.tab{height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-family:inherit;font-weight:600;font-size:14.5px;color:#2c3160;cursor:pointer;transition:.2s}
+.tab:hover{border-color:#c4c8e4}
+.tab.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.grid-p{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pcard{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 1px 2px rgba(13,17,48,.05),0 30px 50px -20px rgba(13,17,48,.3)}
+.pcard .ph{aspect-ratio:4/3;background:linear-gradient(160deg,#f3f4fa,#e6e8f3);overflow:hidden;position:relative}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pcard .ph:has(.contain){background:#fff}.pcard .ph img.contain{object-fit:contain;padding:22px}
+.pcard:hover .ph img{transform:scale(1.05)}
+.tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.94);color:var(--navy);font-size:12px;font-weight:700;padding:6px 11px;border-radius:999px}
+.tag.red{background:var(--red);color:#fff;left:auto;right:14px}
+.pcard .bd{padding:22px 24px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pcard h3{font-size:21px}
+.pcard p{margin:0;color:var(--muted);font-size:15px}
+.feat{list-style:none;padding:0;margin:2px 0 6px;display:flex;flex-wrap:wrap;gap:6px}
+.feat li{font-size:12.5px;font-weight:600;background:#f1f2f9;color:#3a3f6b;padding:5px 10px;border-radius:8px}
+.pcard .act{margin-top:auto;display:flex;gap:8px}
+.pcard .act .btn{height:44px;font-size:14px;flex:1;padding:0 14px}
+.pcard[hidden]{display:none!important}
+
+/* sectors */
+.sectors{background:#fff}
+.grid-s{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.sec{border:1px solid var(--line);border-radius:18px;padding:22px 18px;text-align:center;transition:.25s;background:#fff}
+.sec:hover{border-color:transparent;box-shadow:var(--shadow);transform:translateY(-4px)}
+.sec i{width:56px;height:56px;margin:0 auto 12px;border-radius:16px;background:linear-gradient(135deg,#eef0fa,#fbeef0);display:grid;place-items:center;color:var(--navy)}
+.sec i svg{width:28px;height:28px}
+.sec b{display:block;font-size:15.5px}
+.sec span{font-size:13px;color:var(--muted)}
+
+/* bundle */
+.bundle{background:var(--ink);color:#fff;border-radius:32px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden}
+.bundle::before{content:"";position:absolute;width:520px;height:520px;right:-160px;top:-200px;background:radial-gradient(circle,rgba(225,29,46,.45),transparent 65%)}
+.bundle>*{position:relative}
+.bundle h2{font-size:clamp(30px,3.8vw,44px);margin:14px 0 16px}
+.bundle p{color:#b9bddc;margin:0 0 26px;font-size:17px}
+.bl{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bl div{background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);border-radius:18px;padding:18px;display:flex;gap:12px;align-items:center;font-weight:600;font-size:15px}
+.bl img{width:56px;height:56px;border-radius:12px;object-fit:cover;flex:none;background:#fff}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+.step{background:#fff;border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow);position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-size:44px;font-weight:800;letter-spacing:-.04em;background:linear-gradient(135deg,var(--navy),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:10px}
+.step h3{font-size:19px;margin-bottom:8px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+
+/* about */
+.about{background:#fff}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:220px 220px;gap:14px}
+.collage img{width:100%;height:100%;object-fit:cover;border-radius:20px}
+.collage img:first-child{grid-row:span 2}
+.about h2{font-size:clamp(32px,4.2vw,48px);margin:14px 0 20px}
+.about p{color:var(--muted);font-size:17px;margin:0 0 16px}
+.vals{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.vals div{display:flex;gap:12px;align-items:flex-start}
+.vals i{width:36px;height:36px;border-radius:10px;background:#fdecee;color:var(--red);display:grid;place-items:center;flex:none}
+.vals i svg{width:18px;height:18px}
+.vals b{display:block;font-size:15px}
+.vals span{font-size:14px;color:var(--muted);line-height:1.45}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:14px}
+.gal button{border:0;padding:0;border-radius:18px;overflow:hidden;cursor:zoom-in;background:#ddd}
+.gal button:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gal button:hover img{transform:scale(1.06)}
+.lb{position:fixed;inset:0;background:rgba(8,10,30,.92);z-index:100;display:grid;place-items:center;padding:24px}
+.lb img{max-height:88vh;border-radius:14px}
+.lb button{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;border:0;background:#fff;font-size:26px;cursor:pointer}
+
+/* faq */
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+details{background:#fff;border-radius:18px;margin-bottom:12px;box-shadow:var(--shadow);overflow:hidden}
+summary{list-style:none;cursor:pointer;padding:22px 26px;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;font-weight:400;color:var(--red);transition:transform .3s;flex:none}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0;padding:0 26px 24px;color:var(--muted)}
+
+/* quote + contact */
+.contact{background:linear-gradient(180deg,var(--bg),#fff)}
+.cbox{display:grid;grid-template-columns:1fr 1.1fr;background:#fff;border-radius:32px;box-shadow:var(--shadow);overflow:hidden}
+.cinfo{background:var(--navy);color:#fff;padding:52px;display:flex;flex-direction:column;gap:26px;position:relative;overflow:hidden}
+.cinfo::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;border:60px solid rgba(225,29,46,.25);right:-160px;bottom:-160px}
+.cinfo h2{font-size:clamp(30px,3.4vw,40px)}
+.cinfo p{color:#c3c7ee;margin:-10px 0 0}
+.ci{display:flex;gap:16px;align-items:center;position:relative;z-index:1}
+.ci i{width:50px;height:50px;border-radius:15px;background:rgba(255,255,255,.1);display:grid;place-items:center;flex:none}
+.ci i svg{width:22px;height:22px}
+.ci small{display:block;color:#aeb3e2;font-size:13px}
+.ci b{font-size:17px}
+.ci a:hover b{text-decoration:underline}
+form{padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-content:start}
+form h3{grid-column:1/-1;font-size:26px}
+form .sub{grid-column:1/-1;color:var(--muted);margin:-8px 0 6px}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld.full{grid-column:1/-1}
+label{font-size:13.5px;font-weight:700;color:#343962}
+input,select,textarea{font:inherit;font-size:15.5px;border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;background:#fafbfe;color:var(--ink);transition:border-color .2s,box-shadow .2s;width:100%}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--navy-2);box-shadow:0 0 0 4px rgba(29,38,144,.12);background:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{font-weight:600;font-size:14px;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;color:#3a3f6b;transition:.2s;user-select:none}
+.chips input{display:none}
+.chips input:checked+span{color:#fff}
+.chips label:has(input:checked){background:var(--navy);border-color:var(--navy);color:#fff}
+form .btns{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+form .btns .btn{flex:1}
+.map{margin-top:22px;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);height:360px;background:#e6e8f3}
+.map iframe{width:100%;height:100%;border:0;display:block}
+
+/* footer */
+footer{background:var(--ink);color:#aeb2d3;padding:70px 0 30px;font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px}
+.flogo{background:#fff;display:inline-block;padding:10px 14px;border-radius:14px;margin-bottom:18px}
+.flogo img{height:30px}
+footer h4{color:#fff;font-size:15px;margin:0 0 16px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+footer a:hover{color:#fff}
+.fbot{border-top:1px solid rgba(255,255,255,.1);margin-top:50px;padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px}
+
+/* floating */
+.fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;flex-direction:column;gap:12px}
+.fab a{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 14px 30px -10px rgba(0,0,0,.45);transition:transform .2s}
+.fab a:hover{transform:scale(1.08)}
+.fab svg{width:30px;height:30px}
+.fab .wa{background:#1fae53}
+.fab .wa::after{content:"";position:absolute;width:60px;height:60px;border-radius:50%;box-shadow:0 0 0 0 rgba(31,174,83,.6);animation:ping 2.4s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 18px rgba(31,174,83,0)}100%{box-shadow:0 0 0 0 rgba(31,174,83,0)}}
+.fab .tel{background:var(--red);display:none}
+.mbar{display:none}
+
+@media (max-width:1080px){
+  nav.main,.hcta .btn-line{display:none}
+  .burger{display:flex}
+  .mnav{display:block;position:fixed;inset:116px 0 0;background:#fff;z-index:49;padding:20px;transform:translateY(-12px);opacity:0;pointer-events:none;transition:.3s}
+  .menu-open .mnav{transform:none;opacity:1;pointer-events:auto}
+  .mnav a{display:block;padding:16px 8px;font-size:20px;font-weight:700;border-bottom:1px solid var(--line)}
+  .hero .wrap,.about .wrap,.faq .wrap,.bundle,.cbox{grid-template-columns:1fr}
+  .visual{max-width:540px;margin:0 auto;width:100%}
+  .grid-p{grid-template-columns:repeat(2,1fr)}
+  .grid-s{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .strip .wrap{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-left:0}
+  .stat{border-top:1px solid var(--line)}
+  .stat:nth-child(-n+2){border-top:0}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .faq .head{margin-bottom:10px}
+}
+@media (max-width:640px){
+  .wrap{width:calc(100% - 32px)}
+  section{padding:76px 0}
+  .topbar .l span.h,.topbar .r{display:none}
+  header .wrap{height:66px}
+  .mnav{inset:106px 0 0}
+  .logo img{height:30px}
+  .hcta .btn-red{display:none}
+  .hero{padding:56px 0 80px}
+  .hero .cta .btn{flex:1}
+  .grid-p,.steps,.vals,.bl{grid-template-columns:1fr}
+  .grid-s{grid-template-columns:repeat(2,1fr)}
+  .strip .wrap{grid-template-columns:1fr}
+  .stat{border-left:0!important;border-top:1px solid var(--line)!important;padding:20px 4px}
+  .stat:first-child{border-top:0!important}
+  .bundle,.cinfo,form{padding:32px 22px}
+  form{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+  .collage{grid-template-rows:160px 160px}
+  .fgrid{grid-template-columns:1fr}
+  .f2{display:none}
+  .fab{bottom:84px}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .mbar .btn{height:48px}
+  .fab{display:none}
+  footer{padding-bottom:100px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.4 13.4 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.3-.6-.4zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.9 17.8L.2 24l6.4-1.7a11.8 11.8 0 0 0 5.6 1.4A11.8 11.8 0 0 0 20.4 3.6z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+  <symbol id="i-head" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></symbol>
+  <symbol id="i-coffee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4zM6 1v3M10 1v3M14 1v3"/></symbol>
+  <symbol id="i-food" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></symbol>
+  <symbol id="i-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 3.5 16 2a4 4 0 0 1-8 0L3.6 3.5a2 2 0 0 0-1.3 2.2l.6 3.5a1 1 0 0 0 1 .8H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.1a1 1 0 0 0 1-.8l.6-3.5a2 2 0 0 0-1.3-2.2z"/></symbol>
+  <symbol id="i-pill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.9 4.9 0 0 0-7-7l-10 10a4.9 4.9 0 0 0 7 7zM8.5 8.5l7 7"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="l"><span id="status"><span class="dot"></span>Çalışma saatleri</span><span class="h">Saray Mah. Su Gözü Cad. No:3/A, Alanya</span></div>
+    <div class="r"><a href="tel:+902425120226">+90 242 512 02 26</a><a href="mailto:info@alanyacelikelektronik.com">info@alanyacelikelektronik.com</a></div>
+  </div>
+</div>
+
+<header id="hdr">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="Çelik Elektronik ana sayfa"><img src="img/logo.png" alt="Çelik Elektronik" width="900" height="160"></a>
+    <nav class="main">
+      <a href="#urunler">Ürünler</a><a href="#sektorler">Sektörler</a><a href="#hizmet">Hizmet</a><a href="#hakkimizda">Hakkımızda</a><a href="#galeri">Galeri</a><a href="#sss">SSS</a><a href="#iletisim">İletişim</a>
+    </nav>
+    <div class="hcta">
+      <a class="btn btn-line" href="tel:+902425120226"><svg><use href="#i-phone"/></svg>Hemen Ara</a>
+      <a class="btn btn-red" href="#teklif">Teklif Al</a>
+      <button class="burger" aria-label="Menü" onclick="document.querySelector('.mnav').style.top=document.getElementById('hdr').getBoundingClientRect().bottom+'px';document.body.classList.toggle('menu-open')"><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mnav" onclick="if(event.target.tagName==='A')document.body.classList.remove('menu-open')">
+  <a href="#urunler">Ürünler</a><a href="#sektorler">Sektörler</a><a href="#hizmet">Hizmet</a><a href="#hakkimizda">Hakkımızda</a><a href="#galeri">Galeri</a><a href="#sss">SSS</a><a href="#teklif">Teklif Al</a>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill"><b>2026</b> Yeni nesil ödeme ve kasa sistemleri</span>
+      <h1>İşletmenizin kasası <em>hızlı, yasal</em> ve hep çalışır.</h1>
+      <p class="lead">Alanya'da yazar kasa POS, dokunmatik POS bilgisayar, fiş ve barkod yazıcı, barkod okuyucu — ürün seçiminden kuruluma, eğitimden teknik desteğe tek adres.</p>
+      <div class="cta">
+        <a class="btn btn-red" href="#teklif">Ücretsiz Teklif Al <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="https://wa.me/905078641184?text=Merhaba%2C%20yazar%20kasa%20POS%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+      </div>
+      <div class="checks">
+        <span><svg><use href="#i-check"/></svg>Yerinde kurulum</span>
+        <span><svg><use href="#i-check"/></svg>Kullanım eğitimi</span>
+        <span><svg><use href="#i-check"/></svg>Satış sonrası destek</span>
+      </div>
+    </div>
+    <div class="visual reveal">
+      <div class="main"><img src="img/pos-hero.webp" alt="Temassız ödeme alan yeni nesil yazar kasa POS" fetchpriority="high"></div>
+      <div class="sub"><img src="img/pc-bar.webp" alt="Dokunmatik POS bilgisayar kullanan işletme"></div>
+      <div class="float f1"><i><svg><use href="#i-card"/></svg></i><div><b>Temassız ödeme</b><small>Kart, telefon, saat</small></div></div>
+      <div class="float f2"><i><svg><use href="#i-bolt"/></svg></i><div><b>Aynı gün kurulum</b><small>Stoktaki ürünlerde*</small></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><i><svg><use href="#i-shield"/></svg></i><div><b>Yetkili ürünler</b><span>Faturalı, garantili cihazlar</span></div></div>
+    <div class="stat"><i><svg><use href="#i-tool"/></svg></i><div><b>Kurulum & eğitim</b><span>İşletmenizde, yerinde</span></div></div>
+    <div class="stat"><i><svg><use href="#i-head"/></svg></i><div><b>Teknik destek</b><span>Telefon ve WhatsApp</span></div></div>
+    <div class="stat"><i><svg><use href="#i-truck"/></svg></i><div><b>Alanya ve çevresi</b><span>Mağazamız Saray Mahallesi'nde</span></div></div>
+  </div>
+</div>
+
+<section id="urunler">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Ürünlerimiz</span>
+      <h2>Kasadan depoya, ihtiyacınız olan her cihaz.</h2>
+      <p>Satış noktanızı baştan kuruyor ya da tek bir cihazı yeniliyor olun; işletmenize uygun modeli birlikte seçelim.</p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-f="all">Tümü</button>
+      <button class="tab" data-f="pos">Yazar Kasa POS</button>
+      <button class="tab" data-f="pc">Dokunmatik Bilgisayar</button>
+      <button class="tab" data-f="fis">Fiş Yazıcı</button>
+      <button class="tab" data-f="barkod">Barkod</button>
+    </div>
+    <div class="grid-p">
+      <article class="pcard reveal" data-c="pos">
+        <div class="ph"><span class="tag">Yazar Kasa POS</span><span class="tag red">Mobil</span><img src="img/pos-profilo.webp" alt="Profilo S900 ECR yazar kasa POS" loading="lazy"></div>
+        <div class="bd"><h3>Profilo S900 ECR</h3><p>Dokunmatik ekranlı, taşınabilir yeni nesil yazar kasa POS. Masada, teslimatta, kapıda ödeme almak için.</p>
+          <ul class="feat"><li>Dokunmatik ekran</li><li>Temassız</li><li>Taşınabilir</li></ul>
+          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Profilo S900 ECR">Fiyat Sor</a></div></div>
+      </article>
+      <article class="pcard reveal" data-c="pos">
+        <div class="ph"><span class="tag">Yazar Kasa POS</span><img src="img/pos-cam.webp" alt="inPOS M530 yazar kasa POS" loading="lazy"></div>
+        <div class="bd"><h3>inPOS M530</h3><p>Hızlı işlem, geniş ekran ve temassız ödeme desteğiyle yoğun kasalar için yeni nesil ÖKC.</p>
+          <ul class="feat"><li>Temassız</li><li>Hızlı işlem</li><li>Kolay menü</li></ul>
+          <div class="act"><a class="btn btn-red" href="#teklif" data-p="inPOS M530">Fiyat Sor</a></div></div>
+      </article>
+      <article class="pcard reveal" data-c="pos">
+        <div class="ph"><span class="tag">Yazar Kasa POS</span><img src="img/pos-temassiz.webp" alt="SP 630 ECR yazar kasa POS" loading="lazy"></div>
+        <div class="bd"><h3>SP 630 ECR</h3><p>Kompakt ve dayanıklı gövdesiyle tezgâh üstünde az yer kaplayan, her gün güvenle çalışan yazar kasa POS.</p>
+          <ul class="feat"><li>Kompakt</li><li>Temassız</li><li>Kolay kullanım</li></ul>
+          <div class="act"><a class="btn btn-red" href="#teklif" data-p="SP 630 ECR">Fiyat Sor</a></div></div>
+      </article>
+      <article class="pcard reveal" data-c="pc">
+        <div class="ph"><span class="tag">Dokunmatik Bilgisayar</span><img class="contain" src="img/pc-1.webp" alt="Çift ekranlı dokunmatik POS bilgisayar" loading="lazy"></div>
+        <div class="bd"><h3>Dokunmatik POS PC</h3><p>Market, restoran ve mağaza programlarıyla çalışan, müşteri ekranı seçenekli hepsi bir arada POS bilgisayar.</p>
+          <ul class="feat"><li>Hepsi bir arada</li><li>Müşteri ekranı</li><li>Windows</li></ul>
+          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Dokunmatik POS PC">Fiyat Sor</a></div></div>
+      </article>
+      <article class="pcard reveal" data-c="pc">
+        <div class="ph"><span class="tag">Dokunmatik Bilgisayar</span><img class="contain" src="img/pc-2.webp" alt="İnce çerçeveli dokunmatik ekran" loading="lazy"></div>
+        <div class="bd"><h3>Dokunmatik Panel PC</h3><p>İnce çerçeveli, şık tasarımıyla kafe ve butiklerde tezgâhınıza modern bir görünüm katar.</p>
+          <ul class="feat"><li>İnce tasarım</li><li>Çoklu dokunmatik</li><li>Sessiz</li></ul>
+          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Dokunmatik Panel PC">Fiyat Sor</a></div></div>
+      </article>
+      <article class="pcard reveal" data-c="fis">
+        <div class="ph"><span class="tag">Fiş Yazıcı</span><img src="img/fis.webp" alt="Termal fiş yazıcı" loading="lazy"></div>
+        <div class="bd"><h3>Termal Fiş Yazıcı</h3><p>Mürekkepsiz, hızlı ve sessiz baskı. Adisyon, mutfak siparişi ve bilgi fişi için ideal.</p>
+          <ul class="feat"><li>Termal baskı</li><li>Hızlı</li><li>Sessiz</li></ul>
+          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Termal Fiş Yazıcı">Fiyat Sor</a></div></div>
+      </article>
+      <article class="pcard reveal" data-c="barkod">
+        <div class="ph"><span class="tag">Barkod Yazıcı</span><img src="img/barkod-yazici.webp" alt="Barkod ve etiket yazıcı" loading="lazy"></div>
+        <div class="bd"><h3>Barkod & Etiket Yazıcı</h3><p>Raf etiketi, ürün barkodu ve kargo etiketi için net, dayanıklı baskı alan masaüstü yazıcılar.</p>
+          <ul class="feat"><li>Termal transfer</li><li>Raf etiketi</li><li>Kargo etiketi</li></ul>
+          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Barkod Yazıcı">Fiyat Sor</a></div></div>
+      </article>
+      <article class="pcard reveal" data-c="barkod">
+        <div class="ph"><span class="tag">Barkod Okuyucu</span><img src="img/barkod-okuyucu.webp" alt="Kablosuz barkod okuyucu" loading="lazy"></div>
+        <div class="bd"><h3>Barkod Okuyucular</h3><p>Kablolu, kablosuz ve masaüstü modellerle kasada saniyeler kazanın; depo sayımını hızlandırın.</p>
+          <ul class="feat"><li>1D / 2D (QR)</li><li>Kablosuz</li><li>Masaüstü</li></ul>
+          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Barkod Okuyucu">Fiyat Sor</a></div></div>
+      </article>
+      <article class="pcard reveal" data-c="pos">
+        <div class="ph"><span class="tag">Hazır Paket</span><img src="img/pos-kasa.webp" alt="Kasa noktası kurulumu" loading="lazy"></div>
+        <div class="bd"><h3>Komple Kasa Kurulumu</h3><p>POS, bilgisayar, yazıcı ve okuyucuyu birbirine uyumlu şekilde tek seferde kurup çalışır teslim ediyoruz.</p>
+          <ul class="feat"><li>Anahtar teslim</li><li>Uyumlu cihazlar</li><li>Eğitim dahil</li></ul>
+          <div class="act"><a class="btn btn-red" href="#teklif" data-p="Komple Kasa Kurulumu">Paket Teklifi</a></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sectors" id="sektorler">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">Sektörler</span>
+      <h2>Her işletmeye göre doğru kurulum</h2>
+      <p>Alanya'nın market, restoran, otel ve mağazalarına göre cihaz ve yazılım önerisi.</p>
+    </div>
+    <div class="grid-s">
+      <div class="sec reveal"><i><svg><use href="#i-cart"/></svg></i><b>Market</b><span>Barkodlu hızlı satış</span></div>
+      <div class="sec reveal"><i><svg><use href="#i-food"/></svg></i><b>Restoran</b><span>Adisyon & mutfak</span></div>
+      <div class="sec reveal"><i><svg><use href="#i-coffee"/></svg></i><b>Kafe & Bar</b><span>Masada ödeme</span></div>
+      <div class="sec reveal"><i><svg><use href="#i-shirt"/></svg></i><b>Butik</b><span>Etiket & stok</span></div>
+      <div class="sec reveal"><i><svg><use href="#i-bed"/></svg></i><b>Otel</b><span>Resepsiyon & bar</span></div>
+      <div class="sec reveal"><i><svg><use href="#i-pill"/></svg></i><b>Eczane</b><span>Karekod okuma</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="bundle reveal">
+      <div>
+        <span class="eyebrow">Anahtar teslim</span>
+        <h2>Kasanızı tek seferde, eksiksiz kuralım.</h2>
+        <p>Farklı yerlerden alınan cihazların birbiriyle çalışmaması tarihe karışsın. Uyumlu ürünleri seçer, kurar, test eder ve personelinize kullanımı gösteririz.</p>
+        <a class="btn btn-red" href="#teklif" data-p="Komple Kasa Kurulumu">Paket Teklifi İste</a>
+      </div>
+      <div class="bl">
+        <div><img src="img/pos-profilo.webp" alt="">Yazar Kasa POS</div>
+        <div><img src="img/pc-1.webp" alt="" style="object-fit:contain">Dokunmatik PC</div>
+        <div><img src="img/fis.webp" alt="">Fiş Yazıcı</div>
+        <div><img src="img/barkod-okuyucu.webp" alt="">Barkod Okuyucu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hizmet" style="padding-top:0">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Nasıl çalışıyoruz</span>
+      <h2>Aradığınız andan kasanız çalışana kadar</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>İhtiyaç analizi</h3><p>İşletmenizi, satış yoğunluğunuzu ve kullandığınız programı dinliyoruz.</p></div>
+      <div class="step reveal"><h3>Doğru ürün & teklif</h3><p>Bütçenize uygun, işinizi görecek cihazları net fiyatla sunuyoruz.</p></div>
+      <div class="step reveal"><h3>Kurulum & eğitim</h3><p>Cihazları işletmenizde kurar, test eder, personele kullanımı öğretiriz.</p></div>
+      <div class="step reveal"><h3>Satış sonrası destek</h3><p>Sorun yaşadığınızda bir telefon ya da WhatsApp mesajı uzağınızdayız.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="hakkimizda">
+  <div class="wrap">
+    <div class="collage reveal">
+      <img src="img/pos-kasa.webp" alt="Kasa noktasında yazar kasa POS" loading="lazy">
+      <img src="img/pos-el.webp" alt="Yazar kasa POS" loading="lazy">
+      <img src="img/pos-paygo.webp" alt="POS cihazı" loading="lazy">
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Hakkımızda</span>
+      <h2>Alanya'da perakende teknolojisinin güvenilir adresi</h2>
+      <p>Çelik Elektronik; yazar kasa POS sistemleri, fiş yazıcılar, dokunmatik bilgisayarlar, barkod yazıcılar ve barkod okuyucular gibi teknolojik çözümlerin satışını yapan bir firmadır.</p>
+      <p>Amacımız işletmelerin satış işlemlerini hızlandırmak, belgelemeyi doğru ve kolay hâle getirmek ve teknolojik altyapılarını güçlendirerek rekabet avantajı sağlamak. Satış öncesi ve sonrası desteği işimizin merkezine koyuyoruz.</p>
+      <div class="vals">
+        <div><i><svg><use href="#i-check"/></svg></i><div><b>Uygun maliyet</b><span>İhtiyacınız kadar cihaz, fazlası değil</span></div></div>
+        <div><i><svg><use href="#i-check"/></svg></i><div><b>Uzman kadro</b><span>Kurulum, kullanım ve bakımda yanınızda</span></div></div>
+        <div><i><svg><use href="#i-check"/></svg></i><div><b>Güncel teknoloji</b><span>Yeni nesil, temassız ödeme uyumlu</span></div></div>
+        <div><i><svg><use href="#i-check"/></svg></i><div><b>Yerel mağaza</b><span>Gelin, cihazları yerinde deneyin</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeri">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Foto galeri</span>
+      <h2>Ürünlerimizden kareler</h2>
+    </div>
+    <div class="gal reveal">
+      <button><img src="img/pos-temassiz.webp" alt="Temassız ödeme özellikli POS" loading="lazy"></button>
+      <button><img src="img/pos-kasa.webp" alt="Kasada kartla ödeme" loading="lazy"></button>
+      <button><img src="img/pos-cam.webp" alt="Yazar kasa POS" loading="lazy"></button>
+      <button><img src="img/pc-bar.webp" alt="Dokunmatik POS bilgisayar" loading="lazy"></button>
+      <button><img src="img/barkod-yazici.webp" alt="Barkod yazıcı" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="sss" style="padding-top:0">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Sık sorulanlar</span>
+      <h2>Aklınıza takılanlar</h2>
+      <p>Cevabını bulamadığınız soru için bize WhatsApp'tan yazın.</p>
+      <p style="margin-top:22px"><a class="btn btn-wa" href="https://wa.me/905078641184" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Soru Sor</a></p>
+    </div>
+    <div class="reveal">
+      <details open><summary>Yeni nesil yazar kasa POS nedir, zorunlu mu?</summary><p>Yeni nesil ödeme kaydedici cihaz (ÖKC); satışı kaydedip fişi keserken kartla ödeme de alabilen, Gelir İdaresi sistemine bağlı çalışan cihazdır. Hangi işletmenin kullanması gerektiği faaliyet türüne göre değişir; sizin durumunuza uygun modeli birlikte belirleriz.</p></details>
+      <details><summary>Hangi bankayla çalışır?</summary><p>Modele ve anlaşmalı bankaya göre değişir. Mevcut banka tercihinizi söyleyin, uyumlu cihazı ona göre önerelim.</p></details>
+      <details><summary>Kurulum ve eğitim veriyor musunuz?</summary><p>Evet. Cihazları işletmenizde kurar, mevcut programınızla bağlantısını yapar ve çalışanlarınıza kullanımını gösteririz.</p></details>
+      <details><summary>Arıza olursa ne yapmalıyım?</summary><p>Bizi telefonla ya da WhatsApp'tan arayın. Uzaktan çözülebilen sorunları hemen, diğerlerini mağazamızda veya yerinde çözüyoruz.</p></details>
+      <details><summary>Market / restoran programım ile uyumlu mu?</summary><p>Dokunmatik POS bilgisayarlarımız, fiş ve barkod yazıcılarımız yaygın satış programlarıyla çalışır. Kullandığınız programın adını iletin, uyumluluğu kontrol edelim.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="iletisim">
+  <div class="wrap">
+    <div class="cbox reveal" id="teklif">
+      <div class="cinfo">
+        <span class="eyebrow" style="color:#ff8791">İletişim</span>
+        <h2>Size özel fiyatı hemen iletelim.</h2>
+        <p>Formu doldurun, talebiniz WhatsApp üzerinden doğrudan bize ulaşsın.</p>
+        <a class="ci" href="tel:+902425120226"><i><svg><use href="#i-phone"/></svg></i><div><small>Telefon</small><b>+90 242 512 02 26</b></div></a>
+        <a class="ci" href="https://wa.me/905078641184" target="_blank" rel="noopener"><i><svg><use href="#i-wa"/></svg></i><div><small>WhatsApp / Mobil</small><b>+90 507 864 11 84</b></div></a>
+        <a class="ci" href="mailto:info@alanyacelikelektronik.com"><i><svg><use href="#i-mail"/></svg></i><div><small>E-posta</small><b>info@alanyacelikelektronik.com</b></div></a>
+        <a class="ci" href="https://www.google.com/maps/search/?api=1&query=%C3%87elik+Elektronik+Saray+Mahallesi+Su+G%C3%B6z%C3%BC+Caddesi+No%3A3%2FA+Alanya" target="_blank" rel="noopener"><i><svg><use href="#i-pin"/></svg></i><div><small>Adres</small><b>Saray Mah. Su Gözü Cad. No:3/A<br>Alanya / Antalya</b></div></a>
+      </div>
+      <form id="qf" novalidate>
+        <h3>Teklif formu</h3>
+        <p class="sub">Yaklaşık 1 dakika sürer.</p>
+        <div class="fld"><label for="ad">Ad Soyad *</label><input id="ad" required autocomplete="name"></div>
+        <div class="fld"><label for="tel">Telefon *</label><input id="tel" type="tel" required autocomplete="tel" placeholder="05xx xxx xx xx" inputmode="tel"></div>
+        <div class="fld"><label for="isl">İşletme adı</label><input id="isl" autocomplete="organization"></div>
+        <div class="fld"><label for="sek">Sektör</label><select id="sek"><option>Seçiniz</option><option>Market</option><option>Restoran</option><option>Kafe / Bar</option><option>Butik / Mağaza</option><option>Otel</option><option>Eczane</option><option>Diğer</option></select></div>
+        <div class="fld full"><label>İlgilendiğiniz ürünler</label>
+          <div class="chips" id="chips">
+            <label><input type="checkbox" value="Yazar Kasa POS">Yazar Kasa POS</label>
+            <label><input type="checkbox" value="Dokunmatik Bilgisayar">Dokunmatik Bilgisayar</label>
+            <label><input type="checkbox" value="Fiş Yazıcı">Fiş Yazıcı</label>
+            <label><input type="checkbox" value="Barkod Yazıcı">Barkod Yazıcı</label>
+            <label><input type="checkbox" value="Barkod Okuyucu">Barkod Okuyucu</label>
+            <label><input type="checkbox" value="Komple Kasa Kurulumu">Komple Kurulum</label>
+          </div>
+        </div>
+        <div class="fld full"><label for="msj">Mesajınız</label><textarea id="msj" placeholder="Örn. 2 kasalı market için POS ve barkod okuyucu istiyorum."></textarea></div>
+        <div class="btns">
+          <button class="btn btn-wa" type="submit"><svg><use href="#i-wa"/></svg>WhatsApp ile Gönder</button>
+          <button class="btn btn-line" type="button" id="mailbtn"><svg><use href="#i-mail"/></svg>E-posta</button>
+        </div>
+      </form>
+    </div>
+    <div class="map reveal"><iframe title="Çelik Elektronik konum" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Saray%20Mahallesi%20Su%20G%C3%B6z%C3%BC%20Caddesi%20No%3A3%2FA%20Alanya&z=16&output=embed"></iframe></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><span class="flogo"><img src="img/logo.png" alt="Çelik Elektronik"></span><p style="margin:0;max-width:320px">Alanya'da yazar kasa POS, POS bilgisayar, fiş ve barkod çözümleri. Satış, kurulum ve teknik destek.</p></div>
+      <div><h4>Ürünler</h4><ul><li><a href="#urunler">Yazar Kasa POS</a></li><li><a href="#urunler">Dokunmatik Bilgisayar</a></li><li><a href="#urunler">Fiş Yazıcı</a></li><li><a href="#urunler">Barkod Yazıcı</a></li><li><a href="#urunler">Barkod Okuyucu</a></li></ul></div>
+      <div><h4>Kurumsal</h4><ul><li><a href="#hakkimizda">Hakkımızda</a></li><li><a href="#hizmet">Hizmetlerimiz</a></li><li><a href="#galeri">Foto Galeri</a></li><li><a href="#sss">Sık Sorulanlar</a></li><li><a href="#teklif">Teklif Al</a></li></ul></div>
+      <div><h4>İletişim</h4><ul><li><a href="tel:+902425120226">+90 242 512 02 26</a></li><li><a href="https://wa.me/905078641184">+90 507 864 11 84</a></li><li><a href="mailto:info@alanyacelikelektronik.com">info@alanyacelikelektronik.com</a></li><li>Saray Mah. Su Gözü Cad. No:3/A<br>Alanya / Antalya</li></ul></div>
+    </div>
+    <div class="fbot"><span>© <span id="yr">2026</span> Çelik Elektronik. Tüm hakları saklıdır.</span><span>* Stok ve konuma göre değişebilir.</span></div>
+  </div>
+</footer>
+
+<div class="fab"><a class="wa" href="https://wa.me/905078641184?text=Merhaba%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a></div>
+<div class="mbar"><a class="btn btn-line" href="tel:+902425120226"><svg><use href="#i-phone"/></svg>Ara</a><a class="btn btn-wa" href="https://wa.me/905078641184" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></div>
+
+<script>
+(function(){
+  var hdr=document.getElementById('hdr');
+  addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>10)},{passive:true});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(el.parentElement.children.length>2?(Array.prototype.indexOf.call(el.parentElement.children,el)%4)*70:0)+'ms';io.observe(el)});
+
+  // open status (Mon-Sat 09:00-19:00, Europe/Istanbul) — teyit edilecek
+  try{
+    var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Istanbul',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    var g=function(t){return p.find(function(x){return x.type===t}).value};
+    var d=g('weekday'),m=+g('hour')*60+ +g('minute');
+    var open=d!=='Sun'&&m>=540&&m<1140;
+    document.getElementById('status').innerHTML='<span class="dot'+(open?' on':'')+'"></span>'+(open?'Şu an açığız':'Şu an kapalıyız · WhatsApp\'tan yazın');
+  }catch(e){}
+
+  // product filter
+  var tabs=document.querySelectorAll('.tab');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.classList.remove('active')});t.classList.add('active');
+    var f=t.dataset.f;
+    document.querySelectorAll('.pcard').forEach(function(c){c.hidden=!(f==='all'||c.dataset.c===f);c.classList.add('in')});
+  })});
+
+  // preselect product
+  var map={'Profilo S900 ECR':'Yazar Kasa POS','inPOS M530':'Yazar Kasa POS','SP 630 ECR':'Yazar Kasa POS','Dokunmatik POS PC':'Dokunmatik Bilgisayar','Dokunmatik Panel PC':'Dokunmatik Bilgisayar','Termal Fiş Yazıcı':'Fiş Yazıcı','Barkod Yazıcı':'Barkod Yazıcı','Barkod Okuyucu':'Barkod Okuyucu','Komple Kasa Kurulumu':'Komple Kasa Kurulumu'};
+  document.querySelectorAll('[data-p]').forEach(function(a){a.addEventListener('click',function(){
+    var v=map[a.dataset.p];
+    document.querySelectorAll('#chips input').forEach(function(i){if(i.value===v)i.checked=true});
+    var msj=document.getElementById('msj');if(!msj.value)msj.value=a.dataset.p+' için fiyat almak istiyorum.';
+  })});
+
+  // form
+  var f=document.getElementById('qf');
+  function build(){
+    var ad=f.ad.value.trim(),tel=f.tel.value.trim();
+    [f.ad,f.tel].forEach(function(i){i.style.borderColor=i.value.trim()?'':'#e11d2e'});
+    if(!ad||tel.replace(/\D/g,'').length<10){(ad?f.tel:f.ad).focus();return null}
+    var urun=[].map.call(document.querySelectorAll('#chips input:checked'),function(i){return i.value}).join(', ');
+    return 'Merhaba, web sitesinden teklif talebi:\n\nAd Soyad: '+ad+'\nTelefon: '+tel+(f.isl.value?'\nİşletme: '+f.isl.value:'')+(f.sek.selectedIndex?'\nSektör: '+f.sek.value:'')+(urun?'\nÜrünler: '+urun:'')+(f.msj.value.trim()?'\n\nMesaj: '+f.msj.value.trim():'');
+  }
+  f.addEventListener('submit',function(e){e.preventDefault();var t=build();if(t)window.open('https://wa.me/905078641184?text='+encodeURIComponent(t),'_blank')});
+  document.getElementById('mailbtn').addEventListener('click',function(){var t=build();if(t)location.href='mailto:info@alanyacelikelektronik.com?subject='+encodeURIComponent('Teklif Talebi - '+f.ad.value)+'&body='+encodeURIComponent(t)});
+
+  // lightbox
+  document.querySelectorAll('.gal button').forEach(function(b){b.addEventListener('click',function(){
+    var lb=document.createElement('div');lb.className='lb';
+    lb.innerHTML='<img src="'+b.querySelector('img').src+'" alt=""><button aria-label="Kapat">×</button>';
+    lb.addEventListener('click',function(){lb.remove()});
+    document.body.appendChild(lb);
+  })});
+  addEventListener('keydown',function(e){if(e.key==='Escape'){var l=document.querySelector('.lb');l&&l.remove();document.body.classList.remove('menu-open')}});
+})();
+</script>
+</body>
+</html>
