@@ -479,6 +479,14 @@ header,header.hide{transform:none!important;transition:none!important}
 @media (max-width:760px){.hbox.b1{left:-6px}.hbox.b2{right:-6px}.hbox{padding:10px 14px 10px 10px}.hbox b{font-size:13px}.trust{gap:12px;font-size:13px}}
 .hero h1 .ln{overflow:visible!important;padding-bottom:0;margin-bottom:0}
 .hero h1{line-height:1.08}
+.hcard img{position:absolute!important;width:72%!important;max-height:72%;object-fit:contain;opacity:0;transform:translateY(24px) scale(.94);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.hcard img.on{opacity:1;transform:none}
+.hdots{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:8px;z-index:2}
+.hdots button{width:8px;height:8px;border-radius:99px;border:0;padding:0;background:rgba(255,255,255,.35);cursor:pointer;transition:width .4s,background .4s}
+.hdots button.on{width:28px;background:#fff}
+.hbox.b2{left:-30px;right:auto;bottom:16%;min-width:320px}
+.hcaps{display:grid}.hcap{grid-area:1/1;opacity:0;transform:translateY(8px);transition:.5s}.hcap.on{opacity:1;transform:none}
+@media (max-width:760px){.hbox.b2{left:-6px;min-width:0;right:30px}}
 </style>
 </head>
 <body class="loading">
@@ -550,9 +558,8 @@ header,header.hide{transform:none!important;transition:none!important}
       <div class="trust h-in"><span>Yerinde kurulum</span><span>Personel eğitimi</span><span>Satış sonrası destek</span></div>
     </div>
     <div class="hvis">
-      <div class="hcard"><img src="img/cut/pos-profilo.webp" alt="Yeni nesil yazar kasa POS"></div>
-      <div class="hbox b1"><i><svg><use href="#i-card"/></svg></i><div><b>Temassız ödeme</b><small>Kart · Telefon · Saat</small></div></div>
-      <div class="hbox b2"><i><svg><use href="#i-bolt"/></svg></i><div><b>Yerinde kurulum</b><small>Kurulum + eğitim</small></div></div>
+      <div class="hcard" id="hslide"><img class="on" src="img/cut/pos-profilo.webp" alt="Yeni nesil yazar kasa POS"><img class="" src="img/cut/pos-temassiz.webp" alt="Temassız ödeme"><img class="" src="img/cut/pc-1.webp" alt="Dokunmatik POS bilgisayar"><img class="" src="img/cut/fis.webp" alt="Termal fiş yazıcı"><img class="" src="img/cut/barkod-yazici.webp" alt="Barkod yazıcı"><div class="hdots"><button aria-label="Yeni nesil yazar kasa POS" class=on></button><button aria-label="Temassız ödeme"></button><button aria-label="Dokunmatik POS bilgisayar"></button><button aria-label="Termal fiş yazıcı"></button><button aria-label="Barkod yazıcı"></button></div></div>
+      <div class="hbox b2"><i><svg><use href="#i-bolt"/></svg></i><div class="hcaps"><div class="hcap on"><b>Yeni nesil yazar kasa POS</b><small>Satış, fiş ve kartlı ödeme tek cihazda</small></div><div class="hcap"><b>Temassız ödeme</b><small>Kart, telefon ve akıllı saat ile ödeme</small></div><div class="hcap"><b>Dokunmatik POS bilgisayar</b><small>Market, restoran ve mağaza programlarıyla</small></div><div class="hcap"><b>Termal fiş yazıcı</b><small>Adisyon, mutfak ve bilgi fişleri</small></div><div class="hcap"><b>Barkod yazıcı</b><small>Raf etiketi, ürün ve kargo etiketi</small></div></div></div>
     </div>
   </div>
   <div class="scroll-hint"><span></span>Kaydır</div>
@@ -995,6 +1002,12 @@ gsap.fromTo('.fbig',{yPercent:50,opacity:0},{yPercent:0,opacity:1,ease:'none',sc
 
 addEventListener('load',function(){ScrollTrigger.refresh()});
 })();
+</script>
+<script>
+(function(){var h=document.getElementById('hslide');if(!h)return;var im=h.querySelectorAll('img'),dt=h.querySelectorAll('.hdots button'),cp=document.querySelectorAll('.hcap'),k=0,t;
+function go(n){[im,dt,cp].forEach(function(l){l[k].classList.remove('on')});k=n;[im,dt,cp].forEach(function(l){l[k].classList.add('on')})}
+function run(){clearInterval(t);t=setInterval(function(){go((k+1)%im.length)},3500)}
+dt.forEach(function(d,i){d.onclick=function(){go(i);run()}});run()})();
 </script>
 </body>
 </html>
