@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{
   --navy:#003466; --navy2:#00244a; --navy3:#0b4a8a;
@@ -165,19 +166,19 @@ section.blk{padding:110px 0}
 .r{position:relative;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px;cursor:pointer;background:rgba(255,255,255,.05);backdrop-filter:blur(6px);transition:background .3s,border-color .3s,transform .3s}
 .r:hover{background:var(--red);border-color:var(--red);transform:translateY(-3px)}
 
-.mapboard{position:relative;height:460px;border-radius:24px;background:linear-gradient(160deg,var(--navy) 0%,#062b57 100%);overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,36,74,.45)}
-.mapboard::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px);background-size:24px 24px}
-.pin{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;cursor:pointer;padding:6px;z-index:2}
-.pin i{width:13px;height:13px;border-radius:50%;background:#6f89ab;border:2px solid rgba(255,255,255,.5);transition:background .25s,transform .25s,box-shadow .25s;display:block}
-.pin span{font-size:11.5px;font-weight:700;color:#c7d5e8;white-space:nowrap;padding:2px 8px;border-radius:6px;background:rgba(0,26,54,.55);transition:color .25s,background .25s}
-.pin:hover i{transform:scale(1.25)}
-.pin.origin i{background:#fff;border-color:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.18)}
-.pin.origin span{color:#fff;background:var(--red);font-weight:800}
-.pin.dest i{background:var(--red);border-color:#fff;box-shadow:0 0 0 5px rgba(226,10,23,.28)}
-.pin.dest span{color:#fff}
-.pin.dim{opacity:.4}
-.pin.dim i{background:#4a6a8f}
-@media (max-width:520px){.mapboard{height:360px}.pin span{font-size:10px;padding:2px 6px}}
+.mapboard{position:relative;height:460px;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,36,74,.45);background:#dde5ee}
+.mapboard .leaflet-container{width:100%;height:100%;font-family:"Manrope",system-ui,sans-serif;background:#dde5ee}
+.mpin{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer}
+.mpin i{width:13px;height:13px;border-radius:50%;background:#3b6ea5;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,36,74,.35);display:block;transition:background .25s,transform .25s,box-shadow .25s}
+.mpin span{font-size:11.5px;font-weight:700;color:#0f1c2e;white-space:nowrap;padding:2px 8px;border-radius:6px;background:rgba(255,255,255,.92);box-shadow:0 1px 4px rgba(0,36,74,.18);transition:color .25s,background .25s}
+.mpin:hover i{transform:scale(1.25)}
+.mpin.origin i{background:#fff;border-color:var(--navy);box-shadow:0 0 0 6px rgba(0,52,102,.18)}
+.mpin.origin span{color:#fff;background:var(--red);font-weight:800}
+.mpin.dest i{background:var(--red);border-color:#fff;box-shadow:0 0 0 5px rgba(226,10,23,.28)}
+.mpin.dest span{color:#fff;background:var(--navy)}
+.mpin.dim{opacity:.45}
+.mpin.dim i{background:#93a3b8}
+@media (max-width:520px){.mapboard{height:360px}.mpin span{font-size:10px;padding:2px 6px}}
 .r:hover *{color:#fff!important}
 .r .from{font-size:13px;font-weight:700;color:#9fb3cc;text-transform:uppercase;letter-spacing:.06em}
 .r .to{font-size:26px;font-weight:800;color:#fff;letter-spacing:-.02em;margin:2px 0 14px;display:flex;justify-content:space-between;align-items:center}
@@ -520,6 +521,7 @@ footer a:hover{color:#fff}
   <div class="dr-foot"><a class="btn btn-red off" id="goSeats" href="#">Devam etmek için bir sefer seçin</a><p data-i18n="drawer.redirect">Güvenli satış sayfasına yönlendirileceksiniz</p></div>
 </aside>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const CITIES=[["2098", "4 LEVENT"], ["1592", "ADANA"], ["1722", "ADAPAZARI"], ["2080", "ADİL CEVAZ"], ["1655", "Afyon Kolaylı Tesisleri"], ["2194", "AFYON OTOGAR ÖNÜ"], ["1681", "AĞRI"], ["1725", "AHLAT"], ["1726", "AKÇAABAT"], ["2083", "Akçay"], ["1668", "AKHİSAR"], ["1601", "AKSARAY"], ["1995", "ALAÇATI"], ["2152", "ALANYA"], ["1735", "ALİBEYKÖY"], ["2084", "ALTINOLUK"], ["2104", "ALTINOVA"], ["2064", "AMASYA"], ["2143", "ANKARA"], ["2144", "ANTALYA"], ["2076", "AŞKALE"], ["3711", "ATKARACALAR"], ["2191", "AYDIN"], ["1749", "AYVALIK"], ["2190", "AYVALIK AKKUŞLAR TESİS"], ["2168", "BABAESKİ"], ["1750", "BAFRA"], ["2137", "BALÇOVA"], ["2230", "BALIKESİR"], ["2140", "BANAZ"], ["1753", "Bandırma"], ["1652", "BANSKO"], ["1685", "BAYBURT"], ["2097", "Baykan"], ["2150", "BELEK"], ["2040", "BERLIN"], ["1758", "BEŞİKDÜZÜ"], ["2112", "BEŞİKTAŞ YILDIZ CAMİ ÖNÜ"], ["1762", "BİGA"], ["1686", "BİNGÖL"], ["1687", "BİTLİS"], ["2041", "BLAGOEVGRAD"], ["2214", "BODRUM"], ["1688", "BOLU"], ["1645", "BOZÜYÜK"], ["2008", "BUDAPEŞTE(MCRS)"], ["1766", "BULANCAK"], ["2139", "BURDUR"], ["1993", "BURGAZ"], ["2219", "BURSA"], ["1769", "ÇALDIRAN"], ["1996", "ÇANAKKALE OTG. ÖNÜ"], ["1772", "ÇARŞAMBA"], ["1773", "ÇARŞIBAŞI"], ["3710", "ÇERKEŞ"], ["1659", "ÇERKEZKÖY"], ["2127", "CERNİVTSİ"], ["1778", "ÇEŞME"], ["1767", "CEYHAN"], ["3718", "ÇİFTLİKKÖY"], ["1780", "ÇİNE"], ["1627", "ÇORLU"], ["2073", "DARENDE"], ["1784", "DATÇA"], ["3713", "DEĞİRMENDERE"], ["2193", "DENİZLİ"], ["2215", "DİDİM"], ["1788", "DİKİLİ"], ["2085", "DİNAR"], ["2135", "DOBRİÇ"], ["3717", "DOĞANKENT"], ["2002", "DORTMUND"], ["2039", "DRESDEN"], ["2021", "DULOVO"], ["1794", "DÜZCE"], ["2241", "DÜZİÇİ"], ["1670", "EDİRNE"], ["2082", "EDREMİT"], ["2156", "ELAZIĞ"], ["2075", "ELEŞKİRT"], ["1802", "ERDEK"], ["2034", "ERİKLİ"], ["1690", "ERZİNCAN"], ["1692", "ERZURUM"], ["2197", "ESKİŞEHİR"], ["2014", "ESPİYE"], ["2015", "EYNESİL"], ["1805", "EZİNE"], ["1806", "FATSA"], ["1612", "GEBZE"], ["1675", "GELİBOLU OTOGAR"], ["2210", "GEMLİK"], ["1811", "GEREDE"], ["2068", "GEVAŞ"], ["1694", "GİRESUN"], ["1813", "Gölcük"], ["1817", "GÖRELE"], ["1823", "Gümüşhacıköy"], ["1695", "GÜMÜŞHANE"], ["2065", "GÜROYMAK"], ["2162", "GÜRÜN"], ["1696", "HAKKARİ"], ["2092", "Hamur"], ["1973", "HASKOVA"], ["1719", "HAVSA"], ["1998", "HAVZA"], ["3712", "HENDEK"], ["2093", "Hilvan"], ["2070", "HİZAN"], ["2130", "HMELNİTSKİ"], ["1832", "HORASAN"], ["1833", "ILGAZ"], ["3720", "İLKADIM"], ["1835", "İMAMOĞLU"], ["2208", "İNEGÖL"], ["2201", "ISPARTA"], ["2212", "İST (BEYLİKDÜZÜ)"], ["2209", "İST (KAVACIK)"], ["1980", "İST (OTOGAR) İST (HAVALİMANI)"], ["2200", "İST (Y.DUDULLU)"], ["2042", "İZMİR"], ["2005", "İZMİT"], ["2129", "JİTOMİR"], ["1843", "KADİRLİ"], ["1967", "KAPAKLI"], ["1972", "KAPTAN ANDREEVO"], ["2108", "Karacabey"], ["1852", "KARAKOÇAN"], ["2102", "KARAMÜRSEL"], ["1854", "KARASU"], ["2174", "KAVAK"], ["2164", "KAYSERİ"], ["2029", "KEMER"], ["2187", "KEŞAN"], ["1862", "Keşap"], ["2128", "KİEV"], ["1979", "KIRCALİ"], ["2172", "KIRIKKALE"], ["2157", "KIRKLARELİ"], ["2166", "KIRŞEHİR"], ["2079", "KOÇHİSAR"], ["2090", "Köprüköy"], ["2072", "KOVANCILAR"], ["1868", "KOZAN"], ["1869", "KOZLU"], ["2095", "Kozluk"], ["2086", "KÜÇÜKKUYU"], ["3716", "KÜRTÜN"], ["2217", "KUŞADASI"], ["2132", "KÜTAHYA"], ["2189", "LAPSEKİ İSKELE"], ["2179", "LÜLEBURGAZ"], ["2007", "MACARİSTAN"], ["2087", "MAÇKA"], ["2158", "MALATYA"], ["1877", "MALKARA"], ["2151", "MANAVGAT"], ["2182", "MANİSA"], ["1880", "MARMARİS"], ["2160", "MERZİFON"], ["1594", "MİLAS"], ["2165", "MUCUR"], ["2109", "MUDANYA"], ["2196", "MUĞLA"], ["2000", "MUNİH"], ["2069", "MURADİYE"], ["1706", "MUŞ"], ["2192", "NAZİLLİ"], ["2061", "Niksar"], ["2019", "OF"], ["1651", "ÖMÜR PLAZA"], ["2199", "ORDU"], ["1633", "ORHANGAZİ"], ["1888", "OSMANCIK"], ["1581", "OSMANİYE"], ["3715", "ÖZKÜRTÜN"], ["1653", "PAMPOROVO"], ["1892", "PASİNLER"], ["1893", "PATNOS"], ["1975", "PERNİK"], ["2077", "PERŞEMBE"], ["2163", "PINARBAŞI"], ["2013", "PİRAZİZ"], ["1974", "PLOVDİV"], ["2186", "POLATLI"], ["2038", "PRAG"], ["1990", "RAZGRAD"], ["2067", "REFAHİYE"], ["1895", "Reşadiye"], ["1708", "RİZE"], ["1991", "RUSSE"], ["2103", "SABİHA GÖKÇEN HAVALİMANI"], ["1898", "SAKARYA"], ["2195", "SALİHLİ"], ["1997", "SALIPAZARI"], ["2175", "SAMSUN"], ["2047", "SELANİK"], ["2145", "SERİK"], ["2136", "SİLİSTRE"], ["2198", "SİLİVRİ"], ["2126", "SİRET"], ["2178", "SİVAS OTOGAR"], ["2094", "Siverek"], ["2044", "SLİVEN"], ["1976", "SOFYA"], ["1718", "SÖKE"], ["2066", "SOLHAN"], ["2043", "STARA ZAGORA"], ["2223", "Sultanbeyli"], ["2107", "Suluova"], ["1989", "SUMEN"], ["1925", "Suşehri"], ["2185", "SUSURLUK"], ["2012", "TARGOVISHTE"], ["1933", "Taşova"], ["1934", "TATVAN"], ["1937", "TEKİRDAĞ"], ["2006", "TEKKEKÖY"], ["1938", "TERCAN"], ["1939", "TERME"], ["2134", "TERVEL"], ["1941", "TİREBOLU"], ["1944", "Torul"], ["1945", "TOSYA"], ["1712", "TRABZON"], ["2204", "TURGUTLU"], ["2074", "TUTAK"], ["1988", "ÜNYE"], ["2206", "UŞAK"], ["2110", "ÜSKÜP"], ["1799", "UZUNKÖPRÜ"], ["1953", "VAKFIKEBİR"], ["1714", "VAN"], ["1994", "VARNA"], ["2131", "VİNİTSİYA"], ["1999", "VİYANA"], ["3721", "YALIKÖY"], ["1715", "YALOVA"], ["2100", "YALOVA-A"], ["2101", "YALOVA-K"], ["2036", "YATAĞAN"], ["2071", "YAYGIN"], ["2099", "Yeni İst Havalimanı"], ["1716", "YOZGAT"], ["1960", "ZARA"], ["2096", "Ziyaret"]];
 
@@ -833,46 +835,59 @@ function renderRoutes(){
 $('#rlist').onclick=e=>{const r=e.target.closest('.r');if(!r)return;pickFrom(byName(r.dataset.a)[0]);pickTo(byName(r.dataset.b)[0]);$('#bilet').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>$('#searchForm').requestSubmit(),600);};
 
 const CITY_POS={
-  'BURSA':{l:27,t:32,n:'Bursa'},
-  'İST (Y.DUDULLU)':{l:24,t:19,n:'İstanbul'},
-  'EDİRNE':{l:8,t:14,n:'Edirne'},
-  'BALIKESİR':{l:19,t:44,n:'Balıkesir'},
-  'İZMİR':{l:14,t:56,n:'İzmir'},
-  'DENİZLİ':{l:27,t:64,n:'Denizli'},
-  'ANTALYA':{l:33,t:80,n:'Antalya'},
-  'ANKARA':{l:50,t:40,n:'Ankara'},
-  'ESKİŞEHİR':{l:38,t:33,n:'Eskişehir'},
-  'ADAPAZARI':{l:33,t:23,n:'Sakarya'},
-  'KAYSERİ':{l:64,t:48,n:'Kayseri'}
+  'BURSA':{lat:40.1885,lng:29.0610,n:'Bursa'},
+  'İST (Y.DUDULLU)':{lat:41.0082,lng:28.9784,n:'İstanbul'},
+  'EDİRNE':{lat:41.6771,lng:26.5557,n:'Edirne'},
+  'BALIKESİR':{lat:39.6484,lng:27.8826,n:'Balıkesir'},
+  'İZMİR':{lat:38.4237,lng:27.1428,n:'İzmir'},
+  'DENİZLİ':{lat:37.7765,lng:29.0864,n:'Denizli'},
+  'ANTALYA':{lat:36.8969,lng:30.7133,n:'Antalya'},
+  'ANKARA':{lat:39.9334,lng:32.8597,n:'Ankara'},
+  'ESKİŞEHİR':{lat:39.7767,lng:30.5206,n:'Eskişehir'},
+  'ADAPAZARI':{lat:40.7569,lng:30.3781,n:'Sakarya'},
+  'KAYSERİ':{lat:38.7312,lng:35.4787,n:'Kayseri'}
 };
 const GRAPH=[['BURSA','ANKARA'],['BURSA','İZMİR'],['BURSA','İST (Y.DUDULLU)'],['BURSA','ESKİŞEHİR'],['BURSA','BALIKESİR'],['BURSA','EDİRNE'],['BURSA','ANTALYA'],['BURSA','ADAPAZARI'],['BURSA','KAYSERİ'],['BURSA','DENİZLİ'],['ANKARA','KAYSERİ'],['ANKARA','ANTALYA'],['ANKARA','ESKİŞEHİR'],['İZMİR','DENİZLİ'],['İST (Y.DUDULLU)','ADAPAZARI'],['İST (Y.DUDULLU)','EDİRNE']];
-const adj={};Object.keys(CITY_POS).forEach(k=>adj[k]=new Set());
-GRAPH.forEach(([a,b])=>{if(adj[a]&&adj[b]){adj[a].add(b);adj[b].add(a);}});
-let mapOrigin='BURSA';
-function renderMap(){
-  $('#mapboard').innerHTML=Object.keys(CITY_POS).map(k=>{const p=CITY_POS[k];return `<button type="button" class="pin" data-city="${k}" style="left:${p.l}%;top:${p.t}%"><i></i><span>${p.n}</span></button>`;}).join('');
-  paintMap();
+let mapOrigin=null,mapDest=null,mapLine=null;
+let leafMap,mapMarkers={};
+function mapIcon(city,state){
+  const p=CITY_POS[city];
+  const glyph=state==='origin'?'<i class="home">⌂</i>':'<i></i>';
+  return L.divIcon({className:'',html:`<div class="mpin ${state}">${glyph}<span>${p.n}</span></div>`,iconSize:[0,0],iconAnchor:[0,6]});
 }
-function paintMap(){
-  $('#mapboard').querySelectorAll('.pin').forEach(p=>{
-    const c=p.dataset.city;p.classList.remove('origin','dest','dim');
-    if(c===mapOrigin)p.classList.add('origin');
-    else if(adj[mapOrigin]&&adj[mapOrigin].has(c))p.classList.add('dest');
-    else p.classList.add('dim');
+function renderMap(){
+  leafMap=L.map('mapboard',{scrollWheelZoom:false,attributionControl:false}).setView([39.4,32.5],6);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(leafMap);
+  Object.keys(CITY_POS).forEach(k=>{
+    const p=CITY_POS[k];
+    const m=L.marker([p.lat,p.lng],{icon:mapIcon(k,'')}).addTo(leafMap);
+    m.on('click',()=>onCityClick(k));
+    mapMarkers[k]=m;
   });
 }
-$('#mapboard').onclick=e=>{
-  const p=e.target.closest('.pin');if(!p)return;
-  const c=p.dataset.city;
-  if(c===mapOrigin)return;
-  if(adj[mapOrigin]&&adj[mapOrigin].has(c)){
-    pickFrom(byName(mapOrigin)[0]);pickTo(byName(c)[0]);
-    $('#bilet').scrollIntoView({behavior:'smooth',block:'center'});
-    setTimeout(()=>$('#searchForm').requestSubmit(),600);
+function paintMap(){
+  Object.keys(CITY_POS).forEach(c=>{
+    let state='';
+    if(c===mapOrigin)state='origin';
+    else if(c===mapDest)state='dest';
+    mapMarkers[c].setIcon(mapIcon(c,state));
+  });
+}
+function onCityClick(c){
+  if(mapOrigin&&!mapDest&&c!==mapOrigin){
+    mapDest=c;paintMap();
+    const a=CITY_POS[mapOrigin],b=CITY_POS[mapDest];
+    if(mapLine)leafMap.removeLayer(mapLine);
+    mapLine=L.polyline([[a.lat,a.lng],[b.lat,b.lng]],{color:'#e20a17',weight:3,dashArray:'8 8'}).addTo(leafMap);
+    leafMap.fitBounds(mapLine.getBounds(),{padding:[60,60]});
+    pickFrom(byName(mapOrigin)[0]);pickTo(byName(mapDest)[0]);
+    $('#bilet').scrollIntoView({behavior:'smooth',block:'start'});
   }else{
-    mapOrigin=c;paintMap();
+    mapOrigin=c;mapDest=null;
+    if(mapLine){leafMap.removeLayer(mapLine);mapLine=null;}
+    paintMap();
   }
-};
+}
 renderMap();
 
 document.querySelectorAll('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px');}));
