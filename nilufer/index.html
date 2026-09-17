@@ -743,9 +743,10 @@ function genTrips(fromName,toName,dateStr){
   return trips;
 }
 let leg='go',goPick=null,backPick=null;
-function renderTrips(list,legName){
+function renderTrips(list,legName,dateLabel){
   leg=legName||'go';
-  $('#tlHead').textContent=leg==='back'?t('drawer.trips.back'):t('drawer.trips');
+  const head=leg==='back'?t('drawer.trips.back'):t('drawer.trips');
+  $('#tlHead').textContent=dateLabel?`${head} · ${dateLabel}`:head;
   $('#tlCount').textContent=list.length+' sonuç';
   $('#tripList').innerHTML=list.map((x,i)=>`<div class="trip" data-i="${i}"><div class="trip-row"><div class="trip-time"><b>${x.dep}</b></div><div class="trip-line"><span>${x.dur}</span></div><div class="trip-time"><b>${x.arr}</b></div><div class="trip-price"><b>₺${x.price}</b>${x.lowest?'<small>EN UYGUN</small>':''}</div></div><div class="trip-tags"><span>${x.direct?'Doğrudan':'Aktarmalı'}</span><span>Wi-Fi</span><span>İkram</span></div></div>`).join('');
   $('#goSeats').classList.add('off');
@@ -763,7 +764,7 @@ $('#tripList').onclick=e=>{
       backPick=null;
       $('#tlSel').hidden=false;
       $('#tlSel').innerHTML=`<b>${t('drawer.trips')}:</b> ${$('#tDate').textContent} · ${goPick.dep}–${goPick.arr} · ₺${goPick.price}`;
-      renderTrips(genTrips(sel.to[1],sel.from[1],$('#rdate').value),'back');
+      renderTrips(genTrips(sel.to[1],sel.from[1],$('#rdate').value),'back',$('#tReturn').textContent);
       return;
     }
     backPick=null;
@@ -794,7 +795,7 @@ $('#searchForm').addEventListener('submit',e=>{
   $('#goSeats').href=goHref;
   goPick=null;backPick=null;
   $('#tlSel').hidden=true;
-  renderTrips(genTrips(sel.from[1],sel.to[1],$('#date').value),'go');
+  renderTrips(genTrips(sel.from[1],sel.to[1],$('#date').value),'go',$('#tDate').textContent);
   open();
 });
 
