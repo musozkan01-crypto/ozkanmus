@@ -773,7 +773,7 @@ $('#searchForm').addEventListener('submit',e=>{
   open();
 });
 
-const ROUTES=[['BURSA','ANKARA','Ankara','5'],['BURSA','İZMİR','İzmir','5'],['BURSA','İST (Y.DUDULLU)','İstanbul','2,5'],['BURSA','ESKİŞEHİR','Eskişehir','2,5'],['BURSA','BALIKESİR','Balıkesir','2'],['BURSA','EDİRNE','Edirne','5'],['BURSA','ANTALYA','Antalya','8'],['BURSA','ADAPAZARI','Sakarya','2']];
+const ROUTES=[['BURSA','ANKARA','Ankara Otogar','5'],['BURSA','İZMİR','İzmir','5'],['BURSA','İST (Y.DUDULLU)','İstanbul Otogar','2,5'],['BURSA','ESKİŞEHİR','Eskişehir Otogar','2,5'],['BURSA','BALIKESİR','Balıkesir','2'],['BURSA','EDİRNE','Edirne','5'],['BURSA','ANTALYA','Antalya Otogar','8'],['BURSA','ADAPAZARI','Sakarya','2'],['BURSA','KAYSERİ','Kayseri','8'],['BURSA','DENİZLİ','Denizli','6']];
 const byName=n=>CITIES.find(c=>c[1]===n);
 function renderRoutes(){
   $('#rlist').innerHTML=ROUTES.filter(r=>byName(r[0])&&byName(r[1])).map(r=>`<div class="r rv" data-a="${r[0]}" data-b="${r[1]}"><div class="from">${t('routes.from')}</div><div class="to">${r[2]} <i>→</i></div><div class="meta">~${r[3]} ${t('routes.hour')} · ${t('routes.daily')}</div></div>`).join('');
