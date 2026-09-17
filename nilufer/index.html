@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
 <title>Nilüfer Turizm | Şehirlerarası Otobüs Bileti</title>
 <meta name="description" content="Nilüfer Turizm: 2000 yılından beri Bursa merkezli şehirlerarası yolcu taşımacılığı. Online otobüs bileti ve Avrupa seferleri.">
 <link rel="icon" href="img/logo.png">
@@ -172,14 +171,21 @@ section.blk{padding:110px 0}
 .cta .btns{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1}
 .cta .btn-line{color:#fff}
 
-footer{background:var(--navy2);color:#9fb3cc;padding:70px 0 26px;margin-top:110px;font-size:15px}
+footer{background:var(--navy2);color:#9fb3cc;padding:72px 0 28px;margin-top:110px;font-size:15px;position:relative}
+footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),transparent 70%)}
 .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
 .flogo{background:#fff;border-radius:14px;padding:10px 14px;display:inline-block}
 .flogo img{height:40px}
-footer h5{color:#fff;font-size:15px;margin-bottom:14px;font-weight:700}
-footer li{list-style:none;margin:7px 0}
+.fdesc{margin-top:18px;max-width:320px;line-height:1.7;color:#b7c5d9}
+footer h5{color:#fff;font-size:13px;margin-bottom:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+footer h5::after{content:"";display:block;width:26px;height:2px;background:var(--red);margin-top:9px;border-radius:2px}
+footer li{list-style:none;margin:9px 0}
+footer a{transition:color .15s}
 footer a:hover{color:#fff}
-.legal{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:50px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:13px}
+.fcontact li{display:flex;align-items:center;gap:9px}
+.fcontact svg{flex:none;opacity:.75}
+.legal{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:52px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#8398b3}
+.legal span:last-child{color:#b7c5d9}
 
 .rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -410,10 +416,10 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     <div class="fgrid">
-      <div><span class="flogo"><img src="img/logo.png" alt="Nilüfer Turizm"></span><p style="margin-top:16px;max-width:320px" data-i18n="footer.desc">2000 yılından beri Bursa merkezli şehirlerarası yolcu taşımacılığı ve Avrupa seferleri.</p></div>
+      <div><span class="flogo"><img src="img/logo.png" alt="Nilüfer Turizm"></span><p class="fdesc" data-i18n="footer.desc">Kendi filomuzla şehirlerarası ve Avrupa hatlarında güvenilir, konforlu yolcu taşımacılığı hizmeti sunuyoruz.</p></div>
       <div><h5 data-i18n="footer.h1">Online İşlemler</h5><ul><li><a href="#bilet" data-i18n="nav.bilet">Bilet Al</a></li><li><a href="https://www.nilufer.com.tr/pnr-sorgula" data-i18n="topbar.pnr">PNR Sorgula</a></li><li><a href="https://www.nilufer.com.tr/ebilet-sorgula" data-i18n="footer.ebilet">E-Bilet Sorgula</a></li><li><a href="https://www.nilufer.com.tr/yolcumnerede" data-i18n="nav.yolcum">Yolcum Nerede</a></li></ul></div>
       <div><h5 data-i18n="nav.kurumsal">Kurumsal</h5><ul><li><a href="#kurumsal" data-i18n="footer.hakkimizda">Hakkımızda</a></li><li><a href="https://www.nilufer.com.tr/kvkk">KVKK</a></li><li><a href="https://www.nilufer.com.tr/gizlilik-politikasi" data-i18n="footer.gizlilik">Gizlilik Politikası</a></li><li><a href="https://www.nilufer.com.tr/kullanimkosullari" data-i18n="footer.kosullar">Kullanım Koşulları</a></li></ul></div>
-      <div><h5 data-i18n="footer.h3">İletişim</h5><ul><li><a href="tel:08502220099">0850 222 00 99</a></li><li data-i18n="footer.terminal">Bursa Şehirlerarası Otobüs Terminali</li></ul></div>
+      <div><h5 data-i18n="footer.h3">İletişim</h5><ul class="fcontact"><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:08502220099">0850 222 00 99</a></li></ul></div>
     </div>
     <div class="legal"><span>© <span id="yr"></span> <span data-i18n="footer.rights">Nilüfer Turizm. Tüm hakları saklıdır.</span></span><span data-i18n="footer.pay">Visa · Mastercard · Troy ile güvenli ödeme</span></div>
   </div>
@@ -474,9 +480,9 @@ const I18N={
     'about.p2':"Büyüyen Bursa'nın ulaşım ihtiyacına cevap vermek için yola çıkan firmamız; İstanbul, Ankara, İzmir, Eskişehir ve Balıkesir hatlarıyla kısa sürede sektörün güvenilir isimleri arasına girdi. Bugün 80 araçlık kendi filomuzla dört bölgede hizmet veriyoruz.",
     'about.v1':'Güvenli yolculuk','about.v2':'Konforlu araçlar','about.v3':'Ekonomik fiyat','about.v4':'Kaliteli hizmet',
     'cta.h2':'Bir sonraki yolculuğunuzu şimdi planlayın','cta.btn1':'Bilet Al',
-    'footer.desc':'2000 yılından beri Bursa merkezli şehirlerarası yolcu taşımacılığı ve Avrupa seferleri.',
+    'footer.desc':'Kendi filomuzla şehirlerarası ve Avrupa hatlarında güvenilir, konforlu yolcu taşımacılığı hizmeti sunuyoruz.',
     'footer.h1':'Online İşlemler','footer.ebilet':'E-Bilet Sorgula','footer.h3':'İletişim',
-    'footer.hakkimizda':'Hakkımızda','footer.gizlilik':'Gizlilik Politikası','footer.kosullar':'Kullanım Koşulları','footer.terminal':'Bursa Şehirlerarası Otobüs Terminali',
+    'footer.hakkimizda':'Hakkımızda','footer.gizlilik':'Gizlilik Politikası','footer.kosullar':'Kullanım Koşulları',
     'footer.rights':'Nilüfer Turizm. Tüm hakları saklıdır.','footer.pay':'Visa · Mastercard · Troy ile güvenli ödeme',
     'drawer.route':'Güzergâh','drawer.date':'Tarih',
     'drawer.step1':'Güzergâh ve tarih<small>Seçildi</small>','drawer.step2':'Sefer ve koltuk seçimi<small>Canlı koltuk durumu</small>','drawer.step3':'Yolcu bilgileri ve ödeme<small>3D Secure güvenli ödeme</small>',
@@ -511,9 +517,9 @@ const I18N={
     'about.p2':'Set up to meet the growing transport needs of Bursa, we quickly became one of the trusted names in the sector with our İstanbul, Ankara, İzmir, Eskişehir and Balıkesir lines. Today we serve four regions with our own fleet of 80 vehicles.',
     'about.v1':'Safe travel','about.v2':'Comfortable vehicles','about.v3':'Affordable fares','about.v4':'Quality service',
     'cta.h2':'Plan your next trip now','cta.btn1':'Buy Ticket',
-    'footer.desc':'Intercity passenger transport and Europe routes from Bursa since 2000.',
+    'footer.desc':'Reliable, comfortable intercity and Europe travel with our own fleet.',
     'footer.h1':'Online Services','footer.ebilet':'Check E-Ticket','footer.h3':'Contact',
-    'footer.hakkimizda':'About Us','footer.gizlilik':'Privacy Policy','footer.kosullar':'Terms of Use','footer.terminal':'Bursa Intercity Bus Terminal',
+    'footer.hakkimizda':'About Us','footer.gizlilik':'Privacy Policy','footer.kosullar':'Terms of Use',
     'footer.rights':'Nilüfer Turizm. All rights reserved.','footer.pay':'Secure payment with Visa · Mastercard · Troy',
     'drawer.route':'Route','drawer.date':'Date',
     'drawer.step1':'Route and date<small>Selected</small>','drawer.step2':'Trip and seat selection<small>Live seat availability</small>','drawer.step3':'Passenger details and payment<small>Secure 3D Secure payment</small>',
@@ -548,9 +554,9 @@ const I18N={
     'about.p2':'Gegründet, um den wachsenden Transportbedarf von Bursa zu decken, wurden wir mit unseren Linien nach İstanbul, Ankara, İzmir, Eskişehir und Balıkesir rasch zu einem vertrauenswürdigen Namen der Branche. Heute bedienen wir vier Regionen mit unserer eigenen Flotte von 80 Fahrzeugen.',
     'about.v1':'Sichere Reise','about.v2':'Komfortable Fahrzeuge','about.v3':'Günstige Preise','about.v4':'Hohe Servicequalität',
     'cta.h2':'Planen Sie jetzt Ihre nächste Reise','cta.btn1':'Ticket kaufen',
-    'footer.desc':'Seit 2000 Personenfernverkehr und Europastrecken ab Bursa.',
+    'footer.desc':'Zuverlässiger, komfortabler Fernverkehr und Europastrecken mit eigener Flotte.',
     'footer.h1':'Online-Services','footer.ebilet':'E-Ticket-Abfrage','footer.h3':'Kontakt',
-    'footer.hakkimizda':'Über uns','footer.gizlilik':'Datenschutz','footer.kosullar':'Nutzungsbedingungen','footer.terminal':'Bursa Fernbusterminal',
+    'footer.hakkimizda':'Über uns','footer.gizlilik':'Datenschutz','footer.kosullar':'Nutzungsbedingungen',
     'footer.rights':'Nilüfer Turizm. Alle Rechte vorbehalten.','footer.pay':'Sichere Zahlung mit Visa · Mastercard · Troy',
     'drawer.route':'Strecke','drawer.date':'Datum',
     'drawer.step1':'Strecke und Datum<small>Ausgewählt</small>','drawer.step2':'Fahrt- und Sitzplatzwahl<small>Live-Sitzplatzverfügbarkeit</small>','drawer.step3':'Passagierdaten und Zahlung<small>Sichere 3D-Secure-Zahlung</small>',
@@ -585,9 +591,9 @@ const I18N={
     'about.p2':'Създадена, за да отговори на нарастващите транспортни нужди на Бурса, компанията ни бързо се превърна в едно от доверените имена в сектора с линиите си до Истанбул, Анкара, Измир, Ескишехир и Балъкесир. Днес обслужваме четири региона със собствен автопарк от 80 превозни средства.',
     'about.v1':'Безопасно пътуване','about.v2':'Комфортни превозни средства','about.v3':'Достъпни цени','about.v4':'Качествено обслужване',
     'cta.h2':'Планирайте следващото си пътуване сега','cta.btn1':'Купи билет',
-    'footer.desc':'Междуградски пътнически превози и линии до Европа от Бурса от 2000 г.',
+    'footer.desc':'Надежден и комфортен междуградски транспорт и линии до Европа със собствен флот.',
     'footer.h1':'Онлайн услуги','footer.ebilet':'Проверка на е-билет','footer.h3':'Контакти',
-    'footer.hakkimizda':'За нас','footer.gizlilik':'Политика за поверителност','footer.kosullar':'Условия за ползване','footer.terminal':'Автогара Бурса — междуградски линии',
+    'footer.hakkimizda':'За нас','footer.gizlilik':'Политика за поверителност','footer.kosullar':'Условия за ползване',
     'footer.rights':'Nilüfer Turizm. Всички права запазени.','footer.pay':'Сигурно плащане с Visa · Mastercard · Troy',
     'drawer.route':'Направление','drawer.date':'Дата',
     'drawer.step1':'Направление и дата<small>Избрано</small>','drawer.step2':'Избор на курс и място<small>Наличност на живо</small>','drawer.step3':'Данни на пътника и плащане<small>Сигурно 3D Secure плащане</small>',
