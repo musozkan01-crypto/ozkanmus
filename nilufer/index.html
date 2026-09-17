@@ -463,7 +463,7 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <div class="head rv">
       <div><span class="kicker" data-i18n="explore.kicker">Harita</span><h2 data-i18n="explore.h2">Seferlerimizi keşfedin</h2></div>
-      <p data-i18n="explore.p">Haritadan bir şehir seçin; oradan kalkan seferlerin gittiği yerler otomatik olarak işaretlenir.</p>
+      <p data-i18n="explore.p">Haritadan kalkış şehrinizi, ardından gitmek istediğiniz şehri seçin; arama formu otomatik doldurulsun.</p>
     </div>
     <div class="mapboard" id="mapboard"></div>
   </div>
@@ -549,7 +549,7 @@ const I18N={
     'svc.express.label':'Zaman','svc.express.h4':'Ekspres seferler','svc.express.p':'Seçili hatlarda ara durak vermeden doğrudan varış.',
     'svc.food.label':'İkram','svc.food.h4':'Yiyecek &amp; içecek','svc.food.p':'Sefer boyunca host ekibimizden ikram servisi.',
     'svc.eu.label':'Uluslararası','svc.eu.h4':'Avrupa seferleri','svc.eu.p':'Yurt dışı hatlarımızla Avrupa\'ya konforlu ulaşım.',
-    'explore.kicker':'Harita','explore.h2':'Seferlerimizi keşfedin','explore.p':'Haritadan bir şehir seçin; oradan kalkan seferlerin gittiği yerler otomatik olarak işaretlenir.','routes.kicker':'Seferler','routes.h2':'Popüler güzergâhlar','routes.p':'Marmara, Ege, İç Anadolu ve Akdeniz bölgelerinde düzenli seferler. Güzergâha tıklayın, uygun seferleri hemen listeleyelim.',
+    'explore.kicker':'Harita','explore.h2':'Seferlerimizi keşfedin','explore.p':'Haritadan kalkış şehrinizi, ardından gitmek istediğiniz şehri seçin; arama formu otomatik doldurulsun.','routes.kicker':'Seferler','routes.h2':'Popüler güzergâhlar','routes.p':'Marmara, Ege, İç Anadolu ve Akdeniz bölgelerinde düzenli seferler. Güzergâha tıklayın, uygun seferleri hemen listeleyelim.',
     'routes.from':"Bursa'dan",'routes.daily':'Günlük sefer','routes.hour':'saat',
     'about.since':'yılından beri','about.kicker':'Hakkımızda','about.h2':"Adını Bursa'dan, gücünü yolcularından alır",
     'about.p1':"Nilüfer Turizm, Mart 2000'de Hüseyin Kayaplı tarafından, memleketi Bursa'nın Nilüfer ilçesinin adıyla kuruldu.",
@@ -586,7 +586,7 @@ const I18N={
     'svc.express.label':'Time','svc.express.h4':'Express routes','svc.express.p':'Direct arrival without intermediate stops on selected lines.',
     'svc.food.label':'Catering','svc.food.h4':'Food &amp; drinks','svc.food.p':'Onboard refreshment service from our host team.',
     'svc.eu.label':'International','svc.eu.h4':'Europe routes','svc.eu.p':'Comfortable travel to Europe on our international lines.',
-    'explore.kicker':'Map','explore.h2':'Explore our routes','explore.p':'Pick a city on the map; the destinations served from it are highlighted automatically.','routes.kicker':'Routes','routes.h2':'Popular routes','routes.p':'Regular services across the Marmara, Aegean, Central Anatolia and Mediterranean regions. Click a route to see available trips right away.',
+    'explore.kicker':'Map','explore.h2':'Explore our routes','explore.p':'Pick your departure city on the map, then your destination; the search form fills in automatically.','routes.kicker':'Routes','routes.h2':'Popular routes','routes.p':'Regular services across the Marmara, Aegean, Central Anatolia and Mediterranean regions. Click a route to see available trips right away.',
     'routes.from':'From Bursa','routes.daily':'Daily service','routes.hour':'h',
     'about.since':'since','about.kicker':'About Us','about.h2':'Named after Bursa, powered by our passengers',
     'about.p1':'Nilüfer Turizm was founded in March 2000 by Hüseyin Kayaplı, named after his hometown district of Nilüfer in Bursa.',
@@ -623,7 +623,7 @@ const I18N={
     'svc.express.label':'Zeit','svc.express.h4':'Expressverbindungen','svc.express.p':'Direkte Ankunft ohne Zwischenstopps auf ausgewählten Strecken.',
     'svc.food.label':'Bordservice','svc.food.h4':'Essen &amp; Getränke','svc.food.p':'Bordservice unseres Serviceteams während der Fahrt.',
     'svc.eu.label':'International','svc.eu.h4':'Europastrecken','svc.eu.p':'Komfortable Reisen nach Europa auf unseren internationalen Linien.',
-    'explore.kicker':'Karte','explore.h2':'Entdecken Sie unsere Strecken','explore.p':'Wählen Sie eine Stadt auf der Karte; die von dort bedienten Ziele werden automatisch hervorgehoben.','routes.kicker':'Strecken','routes.h2':'Beliebte Strecken','routes.p':'Regelmäßige Verbindungen in die Marmara-, Ägäis-, Zentralanatolien- und Mittelmeerregion. Klicken Sie auf eine Strecke, um passende Fahrten anzuzeigen.',
+    'explore.kicker':'Karte','explore.h2':'Entdecken Sie unsere Strecken','explore.p':'Wählen Sie zuerst Ihre Abfahrtsstadt und dann Ihr Ziel auf der Karte; das Suchformular wird automatisch ausgefüllt.','routes.kicker':'Strecken','routes.h2':'Beliebte Strecken','routes.p':'Regelmäßige Verbindungen in die Marmara-, Ägäis-, Zentralanatolien- und Mittelmeerregion. Klicken Sie auf eine Strecke, um passende Fahrten anzuzeigen.',
     'routes.from':'Ab Bursa','routes.daily':'Tägliche Fahrt','routes.hour':'Std.',
     'about.since':'seit','about.kicker':'Über uns','about.h2':'Benannt nach Bursa, getragen von unseren Fahrgästen',
     'about.p1':'Nilüfer Turizm wurde im März 2000 von Hüseyin Kayaplı gegründet und nach seinem Heimatbezirk Nilüfer in Bursa benannt.',
@@ -660,7 +660,7 @@ const I18N={
     'svc.express.label':'Време','svc.express.h4':'Експресни линии','svc.express.p':'Директно пристигане без междинни спирки по избрани линии.',
     'svc.food.label':'Обслужване','svc.food.h4':'Храна и напитки','svc.food.p':'Обслужване на борда от нашия екип по време на пътуването.',
     'svc.eu.label':'Международни','svc.eu.h4':'Линии до Европа','svc.eu.p':'Комфортно пътуване до Европа по нашите международни линии.',
-    'explore.kicker':'Карта','explore.h2':'Разгледайте нашите линии','explore.p':'Изберете град на картата; дестинациите от него се маркират автоматично.','routes.kicker':'Линии','routes.h2':'Популярни направления','routes.p':'Редовни курсове в региона на Мармара, Егея, Централна Анатолия и Средиземноморието. Кликнете върху направление, за да видите наличните курсове веднага.',
+    'explore.kicker':'Карта','explore.h2':'Разгледайте нашите линии','explore.p':'Изберете от картата града на тръгване, а след това града на пристигане; формата за търсене се попълва автоматично.','routes.kicker':'Линии','routes.h2':'Популярни направления','routes.p':'Редовни курсове в региона на Мармара, Егея, Централна Анатолия и Средиземноморието. Кликнете върху направление, за да видите наличните курсове веднага.',
     'routes.from':'От Бурса','routes.daily':'Ежедневен курс','routes.hour':'ч',
     'about.since':'от','about.kicker':'За нас','about.h2':'Носи името на Бурса, силата — от пътниците си',
     'about.p1':'Nilüfer Turizm е основана през март 2000 г. от Хюсеин Каяплъ, кръстена на родния му район Нилюфер в Бурса.',
