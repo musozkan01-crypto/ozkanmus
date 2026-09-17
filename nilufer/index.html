@@ -219,6 +219,9 @@ footer a:hover{color:#fff}
 .ticket::before,.ticket::after{content:"";position:absolute;width:24px;height:24px;border-radius:50%;background:var(--bg);top:98px}
 .ticket::before{left:-12px}.ticket::after{right:-12px}
 .lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8fa6c2}
+.tk-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.tk-brand img{height:22px;filter:brightness(0) invert(1);opacity:.95}
+.tk-brand .lbl{margin:0;padding-left:10px;border-left:1px solid rgba(255,255,255,.25)}
 .tk-route{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:10px;margin:6px 0 26px}
 .tk-route b{font-size:22px;font-weight:800;color:#fff;line-height:1.15;word-break:break-word}
 .tk-route b:last-child{text-align:right}
@@ -226,7 +229,10 @@ footer a:hover{color:#fff}
 .perf{border-top:2px dashed rgba(255,255,255,.2);margin:0 -24px 16px}
 .tk-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .tk-meta b{display:block;font-size:16px;color:#fff}
-.tl-head{margin-top:22px;display:flex;align-items:baseline;justify-content:space-between}
+.tk-barcode{margin:20px -2px 0;height:34px;border-radius:3px;opacity:.85;background:repeating-linear-gradient(90deg,#fff 0 2px,transparent 2px 4px,#fff 4px 5px,transparent 5px 9px,#fff 9px 12px,transparent 12px 14px)}
+.tl-sel{margin-top:18px;padding:10px 14px;border-radius:12px;background:#eaf1fb;border:1px solid #d4e2f5;font-size:13px;color:var(--navy)}
+.tl-sel b{font-weight:800}
+.tl-head{margin-top:14px;display:flex;align-items:baseline;justify-content:space-between}
 .tl-head b{font-size:15px;font-weight:800;color:var(--ink)}
 .tl-head span{font-size:13px;color:var(--mute);font-weight:600}
 .triplist{margin-top:10px;display:grid;gap:10px}
@@ -475,12 +481,14 @@ footer a:hover{color:#fff}
   <div class="dr-top"><img src="img/logo.png" alt="Nilüfer"><button class="x" id="close" aria-label="Kapat">✕</button></div>
   <div class="dr-body">
     <div class="ticket">
-      <div class="lbl" data-i18n="drawer.route">Güzergâh</div>
+      <div class="tk-brand"><img src="img/logo.png" alt="Nilüfer Turizm"><span class="lbl" data-i18n="drawer.route">Güzergâh</span></div>
       <div class="tk-route"><b id="tFrom">—</b><i>→</i><b id="tTo">—</b></div>
       <div class="perf"></div>
       <div class="tk-meta"><div><span class="lbl" data-i18n="drawer.date">Tarih</span><b id="tDate">—</b></div><div class="tk-return" id="tReturnWrap" hidden><span class="lbl" data-i18n="search.rdate">Dönüş</span><b id="tReturn">—</b></div><div><span class="lbl" data-i18n="search.pax">Yolcu</span><b id="tPax">1</b></div></div>
+      <div class="tk-barcode"></div>
     </div>
-    <div class="tl-head"><b data-i18n="drawer.trips">Uygun seferler</b><span id="tlCount">—</span></div>
+    <div class="tl-sel" id="tlSel" hidden></div>
+    <div class="tl-head"><b id="tlHead" data-i18n="drawer.trips">Uygun seferler</b><span id="tlCount">—</span></div>
     <div class="triplist" id="tripList"></div>
     <div class="secure" data-i18n="drawer.secure">🔒 Kart bilgileriniz saklanmaz; ödeme 3D Secure ile lisanslı ödeme altyapısında alınır.</div>
     <div class="cards"><span>VISA</span><span>Mastercard</span><span>TROY</span></div>
@@ -526,7 +534,7 @@ const I18N={
     'footer.h1':'Online İşlemler','footer.ebilet':'E-Bilet Sorgula','footer.h3':'İletişim',
     'footer.hakkimizda':'Hakkımızda','footer.gizlilik':'Gizlilik Politikası','footer.kosullar':'Kullanım Koşulları',
     'footer.rights':'Nilüfer Turizm. Tüm hakları saklıdır.','footer.pay':'Visa · Mastercard · Troy ile güvenli ödeme',
-    'drawer.trips':'Uygun seferler','drawer.route':'Güzergâh','drawer.date':'Tarih',
+    'drawer.trips':'Gidiş seferleri','drawer.trips.back':'Dönüş seferleri','drawer.pick':'Devam etmek için bir sefer seçin','drawer.continue':'Devam Et','drawer.route':'Güzergâh','drawer.date':'Tarih',
     'drawer.step1':'Güzergâh ve tarih<small>Seçildi</small>','drawer.step2':'Sefer ve koltuk seçimi<small>Canlı koltuk durumu</small>','drawer.step3':'Yolcu bilgileri ve ödeme<small>3D Secure güvenli ödeme</small>',
     'drawer.secure':'🔒 Kart bilgileriniz saklanmaz; ödeme 3D Secure ile lisanslı ödeme altyapısında alınır.',
     'drawer.goseats':'Seferleri ve koltukları gör','drawer.redirect':'Güvenli satış sayfasına yönlendirileceksiniz',
@@ -563,7 +571,7 @@ const I18N={
     'footer.h1':'Online Services','footer.ebilet':'Check E-Ticket','footer.h3':'Contact',
     'footer.hakkimizda':'About Us','footer.gizlilik':'Privacy Policy','footer.kosullar':'Terms of Use',
     'footer.rights':'Nilüfer Turizm. All rights reserved.','footer.pay':'Secure payment with Visa · Mastercard · Troy',
-    'drawer.trips':'Available trips','drawer.route':'Route','drawer.date':'Date',
+    'drawer.trips':'Outbound trips','drawer.trips.back':'Return trips','drawer.pick':'Select a trip to continue','drawer.continue':'Continue','drawer.route':'Route','drawer.date':'Date',
     'drawer.step1':'Route and date<small>Selected</small>','drawer.step2':'Trip and seat selection<small>Live seat availability</small>','drawer.step3':'Passenger details and payment<small>Secure 3D Secure payment</small>',
     'drawer.secure':'🔒 Your card details are never stored; payment is processed via a licensed 3D Secure payment gateway.',
     'drawer.goseats':'View trips and seats','drawer.redirect':'You will be redirected to the secure sales page',
@@ -600,7 +608,7 @@ const I18N={
     'footer.h1':'Online-Services','footer.ebilet':'E-Ticket-Abfrage','footer.h3':'Kontakt',
     'footer.hakkimizda':'Über uns','footer.gizlilik':'Datenschutz','footer.kosullar':'Nutzungsbedingungen',
     'footer.rights':'Nilüfer Turizm. Alle Rechte vorbehalten.','footer.pay':'Sichere Zahlung mit Visa · Mastercard · Troy',
-    'drawer.trips':'Verfügbare Fahrten','drawer.route':'Strecke','drawer.date':'Datum',
+    'drawer.trips':'Hinfahrten','drawer.trips.back':'Rückfahrten','drawer.pick':'Wählen Sie eine Fahrt, um fortzufahren','drawer.continue':'Weiter','drawer.route':'Strecke','drawer.date':'Datum',
     'drawer.step1':'Strecke und Datum<small>Ausgewählt</small>','drawer.step2':'Fahrt- und Sitzplatzwahl<small>Live-Sitzplatzverfügbarkeit</small>','drawer.step3':'Passagierdaten und Zahlung<small>Sichere 3D-Secure-Zahlung</small>',
     'drawer.secure':'🔒 Ihre Kartendaten werden nicht gespeichert; die Zahlung erfolgt über eine lizenzierte 3D-Secure-Zahlungsplattform.',
     'drawer.goseats':'Fahrten und Sitzplätze ansehen','drawer.redirect':'Sie werden zur sicheren Verkaufsseite weitergeleitet',
@@ -637,7 +645,7 @@ const I18N={
     'footer.h1':'Онлайн услуги','footer.ebilet':'Проверка на е-билет','footer.h3':'Контакти',
     'footer.hakkimizda':'За нас','footer.gizlilik':'Политика за поверителност','footer.kosullar':'Условия за ползване',
     'footer.rights':'Nilüfer Turizm. Всички права запазени.','footer.pay':'Сигурно плащане с Visa · Mastercard · Troy',
-    'drawer.trips':'Налични курсове','drawer.route':'Направление','drawer.date':'Дата',
+    'drawer.trips':'Курсове за отиване','drawer.trips.back':'Курсове за връщане','drawer.pick':'Изберете курс, за да продължите','drawer.continue':'Продължи','drawer.route':'Направление','drawer.date':'Дата',
     'drawer.step1':'Направление и дата<small>Избрано</small>','drawer.step2':'Избор на курс и място<small>Наличност на живо</small>','drawer.step3':'Данни на пътника и плащане<small>Сигурно 3D Secure плащане</small>',
     'drawer.secure':'🔒 Данните на картата ви не се съхраняват; плащането се обработва чрез лицензирана 3D Secure платформа.',
     'drawer.goseats':'Виж курсовете и местата','drawer.redirect':'Ще бъдете пренасочени към сигурната страница за продажби',
@@ -734,22 +742,37 @@ function genTrips(fromName,toName,dateStr){
   trips.forEach(x=>x.lowest=x.price===min);
   return trips;
 }
-let selectedTrip=null;
-function renderTrips(list){
-  selectedTrip=null;
+let leg='go',goPick=null,backPick=null;
+function renderTrips(list,legName){
+  leg=legName||'go';
+  $('#tlHead').textContent=leg==='back'?t('drawer.trips.back'):t('drawer.trips');
   $('#tlCount').textContent=list.length+' sonuç';
   $('#tripList').innerHTML=list.map((x,i)=>`<div class="trip" data-i="${i}"><div class="trip-row"><div class="trip-time"><b>${x.dep}</b></div><div class="trip-line"><span>${x.dur}</span></div><div class="trip-time"><b>${x.arr}</b></div><div class="trip-price"><b>₺${x.price}</b>${x.lowest?'<small>EN UYGUN</small>':''}</div></div><div class="trip-tags"><span>${x.direct?'Doğrudan':'Aktarmalı'}</span><span>Wi-Fi</span><span>İkram</span></div></div>`).join('');
   $('#goSeats').classList.add('off');
-  $('#goSeats').textContent='Devam etmek için bir sefer seçin';
+  $('#goSeats').textContent=t('drawer.pick');
   window.__trips=list;
 }
 $('#tripList').onclick=e=>{
   const el=e.target.closest('.trip');if(!el)return;
   [...$('#tripList').children].forEach(c=>c.classList.remove('sel'));
   el.classList.add('sel');
-  selectedTrip=window.__trips[+el.dataset.i];
+  const picked=window.__trips[+el.dataset.i];
+  if(leg==='go'){
+    goPick=picked;
+    if(tripMode==='round'){
+      backPick=null;
+      $('#tlSel').hidden=false;
+      $('#tlSel').innerHTML=`<b>${t('drawer.trips')}:</b> ${$('#tDate').textContent} · ${goPick.dep}–${goPick.arr} · ₺${goPick.price}`;
+      renderTrips(genTrips(sel.to[1],sel.from[1],$('#rdate').value),'back');
+      return;
+    }
+    backPick=null;
+  }else{
+    backPick=picked;
+  }
   $('#goSeats').classList.remove('off');
-  $('#goSeats').textContent=`Devam Et · ₺${selectedTrip.price}`;
+  const total=goPick.price+(backPick?backPick.price:0);
+  $('#goSeats').textContent=`${t('drawer.continue')} · ₺${total}`;
 };
 $('#searchForm').addEventListener('submit',e=>{
   e.preventDefault();
@@ -769,7 +792,9 @@ $('#searchForm').addEventListener('submit',e=>{
     goHref+=`/${sel.to[0]}-${sel.from[0]}/${rd}-${rm}-${ry}`;
   }else{$('#tReturnWrap').hidden=true;}
   $('#goSeats').href=goHref;
-  renderTrips(genTrips(sel.from[1],sel.to[1],$('#date').value));
+  goPick=null;backPick=null;
+  $('#tlSel').hidden=true;
+  renderTrips(genTrips(sel.from[1],sel.to[1],$('#date').value),'go');
   open();
 });
 
