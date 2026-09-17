@@ -40,6 +40,8 @@ h1,h2,h3,h4{color:var(--ink);font-weight:800;letter-spacing:-.025em;line-height:
 .langsw .lmenu button{display:flex;width:100%;align-items:center;gap:10px;padding:10px 14px;border:0;background:none;cursor:pointer;font-size:14px;font-weight:600;color:var(--ink);text-align:left}
 .langsw .lmenu button:hover{background:#eef3fa}
 .langsw .lmenu button.on{color:var(--navy);background:#e8eef6}
+header.site .langsw>button{color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+header.site .langsw>button:hover{color:var(--navy);border-color:var(--navy)}
 header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
 header.site.scrolled{box-shadow:0 8px 24px -16px rgba(0,36,74,.35)}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
@@ -262,17 +264,7 @@ footer a:hover{color:#fff}
 
 <div class="topbar">
   <div class="wrap">
-    <div class="l"><span>📞 <a href="tel:08502220099">0850 222 00 99</a></span><span data-i18n="topbar.call">7/24 Çağrı Merkezi</span>
-      <div class="langsw" id="langsw">
-        <button type="button" id="langBtn">🌐 <span id="langLabel">TR</span></button>
-        <div class="lmenu" id="langMenu">
-          <button type="button" data-lang="tr">🇹🇷 Türkçe</button>
-          <button type="button" data-lang="en">🇬🇧 English</button>
-          <button type="button" data-lang="de">🇩🇪 Deutsch</button>
-          <button type="button" data-lang="bg">🇧🇬 Български</button>
-        </div>
-      </div>
-    </div>
+    <div class="l"><span>📞 <a href="tel:08502220099">0850 222 00 99</a></span><span data-i18n="topbar.call">7/24 Çağrı Merkezi</span></div>
     <div class="l">
       <a href="https://www.nilufer.com.tr/pnr-sorgula" data-i18n="topbar.pnr">PNR Sorgula</a>
       <a href="https://www.nilufer.com.tr/giris" data-i18n="topbar.login">Üye Girişi</a>
@@ -290,6 +282,15 @@ footer a:hover{color:#fff}
       <a href="#kurumsal" data-i18n="nav.kurumsal">Kurumsal</a>
       <a href="https://www.nilufer.com.tr/yolcumnerede" data-i18n="nav.yolcum">Yolcum Nerede</a>
     </nav>
+    <div class="langsw" id="langsw">
+      <button type="button" id="langBtn">🌐 <span id="langLabel">TR</span></button>
+      <div class="lmenu" id="langMenu">
+        <button type="button" data-lang="tr">🇹🇷 Türkçe</button>
+        <button type="button" data-lang="en">🇬🇧 English</button>
+        <button type="button" data-lang="de">🇩🇪 Deutsch</button>
+        <button type="button" data-lang="bg">🇧🇬 Български</button>
+      </div>
+    </div>
     <a href="tel:08502220099" class="btn btn-navy hdr-cta" data-i18n="nav.iletisim">İletişim</a>
     <button class="burger" id="burger" aria-label="Menü">☰</button>
   </div>
