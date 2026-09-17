@@ -857,7 +857,7 @@ function mapIcon(city,state){
 }
 function renderMap(){
   leafMap=L.map('mapboard',{scrollWheelZoom:false,attributionControl:false}).setView([39.4,32.5],6);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(leafMap);
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:18,attribution:'&copy; Esri'}).addTo(leafMap);
   Object.keys(CITY_POS).forEach(k=>{
     const p=CITY_POS[k];
     const m=L.marker([p.lat,p.lng],{icon:mapIcon(k,'')}).addTo(leafMap);
