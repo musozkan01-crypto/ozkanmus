@@ -245,6 +245,8 @@ footer a:hover{color:#fff}
 .tk-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .tk-meta b{display:block;font-size:16px;color:#fff}
 .tk-barcode{margin:20px -2px 0;height:34px;border-radius:3px;opacity:.85;background:repeating-linear-gradient(90deg,#fff 0 2px,transparent 2px 4px,#fff 4px 5px,transparent 5px 9px,#fff 9px 12px,transparent 12px 14px)}
+.tk-sep{display:flex;align-items:center;gap:10px;margin:22px 0 14px;color:rgba(255,255,255,.55);font-size:11px;font-weight:800;letter-spacing:.08em}
+.tk-sep::before,.tk-sep::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.18)}
 .pform{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
 .pform .fld{display:flex;flex-direction:column;gap:6px}
 .pform label{font-size:12px;font-weight:700;color:var(--mute)}
@@ -520,8 +522,13 @@ footer a:hover{color:#fff}
         <div><span class="lbl" data-i18n="drawer.time">Saat</span><b id="tTime">—</b></div>
         <div class="tk-return" id="tReturnWrap" hidden><span class="lbl" data-i18n="search.rdate">Dönüş</span><b id="tReturn">—</b></div>
         <div><span class="lbl" data-i18n="search.pax">Yolcu</span><b id="tPax">1</b></div>
+      </div>
+      <div class="tk-sep"><span data-i18n="drawer.pax.info">YOLCU BİLGİLERİ</span></div>
+      <div class="tk-meta">
         <div><span class="lbl" data-i18n="drawer.passenger">Yolcu Adı Soyadı</span><b id="tName">—</b></div>
         <div><span class="lbl" data-i18n="drawer.tc">TC Kimlik No</span><b id="tTC">—</b></div>
+        <div><span class="lbl" data-i18n="drawer.seat">Koltuk No</span><b id="tSeat">—</b></div>
+        <div><span class="lbl" data-i18n="drawer.ticketno">Bilet No</span><b id="tCode">—</b></div>
       </div>
       <div class="tk-barcode"></div>
     </div>
@@ -577,7 +584,7 @@ const I18N={
     'footer.h1':'Online İşlemler','footer.ebilet':'E-Bilet Sorgula','footer.h3':'İletişim',
     'footer.hakkimizda':'Hakkımızda','footer.gizlilik':'Gizlilik Politikası','footer.kosullar':'Kullanım Koşulları',
     'footer.rights':'Nilüfer Turizm. Tüm hakları saklıdır.','footer.pay':'Visa · Mastercard · Troy ile güvenli ödeme',
-    'drawer.trips':'Gidiş seferleri','drawer.trips.back':'Dönüş seferleri','drawer.pick':'Devam etmek için bir sefer seçin','drawer.continue':'Devam Et','drawer.route':'Güzergâh','drawer.date':'Tarih','drawer.time':'Saat','drawer.passenger':'Yolcu Adı Soyadı','drawer.passenger.ph':'Ad Soyad','drawer.tc':'TC Kimlik No','drawer.tc.ph':'11 haneli TC kimlik no',
+    'drawer.trips':'Gidiş seferleri','drawer.trips.back':'Dönüş seferleri','drawer.pick':'Devam etmek için bir sefer seçin','drawer.continue':'Devam Et','drawer.route':'Güzergâh','drawer.date':'Tarih','drawer.time':'Saat','drawer.passenger':'Yolcu Adı Soyadı','drawer.passenger.ph':'Ad Soyad','drawer.tc':'TC Kimlik No','drawer.tc.ph':'11 haneli TC kimlik no','drawer.pax.info':'YOLCU BİLGİLERİ','drawer.seat':'Koltuk No','drawer.ticketno':'Bilet No',
     'drawer.step1':'Güzergâh ve tarih<small>Seçildi</small>','drawer.step2':'Sefer ve koltuk seçimi<small>Canlı koltuk durumu</small>','drawer.step3':'Yolcu bilgileri ve ödeme<small>3D Secure güvenli ödeme</small>',
     'drawer.secure':'🔒 Kart bilgileriniz saklanmaz; ödeme 3D Secure ile lisanslı ödeme altyapısında alınır.',
     'drawer.goseats':'Seferleri ve koltukları gör','drawer.redirect':'Güvenli satış sayfasına yönlendirileceksiniz',
@@ -614,7 +621,7 @@ const I18N={
     'footer.h1':'Online Services','footer.ebilet':'Check E-Ticket','footer.h3':'Contact',
     'footer.hakkimizda':'About Us','footer.gizlilik':'Privacy Policy','footer.kosullar':'Terms of Use',
     'footer.rights':'Nilüfer Turizm. All rights reserved.','footer.pay':'Secure payment with Visa · Mastercard · Troy',
-    'drawer.trips':'Outbound trips','drawer.trips.back':'Return trips','drawer.pick':'Select a trip to continue','drawer.continue':'Continue','drawer.route':'Route','drawer.date':'Date','drawer.time':'Time','drawer.passenger':'Passenger Name','drawer.passenger.ph':'Full name','drawer.tc':'ID Number','drawer.tc.ph':'11-digit Turkish ID number',
+    'drawer.trips':'Outbound trips','drawer.trips.back':'Return trips','drawer.pick':'Select a trip to continue','drawer.continue':'Continue','drawer.route':'Route','drawer.date':'Date','drawer.time':'Time','drawer.passenger':'Passenger Name','drawer.passenger.ph':'Full name','drawer.tc':'ID Number','drawer.tc.ph':'11-digit Turkish ID number','drawer.pax.info':'PASSENGER DETAILS','drawer.seat':'Seat No','drawer.ticketno':'Ticket No',
     'drawer.step1':'Route and date<small>Selected</small>','drawer.step2':'Trip and seat selection<small>Live seat availability</small>','drawer.step3':'Passenger details and payment<small>Secure 3D Secure payment</small>',
     'drawer.secure':'🔒 Your card details are never stored; payment is processed via a licensed 3D Secure payment gateway.',
     'drawer.goseats':'View trips and seats','drawer.redirect':'You will be redirected to the secure sales page',
@@ -651,7 +658,7 @@ const I18N={
     'footer.h1':'Online-Services','footer.ebilet':'E-Ticket-Abfrage','footer.h3':'Kontakt',
     'footer.hakkimizda':'Über uns','footer.gizlilik':'Datenschutz','footer.kosullar':'Nutzungsbedingungen',
     'footer.rights':'Nilüfer Turizm. Alle Rechte vorbehalten.','footer.pay':'Sichere Zahlung mit Visa · Mastercard · Troy',
-    'drawer.trips':'Hinfahrten','drawer.trips.back':'Rückfahrten','drawer.pick':'Wählen Sie eine Fahrt, um fortzufahren','drawer.continue':'Weiter','drawer.route':'Strecke','drawer.date':'Datum','drawer.time':'Uhrzeit','drawer.passenger':'Name des Fahrgasts','drawer.passenger.ph':'Vor- und Nachname','drawer.tc':'Ausweisnummer','drawer.tc.ph':'11-stellige türkische Ausweisnummer',
+    'drawer.trips':'Hinfahrten','drawer.trips.back':'Rückfahrten','drawer.pick':'Wählen Sie eine Fahrt, um fortzufahren','drawer.continue':'Weiter','drawer.route':'Strecke','drawer.date':'Datum','drawer.time':'Uhrzeit','drawer.passenger':'Name des Fahrgasts','drawer.passenger.ph':'Vor- und Nachname','drawer.tc':'Ausweisnummer','drawer.tc.ph':'11-stellige türkische Ausweisnummer','drawer.pax.info':'FAHRGASTDATEN','drawer.seat':'Sitzplatz','drawer.ticketno':'Ticketnummer',
     'drawer.step1':'Strecke und Datum<small>Ausgewählt</small>','drawer.step2':'Fahrt- und Sitzplatzwahl<small>Live-Sitzplatzverfügbarkeit</small>','drawer.step3':'Passagierdaten und Zahlung<small>Sichere 3D-Secure-Zahlung</small>',
     'drawer.secure':'🔒 Ihre Kartendaten werden nicht gespeichert; die Zahlung erfolgt über eine lizenzierte 3D-Secure-Zahlungsplattform.',
     'drawer.goseats':'Fahrten und Sitzplätze ansehen','drawer.redirect':'Sie werden zur sicheren Verkaufsseite weitergeleitet',
@@ -688,7 +695,7 @@ const I18N={
     'footer.h1':'Онлайн услуги','footer.ebilet':'Проверка на е-билет','footer.h3':'Контакти',
     'footer.hakkimizda':'За нас','footer.gizlilik':'Политика за поверителност','footer.kosullar':'Условия за ползване',
     'footer.rights':'Nilüfer Turizm. Всички права запазени.','footer.pay':'Сигурно плащане с Visa · Mastercard · Troy',
-    'drawer.trips':'Курсове за отиване','drawer.trips.back':'Курсове за връщане','drawer.pick':'Изберете курс, за да продължите','drawer.continue':'Продължи','drawer.route':'Направление','drawer.date':'Дата','drawer.time':'Час','drawer.passenger':'Име и фамилия на пътника','drawer.passenger.ph':'Име и фамилия','drawer.tc':'Турски ЕГН/лична карта','drawer.tc.ph':'11-цифрен турски идент. номер',
+    'drawer.trips':'Курсове за отиване','drawer.trips.back':'Курсове за връщане','drawer.pick':'Изберете курс, за да продължите','drawer.continue':'Продължи','drawer.route':'Направление','drawer.date':'Дата','drawer.time':'Час','drawer.passenger':'Име и фамилия на пътника','drawer.passenger.ph':'Име и фамилия','drawer.tc':'Турски ЕГН/лична карта','drawer.tc.ph':'11-цифрен турски идент. номер','drawer.pax.info':'ДАННИ ЗА ПЪТНИКА','drawer.seat':'Място №','drawer.ticketno':'Билет №',
     'drawer.step1':'Направление и дата<small>Избрано</small>','drawer.step2':'Избор на курс и място<small>Наличност на живо</small>','drawer.step3':'Данни на пътника и плащане<small>Сигурно 3D Secure плащане</small>',
     'drawer.secure':'🔒 Данните на картата ви не се съхраняват; плащането се обработва чрез лицензирана 3D Secure платформа.',
     'drawer.goseats':'Виж курсовете и местата','drawer.redirect':'Ще бъдете пренасочени към сигурната страница за продажби',
@@ -806,6 +813,10 @@ $('#tripList').onclick=e=>{
   if(leg==='go'){
     goPick=picked;
     $('#tTime').textContent=`${goPick.dep}–${goPick.arr}`;
+    const sr=seedRand(sel.from[1]+sel.to[1]+$('#date').value+goPick.dep);
+    const seatRow=1+Math.floor(sr()*40),seatCol='ABCD'[Math.floor(sr()*4)];
+    $('#tSeat').textContent=`${seatRow}${seatCol}`;
+    $('#tCode').textContent=`NLF${Math.floor(sr()*900000+100000)}`;
     if(tripMode==='round'){
       backPick=null;
       $('#tlSel').hidden=false;
@@ -840,7 +851,7 @@ $('#searchForm').addEventListener('submit',e=>{
   }else{$('#tReturnWrap').hidden=true;}
   $('#goSeats').href=goHref;
   goPick=null;backPick=null;
-  $('#tTime').textContent='—';
+  $('#tTime').textContent='—';$('#tSeat').textContent='—';$('#tCode').textContent='—';
   $('#tlSel').hidden=true;
   renderTrips(genTrips(sel.from[1],sel.to[1],$('#date').value),'go',$('#tDate').textContent);
   open();
