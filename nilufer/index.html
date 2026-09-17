@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <title>Nilüfer Turizm | Şehirlerarası Otobüs Bileti</title>
 <meta name="description" content="Nilüfer Turizm: 2000 yılından beri Bursa merkezli şehirlerarası yolcu taşımacılığı. Online otobüs bileti ve Avrupa seferleri.">
 <link rel="icon" href="img/logo.png">
@@ -31,7 +32,15 @@ h1,h2,h3,h4{color:var(--ink);font-weight:800;letter-spacing:-.025em;line-height:
 .topbar{background:var(--navy2);color:#c9d6e6;font-size:13px}
 .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;gap:16px}
 .topbar a:hover{color:#fff}
-.topbar .l{display:flex;gap:22px}
+.topbar .l{display:flex;gap:22px;align-items:center}
+.langsw{position:relative}
+.langsw>button{display:flex;align-items:center;gap:6px;background:none;border:0;color:#c9d6e6;cursor:pointer;font-size:13px;font-weight:600;padding:4px 2px}
+.langsw>button:hover{color:#fff}
+.langsw .lmenu{display:none;position:absolute;top:calc(100% + 8px);right:0;background:#fff;border-radius:12px;box-shadow:0 20px 40px -12px rgba(0,36,74,.35);overflow:hidden;min-width:150px;z-index:60}
+.langsw.open .lmenu{display:block}
+.langsw .lmenu button{display:flex;width:100%;align-items:center;gap:10px;padding:10px 14px;border:0;background:none;cursor:pointer;font-size:14px;font-weight:600;color:var(--ink);text-align:left}
+.langsw .lmenu button:hover{background:#eef3fa}
+.langsw .lmenu button.on{color:var(--navy);background:#e8eef6}
 header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
 header.site.scrolled{box-shadow:0 8px 24px -16px rgba(0,36,74,.35)}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
@@ -247,8 +256,20 @@ footer a:hover{color:#fff}
 
 <div class="topbar">
   <div class="wrap">
-    <div class="l"><span>📞 <a href="tel:08502220099">0850 222 00 99</a></span><span>7/24 Çağrı Merkezi</span></div>
-    <div class="l"><a href="https://www.nilufer.com.tr/pnr-sorgula">PNR Sorgula</a><a href="https://www.nilufer.com.tr/giris">Üye Girişi</a></div>
+    <div class="l"><span>📞 <a href="tel:08502220099">0850 222 00 99</a></span><span data-i18n="topbar.call">7/24 Çağrı Merkezi</span></div>
+    <div class="l">
+      <a href="https://www.nilufer.com.tr/pnr-sorgula" data-i18n="topbar.pnr">PNR Sorgula</a>
+      <a href="https://www.nilufer.com.tr/giris" data-i18n="topbar.login">Üye Girişi</a>
+      <div class="langsw" id="langsw">
+        <button type="button" id="langBtn">🌐 <span id="langLabel">TR</span></button>
+        <div class="lmenu" id="langMenu">
+          <button type="button" data-lang="tr">🇹🇷 Türkçe</button>
+          <button type="button" data-lang="en">🇬🇧 English</button>
+          <button type="button" data-lang="de">🇩🇪 Deutsch</button>
+          <button type="button" data-lang="bg">🇧🇬 Български</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -256,13 +277,13 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <a href="#" class="logo"><img src="img/logo.png" alt="Nilüfer Turizm"></a>
     <nav class="menu" id="menu">
-      <a href="#bilet">Bilet Al</a>
-      <a href="#hizmetler">Hizmetler</a>
-      <a href="#hatlar">Seferler</a>
-      <a href="#kurumsal">Kurumsal</a>
-      <a href="https://www.nilufer.com.tr/yolcumnerede">Yolcum Nerede</a>
+      <a href="#bilet" data-i18n="nav.bilet">Bilet Al</a>
+      <a href="#hizmetler" data-i18n="nav.hizmetler">Hizmetler</a>
+      <a href="#hatlar" data-i18n="nav.seferler">Seferler</a>
+      <a href="#kurumsal" data-i18n="nav.kurumsal">Kurumsal</a>
+      <a href="https://www.nilufer.com.tr/yolcumnerede" data-i18n="nav.yolcum">Yolcum Nerede</a>
     </nav>
-    <a href="tel:08502220099" class="btn btn-navy hdr-cta">İletişim</a>
+    <a href="tel:08502220099" class="btn btn-navy hdr-cta" data-i18n="nav.iletisim">İletişim</a>
     <button class="burger" id="burger" aria-label="Menü">☰</button>
   </div>
 </header>
@@ -275,81 +296,81 @@ footer a:hover{color:#fff}
     <img src="img/hero4.jpg" alt="Nilüfer Turizm otobüsü">
   </div>
   <div class="wrap">
-    <span class="kicker reveal-up">2000'den beri güvenle yolda</span>
-    <h1 class="reveal-up" style="animation-delay:.1s">Bursa'dan Türkiye'nin <span>dört bir yanına.</span></h1>
-    <p class="reveal-up" style="animation-delay:.2s">Kendi filomuz, deneyimli kaptanlarımız ve 452 durak noktasıyla her gün güvenli, konforlu ve ekonomik yolculuk.</p>
-    <div class="hero-badges reveal-up" style="animation-delay:.3s"><span>80 Mercedes-Benz Travego</span><span>Ücretsiz Wi-Fi</span><span>İkram servisi</span></div>
+    <span class="kicker reveal-up" data-i18n="hero.kicker">2000'den beri güvenle yolda</span>
+    <h1 class="reveal-up" style="animation-delay:.1s" data-i18n="hero.h1">Bursa'dan Türkiye'nin <span>dört bir yanına.</span></h1>
+    <p class="reveal-up" style="animation-delay:.2s" data-i18n="hero.p">Kendi filomuz, deneyimli kaptanlarımız ve 452 durak noktasıyla her gün güvenli, konforlu ve ekonomik yolculuk.</p>
+    <div class="hero-badges reveal-up" style="animation-delay:.3s"><span data-i18n="hero.badge1">80 Mercedes-Benz Travego</span><span data-i18n="hero.badge2">Ücretsiz Wi-Fi</span><span data-i18n="hero.badge3">İkram servisi</span></div>
   </div>
 </section>
 
 <div class="wrap searchwrap" id="bilet">
   <form class="search reveal-up" id="searchForm" style="animation-delay:.35s" autocomplete="off">
     <div class="search-top">
-      <h3>Otobüs bileti ara</h3>
-      <div class="tabs" id="tripTabs"><button type="button" class="on" data-trip="one">Tek Yön</button><button type="button" data-trip="round">Gidiş - Dönüş</button></div>
+      <h3 data-i18n="search.h3">Otobüs bileti ara</h3>
+      <div class="tabs" id="tripTabs"><button type="button" class="on" data-trip="one" data-i18n="search.oneway">Tek Yön</button><button type="button" data-trip="round" data-i18n="search.roundtrip">Gidiş - Dönüş</button></div>
     </div>
     <div class="sgrid" id="sgrid">
-      <div class="field"><label for="from">Nereden</label><input id="from" placeholder="Kalkış noktası"><div class="sugg" id="sfrom"></div></div>
+      <div class="field"><label for="from" data-i18n="search.from">Nereden</label><input id="from" placeholder="Kalkış noktası" data-i18n-ph="search.from.ph"><div class="sugg" id="sfrom"></div></div>
       <button type="button" class="swap" id="swap" aria-label="Yer değiştir">⇄</button>
-      <div class="field"><label for="to">Nereye</label><input id="to" placeholder="Varış noktası"><div class="sugg" id="sto"></div></div>
-      <div class="field f-date"><label for="date">Gidiş tarihi</label><input type="date" id="date"></div>
-      <div class="field f-date f-return" id="returnWrap" hidden><label for="rdate">Dönüş tarihi</label><input type="date" id="rdate"></div>
-      <div class="field f-pax"><label for="pax">Yolcu</label><input id="pax" type="number" min="1" max="4" value="1"></div>
-      <button class="btn btn-red go" type="submit">Sefer Bul</button>
+      <div class="field"><label for="to" data-i18n="search.to">Nereye</label><input id="to" placeholder="Varış noktası" data-i18n-ph="search.to.ph"><div class="sugg" id="sto"></div></div>
+      <div class="field f-date"><label for="date" data-i18n="search.date">Gidiş tarihi</label><input type="date" id="date"></div>
+      <div class="field f-date f-return" id="returnWrap" hidden><label for="rdate" data-i18n="search.rdate">Dönüş tarihi</label><input type="date" id="rdate"></div>
+      <div class="field f-pax"><label for="pax" data-i18n="search.pax">Yolcu</label><input id="pax" type="number" min="1" max="4" value="1"></div>
+      <button class="btn btn-red go" type="submit" data-i18n="search.go">Sefer Bul</button>
     </div>
     <div class="sfoot">
-      <div class="quick" id="quick"><button type="button" data-d="0" class="on">Bugün</button><button type="button" data-d="1">Yarın</button><button type="button" data-d="w">Hafta sonu</button></div>
+      <div class="quick" id="quick"><button type="button" data-d="0" class="on" data-i18n="search.today">Bugün</button><button type="button" data-d="1" data-i18n="search.tomorrow">Yarın</button><button type="button" data-d="w" data-i18n="search.weekend">Hafta sonu</button></div>
       <div class="err" id="err"></div>
-      <div class="trust"><span>🔒 3D Secure ödeme</span><span>✓ Kolay iade</span><span>✓ Anında e-bilet</span></div>
+      <div class="trust"><span data-i18n="search.trust1">🔒 3D Secure ödeme</span><span data-i18n="search.trust2">✓ Kolay iade</span><span data-i18n="search.trust3">✓ Anında e-bilet</span></div>
     </div>
   </form>
 
   <div class="stats rv">
-    <div><b data-count="26">0</b><small>yıllık tecrübe</small></div>
-    <div><b data-count="80">0</b><small>otobüslük filo</small></div>
-    <div><b data-count="452">0</b><small>durak noktası</small></div>
-    <div><b data-count="4">0</b><small>bölgede hizmet</small></div>
+    <div><b data-count="26">0</b><small data-i18n="stats.years">yıllık tecrübe</small></div>
+    <div><b data-count="80">0</b><small data-i18n="stats.fleet">otobüslük filo</small></div>
+    <div><b data-count="452">0</b><small data-i18n="stats.stops">durak noktası</small></div>
+    <div><b data-count="4">0</b><small data-i18n="stats.regions">bölgede hizmet</small></div>
   </div>
 </div>
 
 <section class="blk" id="hizmetler">
   <div class="wrap">
     <div class="head rv">
-      <div><span class="kicker">Hizmetlerimiz</span><h2>Yolculuğun her anında yanınızdayız</h2></div>
-      <p>Filomuzun tamamı firmamıza aittir. Araç bakımından kaptan eğitimine, ikramdan müşteri hizmetlerine kadar her şey tek elden yönetilir.</p>
+      <div><span class="kicker" data-i18n="services.kicker">Hizmetlerimiz</span><h2 data-i18n="services.h2">Yolculuğun her anında yanınızdayız</h2></div>
+      <p data-i18n="services.p">Filomuzun tamamı firmamıza aittir. Araç bakımından kaptan eğitimine, ikramdan müşteri hizmetlerine kadar her şey tek elden yönetilir.</p>
     </div>
 
     <div class="bento">
       <article class="card c-fleet rv">
         <div class="ph"><img src="img/otobus.jpg" alt="Nilüfer Turizm Travego"></div>
         <div class="tx">
-          <div><span class="label">Filomuz</span><h4>Mercedes-Benz Travego</h4><p>Tamamı firmamıza ait, düzenli bakımlı araçlar.</p></div>
-          <div class="num">80<small>otobüs</small></div>
+          <div><span class="label" data-i18n="svc.fleet.label">Filomuz</span><h4 data-i18n="svc.fleet.h4">Mercedes-Benz Travego</h4><p data-i18n="svc.fleet.p">Tamamı firmamıza ait, düzenli bakımlı araçlar.</p></div>
+          <div class="num">80<small data-i18n="svc.fleet.num">otobüs</small></div>
         </div>
       </article>
 
       <article class="card c-track rv">
-        <span class="label">Canlı takip</span>
-        <h4>Yolcum Nerede?</h4>
-        <p>Yakınlarınızın otobüsünün konumunu anlık olarak takip edin, karşılamaya tam zamanında gidin.</p>
-        <a href="https://www.nilufer.com.tr/yolcumnerede" class="btn">Otobüsü takip et →</a>
+        <span class="label" data-i18n="svc.track.label">Canlı takip</span>
+        <h4 data-i18n="svc.track.h4">Yolcum Nerede?</h4>
+        <p data-i18n="svc.track.p">Yakınlarınızın otobüsünün konumunu anlık olarak takip edin, karşılamaya tam zamanında gidin.</p>
+        <a href="https://www.nilufer.com.tr/yolcumnerede" class="btn" data-i18n="svc.track.link">Otobüsü takip et →</a>
       </article>
 
       <article class="card c-call rv">
-        <span class="label">Müşteri hizmetleri</span>
-        <h4>7/24 Çağrı Merkezi</h4>
-        <p>Rezervasyon, bilet değişikliği ve iade işlemleriniz için her saat ulaşabilirsiniz.</p>
+        <span class="label" data-i18n="svc.call.label">Müşteri hizmetleri</span>
+        <h4 data-i18n="svc.call.h4">7/24 Çağrı Merkezi</h4>
+        <p data-i18n="svc.call.p">Rezervasyon, bilet değişikliği ve iade işlemleriniz için her saat ulaşabilirsiniz.</p>
         <a href="tel:08502220099" class="tel">0850 222 00 99</a>
       </article>
 
-      <article class="card c-wifi rv"><span class="label">Konfor</span><h4>Ücretsiz internet</h4><p>Yolculuk boyunca sınırsız Wi-Fi ile bağlantınız kopmaz.</p></article>
-      <article class="card c-express rv"><span class="label">Zaman</span><h4>Ekspres seferler</h4><p>Seçili hatlarda ara durak vermeden doğrudan varış.</p></article>
-      <article class="card c-food rv"><span class="label">İkram</span><h4>Yiyecek &amp; içecek</h4><p>Sefer boyunca host ekibimizden ikram servisi.</p></article>
+      <article class="card c-wifi rv"><span class="label" data-i18n="svc.wifi.label">Konfor</span><h4 data-i18n="svc.wifi.h4">Ücretsiz internet</h4><p data-i18n="svc.wifi.p">Yolculuk boyunca sınırsız Wi-Fi ile bağlantınız kopmaz.</p></article>
+      <article class="card c-express rv"><span class="label" data-i18n="svc.express.label">Zaman</span><h4 data-i18n="svc.express.h4">Ekspres seferler</h4><p data-i18n="svc.express.p">Seçili hatlarda ara durak vermeden doğrudan varış.</p></article>
+      <article class="card c-food rv"><span class="label" data-i18n="svc.food.label">İkram</span><h4 data-i18n="svc.food.h4">Yiyecek &amp; içecek</h4><p data-i18n="svc.food.p">Sefer boyunca host ekibimizden ikram servisi.</p></article>
 
       <article class="card c-eu c-eu-wide rv">
-        <span class="label">Uluslararası</span>
-        <h4>Avrupa seferleri</h4>
-        <p>Yurt dışı hatlarımızla Avrupa'ya konforlu ulaşım.</p>
+        <span class="label" data-i18n="svc.eu.label">Uluslararası</span>
+        <h4 data-i18n="svc.eu.h4">Avrupa seferleri</h4>
+        <p data-i18n="svc.eu.p">Yurt dışı hatlarımızla Avrupa'ya konforlu ulaşım.</p>
         <div class="chips"><b>Sofya</b><b>Budapeşte</b><b>Viyana</b><b>Prag</b><b>Berlin</b><b>Kiev</b></div>
       </article>
     </div>
@@ -359,8 +380,8 @@ footer a:hover{color:#fff}
 <section class="blk routes" id="hatlar">
   <div class="wrap">
     <div class="head rv">
-      <div><span class="kicker">Seferler</span><h2>Popüler güzergâhlar</h2></div>
-      <p>Marmara, Ege, İç Anadolu ve Akdeniz bölgelerinde düzenli seferler. Güzergâha tıklayın, uygun seferleri hemen listeleyelim.</p>
+      <div><span class="kicker" data-i18n="routes.kicker">Seferler</span><h2 data-i18n="routes.h2">Popüler güzergâhlar</h2></div>
+      <p data-i18n="routes.p">Marmara, Ege, İç Anadolu ve Akdeniz bölgelerinde düzenli seferler. Güzergâha tıklayın, uygun seferleri hemen listeleyelim.</p>
     </div>
     <div class="rgrid" id="rlist"></div>
   </div>
@@ -368,33 +389,33 @@ footer a:hover{color:#fff}
 
 <section class="blk" id="kurumsal">
   <div class="wrap about">
-    <div class="ph rv"><img src="img/otobus.jpg" alt="Nilüfer Turizm"><div class="since"><b>2000</b><small>yılından beri</small></div></div>
+    <div class="ph rv"><img src="img/otobus.jpg" alt="Nilüfer Turizm"><div class="since"><b>2000</b><small data-i18n="about.since">yılından beri</small></div></div>
     <div class="rv">
-      <span class="kicker">Hakkımızda</span>
-      <h2>Adını Bursa'dan, gücünü yolcularından alır</h2>
-      <p>Nilüfer Turizm, Mart 2000'de Hüseyin Kayaplı tarafından, memleketi Bursa'nın Nilüfer ilçesinin adıyla kuruldu.</p>
-      <p>Büyüyen Bursa'nın ulaşım ihtiyacına cevap vermek için yola çıkan firmamız; İstanbul, Ankara, İzmir, Eskişehir ve Balıkesir hatlarıyla kısa sürede sektörün güvenilir isimleri arasına girdi. Bugün 80 araçlık kendi filomuzla dört bölgede hizmet veriyoruz.</p>
-      <div class="values"><div>Güvenli yolculuk</div><div>Konforlu araçlar</div><div>Ekonomik fiyat</div><div>Kaliteli hizmet</div></div>
+      <span class="kicker" data-i18n="about.kicker">Hakkımızda</span>
+      <h2 data-i18n="about.h2">Adını Bursa'dan, gücünü yolcularından alır</h2>
+      <p data-i18n="about.p1">Nilüfer Turizm, Mart 2000'de Hüseyin Kayaplı tarafından, memleketi Bursa'nın Nilüfer ilçesinin adıyla kuruldu.</p>
+      <p data-i18n="about.p2">Büyüyen Bursa'nın ulaşım ihtiyacına cevap vermek için yola çıkan firmamız; İstanbul, Ankara, İzmir, Eskişehir ve Balıkesir hatlarıyla kısa sürede sektörün güvenilir isimleri arasına girdi. Bugün 80 araçlık kendi filomuzla dört bölgede hizmet veriyoruz.</p>
+      <div class="values"><div data-i18n="about.v1">Güvenli yolculuk</div><div data-i18n="about.v2">Konforlu araçlar</div><div data-i18n="about.v3">Ekonomik fiyat</div><div data-i18n="about.v4">Kaliteli hizmet</div></div>
     </div>
   </div>
 </section>
 
 <div class="wrap">
   <div class="cta rv">
-    <h2>Bir sonraki yolculuğunuzu şimdi planlayın</h2>
-    <div class="btns"><a href="#bilet" class="btn btn-red">Bilet Al</a><a href="tel:08502220099" class="btn btn-line">0850 222 00 99</a></div>
+    <h2 data-i18n="cta.h2">Bir sonraki yolculuğunuzu şimdi planlayın</h2>
+    <div class="btns"><a href="#bilet" class="btn btn-red" data-i18n="cta.btn1">Bilet Al</a><a href="tel:08502220099" class="btn btn-line">0850 222 00 99</a></div>
   </div>
 </div>
 
 <footer>
   <div class="wrap">
     <div class="fgrid">
-      <div><span class="flogo"><img src="img/logo.png" alt="Nilüfer Turizm"></span><p style="margin-top:16px;max-width:320px">2000 yılından beri Bursa merkezli şehirlerarası yolcu taşımacılığı ve Avrupa seferleri.</p></div>
-      <div><h5>Online İşlemler</h5><ul><li><a href="#bilet">Bilet Al</a></li><li><a href="https://www.nilufer.com.tr/pnr-sorgula">PNR Sorgula</a></li><li><a href="https://www.nilufer.com.tr/ebilet-sorgula">E-Bilet Sorgula</a></li><li><a href="https://www.nilufer.com.tr/yolcumnerede">Yolcum Nerede</a></li></ul></div>
-      <div><h5>Kurumsal</h5><ul><li><a href="#kurumsal">Hakkımızda</a></li><li><a href="https://www.nilufer.com.tr/kvkk">KVKK</a></li><li><a href="https://www.nilufer.com.tr/gizlilik-politikasi">Gizlilik Politikası</a></li><li><a href="https://www.nilufer.com.tr/kullanimkosullari">Kullanım Koşulları</a></li></ul></div>
-      <div><h5>İletişim</h5><ul><li><a href="tel:08502220099">0850 222 00 99</a></li><li>Bursa Şehirlerarası Otobüs Terminali</li></ul></div>
+      <div><span class="flogo"><img src="img/logo.png" alt="Nilüfer Turizm"></span><p style="margin-top:16px;max-width:320px" data-i18n="footer.desc">2000 yılından beri Bursa merkezli şehirlerarası yolcu taşımacılığı ve Avrupa seferleri.</p></div>
+      <div><h5 data-i18n="footer.h1">Online İşlemler</h5><ul><li><a href="#bilet" data-i18n="nav.bilet">Bilet Al</a></li><li><a href="https://www.nilufer.com.tr/pnr-sorgula" data-i18n="topbar.pnr">PNR Sorgula</a></li><li><a href="https://www.nilufer.com.tr/ebilet-sorgula" data-i18n="footer.ebilet">E-Bilet Sorgula</a></li><li><a href="https://www.nilufer.com.tr/yolcumnerede" data-i18n="nav.yolcum">Yolcum Nerede</a></li></ul></div>
+      <div><h5 data-i18n="nav.kurumsal">Kurumsal</h5><ul><li><a href="#kurumsal" data-i18n="footer.hakkimizda">Hakkımızda</a></li><li><a href="https://www.nilufer.com.tr/kvkk">KVKK</a></li><li><a href="https://www.nilufer.com.tr/gizlilik-politikasi" data-i18n="footer.gizlilik">Gizlilik Politikası</a></li><li><a href="https://www.nilufer.com.tr/kullanimkosullari" data-i18n="footer.kosullar">Kullanım Koşulları</a></li></ul></div>
+      <div><h5 data-i18n="footer.h3">İletişim</h5><ul><li><a href="tel:08502220099">0850 222 00 99</a></li><li data-i18n="footer.terminal">Bursa Şehirlerarası Otobüs Terminali</li></ul></div>
     </div>
-    <div class="legal"><span>© <span id="yr"></span> Nilüfer Turizm. Tüm hakları saklıdır.</span><span>Visa · Mastercard · Troy ile güvenli ödeme</span></div>
+    <div class="legal"><span>© <span id="yr"></span> <span data-i18n="footer.rights">Nilüfer Turizm. Tüm hakları saklıdır.</span></span><span data-i18n="footer.pay">Visa · Mastercard · Troy ile güvenli ödeme</span></div>
   </div>
 </footer>
 
@@ -403,20 +424,20 @@ footer a:hover{color:#fff}
   <div class="dr-top"><img src="img/logo.png" alt="Nilüfer"><button class="x" id="close" aria-label="Kapat">✕</button></div>
   <div class="dr-body">
     <div class="ticket">
-      <div class="lbl">Güzergâh</div>
+      <div class="lbl" data-i18n="drawer.route">Güzergâh</div>
       <div class="tk-route"><b id="tFrom">—</b><i>→</i><b id="tTo">—</b></div>
       <div class="perf"></div>
-      <div class="tk-meta"><div><span class="lbl">Tarih</span><b id="tDate">—</b></div><div class="tk-return" id="tReturnWrap" hidden><span class="lbl">Dönüş</span><b id="tReturn">—</b></div><div><span class="lbl">Yolcu</span><b id="tPax">1</b></div></div>
+      <div class="tk-meta"><div><span class="lbl" data-i18n="drawer.date">Tarih</span><b id="tDate">—</b></div><div class="tk-return" id="tReturnWrap" hidden><span class="lbl" data-i18n="search.rdate">Dönüş</span><b id="tReturn">—</b></div><div><span class="lbl" data-i18n="search.pax">Yolcu</span><b id="tPax">1</b></div></div>
     </div>
     <div class="steps">
-      <div class="step on"><em>1</em><div>Güzergâh ve tarih<small>Seçildi</small></div></div>
-      <div class="step"><em>2</em><div>Sefer ve koltuk seçimi<small>Canlı koltuk durumu</small></div></div>
-      <div class="step"><em>3</em><div>Yolcu bilgileri ve ödeme<small>3D Secure güvenli ödeme</small></div></div>
+      <div class="step on"><em>1</em><div data-i18n="drawer.step1">Güzergâh ve tarih<small data-i18n="drawer.step1s">Seçildi</small></div></div>
+      <div class="step"><em>2</em><div data-i18n="drawer.step2">Sefer ve koltuk seçimi<small data-i18n="drawer.step2s">Canlı koltuk durumu</small></div></div>
+      <div class="step"><em>3</em><div data-i18n="drawer.step3">Yolcu bilgileri ve ödeme<small data-i18n="drawer.step3s">3D Secure güvenli ödeme</small></div></div>
     </div>
-    <div class="secure">🔒 Kart bilgileriniz saklanmaz; ödeme 3D Secure ile lisanslı ödeme altyapısında alınır.</div>
+    <div class="secure" data-i18n="drawer.secure">🔒 Kart bilgileriniz saklanmaz; ödeme 3D Secure ile lisanslı ödeme altyapısında alınır.</div>
     <div class="cards"><span>VISA</span><span>Mastercard</span><span>TROY</span></div>
   </div>
-  <div class="dr-foot"><a class="btn btn-red" id="goSeats" href="#">Seferleri ve koltukları gör</a><p>Güvenli satış sayfasına yönlendirileceksiniz</p></div>
+  <div class="dr-foot"><a class="btn btn-red" id="goSeats" href="#" data-i18n="drawer.goseats">Seferleri ve koltukları gör</a><p data-i18n="drawer.redirect">Güvenli satış sayfasına yönlendirileceksiniz</p></div>
 </aside>
 
 <script>
@@ -424,6 +445,173 @@ const CITIES=[["2098", "4 LEVENT"], ["1592", "ADANA"], ["1722", "ADAPAZARI"], ["
 
 const SALES="https://www.nilufer.com.tr/otobus-bileti-ara";
 const $=s=>document.querySelector(s);
+
+const I18N={
+  tr:{
+    'topbar.call':'7/24 Çağrı Merkezi','topbar.pnr':'PNR Sorgula','topbar.login':'Üye Girişi',
+    'nav.bilet':'Bilet Al','nav.hizmetler':'Hizmetler','nav.seferler':'Seferler','nav.kurumsal':'Kurumsal','nav.yolcum':'Yolcum Nerede','nav.iletisim':'İletişim',
+    'hero.kicker':"2000'den beri güvenle yolda",'hero.h1':'Bursa\'dan Türkiye\'nin <span>dört bir yanına.</span>','hero.p':'Kendi filomuz, deneyimli kaptanlarımız ve 452 durak noktasıyla her gün güvenli, konforlu ve ekonomik yolculuk.',
+    'hero.badge1':'80 Mercedes-Benz Travego','hero.badge2':'Ücretsiz Wi-Fi','hero.badge3':'İkram servisi',
+    'search.h3':'Otobüs bileti ara','search.oneway':'Tek Yön','search.roundtrip':'Gidiş - Dönüş',
+    'search.from':'Nereden','search.from.ph':'Kalkış noktası','search.to':'Nereye','search.to.ph':'Varış noktası',
+    'search.date':'Gidiş tarihi','search.rdate':'Dönüş tarihi','search.pax':'Yolcu','search.go':'Sefer Bul',
+    'search.today':'Bugün','search.tomorrow':'Yarın','search.weekend':'Hafta sonu',
+    'search.trust1':'🔒 3D Secure ödeme','search.trust2':'✓ Kolay iade','search.trust3':'✓ Anında e-bilet',
+    'err.city':'Lütfen listeden kalkış ve varış noktası seçin.','err.same':'Kalkış ve varış noktası aynı olamaz.','err.rdate':'Lütfen gidiş tarihinden sonra bir dönüş tarihi seçin.',
+    'stats.years':'yıllık tecrübe','stats.fleet':'otobüslük filo','stats.stops':'durak noktası','stats.regions':'bölgede hizmet',
+    'services.kicker':'Hizmetlerimiz','services.h2':'Yolculuğun her anında yanınızdayız','services.p':'Filomuzun tamamı firmamıza aittir. Araç bakımından kaptan eğitimine, ikramdan müşteri hizmetlerine kadar her şey tek elden yönetilir.',
+    'svc.fleet.label':'Filomuz','svc.fleet.h4':'Mercedes-Benz Travego','svc.fleet.p':'Tamamı firmamıza ait, düzenli bakımlı araçlar.','svc.fleet.num':'otobüs',
+    'svc.track.label':'Canlı takip','svc.track.h4':'Yolcum Nerede?','svc.track.p':'Yakınlarınızın otobüsünün konumunu anlık olarak takip edin, karşılamaya tam zamanında gidin.','svc.track.link':'Otobüsü takip et →',
+    'svc.call.label':'Müşteri hizmetleri','svc.call.h4':'7/24 Çağrı Merkezi','svc.call.p':'Rezervasyon, bilet değişikliği ve iade işlemleriniz için her saat ulaşabilirsiniz.',
+    'svc.wifi.label':'Konfor','svc.wifi.h4':'Ücretsiz internet','svc.wifi.p':'Yolculuk boyunca sınırsız Wi-Fi ile bağlantınız kopmaz.',
+    'svc.express.label':'Zaman','svc.express.h4':'Ekspres seferler','svc.express.p':'Seçili hatlarda ara durak vermeden doğrudan varış.',
+    'svc.food.label':'İkram','svc.food.h4':'Yiyecek &amp; içecek','svc.food.p':'Sefer boyunca host ekibimizden ikram servisi.',
+    'svc.eu.label':'Uluslararası','svc.eu.h4':'Avrupa seferleri','svc.eu.p':'Yurt dışı hatlarımızla Avrupa\'ya konforlu ulaşım.',
+    'routes.kicker':'Seferler','routes.h2':'Popüler güzergâhlar','routes.p':'Marmara, Ege, İç Anadolu ve Akdeniz bölgelerinde düzenli seferler. Güzergâha tıklayın, uygun seferleri hemen listeleyelim.',
+    'routes.from':"Bursa'dan",'routes.daily':'Günlük sefer','routes.hour':'saat',
+    'about.since':'yılından beri','about.kicker':'Hakkımızda','about.h2':"Adını Bursa'dan, gücünü yolcularından alır",
+    'about.p1':"Nilüfer Turizm, Mart 2000'de Hüseyin Kayaplı tarafından, memleketi Bursa'nın Nilüfer ilçesinin adıyla kuruldu.",
+    'about.p2':"Büyüyen Bursa'nın ulaşım ihtiyacına cevap vermek için yola çıkan firmamız; İstanbul, Ankara, İzmir, Eskişehir ve Balıkesir hatlarıyla kısa sürede sektörün güvenilir isimleri arasına girdi. Bugün 80 araçlık kendi filomuzla dört bölgede hizmet veriyoruz.",
+    'about.v1':'Güvenli yolculuk','about.v2':'Konforlu araçlar','about.v3':'Ekonomik fiyat','about.v4':'Kaliteli hizmet',
+    'cta.h2':'Bir sonraki yolculuğunuzu şimdi planlayın','cta.btn1':'Bilet Al',
+    'footer.desc':'2000 yılından beri Bursa merkezli şehirlerarası yolcu taşımacılığı ve Avrupa seferleri.',
+    'footer.h1':'Online İşlemler','footer.ebilet':'E-Bilet Sorgula','footer.h3':'İletişim',
+    'footer.hakkimizda':'Hakkımızda','footer.gizlilik':'Gizlilik Politikası','footer.kosullar':'Kullanım Koşulları','footer.terminal':'Bursa Şehirlerarası Otobüs Terminali',
+    'footer.rights':'Nilüfer Turizm. Tüm hakları saklıdır.','footer.pay':'Visa · Mastercard · Troy ile güvenli ödeme',
+    'drawer.route':'Güzergâh','drawer.date':'Tarih',
+    'drawer.step1':'Güzergâh ve tarih<small>Seçildi</small>','drawer.step2':'Sefer ve koltuk seçimi<small>Canlı koltuk durumu</small>','drawer.step3':'Yolcu bilgileri ve ödeme<small>3D Secure güvenli ödeme</small>',
+    'drawer.secure':'🔒 Kart bilgileriniz saklanmaz; ödeme 3D Secure ile lisanslı ödeme altyapısında alınır.',
+    'drawer.goseats':'Seferleri ve koltukları gör','drawer.redirect':'Güvenli satış sayfasına yönlendirileceksiniz',
+    'ticket.pax':' kişi'
+  },
+  en:{
+    'topbar.call':'24/7 Call Center','topbar.pnr':'Check PNR','topbar.login':'Member Login',
+    'nav.bilet':'Buy Ticket','nav.hizmetler':'Services','nav.seferler':'Routes','nav.kurumsal':'Corporate','nav.yolcum':'Track My Bus','nav.iletisim':'Contact',
+    'hero.kicker':'On the road safely since 2000','hero.h1':'From Bursa to every <span>corner of Türkiye.</span>','hero.p':'Safe, comfortable and affordable travel every day with our own fleet, experienced drivers and 452 stops.',
+    'hero.badge1':'80 Mercedes-Benz Travego','hero.badge2':'Free Wi-Fi','hero.badge3':'Onboard refreshments',
+    'search.h3':'Search bus tickets','search.oneway':'One Way','search.roundtrip':'Round Trip',
+    'search.from':'From','search.from.ph':'Departure point','search.to':'To','search.to.ph':'Destination',
+    'search.date':'Departure date','search.rdate':'Return date','search.pax':'Passengers','search.go':'Find Trips',
+    'search.today':'Today','search.tomorrow':'Tomorrow','search.weekend':'Weekend',
+    'search.trust1':'🔒 3D Secure payment','search.trust2':'✓ Easy refunds','search.trust3':'✓ Instant e-ticket',
+    'err.city':'Please select a departure and destination from the list.','err.same':'Departure and destination cannot be the same.','err.rdate':'Please choose a return date after the departure date.',
+    'stats.years':'years of experience','stats.fleet':'bus fleet','stats.stops':'stops','stats.regions':'regions served',
+    'services.kicker':'Our Services','services.h2':'With you at every step of the journey','services.p':'Our entire fleet is owned by us. From vehicle maintenance to driver training, catering to customer service — everything is managed in-house.',
+    'svc.fleet.label':'Our Fleet','svc.fleet.h4':'Mercedes-Benz Travego','svc.fleet.p':'Fully company-owned, regularly maintained vehicles.','svc.fleet.num':'buses',
+    'svc.track.label':'Live tracking','svc.track.h4':'Where\'s My Bus?','svc.track.p':'Track your loved ones\' bus in real time and arrive right on time to meet them.','svc.track.link':'Track the bus →',
+    'svc.call.label':'Customer service','svc.call.h4':'24/7 Call Center','svc.call.p':'Reach us any time for reservations, ticket changes and refunds.',
+    'svc.wifi.label':'Comfort','svc.wifi.h4':'Free internet','svc.wifi.p':'Stay connected with unlimited Wi-Fi throughout your trip.',
+    'svc.express.label':'Time','svc.express.h4':'Express routes','svc.express.p':'Direct arrival without intermediate stops on selected lines.',
+    'svc.food.label':'Catering','svc.food.h4':'Food &amp; drinks','svc.food.p':'Onboard refreshment service from our host team.',
+    'svc.eu.label':'International','svc.eu.h4':'Europe routes','svc.eu.p':'Comfortable travel to Europe on our international lines.',
+    'routes.kicker':'Routes','routes.h2':'Popular routes','routes.p':'Regular services across the Marmara, Aegean, Central Anatolia and Mediterranean regions. Click a route to see available trips right away.',
+    'routes.from':'From Bursa','routes.daily':'Daily service','routes.hour':'h',
+    'about.since':'since','about.kicker':'About Us','about.h2':'Named after Bursa, powered by our passengers',
+    'about.p1':'Nilüfer Turizm was founded in March 2000 by Hüseyin Kayaplı, named after his hometown district of Nilüfer in Bursa.',
+    'about.p2':'Set up to meet the growing transport needs of Bursa, we quickly became one of the trusted names in the sector with our İstanbul, Ankara, İzmir, Eskişehir and Balıkesir lines. Today we serve four regions with our own fleet of 80 vehicles.',
+    'about.v1':'Safe travel','about.v2':'Comfortable vehicles','about.v3':'Affordable fares','about.v4':'Quality service',
+    'cta.h2':'Plan your next trip now','cta.btn1':'Buy Ticket',
+    'footer.desc':'Intercity passenger transport and Europe routes from Bursa since 2000.',
+    'footer.h1':'Online Services','footer.ebilet':'Check E-Ticket','footer.h3':'Contact',
+    'footer.hakkimizda':'About Us','footer.gizlilik':'Privacy Policy','footer.kosullar':'Terms of Use','footer.terminal':'Bursa Intercity Bus Terminal',
+    'footer.rights':'Nilüfer Turizm. All rights reserved.','footer.pay':'Secure payment with Visa · Mastercard · Troy',
+    'drawer.route':'Route','drawer.date':'Date',
+    'drawer.step1':'Route and date<small>Selected</small>','drawer.step2':'Trip and seat selection<small>Live seat availability</small>','drawer.step3':'Passenger details and payment<small>Secure 3D Secure payment</small>',
+    'drawer.secure':'🔒 Your card details are never stored; payment is processed via a licensed 3D Secure payment gateway.',
+    'drawer.goseats':'View trips and seats','drawer.redirect':'You will be redirected to the secure sales page',
+    'ticket.pax':' pax'
+  },
+  de:{
+    'topbar.call':'24/7 Callcenter','topbar.pnr':'PNR-Abfrage','topbar.login':'Mitglieder-Login',
+    'nav.bilet':'Ticket kaufen','nav.hizmetler':'Leistungen','nav.seferler':'Strecken','nav.kurumsal':'Unternehmen','nav.yolcum':'Bus verfolgen','nav.iletisim':'Kontakt',
+    'hero.kicker':'Seit 2000 sicher unterwegs','hero.h1':'Von Bursa in <span>jeden Winkel der Türkei.</span>','hero.p':'Jeden Tag sicher, komfortabel und günstig reisen – mit eigener Flotte, erfahrenen Fahrern und 452 Haltestellen.',
+    'hero.badge1':'80 Mercedes-Benz Travego','hero.badge2':'Kostenloses WLAN','hero.badge3':'Bordservice',
+    'search.h3':'Busticket suchen','search.oneway':'Einfache Fahrt','search.roundtrip':'Hin- und Rückfahrt',
+    'search.from':'Von','search.from.ph':'Abfahrtsort','search.to':'Nach','search.to.ph':'Zielort',
+    'search.date':'Abfahrtsdatum','search.rdate':'Rückfahrtdatum','search.pax':'Passagiere','search.go':'Fahrten suchen',
+    'search.today':'Heute','search.tomorrow':'Morgen','search.weekend':'Wochenende',
+    'search.trust1':'🔒 3D-Secure-Zahlung','search.trust2':'✓ Einfache Rückerstattung','search.trust3':'✓ Sofortiges E-Ticket',
+    'err.city':'Bitte wählen Sie Abfahrts- und Zielort aus der Liste.','err.same':'Abfahrts- und Zielort dürfen nicht identisch sein.','err.rdate':'Bitte wählen Sie ein Rückfahrtdatum nach dem Abfahrtsdatum.',
+    'stats.years':'Jahre Erfahrung','stats.fleet':'Busse in der Flotte','stats.stops':'Haltestellen','stats.regions':'Regionen',
+    'services.kicker':'Unsere Leistungen','services.h2':'An Ihrer Seite bei jeder Etappe der Reise','services.p':'Unsere gesamte Flotte gehört uns selbst. Von Fahrzeugwartung über Fahrerschulung bis zum Bordservice und Kundenservice – alles aus einer Hand.',
+    'svc.fleet.label':'Unsere Flotte','svc.fleet.h4':'Mercedes-Benz Travego','svc.fleet.p':'Vollständig firmeneigene, regelmäßig gewartete Fahrzeuge.','svc.fleet.num':'Busse',
+    'svc.track.label':'Live-Verfolgung','svc.track.h4':'Wo ist mein Bus?','svc.track.p':'Verfolgen Sie den Standort des Busses Ihrer Angehörigen in Echtzeit und seien Sie pünktlich zur Abholung da.','svc.track.link':'Bus verfolgen →',
+    'svc.call.label':'Kundenservice','svc.call.h4':'24/7 Callcenter','svc.call.p':'Erreichen Sie uns jederzeit für Reservierungen, Ticketänderungen und Rückerstattungen.',
+    'svc.wifi.label':'Komfort','svc.wifi.h4':'Kostenloses Internet','svc.wifi.p':'Bleiben Sie während der gesamten Fahrt mit unbegrenztem WLAN verbunden.',
+    'svc.express.label':'Zeit','svc.express.h4':'Expressverbindungen','svc.express.p':'Direkte Ankunft ohne Zwischenstopps auf ausgewählten Strecken.',
+    'svc.food.label':'Bordservice','svc.food.h4':'Essen &amp; Getränke','svc.food.p':'Bordservice unseres Serviceteams während der Fahrt.',
+    'svc.eu.label':'International','svc.eu.h4':'Europastrecken','svc.eu.p':'Komfortable Reisen nach Europa auf unseren internationalen Linien.',
+    'routes.kicker':'Strecken','routes.h2':'Beliebte Strecken','routes.p':'Regelmäßige Verbindungen in die Marmara-, Ägäis-, Zentralanatolien- und Mittelmeerregion. Klicken Sie auf eine Strecke, um passende Fahrten anzuzeigen.',
+    'routes.from':'Ab Bursa','routes.daily':'Tägliche Fahrt','routes.hour':'Std.',
+    'about.since':'seit','about.kicker':'Über uns','about.h2':'Benannt nach Bursa, getragen von unseren Fahrgästen',
+    'about.p1':'Nilüfer Turizm wurde im März 2000 von Hüseyin Kayaplı gegründet und nach seinem Heimatbezirk Nilüfer in Bursa benannt.',
+    'about.p2':'Gegründet, um den wachsenden Transportbedarf von Bursa zu decken, wurden wir mit unseren Linien nach İstanbul, Ankara, İzmir, Eskişehir und Balıkesir rasch zu einem vertrauenswürdigen Namen der Branche. Heute bedienen wir vier Regionen mit unserer eigenen Flotte von 80 Fahrzeugen.',
+    'about.v1':'Sichere Reise','about.v2':'Komfortable Fahrzeuge','about.v3':'Günstige Preise','about.v4':'Hohe Servicequalität',
+    'cta.h2':'Planen Sie jetzt Ihre nächste Reise','cta.btn1':'Ticket kaufen',
+    'footer.desc':'Seit 2000 Personenfernverkehr und Europastrecken ab Bursa.',
+    'footer.h1':'Online-Services','footer.ebilet':'E-Ticket-Abfrage','footer.h3':'Kontakt',
+    'footer.hakkimizda':'Über uns','footer.gizlilik':'Datenschutz','footer.kosullar':'Nutzungsbedingungen','footer.terminal':'Bursa Fernbusterminal',
+    'footer.rights':'Nilüfer Turizm. Alle Rechte vorbehalten.','footer.pay':'Sichere Zahlung mit Visa · Mastercard · Troy',
+    'drawer.route':'Strecke','drawer.date':'Datum',
+    'drawer.step1':'Strecke und Datum<small>Ausgewählt</small>','drawer.step2':'Fahrt- und Sitzplatzwahl<small>Live-Sitzplatzverfügbarkeit</small>','drawer.step3':'Passagierdaten und Zahlung<small>Sichere 3D-Secure-Zahlung</small>',
+    'drawer.secure':'🔒 Ihre Kartendaten werden nicht gespeichert; die Zahlung erfolgt über eine lizenzierte 3D-Secure-Zahlungsplattform.',
+    'drawer.goseats':'Fahrten und Sitzplätze ansehen','drawer.redirect':'Sie werden zur sicheren Verkaufsseite weitergeleitet',
+    'ticket.pax':' Pers.'
+  },
+  bg:{
+    'topbar.call':'Кол център 24/7','topbar.pnr':'Проверка на PNR','topbar.login':'Вход за членове',
+    'nav.bilet':'Купи билет','nav.hizmetler':'Услуги','nav.seferler':'Линии','nav.kurumsal':'Компания','nav.yolcum':'Проследи автобуса','nav.iletisim':'Контакти',
+    'hero.kicker':'На път безопасно от 2000 г.','hero.h1':'От Бурса до всяко <span>кътче на Турция.</span>','hero.p':'Безопасно, комфортно и достъпно пътуване всеки ден със собствен автопарк, опитни шофьори и 452 спирки.',
+    'hero.badge1':'80 Mercedes-Benz Travego','hero.badge2':'Безплатен Wi-Fi','hero.badge3':'Обслужване на борда',
+    'search.h3':'Търсене на билет','search.oneway':'Само отиване','search.roundtrip':'Отиване и връщане',
+    'search.from':'От','search.from.ph':'Място на тръгване','search.to':'До','search.to.ph':'Дестинация',
+    'search.date':'Дата на заминаване','search.rdate':'Дата на връщане','search.pax':'Пътници','search.go':'Търси',
+    'search.today':'Днес','search.tomorrow':'Утре','search.weekend':'Уикенд',
+    'search.trust1':'🔒 3D Secure плащане','search.trust2':'✓ Лесно връщане','search.trust3':'✓ Мигновен е-билет',
+    'err.city':'Моля, изберете начална и крайна точка от списъка.','err.same':'Начална и крайна точка не могат да съвпадат.','err.rdate':'Моля, изберете дата на връщане след датата на заминаване.',
+    'stats.years':'години опит','stats.fleet':'автобуса в автопарка','stats.stops':'спирки','stats.regions':'обслужвани региона',
+    'services.kicker':'Нашите услуги','services.h2':'До вас на всяка стъпка от пътуването','services.p':'Целият ни автопарк е собствен. От поддръжка на превозните средства до обучение на шофьорите, от обслужване на борда до клиентско обслужване — всичко се управлява от нас.',
+    'svc.fleet.label':'Нашият автопарк','svc.fleet.h4':'Mercedes-Benz Travego','svc.fleet.p':'Изцяло собствени, редовно поддържани превозни средства.','svc.fleet.num':'автобуса',
+    'svc.track.label':'Проследяване на живо','svc.track.h4':'Къде е моят автобус?','svc.track.p':'Проследявайте местоположението на автобуса на близките си в реално време и пристигнете точно навреме, за да ги посрещнете.','svc.track.link':'Проследи автобуса →',
+    'svc.call.label':'Обслужване на клиенти','svc.call.h4':'Кол център 24/7','svc.call.p':'Свържете се с нас по всяко време за резервации, промени на билети и възстановявания.',
+    'svc.wifi.label':'Комфорт','svc.wifi.h4':'Безплатен интернет','svc.wifi.p':'Останете свързани с неограничен Wi-Fi по време на цялото пътуване.',
+    'svc.express.label':'Време','svc.express.h4':'Експресни линии','svc.express.p':'Директно пристигане без междинни спирки по избрани линии.',
+    'svc.food.label':'Обслужване','svc.food.h4':'Храна и напитки','svc.food.p':'Обслужване на борда от нашия екип по време на пътуването.',
+    'svc.eu.label':'Международни','svc.eu.h4':'Линии до Европа','svc.eu.p':'Комфортно пътуване до Европа по нашите международни линии.',
+    'routes.kicker':'Линии','routes.h2':'Популярни направления','routes.p':'Редовни курсове в региона на Мармара, Егея, Централна Анатолия и Средиземноморието. Кликнете върху направление, за да видите наличните курсове веднага.',
+    'routes.from':'От Бурса','routes.daily':'Ежедневен курс','routes.hour':'ч',
+    'about.since':'от','about.kicker':'За нас','about.h2':'Носи името на Бурса, силата — от пътниците си',
+    'about.p1':'Nilüfer Turizm е основана през март 2000 г. от Хюсеин Каяплъ, кръстена на родния му район Нилюфер в Бурса.',
+    'about.p2':'Създадена, за да отговори на нарастващите транспортни нужди на Бурса, компанията ни бързо се превърна в едно от доверените имена в сектора с линиите си до Истанбул, Анкара, Измир, Ескишехир и Балъкесир. Днес обслужваме четири региона със собствен автопарк от 80 превозни средства.',
+    'about.v1':'Безопасно пътуване','about.v2':'Комфортни превозни средства','about.v3':'Достъпни цени','about.v4':'Качествено обслужване',
+    'cta.h2':'Планирайте следващото си пътуване сега','cta.btn1':'Купи билет',
+    'footer.desc':'Междуградски пътнически превози и линии до Европа от Бурса от 2000 г.',
+    'footer.h1':'Онлайн услуги','footer.ebilet':'Проверка на е-билет','footer.h3':'Контакти',
+    'footer.hakkimizda':'За нас','footer.gizlilik':'Политика за поверителност','footer.kosullar':'Условия за ползване','footer.terminal':'Автогара Бурса — междуградски линии',
+    'footer.rights':'Nilüfer Turizm. Всички права запазени.','footer.pay':'Сигурно плащане с Visa · Mastercard · Troy',
+    'drawer.route':'Направление','drawer.date':'Дата',
+    'drawer.step1':'Направление и дата<small>Избрано</small>','drawer.step2':'Избор на курс и място<small>Наличност на живо</small>','drawer.step3':'Данни на пътника и плащане<small>Сигурно 3D Secure плащане</small>',
+    'drawer.secure':'🔒 Данните на картата ви не се съхраняват; плащането се обработва чрез лицензирана 3D Secure платформа.',
+    'drawer.goseats':'Виж курсовете и местата','drawer.redirect':'Ще бъдете пренасочени към сигурната страница за продажби',
+    'ticket.pax':' пътника'
+  }
+};
+let curLang=localStorage.getItem('nl_lang')||'tr';
+const t=k=>(I18N[curLang]&&I18N[curLang][k])||I18N.tr[k]||k;
+function applyLang(lang){
+  if(!I18N[lang])lang='tr';
+  curLang=lang;localStorage.setItem('nl_lang',lang);
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{el.innerHTML=t(el.dataset.i18n);});
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{el.placeholder=t(el.dataset.i18nPh);});
+  $('#langLabel').textContent=lang.toUpperCase();
+  document.querySelectorAll('#langMenu button').forEach(b=>b.classList.toggle('on',b.dataset.lang===lang));
+  renderRoutes();
+}
+$('#langBtn').onclick=()=>$('#langsw').classList.toggle('open');
+$('#langMenu').onclick=e=>{const b=e.target.closest('button');if(!b)return;applyLang(b.dataset.lang);$('#langsw').classList.remove('open');};
+document.addEventListener('click',e=>{if(!e.target.closest('#langsw'))$('#langsw').classList.remove('open');});
+
 const norm=s=>s.toLocaleLowerCase('tr').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ı/g,'i');
 const nice=s=>s.toLocaleLowerCase('tr').replace(/(^|[\s(.\/-])(\p{L})/gu,(m,a,b)=>a+b.toLocaleUpperCase('tr'));
 
@@ -478,17 +666,18 @@ $('#close').onclick=close;$('#scrim').onclick=close;addEventListener('keydown',e
 
 $('#searchForm').addEventListener('submit',e=>{
   e.preventDefault();
-  if(!sel.from||!sel.to){$('#err').textContent='Lütfen listeden kalkış ve varış noktası seçin.';return;}
-  if(sel.from[0]===sel.to[0]){$('#err').textContent='Kalkış ve varış noktası aynı olamaz.';return;}
-  if(tripMode==='round'&&(!$('#rdate').value||$('#rdate').value<$('#date').value)){$('#err').textContent='Lütfen gidiş tarihinden sonra bir dönüş tarihi seçin.';return;}
+  if(!sel.from||!sel.to){$('#err').textContent=t('err.city');return;}
+  if(sel.from[0]===sel.to[0]){$('#err').textContent=t('err.same');return;}
+  if(tripMode==='round'&&(!$('#rdate').value||$('#rdate').value<$('#date').value)){$('#err').textContent=t('err.rdate');return;}
   const [y,m,d]=$('#date').value.split('-');
+  const dloc=curLang==='tr'?'tr-TR':curLang==='de'?'de-DE':curLang==='bg'?'bg-BG':'en-GB';
   $('#tFrom').textContent=nice(sel.from[1]);$('#tTo').textContent=nice(sel.to[1]);
-  $('#tDate').textContent=new Date(+y,m-1,+d).toLocaleDateString('tr-TR',{day:'numeric',month:'long',weekday:'short'});
-  $('#tPax').textContent=$('#pax').value+' kişi';
+  $('#tDate').textContent=new Date(+y,m-1,+d).toLocaleDateString(dloc,{day:'numeric',month:'long',weekday:'short'});
+  $('#tPax').textContent=$('#pax').value+t('ticket.pax');
   let goHref=`${SALES}/${sel.from[0]}-${sel.to[0]}/${d}-${m}-${y}`;
   if(tripMode==='round'){
     const [ry,rm,rd]=$('#rdate').value.split('-');
-    $('#tReturn').textContent=new Date(+ry,rm-1,+rd).toLocaleDateString('tr-TR',{day:'numeric',month:'long',weekday:'short'});
+    $('#tReturn').textContent=new Date(+ry,rm-1,+rd).toLocaleDateString(dloc,{day:'numeric',month:'long',weekday:'short'});
     $('#tReturnWrap').hidden=false;
     goHref+=`/${sel.to[0]}-${sel.from[0]}/${rd}-${rm}-${ry}`;
   }else{$('#tReturnWrap').hidden=true;}
@@ -496,9 +685,13 @@ $('#searchForm').addEventListener('submit',e=>{
   open();
 });
 
-const ROUTES=[['BURSA','ANKARA','Ankara','~5 saat'],['BURSA','İZMİR','İzmir','~5 saat'],['BURSA','İST (Y.DUDULLU)','İstanbul','~2,5 saat'],['BURSA','ESKİŞEHİR','Eskişehir','~2,5 saat'],['BURSA','BALIKESİR','Balıkesir','~2 saat'],['BURSA','EDİRNE','Edirne','~5 saat'],['BURSA','ANTALYA','Antalya','~8 saat'],['BURSA','ADAPAZARI','Sakarya','~2 saat']];
+const ROUTES=[['BURSA','ANKARA','Ankara','5'],['BURSA','İZMİR','İzmir','5'],['BURSA','İST (Y.DUDULLU)','İstanbul','2,5'],['BURSA','ESKİŞEHİR','Eskişehir','2,5'],['BURSA','BALIKESİR','Balıkesir','2'],['BURSA','EDİRNE','Edirne','5'],['BURSA','ANTALYA','Antalya','8'],['BURSA','ADAPAZARI','Sakarya','2']];
 const byName=n=>CITIES.find(c=>c[1]===n);
-$('#rlist').innerHTML=ROUTES.filter(r=>byName(r[0])&&byName(r[1])).map(r=>`<div class="r rv" data-a="${r[0]}" data-b="${r[1]}"><div class="from">Bursa'dan</div><div class="to">${r[2]} <i>→</i></div><div class="meta">${r[3]} · Günlük sefer</div></div>`).join('');
+function renderRoutes(){
+  $('#rlist').innerHTML=ROUTES.filter(r=>byName(r[0])&&byName(r[1])).map(r=>`<div class="r rv" data-a="${r[0]}" data-b="${r[1]}"><div class="from">${t('routes.from')}</div><div class="to">${r[2]} <i>→</i></div><div class="meta">~${r[3]} ${t('routes.hour')} · ${t('routes.daily')}</div></div>`).join('');
+  if(location.search.includes('shot'))$('#rlist').querySelectorAll('.rv').forEach(e=>e.classList.add('in'));
+  else $('#rlist').querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
 $('#rlist').onclick=e=>{const r=e.target.closest('.r');if(!r)return;pickFrom(byName(r.dataset.a)[0]);pickTo(byName(r.dataset.b)[0]);$('#bilet').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>$('#searchForm').requestSubmit(),600);};
 
 document.querySelectorAll('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px');}));
@@ -516,6 +709,7 @@ addEventListener('scroll',()=>$('#hdr').classList.toggle('scrolled',scrollY>40),
 $('#burger').onclick=()=>$('#menu').classList.toggle('open');
 $('#menu').onclick=e=>e.target.tagName==='A'&&$('#menu').classList.remove('open');
 $('#yr').textContent=new Date().getFullYear();
+applyLang(curLang);
 </script>
 </body>
 </html>
