@@ -248,18 +248,30 @@ footer a:hover{color:#fff}
 .tk-sep{display:flex;align-items:center;gap:10px;margin:22px 0 14px;color:rgba(255,255,255,.55);font-size:11px;font-weight:800;letter-spacing:.08em}
 .tk-sep::before,.tk-sep::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.18)}
 .seatwrap{margin:18px 0}
-.busmap{display:grid;grid-template-columns:repeat(5,1fr);gap:8px 10px;background:#f3f6fa;border:1px solid var(--line);border-radius:16px;padding:16px;max-width:340px}
+.seat-top{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+.seat-back{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:16px;cursor:pointer;flex:none;color:var(--ink)}
+.seat-back:hover{background:#f3f6fa}
+.seat-route{flex:1;display:flex;flex-direction:column;line-height:1.3}
+.seat-route b{font-size:14px;color:var(--ink)}
+.seat-route span{font-size:12px;color:var(--mute);font-weight:700}
+.seat-price{font:800 16px "Manrope",sans-serif;color:var(--red)}
+.seat-hint{font-size:12.5px;color:var(--mute);font-weight:700;margin:8px 0 12px}
+.busmap{display:grid;grid-template-columns:repeat(5,1fr);gap:9px 8px;background:#f6f8fb;border:1px solid var(--line);border-radius:16px;padding:18px;max-width:360px}
 .busmap .aisle{visibility:hidden}
-.seat{aspect-ratio:1;border-radius:9px 9px 4px 4px;border:1px solid #c6d2e0;background:#fff;display:flex;align-items:center;justify-content:center;font:700 12px "Manrope",sans-serif;color:var(--ink);cursor:pointer;transition:transform .15s,background .15s,border-color .15s,color .15s}
+.seat{aspect-ratio:1;border-radius:8px;border:1px solid #d3dae4;background:#fff;display:flex;align-items:center;justify-content:center;font:700 12.5px "Manrope",sans-serif;color:var(--ink);cursor:pointer;transition:transform .15s,background .15s,border-color .15s,color .15s}
 .seat:hover{transform:translateY(-2px)}
-.seat.occ{background:#e4e8ee;border-color:#d3dae4;color:#9aa7b8;cursor:not-allowed}
+.seat.occ{cursor:not-allowed}
 .seat.occ:hover{transform:none}
-.seat.sel{background:var(--red);border-color:var(--red);color:#fff}
-.seatlegend{display:flex;gap:16px;margin-top:12px;font-size:12px;color:var(--mute);font-weight:700}
+.seat.occ.m{background:#dbeafe;border-color:#93c5fd;color:#1d4ed8}
+.seat.occ.f{background:#fce7f3;border-color:#f9a8d4;color:#be185d}
+.seat.sel{background:#16a34a;border-color:#16a34a;color:#fff}
+.seatlegend{display:flex;flex-wrap:wrap;gap:14px 18px;margin:14px 0 4px;font-size:11.5px;color:var(--mute);font-weight:700}
 .seatlegend span{display:flex;align-items:center;gap:6px}
-.seatlegend .sw{width:13px;height:13px;border-radius:4px;display:inline-block;border:1px solid #c6d2e0;background:#fff}
-.seatlegend .sw.occ{background:#e4e8ee;border-color:#d3dae4}
-.seatlegend .sw.sel{background:var(--red);border-color:var(--red)}
+.seatlegend .sw{width:13px;height:13px;border-radius:4px;display:inline-block;border:1px solid #d3dae4;background:#fff}
+.seatlegend .sw.m{background:#dbeafe;border-color:#93c5fd}
+.seatlegend .sw.f{background:#fce7f3;border-color:#f9a8d4}
+.seatlegend .sw.sel{background:#16a34a;border-color:#16a34a}
+#seatConfirm{width:100%;margin-top:16px}
 .pform{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
 .pform .fld{display:flex;flex-direction:column;gap:6px}
 .pform label{font-size:12px;font-weight:700;color:var(--mute)}
@@ -552,12 +564,25 @@ footer a:hover{color:#fff}
       <div class="fld"><label data-i18n="drawer.tc">TC Kimlik No</label><input type="text" id="pTC" maxlength="11" inputmode="numeric" data-i18n-ph="drawer.tc.ph" placeholder="11 haneli TC kimlik no" autocomplete="off"></div>
     </div>
     <div class="tl-sel" id="tlSel" hidden></div>
-    <div class="tl-head"><b id="tlHead" data-i18n="drawer.trips">Uygun seferler</b><span id="tlCount">—</span></div>
-    <div class="triplist" id="tripList"></div>
+    <div id="tripStep">
+      <div class="tl-head"><b id="tlHead" data-i18n="drawer.trips">Uygun seferler</b><span id="tlCount">—</span></div>
+      <div class="triplist" id="tripList"></div>
+    </div>
     <div class="seatwrap" id="seatWrap" hidden>
-      <div class="tl-head"><b data-i18n="drawer.seatpick">Koltuk seçin</b><span id="seatInfo">—</span></div>
+      <div class="seat-top">
+        <button type="button" class="seat-back" id="seatBack" aria-label="Geri">←</button>
+        <div class="seat-route"><b id="seatRoute">—</b><span id="seatTime">—</span></div>
+        <div class="seat-price" id="seatPrice">—</div>
+      </div>
+      <div class="seat-hint" data-i18n="drawer.seatpick.hint">Lütfen koltuğunuzu seçin.</div>
       <div class="busmap" id="busMap"></div>
-      <div class="seatlegend"><span><i class="sw free"></i><b data-i18n="drawer.seat.free">Boş</b></span><span><i class="sw occ"></i><b data-i18n="drawer.seat.occ">Dolu</b></span><span><i class="sw sel"></i><b data-i18n="drawer.seat.sel">Seçili</b></span></div>
+      <div class="seatlegend">
+        <span><i class="sw m"></i><b data-i18n="drawer.seat.occ.m">Dolu Koltuk - Erkek</b></span>
+        <span><i class="sw f"></i><b data-i18n="drawer.seat.occ.f">Dolu Koltuk - Kadın</b></span>
+        <span><i class="sw free"></i><b data-i18n="drawer.seat.free">Boş Koltuk</b></span>
+        <span><i class="sw sel"></i><b data-i18n="drawer.seat.sel">Seçilen Koltuk</b></span>
+      </div>
+      <button type="button" class="btn btn-red off" id="seatConfirm" data-i18n="drawer.seat.confirm">Onayla ve Devam Et</button>
     </div>
     <div class="secure" data-i18n="drawer.secure">🔒 Kart bilgileriniz saklanmaz; ödeme 3D Secure ile lisanslı ödeme altyapısında alınır.</div>
     <div class="cards"><span>VISA</span><span>Mastercard</span><span>TROY</span></div>
@@ -604,7 +629,7 @@ const I18N={
     'footer.h1':'Online İşlemler','footer.ebilet':'E-Bilet Sorgula','footer.h3':'İletişim',
     'footer.hakkimizda':'Hakkımızda','footer.gizlilik':'Gizlilik Politikası','footer.kosullar':'Kullanım Koşulları',
     'footer.rights':'Nilüfer Turizm. Tüm hakları saklıdır.','footer.pay':'Visa · Mastercard · Troy ile güvenli ödeme',
-    'drawer.trips':'Gidiş seferleri','drawer.trips.back':'Dönüş seferleri','drawer.pick':'Devam etmek için bir sefer seçin','drawer.continue':'Devam Et','drawer.route':'Güzergâh','drawer.date':'Tarih','drawer.time':'Saat','drawer.passenger':'Yolcu Adı Soyadı','drawer.passenger.ph':'Ad Soyad','drawer.tc':'TC Kimlik No','drawer.tc.ph':'11 haneli TC kimlik no','drawer.pax.info':'YOLCU BİLGİLERİ','drawer.seat':'Koltuk No','drawer.ticketno':'Bilet No','drawer.seatpick':'Koltuk seçin','drawer.seat.free':'Boş','drawer.seat.occ':'Dolu','drawer.seat.sel':'Seçili','drawer.seat.none':'Koltuk seçilmedi','drawer.seat.blocked':'Bu koltuk, yanındaki yolcunun cinsiyetiyle uyuşmuyor. Lütfen başka bir koltuk seçin.','drawer.gender':'Cinsiyet','drawer.gender.f':'Kadın','drawer.gender.m':'Erkek',
+    'drawer.trips':'Gidiş seferleri','drawer.trips.back':'Dönüş seferleri','drawer.pick':'Devam etmek için bir sefer seçin','drawer.continue':'Devam Et','drawer.route':'Güzergâh','drawer.date':'Tarih','drawer.time':'Saat','drawer.passenger':'Yolcu Adı Soyadı','drawer.passenger.ph':'Ad Soyad','drawer.tc':'TC Kimlik No','drawer.tc.ph':'11 haneli TC kimlik no','drawer.pax.info':'YOLCU BİLGİLERİ','drawer.seat':'Koltuk No','drawer.ticketno':'Bilet No','drawer.seatpick':'Koltuk seçin','drawer.seat.free':'Boş','drawer.seat.occ':'Dolu','drawer.seat.sel':'Seçili','drawer.seat.none':'Koltuk seçilmedi','drawer.seat.blocked':'Bu koltuk, yanındaki yolcunun cinsiyetiyle uyuşmuyor. Lütfen başka bir koltuk seçin.','drawer.gender':'Cinsiyet','drawer.gender.f':'Kadın','drawer.gender.m':'Erkek','drawer.seatpick.hint':'Lütfen koltuğunuzu seçin.','drawer.seat.occ.m':'Dolu Koltuk - Erkek','drawer.seat.occ.f':'Dolu Koltuk - Kadın','drawer.seat.confirm':'Onayla ve Devam Et',
     'drawer.step1':'Güzergâh ve tarih<small>Seçildi</small>','drawer.step2':'Sefer ve koltuk seçimi<small>Canlı koltuk durumu</small>','drawer.step3':'Yolcu bilgileri ve ödeme<small>3D Secure güvenli ödeme</small>',
     'drawer.secure':'🔒 Kart bilgileriniz saklanmaz; ödeme 3D Secure ile lisanslı ödeme altyapısında alınır.',
     'drawer.goseats':'Seferleri ve koltukları gör','drawer.redirect':'Güvenli satış sayfasına yönlendirileceksiniz',
@@ -641,7 +666,7 @@ const I18N={
     'footer.h1':'Online Services','footer.ebilet':'Check E-Ticket','footer.h3':'Contact',
     'footer.hakkimizda':'About Us','footer.gizlilik':'Privacy Policy','footer.kosullar':'Terms of Use',
     'footer.rights':'Nilüfer Turizm. All rights reserved.','footer.pay':'Secure payment with Visa · Mastercard · Troy',
-    'drawer.trips':'Outbound trips','drawer.trips.back':'Return trips','drawer.pick':'Select a trip to continue','drawer.continue':'Continue','drawer.route':'Route','drawer.date':'Date','drawer.time':'Time','drawer.passenger':'Passenger Name','drawer.passenger.ph':'Full name','drawer.tc':'ID Number','drawer.tc.ph':'11-digit Turkish ID number','drawer.pax.info':'PASSENGER DETAILS','drawer.seat':'Seat No','drawer.ticketno':'Ticket No','drawer.seatpick':'Choose a seat','drawer.seat.free':'Free','drawer.seat.occ':'Taken','drawer.seat.sel':'Selected','drawer.seat.none':'No seat selected','drawer.seat.blocked':'This seat does not match the gender of the passenger next to it. Please pick another seat.','drawer.gender':'Gender','drawer.gender.f':'Female','drawer.gender.m':'Male',
+    'drawer.trips':'Outbound trips','drawer.trips.back':'Return trips','drawer.pick':'Select a trip to continue','drawer.continue':'Continue','drawer.route':'Route','drawer.date':'Date','drawer.time':'Time','drawer.passenger':'Passenger Name','drawer.passenger.ph':'Full name','drawer.tc':'ID Number','drawer.tc.ph':'11-digit Turkish ID number','drawer.pax.info':'PASSENGER DETAILS','drawer.seat':'Seat No','drawer.ticketno':'Ticket No','drawer.seatpick':'Choose a seat','drawer.seat.free':'Free','drawer.seat.occ':'Taken','drawer.seat.sel':'Selected','drawer.seat.none':'No seat selected','drawer.seat.blocked':'This seat does not match the gender of the passenger next to it. Please pick another seat.','drawer.gender':'Gender','drawer.gender.f':'Female','drawer.gender.m':'Male','drawer.seatpick.hint':'Please choose your seat.','drawer.seat.occ.m':'Taken - Male','drawer.seat.occ.f':'Taken - Female','drawer.seat.confirm':'Confirm & Continue',
     'drawer.step1':'Route and date<small>Selected</small>','drawer.step2':'Trip and seat selection<small>Live seat availability</small>','drawer.step3':'Passenger details and payment<small>Secure 3D Secure payment</small>',
     'drawer.secure':'🔒 Your card details are never stored; payment is processed via a licensed 3D Secure payment gateway.',
     'drawer.goseats':'View trips and seats','drawer.redirect':'You will be redirected to the secure sales page',
@@ -678,7 +703,7 @@ const I18N={
     'footer.h1':'Online-Services','footer.ebilet':'E-Ticket-Abfrage','footer.h3':'Kontakt',
     'footer.hakkimizda':'Über uns','footer.gizlilik':'Datenschutz','footer.kosullar':'Nutzungsbedingungen',
     'footer.rights':'Nilüfer Turizm. Alle Rechte vorbehalten.','footer.pay':'Sichere Zahlung mit Visa · Mastercard · Troy',
-    'drawer.trips':'Hinfahrten','drawer.trips.back':'Rückfahrten','drawer.pick':'Wählen Sie eine Fahrt, um fortzufahren','drawer.continue':'Weiter','drawer.route':'Strecke','drawer.date':'Datum','drawer.time':'Uhrzeit','drawer.passenger':'Name des Fahrgasts','drawer.passenger.ph':'Vor- und Nachname','drawer.tc':'Ausweisnummer','drawer.tc.ph':'11-stellige türkische Ausweisnummer','drawer.pax.info':'FAHRGASTDATEN','drawer.seat':'Sitzplatz','drawer.ticketno':'Ticketnummer','drawer.seatpick':'Sitzplatz wählen','drawer.seat.free':'Frei','drawer.seat.occ':'Belegt','drawer.seat.sel':'Ausgewählt','drawer.seat.none':'Kein Sitzplatz gewählt','drawer.seat.blocked':'Dieser Sitzplatz passt nicht zum Geschlecht des Nachbarpassagiers. Bitte wählen Sie einen anderen Platz.','drawer.gender':'Geschlecht','drawer.gender.f':'Weiblich','drawer.gender.m':'Männlich',
+    'drawer.trips':'Hinfahrten','drawer.trips.back':'Rückfahrten','drawer.pick':'Wählen Sie eine Fahrt, um fortzufahren','drawer.continue':'Weiter','drawer.route':'Strecke','drawer.date':'Datum','drawer.time':'Uhrzeit','drawer.passenger':'Name des Fahrgasts','drawer.passenger.ph':'Vor- und Nachname','drawer.tc':'Ausweisnummer','drawer.tc.ph':'11-stellige türkische Ausweisnummer','drawer.pax.info':'FAHRGASTDATEN','drawer.seat':'Sitzplatz','drawer.ticketno':'Ticketnummer','drawer.seatpick':'Sitzplatz wählen','drawer.seat.free':'Frei','drawer.seat.occ':'Belegt','drawer.seat.sel':'Ausgewählt','drawer.seat.none':'Kein Sitzplatz gewählt','drawer.seat.blocked':'Dieser Sitzplatz passt nicht zum Geschlecht des Nachbarpassagiers. Bitte wählen Sie einen anderen Platz.','drawer.gender':'Geschlecht','drawer.gender.f':'Weiblich','drawer.gender.m':'Männlich','drawer.seatpick.hint':'Bitte wählen Sie Ihren Sitzplatz.','drawer.seat.occ.m':'Belegt - Mann','drawer.seat.occ.f':'Belegt - Frau','drawer.seat.confirm':'Bestätigen & Weiter',
     'drawer.step1':'Strecke und Datum<small>Ausgewählt</small>','drawer.step2':'Fahrt- und Sitzplatzwahl<small>Live-Sitzplatzverfügbarkeit</small>','drawer.step3':'Passagierdaten und Zahlung<small>Sichere 3D-Secure-Zahlung</small>',
     'drawer.secure':'🔒 Ihre Kartendaten werden nicht gespeichert; die Zahlung erfolgt über eine lizenzierte 3D-Secure-Zahlungsplattform.',
     'drawer.goseats':'Fahrten und Sitzplätze ansehen','drawer.redirect':'Sie werden zur sicheren Verkaufsseite weitergeleitet',
@@ -715,7 +740,7 @@ const I18N={
     'footer.h1':'Онлайн услуги','footer.ebilet':'Проверка на е-билет','footer.h3':'Контакти',
     'footer.hakkimizda':'За нас','footer.gizlilik':'Политика за поверителност','footer.kosullar':'Условия за ползване',
     'footer.rights':'Nilüfer Turizm. Всички права запазени.','footer.pay':'Сигурно плащане с Visa · Mastercard · Troy',
-    'drawer.trips':'Курсове за отиване','drawer.trips.back':'Курсове за връщане','drawer.pick':'Изберете курс, за да продължите','drawer.continue':'Продължи','drawer.route':'Направление','drawer.date':'Дата','drawer.time':'Час','drawer.passenger':'Име и фамилия на пътника','drawer.passenger.ph':'Име и фамилия','drawer.tc':'Турски ЕГН/лична карта','drawer.tc.ph':'11-цифрен турски идент. номер','drawer.pax.info':'ДАННИ ЗА ПЪТНИКА','drawer.seat':'Място №','drawer.ticketno':'Билет №','drawer.seatpick':'Изберете място','drawer.seat.free':'Свободно','drawer.seat.occ':'Заето','drawer.seat.sel':'Избрано','drawer.seat.none':'Не е избрано място','drawer.seat.blocked':'Това място не съвпада с пола на съседния пътник. Моля, изберете друго място.','drawer.gender':'Пол','drawer.gender.f':'Жена','drawer.gender.m':'Мъж',
+    'drawer.trips':'Курсове за отиване','drawer.trips.back':'Курсове за връщане','drawer.pick':'Изберете курс, за да продължите','drawer.continue':'Продължи','drawer.route':'Направление','drawer.date':'Дата','drawer.time':'Час','drawer.passenger':'Име и фамилия на пътника','drawer.passenger.ph':'Име и фамилия','drawer.tc':'Турски ЕГН/лична карта','drawer.tc.ph':'11-цифрен турски идент. номер','drawer.pax.info':'ДАННИ ЗА ПЪТНИКА','drawer.seat':'Място №','drawer.ticketno':'Билет №','drawer.seatpick':'Изберете място','drawer.seat.free':'Свободно','drawer.seat.occ':'Заето','drawer.seat.sel':'Избрано','drawer.seat.none':'Не е избрано място','drawer.seat.blocked':'Това място не съвпада с пола на съседния пътник. Моля, изберете друго място.','drawer.gender':'Пол','drawer.gender.f':'Жена','drawer.gender.m':'Мъж','drawer.seatpick.hint':'Моля, изберете своето място.','drawer.seat.occ.m':'Заето - Мъж','drawer.seat.occ.f':'Заето - Жена','drawer.seat.confirm':'Потвърди и продължи',
     'drawer.step1':'Направление и дата<small>Избрано</small>','drawer.step2':'Избор на курс и място<small>Наличност на живо</small>','drawer.step3':'Данни на пътника и плащане<small>Сигурно 3D Secure плащане</small>',
     'drawer.secure':'🔒 Данните на картата ви не се съхраняват; плащането се обработва чрез лицензирана 3D Secure платформа.',
     'drawer.goseats':'Виж курсовете и местата','drawer.redirect':'Ще бъдете пренасочени към сигурната страница за продажби',
@@ -843,15 +868,13 @@ function seatBlocked(n,gender){
 }
 function renderSeats(seed){
   seatData=genSeats(seed);mySeat=null;
-  $('#seatInfo').textContent=t('drawer.seat.none');
   $('#tSeat').textContent='—';
+  $('#seatConfirm').classList.add('off');
   $('#busMap').innerHTML=SEAT_LAYOUT.map(n=>{
     if(n===null)return'<div class="aisle"></div>';
-    if(n==='X')return'<div class="seat off" style="visibility:hidden"></div>';
     const g=seatData[n];
     const cls=g?`seat occ ${g}`:'seat';
-    const icon=g?(g==='f'?'👩':'👨'):'';
-    return`<div class="${cls}" data-seat="${n}">${icon||n}</div>`;
+    return`<div class="${cls}" data-seat="${n}">${n}</div>`;
   }).join('');
 }
 $('#busMap').onclick=e=>{
@@ -859,27 +882,42 @@ $('#busMap').onclick=e=>{
   const n=+el.dataset.seat;
   const existing=$('#busMap').querySelector('.seat.sel');
   if(existing&&+existing.dataset.seat===n){
-    existing.classList.remove('sel');existing.textContent=n;
+    existing.classList.remove('sel');
     mySeat=null;delete seatData[n];
-    $('#seatInfo').textContent=t('drawer.seat.none');$('#tSeat').textContent='—';
+    $('#tSeat').textContent='—';
+    $('#seatConfirm').classList.add('off');
     return;
   }
   const gender=$('#pGender')?.value==='m'?'m':'f';
   if(seatBlocked(n,gender)){alert(t('drawer.seat.blocked'));return;}
-  if(existing){const on=+existing.dataset.seat;existing.classList.remove('sel');existing.textContent=on;delete seatData[on];}
+  if(existing){const on=+existing.dataset.seat;existing.classList.remove('sel');delete seatData[on];}
   seatData[n]=gender;mySeat=n;
-  el.classList.add('sel');el.textContent=gender==='f'?'👩':'👨';
-  $('#seatInfo').textContent=`${t('drawer.seat')}: ${n}`;
+  el.classList.add('sel');
   $('#tSeat').textContent=n;
-  refreshContinue();
+  $('#seatConfirm').classList.remove('off');
 };
 $('#pGender').onchange=()=>{
   if(mySeat==null)return;
-  const el=$('#busMap').querySelector('.seat.sel');if(!el)return;
   const n=mySeat,gender=$('#pGender').value==='m'?'m':'f';
   seatData[n]=undefined;
   if(seatBlocked(n,gender)){seatData[n]=gender==='m'?'f':'m';alert(t('drawer.seat.blocked'));$('#pGender').value=seatData[n];return;}
-  seatData[n]=gender;el.textContent=gender==='f'?'👩':'👨';
+  seatData[n]=gender;
+};
+function showSeatStep(){
+  $('#tripStep').hidden=true;
+  $('#seatWrap').hidden=false;
+  $('#seatRoute').textContent=`${nice(sel.from[1])} → ${nice(sel.to[1])}`;
+  $('#seatTime').textContent=`${$('#tDate').textContent} · ${goPick.dep}–${goPick.arr}`;
+  const total=goPick.price+(backPick?backPick.price:0);
+  $('#seatPrice').textContent=`₺${total}`;
+  renderSeats(sel.from[1]+sel.to[1]+$('#date').value+goPick.dep);
+}
+$('#seatBack').onclick=()=>{$('#seatWrap').hidden=true;$('#tripStep').hidden=false;};
+$('#seatConfirm').onclick=()=>{
+  if($('#seatConfirm').classList.contains('off'))return;
+  $('#seatWrap').hidden=true;$('#tripStep').hidden=false;
+  refreshContinue();
+  $('#pName').scrollIntoView({behavior:'smooth',block:'center'});
 };
 function refreshContinue(){
   if(!goPick||(tripMode==='round'&&!backPick)||mySeat==null){$('#goSeats').classList.add('off');return;}
@@ -897,20 +935,21 @@ $('#tripList').onclick=e=>{
     $('#tTime').textContent=`${goPick.dep}–${goPick.arr}`;
     const sr=seedRand(sel.from[1]+sel.to[1]+$('#date').value+goPick.dep);
     $('#tCode').textContent=`NLF${Math.floor(sr()*900000+100000)}`;
-    $('#seatWrap').hidden=false;
-    renderSeats(sel.from[1]+sel.to[1]+$('#date').value+goPick.dep);
     if(tripMode==='round'){
-      backPick=null;
+      backPick=null;mySeat=null;
       $('#tlSel').hidden=false;
       $('#tlSel').innerHTML=`<b>${t('drawer.trips')}:</b> ${$('#tDate').textContent} · ${goPick.dep}–${goPick.arr} · ₺${goPick.price}`;
       renderTrips(genTrips(sel.to[1],sel.from[1],$('#rdate').value),'back',$('#tReturn').textContent);
       return;
     }
     backPick=null;
+    showSeatStep();
+    return;
   }else{
     backPick=picked;
+    showSeatStep();
+    return;
   }
-  refreshContinue();
 };
 $('#searchForm').addEventListener('submit',e=>{
   e.preventDefault();
@@ -932,7 +971,7 @@ $('#searchForm').addEventListener('submit',e=>{
   $('#goSeats').href=goHref;
   goPick=null;backPick=null;mySeat=null;
   $('#tTime').textContent='—';$('#tSeat').textContent='—';$('#tCode').textContent='—';
-  $('#tlSel').hidden=true;$('#seatWrap').hidden=true;
+  $('#tlSel').hidden=true;$('#seatWrap').hidden=true;$('#tripStep').hidden=false;
   $('#pGender').value='f';
   renderTrips(genTrips(sel.from[1],sel.to[1],$('#date').value),'go',$('#tDate').textContent);
   open();
