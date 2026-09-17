@@ -68,6 +68,7 @@ header.site .wrap{display:flex;align-items:center;justify-content:space-between;
 @keyframes heroKen{from{transform:scale(1.08)}to{transform:scale(1)}}
 @keyframes zoom{to{transform:scale(1)}}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,26,54,.96) 0%,rgba(0,36,74,.88) 34%,rgba(0,36,74,.35) 62%,rgba(0,36,74,.05) 100%),linear-gradient(0deg,rgba(0,26,54,.7),transparent 40%)}
+.hero-glow{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(600px 400px at 12% -10%,rgba(226,10,23,.35),transparent 60%),radial-gradient(500px 500px at 105% 20%,rgba(11,74,138,.45),transparent 60%)}
 .hero .wrap{min-height:600px;display:flex;flex-direction:column;justify-content:center;padding:80px 0 170px}
 .hero .kicker{color:#fff}
 .hero h1{color:#fff;font-size:clamp(38px,5.4vw,68px);max-width:640px;margin:18px 0 20px}
@@ -106,11 +107,12 @@ header.site .wrap{display:flex;align-items:center;justify-content:space-between;
 .sugg div{padding:10px 16px;cursor:pointer;font-size:15px;font-weight:600;color:var(--ink)}
 .sugg div:hover,.sugg div.act{background:#eef3fa;color:var(--navy)}
 
-.stats{display:grid;grid-template-columns:repeat(4,1fr);margin:70px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.stats div{padding:30px 24px;border-right:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin:56px 0 0;background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:24px;box-shadow:0 30px 60px -24px rgba(0,36,74,.45);overflow:hidden;position:relative}
+.stats::before{content:"";position:absolute;inset:0;background:radial-gradient(360px 200px at 90% 0%,rgba(226,10,23,.35),transparent 60%)}
+.stats div{padding:34px 24px;border-right:1px solid rgba(255,255,255,.12);position:relative}
 .stats div:last-child{border-right:0}
-.stats b{display:block;font-size:44px;font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1}
-.stats small{font-size:14px;color:var(--mute);font-weight:600}
+.stats b{display:block;font-size:46px;font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1}
+.stats small{font-size:14px;color:#9fb3cc;font-weight:600}
 
 section.blk{padding:110px 0}
 .head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:46px;flex-wrap:wrap}
@@ -120,8 +122,12 @@ section.blk{padding:110px 0}
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
 .card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:30px;overflow:hidden;box-shadow:var(--shadow);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;isolation:isolate}
 .card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .35s;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(0,52,102,.06),transparent 50%)}
+.card::after{content:"";position:absolute;inset:-1px;z-index:2;padding:1px;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;background:conic-gradient(from var(--ang,0deg),transparent 0 70%,var(--red) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 3.5s linear infinite paused}
 .card:hover{transform:translateY(-4px);box-shadow:0 1px 2px rgba(0,36,74,.04),0 24px 48px -18px rgba(0,36,74,.28)}
 .card:hover::before{opacity:1}
+.card:hover::after{opacity:1;animation-play-state:running}
+@keyframes spin{to{--ang:360deg}}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
 .card h4{font-size:24px;margin-bottom:10px}
 .card p{font-size:15px}
 .label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:#e8eef6;padding:5px 10px;border-radius:8px;margin-bottom:16px}
@@ -245,9 +251,9 @@ footer a:hover{color:#fff}
   .topbar .l span:not(:first-child){display:none}
   .hero .wrap{min-height:520px;padding:60px 0 150px}
   .hero::before{background:linear-gradient(0deg,rgba(0,26,54,.97) 20%,rgba(0,36,74,.7) 60%,rgba(0,36,74,.35))}
-  .stats{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr;border-radius:18px}
   .stats div:nth-child(2){border-right:0}
-  .stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .stats div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}
   .cta{padding:36px 26px}
   .c-fleet .tx{flex-direction:column;align-items:start}
   .c-fleet .num small{text-align:left}
@@ -305,6 +311,7 @@ footer a:hover{color:#fff}
     <img src="img/hero3.jpg" alt="Nilüfer Turizm otobüsü">
     <img src="img/hero4.jpg" alt="Nilüfer Turizm otobüsü">
   </div>
+  <div class="hero-glow"></div>
   <div class="wrap">
     <span class="kicker reveal-up" data-i18n="hero.kicker">2000'den beri güvenle yolda</span>
     <h1 class="reveal-up" style="animation-delay:.1s" data-i18n="hero.h1">Bursa'dan Türkiye'nin <span>dört bir yanına.</span></h1>
