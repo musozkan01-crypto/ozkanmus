@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Nilüfer Turizm | Şehirlerarası Otobüs Bileti</title>
+<meta name="description" content="Nilüfer Turizm: 2000 yılından beri Bursa merkezli şehirlerarası yolcu taşımacılığı. Online otobüs bileti, otobüs kiralama ve Avrupa seferleri.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#003466; --navy2:#00244a; --navy3:#0b4a8a;
+  --red:#e20a17; --red2:#b8070f;
+  --bg:#f4f6f9; --paper:#ffffff; --ink:#0f1c2e; --text:#3d4a5c; --mute:#7a8699;
+  --line:#e2e7ee; --r:18px;
+  --shadow:0 1px 2px rgba(0,36,74,.04),0 12px 32px -12px rgba(0,36,74,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 16px/1.65 "Manrope",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{color:var(--ink);font-weight:800;letter-spacing:-.025em;line-height:1.1}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:22px;height:2px;background:var(--red)}
+
+.topbar{background:var(--navy2);color:#c9d6e6;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;gap:16px}
+.topbar a:hover{color:#fff}
+.topbar .l{display:flex;gap:22px}
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header.site.scrolled{box-shadow:0 8px 24px -16px rgba(0,36,74,.35)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo img{height:46px;width:auto}
+.menu{display:flex;gap:2px}
+.menu a{padding:10px 14px;border-radius:10px;font-weight:600;font-size:15px;color:var(--ink);position:relative}
+.menu a::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.menu a:hover::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:12px;border:0;cursor:pointer;font-weight:700;font-size:15px;transition:transform .2s,box-shadow .25s,background .2s}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 24px -10px rgba(226,10,23,.7)}
+.btn-red:hover{background:var(--red2);transform:translateY(-1px)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy3)}
+.btn-line{background:transparent;border:1.5px solid currentColor}
+.burger{display:none;background:none;border:1px solid var(--line);width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer}
+
+.hero{position:relative;background:var(--navy2);color:#fff;overflow:hidden;isolation:isolate}
+.hero-photo{position:absolute;inset:0;z-index:-2}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;image-rendering:-webkit-optimize-contrast;opacity:0;transition:opacity 1.6s ease;animation:heroKen 9s ease-out forwards}
+.hero-photo img.active{opacity:1}
+@keyframes heroKen{from{transform:scale(1.08)}to{transform:scale(1)}}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,26,54,.96) 0%,rgba(0,36,74,.88) 34%,rgba(0,36,74,.35) 62%,rgba(0,36,74,.05) 100%),linear-gradient(0deg,rgba(0,26,54,.7),transparent 40%)}
+.hero .wrap{min-height:600px;display:flex;flex-direction:column;justify-content:center;padding:80px 0 170px}
+.hero .kicker{color:#fff}
+.hero h1{color:#fff;font-size:clamp(38px,5.4vw,68px);max-width:640px;margin:18px 0 20px}
+.hero h1 span{color:#ff4a52}
+.hero p{max-width:500px;font-size:18px;color:#cfdaea}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.hero-badges span{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);font-size:14px;font-weight:600}
+.reveal-up{opacity:0;transform:translateY(22px);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+
+.searchwrap{position:relative;z-index:5;margin-top:-110px}
+.search{background:var(--paper);border-radius:22px;box-shadow:0 30px 60px -24px rgba(0,36,74,.35);padding:22px;border:1px solid var(--line)}
+.search-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:12px;flex-wrap:wrap}
+.search-top h3{font-size:20px}
+.tabs{display:flex;background:var(--bg);border-radius:12px;padding:4px}
+.tabs button{border:0;background:none;padding:8px 16px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;color:var(--mute)}
+.tabs button.on{background:var(--paper);color:var(--navy);box-shadow:0 2px 8px rgba(0,36,74,.1)}
+.sgrid{display:grid;grid-template-columns:minmax(0,1.2fr) auto minmax(0,1.2fr) minmax(0,1fr) minmax(0,.55fr) auto;gap:10px;align-items:stretch}
+.sgrid:has(#returnWrap:not([hidden])){grid-template-columns:minmax(0,1.2fr) auto minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.55fr) auto}
+.field{position:relative;background:var(--bg);border:1.5px solid transparent;border-radius:14px;padding:11px 16px;transition:border-color .2s,background .2s;min-width:0}
+.field:focus-within{border-color:var(--navy);background:#fff}
+.field label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.field input{width:100%;min-width:0;background:none;border:0;outline:0;font-size:17px;font-weight:700;color:var(--ink)}
+.field input::placeholder{color:#a9b3c2;font-weight:600}
+.swap{align-self:center;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--navy);font-size:18px;transition:transform .4s,border-color .2s}
+.swap:hover{transform:rotate(180deg);border-color:var(--navy)}
+.search .go{padding:0 30px;font-size:16px;border-radius:14px}
+.sfoot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:10px;flex-wrap:wrap}
+.quick{display:flex;gap:6px}
+.quick button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 13px;font-size:13px;font-weight:600;cursor:pointer;color:var(--text)}
+.quick button.on,.quick button:hover{border-color:var(--navy);color:var(--navy)}
+.trust{font-size:13px;color:var(--mute);display:flex;gap:16px;flex-wrap:wrap}
+.err{color:var(--red);font-size:14px;font-weight:600}
+.sugg{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--line);border-radius:14px;max-height:260px;overflow:auto;z-index:30;display:none;box-shadow:0 20px 40px -12px rgba(0,36,74,.3)}
+.sugg.show{display:block}
+.sugg div{padding:10px 16px;cursor:pointer;font-size:15px;font-weight:600;color:var(--ink)}
+.sugg div:hover,.sugg div.act{background:#eef3fa;color:var(--navy)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin:70px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:30px 24px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-size:44px;font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1}
+.stats small{font-size:14px;color:var(--mute);font-weight:600}
+
+section.blk{padding:110px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:46px;flex-wrap:wrap}
+.head h2{font-size:clamp(32px,4vw,50px);margin-top:14px;max-width:600px}
+.head p{max-width:440px}
+
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:30px;overflow:hidden;box-shadow:var(--shadow);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;isolation:isolate}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .35s;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(0,52,102,.06),transparent 50%)}
+.card:hover{transform:translateY(-4px);box-shadow:0 1px 2px rgba(0,36,74,.04),0 24px 48px -18px rgba(0,36,74,.28)}
+.card:hover::before{opacity:1}
+.card h4{font-size:24px;margin-bottom:10px}
+.card p{font-size:15px}
+.label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:#e8eef6;padding:5px 10px;border-radius:8px;margin-bottom:16px}
+.c-fleet{grid-column:span 7;grid-row:span 2;padding:0;display:flex;flex-direction:column;min-height:480px;background:var(--navy);border:0}
+.c-fleet .ph{flex:1;overflow:hidden;min-height:260px}
+.c-fleet .ph img{width:100%;height:100%;object-fit:cover;object-position:60% 55%;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.c-fleet:hover .ph img{transform:scale(1.05)}
+.c-fleet .tx{padding:28px 30px;display:flex;justify-content:space-between;align-items:end;gap:20px;color:#cfdaea}
+.c-fleet h4{color:#fff}
+.c-fleet .label{background:rgba(255,255,255,.12);color:#fff}
+.c-fleet .num{font-size:88px;font-weight:800;line-height:.85;color:#fff;letter-spacing:-.05em}
+.c-fleet .num small{display:block;font-size:14px;letter-spacing:0;color:#9fb3cc;font-weight:600;margin-top:10px;text-align:right}
+.c-track{grid-column:span 5;background:linear-gradient(135deg,var(--red),var(--red2));color:#ffe3e5;border:0}
+.c-track h4{color:#fff}.c-track .label{background:rgba(255,255,255,.18);color:#fff}
+.c-track .btn{margin-top:18px;background:#fff;color:var(--red2)}
+.c-call{grid-column:span 5}
+.c-call a.tel{display:block;font-size:34px;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-top:6px}
+.c-call a.tel:hover{color:var(--red)}
+.c-wifi,.c-express,.c-food{grid-column:span 4}
+.c-rent{grid-column:span 8;background:var(--navy2);color:#b9c8dc;border:0;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+.c-rent h4{color:#fff;font-size:30px}.c-rent .label{background:rgba(255,255,255,.1);color:#fff}
+.c-rent ul{list-style:none;display:grid;gap:10px}
+.c-rent li{padding:12px 16px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:#fff;font-weight:600;font-size:15px}
+.c-eu{grid-column:span 4}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chips b{font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--bg);color:var(--navy)}
+
+.routes{background:var(--paper);border-block:1px solid var(--line)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.r{position:relative;border:1px solid var(--line);border-radius:16px;padding:22px;cursor:pointer;background:var(--bg);transition:background .3s,border-color .3s,transform .3s}
+.r:hover{background:var(--navy);border-color:var(--navy);transform:translateY(-3px)}
+.r:hover *{color:#fff!important}
+.r .from{font-size:13px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+.r .to{font-size:26px;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin:2px 0 14px;display:flex;justify-content:space-between;align-items:center}
+.r .to i{font-style:normal;color:var(--red);transition:transform .3s}
+.r:hover .to i{transform:translateX(4px)}
+.r .meta{font-size:14px;font-weight:600}
+
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:center}
+.about .ph{border-radius:22px;overflow:hidden;position:relative;box-shadow:var(--shadow);aspect-ratio:4/3.2}
+.about .ph img{width:100%;height:100%;object-fit:cover;object-position:70% 55%}
+.about .since{position:absolute;left:20px;bottom:20px;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:var(--shadow)}
+.about .since b{display:block;font-size:34px;font-weight:800;color:var(--red);line-height:1}
+.about .since small{font-size:13px;color:var(--mute);font-weight:600}
+.about h2{font-size:clamp(30px,3.6vw,46px);margin:14px 0 20px}
+.about p+p{margin-top:14px}
+.values{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.values div{padding:16px 18px;border-radius:14px;background:var(--paper);border:1px solid var(--line);font-weight:700;color:var(--ink);border-left:3px solid var(--red)}
+
+.cta{background:var(--navy);color:#cfdaea;border-radius:26px;padding:60px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;border:60px solid rgba(226,10,23,.25)}
+.cta h2{color:#fff;font-size:clamp(28px,3.4vw,42px);max-width:560px;position:relative;z-index:1}
+.cta .btns{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1}
+.cta .btn-line{color:#fff}
+
+footer{background:var(--navy2);color:#9fb3cc;padding:70px 0 26px;margin-top:110px;font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+.flogo{background:#fff;border-radius:14px;padding:10px 14px;display:inline-block}
+.flogo img{height:40px}
+footer h5{color:#fff;font-size:15px;margin-bottom:14px;font-weight:700}
+footer li{list-style:none;margin:7px 0}
+footer a:hover{color:#fff}
+.legal{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:50px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:13px}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+.scrim{position:fixed;inset:0;background:rgba(0,26,54,.45);backdrop-filter:blur(4px);z-index:200;opacity:0;pointer-events:none;transition:opacity .35s}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);z-index:201;background:var(--bg);transform:translateX(100%);transition:transform .5s cubic-bezier(.2,.9,.2,1);display:flex;flex-direction:column;box-shadow:-30px 0 80px rgba(0,36,74,.25)}
+.drawer.open{transform:none}
+.dr-top{padding:20px 24px;display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid var(--line)}
+.dr-top img{height:34px}
+.dr-top .x{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:16px}
+.dr-body{padding:24px;flex:1;overflow:auto}
+.ticket{background:var(--navy);color:#cfdaea;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden}
+.ticket::before,.ticket::after{content:"";position:absolute;width:24px;height:24px;border-radius:50%;background:var(--bg);top:98px}
+.ticket::before{left:-12px}.ticket::after{right:-12px}
+.lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8fa6c2}
+.tk-route{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:10px;margin:6px 0 26px}
+.tk-route b{font-size:22px;font-weight:800;color:#fff;line-height:1.15;word-break:break-word}
+.tk-route b:last-child{text-align:right}
+.tk-route i{font-style:normal;color:#ff4a52;font-size:20px}
+.perf{border-top:2px dashed rgba(255,255,255,.2);margin:0 -24px 16px}
+.tk-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tk-meta b{display:block;font-size:16px;color:#fff}
+.steps{margin-top:22px;display:grid;gap:8px}
+.step{display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:14px;background:#fff;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:15px}
+.step em{font-style:normal;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;background:var(--bg);color:var(--mute);flex:none}
+.step.on em{background:var(--navy);color:#fff}
+.step small{display:block;color:var(--mute);font-size:13px;font-weight:500}
+.secure{margin-top:18px;padding:14px 16px;border-radius:14px;background:#eaf6ef;border:1px solid #cde9d8;font-size:14px;color:#1d6b3f;font-weight:600}
+.cards{display:flex;gap:6px;margin-top:12px}
+.cards span{font-size:12px;font-weight:800;padding:6px 10px;border-radius:8px;background:#fff;border:1px solid var(--line);color:#1a1f71}
+.cards span:nth-child(2){color:#eb001b}.cards span:nth-child(3){color:#00857c}
+.dr-foot{padding:18px 24px;background:#fff;border-top:1px solid var(--line)}
+.dr-foot .btn{width:100%;padding:17px}
+.dr-foot p{text-align:center;color:var(--mute);font-size:13px;margin-top:8px}
+
+@media (max-width:1080px){
+  .sgrid{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+  .sgrid .f-date{grid-column:1/2}.sgrid .f-pax{grid-column:2/4}
+  .sgrid:has(.f-return:not([hidden])) .f-date{grid-column:1/2}
+  .sgrid:has(.f-return:not([hidden])) .f-return{grid-column:2/4}
+  .sgrid:has(.f-return:not([hidden])) .f-pax{grid-column:1/2}
+  .sgrid .go{grid-column:1/-1;padding:16px}
+  .bento>*{grid-column:span 12!important;grid-row:auto!important}
+  .c-rent{grid-template-columns:1fr}
+  .about{grid-template-columns:minmax(0,1fr);gap:40px}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .menu,.hdr-cta{display:none}
+  .burger{display:block}
+  .menu.open{display:flex;position:absolute;top:78px;left:0;right:0;flex-direction:column;background:#fff;padding:10px 20px 20px;border-bottom:1px solid var(--line);box-shadow:0 20px 30px -20px rgba(0,36,74,.3)}
+  .topbar .l span:not(:first-child){display:none}
+  .hero .wrap{min-height:520px;padding:60px 0 150px}
+  .hero::before{background:linear-gradient(0deg,rgba(0,26,54,.97) 20%,rgba(0,36,74,.7) 60%,rgba(0,36,74,.35))}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .cta{padding:36px 26px}
+  .c-fleet .tx{flex-direction:column;align-items:start}
+  .c-fleet .num small{text-align:left}
+}
+@media (max-width:520px){
+  .sgrid{grid-template-columns:minmax(0,1fr)}
+  .sgrid .swap{justify-self:end;margin:-26px 14px -26px 0;position:relative;z-index:2;transform:rotate(90deg)}
+  .sgrid .f-date,.sgrid .f-return,.sgrid .f-pax{grid-column:auto}
+  .values{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  section.blk{padding:80px 0}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.reveal-up{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="l"><span>📞 <a href="tel:08502220099">0850 222 00 99</a></span><span>7/24 Çağrı Merkezi</span></div>
+    <div class="l"><a href="https://www.nilufer.com.tr/pnr-sorgula">PNR Sorgula</a><a href="https://www.nilufer.com.tr/giris">Üye Girişi</a></div>
+  </div>
+</div>
+
+<header class="site" id="hdr">
+  <div class="wrap">
+    <a href="#" class="logo"><img src="img/logo.png" alt="Nilüfer Turizm"></a>
+    <nav class="menu" id="menu">
+      <a href="#bilet">Bilet Al</a>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#hatlar">Seferler</a>
+      <a href="#kiralama">Otobüs Kiralama</a>
+      <a href="#kurumsal">Kurumsal</a>
+      <a href="https://www.nilufer.com.tr/yolcumnerede">Yolcum Nerede</a>
+    </nav>
+    <a href="tel:08502220099" class="btn btn-navy hdr-cta">İletişim</a>
+    <button class="burger" id="burger" aria-label="Menü">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-photo" id="heroPhoto">
+    <img src="img/hero1.jpg" alt="Nilüfer Turizm otobüsü" class="active">
+    <img src="img/hero2.jpg" alt="Nilüfer Turizm otobüsü">
+    <img src="img/hero3.jpg" alt="Nilüfer Turizm otobüsü">
+    <img src="img/hero4.jpg" alt="Nilüfer Turizm otobüsü">
+  </div>
+  <div class="wrap">
+    <span class="kicker reveal-up">2000'den beri güvenle yolda</span>
+    <h1 class="reveal-up" style="animation-delay:.1s">Bursa'dan Türkiye'nin <span>dört bir yanına.</span></h1>
+    <p class="reveal-up" style="animation-delay:.2s">Kendi filomuz, deneyimli kaptanlarımız ve 452 durak noktasıyla her gün güvenli, konforlu ve ekonomik yolculuk.</p>
+    <div class="hero-badges reveal-up" style="animation-delay:.3s"><span>80 Mercedes-Benz Travego</span><span>Ücretsiz Wi-Fi</span><span>İkram servisi</span></div>
+  </div>
+</section>
+
+<div class="wrap searchwrap" id="bilet">
+  <form class="search reveal-up" id="searchForm" style="animation-delay:.35s" autocomplete="off">
+    <div class="search-top">
+      <h3>Otobüs bileti ara</h3>
+      <div class="tabs" id="tripTabs"><button type="button" class="on" data-trip="one">Tek Yön</button><button type="button" data-trip="round">Gidiş - Dönüş</button></div>
+    </div>
+    <div class="sgrid" id="sgrid">
+      <div class="field"><label for="from">Nereden</label><input id="from" placeholder="Kalkış noktası"><div class="sugg" id="sfrom"></div></div>
+      <button type="button" class="swap" id="swap" aria-label="Yer değiştir">⇄</button>
+      <div class="field"><label for="to">Nereye</label><input id="to" placeholder="Varış noktası"><div class="sugg" id="sto"></div></div>
+      <div class="field f-date"><label for="date">Gidiş tarihi</label><input type="date" id="date"></div>
+      <div class="field f-date f-return" id="returnWrap" hidden><label for="rdate">Dönüş tarihi</label><input type="date" id="rdate"></div>
+      <div class="field f-pax"><label for="pax">Yolcu</label><input id="pax" type="number" min="1" max="4" value="1"></div>
+      <button class="btn btn-red go" type="submit">Sefer Bul</button>
+    </div>
+    <div class="sfoot">
+      <div class="quick" id="quick"><button type="button" data-d="0" class="on">Bugün</button><button type="button" data-d="1">Yarın</button><button type="button" data-d="w">Hafta sonu</button></div>
+      <div class="err" id="err"></div>
+      <div class="trust"><span>🔒 3D Secure ödeme</span><span>✓ Kolay iade</span><span>✓ Anında e-bilet</span></div>
+    </div>
+  </form>
+
+  <div class="stats rv">
+    <div><b data-count="26">0</b><small>yıllık tecrübe</small></div>
+    <div><b data-count="80">0</b><small>otobüslük filo</small></div>
+    <div><b data-count="452">0</b><small>durak noktası</small></div>
+    <div><b data-count="4">0</b><small>bölgede hizmet</small></div>
+  </div>
+</div>
+
+<section class="blk" id="hizmetler">
+  <div class="wrap">
+    <div class="head rv">
+      <div><span class="kicker">Hizmetlerimiz</span><h2>Yolculuğun her anında yanınızdayız</h2></div>
+      <p>Filomuzun tamamı firmamıza aittir. Araç bakımından kaptan eğitimine, ikramdan müşteri hizmetlerine kadar her şey tek elden yönetilir.</p>
+    </div>
+
+    <div class="bento">
+      <article class="card c-fleet rv">
+        <div class="ph"><img src="img/otobus.jpg" alt="Nilüfer Turizm Travego"></div>
+        <div class="tx">
+          <div><span class="label">Filomuz</span><h4>Mercedes-Benz Travego</h4><p>Tamamı firmamıza ait, düzenli bakımlı araçlar.</p></div>
+          <div class="num">80<small>otobüs</small></div>
+        </div>
+      </article>
+
+      <article class="card c-track rv">
+        <span class="label">Canlı takip</span>
+        <h4>Yolcum Nerede?</h4>
+        <p>Yakınlarınızın otobüsünün konumunu anlık olarak takip edin, karşılamaya tam zamanında gidin.</p>
+        <a href="https://www.nilufer.com.tr/yolcumnerede" class="btn">Otobüsü takip et →</a>
+      </article>
+
+      <article class="card c-call rv">
+        <span class="label">Müşteri hizmetleri</span>
+        <h4>7/24 Çağrı Merkezi</h4>
+        <p>Rezervasyon, bilet değişikliği ve iade işlemleriniz için her saat ulaşabilirsiniz.</p>
+        <a href="tel:08502220099" class="tel">0850 222 00 99</a>
+      </article>
+
+      <article class="card c-wifi rv"><span class="label">Konfor</span><h4>Ücretsiz internet</h4><p>Yolculuk boyunca sınırsız Wi-Fi ile bağlantınız kopmaz.</p></article>
+      <article class="card c-express rv"><span class="label">Zaman</span><h4>Ekspres seferler</h4><p>Seçili hatlarda ara durak vermeden doğrudan varış.</p></article>
+      <article class="card c-food rv"><span class="label">İkram</span><h4>Yiyecek &amp; içecek</h4><p>Sefer boyunca host ekibimizden ikram servisi.</p></article>
+
+      <article class="card c-rent rv" id="kiralama">
+        <div>
+          <span class="label">Kurumsal &amp; grup</span>
+          <h4>Otobüs kiralama</h4>
+          <p>Kaptanlı Travego araçlarımızla kurum ve organizasyonlarınıza özel ulaşım çözümleri sunuyoruz.</p>
+          <a href="tel:08502220099" class="btn btn-red" style="margin-top:22px">Teklif alın</a>
+        </div>
+        <ul><li>Personel servisi</li><li>Okul ve kültür gezileri</li><li>Düğün ve organizasyon</li><li>Tur ve kongre transferi</li></ul>
+      </article>
+
+      <article class="card c-eu rv">
+        <span class="label">Uluslararası</span>
+        <h4>Avrupa seferleri</h4>
+        <p>Yurt dışı hatlarımızla Avrupa'ya konforlu ulaşım.</p>
+        <div class="chips"><b>Sofya</b><b>Macaristan</b></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="blk routes" id="hatlar">
+  <div class="wrap">
+    <div class="head rv">
+      <div><span class="kicker">Seferler</span><h2>Popüler güzergâhlar</h2></div>
+      <p>Marmara, Ege, İç Anadolu ve Akdeniz bölgelerinde düzenli seferler. Güzergâha tıklayın, uygun seferleri hemen listeleyelim.</p>
+    </div>
+    <div class="rgrid" id="rlist"></div>
+  </div>
+</section>
+
+<section class="blk" id="kurumsal">
+  <div class="wrap about">
+    <div class="ph rv"><img src="img/otobus.jpg" alt="Nilüfer Turizm"><div class="since"><b>2000</b><small>yılından beri</small></div></div>
+    <div class="rv">
+      <span class="kicker">Hakkımızda</span>
+      <h2>Adını Bursa'dan, gücünü yolcularından alır</h2>
+      <p>Nilüfer Turizm, Mart 2000'de Hüseyin Kayaplı tarafından, memleketi Bursa'nın Nilüfer ilçesinin adıyla kuruldu.</p>
+      <p>Büyüyen Bursa'nın ulaşım ihtiyacına cevap vermek için yola çıkan firmamız; İstanbul, Ankara, İzmir, Eskişehir ve Balıkesir hatlarıyla kısa sürede sektörün güvenilir isimleri arasına girdi. Bugün 80 araçlık kendi filomuzla dört bölgede hizmet veriyoruz.</p>
+      <div class="values"><div>Güvenli yolculuk</div><div>Konforlu araçlar</div><div>Ekonomik fiyat</div><div>Kaliteli hizmet</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cta rv">
+    <h2>Bir sonraki yolculuğunuzu şimdi planlayın</h2>
+    <div class="btns"><a href="#bilet" class="btn btn-red">Bilet Al</a><a href="tel:08502220099" class="btn btn-line">0850 222 00 99</a></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><span class="flogo"><img src="img/logo.png" alt="Nilüfer Turizm"></span><p style="margin-top:16px;max-width:320px">2000 yılından beri Bursa merkezli şehirlerarası yolcu taşımacılığı, otobüs kiralama ve Avrupa seferleri.</p></div>
+      <div><h5>Online İşlemler</h5><ul><li><a href="#bilet">Bilet Al</a></li><li><a href="https://www.nilufer.com.tr/pnr-sorgula">PNR Sorgula</a></li><li><a href="https://www.nilufer.com.tr/ebilet-sorgula">E-Bilet Sorgula</a></li><li><a href="https://www.nilufer.com.tr/yolcumnerede">Yolcum Nerede</a></li></ul></div>
+      <div><h5>Kurumsal</h5><ul><li><a href="#kurumsal">Hakkımızda</a></li><li><a href="https://www.nilufer.com.tr/kvkk">KVKK</a></li><li><a href="https://www.nilufer.com.tr/gizlilik-politikasi">Gizlilik Politikası</a></li><li><a href="https://www.nilufer.com.tr/kullanimkosullari">Kullanım Koşulları</a></li></ul></div>
+      <div><h5>İletişim</h5><ul><li><a href="tel:08502220099">0850 222 00 99</a></li><li>Bursa Şehirlerarası Otobüs Terminali</li></ul></div>
+    </div>
+    <div class="legal"><span>© <span id="yr"></span> Nilüfer Turizm. Tüm hakları saklıdır.</span><span>Visa · Mastercard · Troy ile güvenli ödeme</span></div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="dr-top"><img src="img/logo.png" alt="Nilüfer"><button class="x" id="close" aria-label="Kapat">✕</button></div>
+  <div class="dr-body">
+    <div class="ticket">
+      <div class="lbl">Güzergâh</div>
+      <div class="tk-route"><b id="tFrom">—</b><i>→</i><b id="tTo">—</b></div>
+      <div class="perf"></div>
+      <div class="tk-meta"><div><span class="lbl">Tarih</span><b id="tDate">—</b></div><div class="tk-return" id="tReturnWrap" hidden><span class="lbl">Dönüş</span><b id="tReturn">—</b></div><div><span class="lbl">Yolcu</span><b id="tPax">1</b></div></div>
+    </div>
+    <div class="steps">
+      <div class="step on"><em>1</em><div>Güzergâh ve tarih<small>Seçildi</small></div></div>
+      <div class="step"><em>2</em><div>Sefer ve koltuk seçimi<small>Canlı koltuk durumu</small></div></div>
+      <div class="step"><em>3</em><div>Yolcu bilgileri ve ödeme<small>3D Secure güvenli ödeme</small></div></div>
+    </div>
+    <div class="secure">🔒 Kart bilgileriniz saklanmaz; ödeme 3D Secure ile lisanslı ödeme altyapısında alınır.</div>
+    <div class="cards"><span>VISA</span><span>Mastercard</span><span>TROY</span></div>
+  </div>
+  <div class="dr-foot"><a class="btn btn-red" id="goSeats" href="#">Seferleri ve koltukları gör</a><p>Güvenli satış sayfasına yönlendirileceksiniz</p></div>
+</aside>
+
+<script>
+const CITIES=[["2098", "4 LEVENT"], ["1592", "ADANA"], ["1722", "ADAPAZARI"], ["2080", "ADİL CEVAZ"], ["1655", "Afyon Kolaylı Tesisleri"], ["2194", "AFYON OTOGAR ÖNÜ"], ["1681", "AĞRI"], ["1725", "AHLAT"], ["1726", "AKÇAABAT"], ["2083", "Akçay"], ["1668", "AKHİSAR"], ["1601", "AKSARAY"], ["1995", "ALAÇATI"], ["2152", "ALANYA"], ["1735", "ALİBEYKÖY"], ["2084", "ALTINOLUK"], ["2104", "ALTINOVA"], ["2064", "AMASYA"], ["2143", "ANKARA"], ["2144", "ANTALYA"], ["2076", "AŞKALE"], ["3711", "ATKARACALAR"], ["2191", "AYDIN"], ["1749", "AYVALIK"], ["2190", "AYVALIK AKKUŞLAR TESİS"], ["2168", "BABAESKİ"], ["1750", "BAFRA"], ["2137", "BALÇOVA"], ["2230", "BALIKESİR"], ["2140", "BANAZ"], ["1753", "Bandırma"], ["1652", "BANSKO"], ["1685", "BAYBURT"], ["2097", "Baykan"], ["2150", "BELEK"], ["2040", "BERLIN"], ["1758", "BEŞİKDÜZÜ"], ["2112", "BEŞİKTAŞ YILDIZ CAMİ ÖNÜ"], ["1762", "BİGA"], ["1686", "BİNGÖL"], ["1687", "BİTLİS"], ["2041", "BLAGOEVGRAD"], ["2214", "BODRUM"], ["1688", "BOLU"], ["1645", "BOZÜYÜK"], ["2008", "BUDAPEŞTE(MCRS)"], ["1766", "BULANCAK"], ["2139", "BURDUR"], ["1993", "BURGAZ"], ["2219", "BURSA"], ["1769", "ÇALDIRAN"], ["1996", "ÇANAKKALE OTG. ÖNÜ"], ["1772", "ÇARŞAMBA"], ["1773", "ÇARŞIBAŞI"], ["3710", "ÇERKEŞ"], ["1659", "ÇERKEZKÖY"], ["2127", "CERNİVTSİ"], ["1778", "ÇEŞME"], ["1767", "CEYHAN"], ["3718", "ÇİFTLİKKÖY"], ["1780", "ÇİNE"], ["1627", "ÇORLU"], ["2073", "DARENDE"], ["1784", "DATÇA"], ["3713", "DEĞİRMENDERE"], ["2193", "DENİZLİ"], ["2215", "DİDİM"], ["1788", "DİKİLİ"], ["2085", "DİNAR"], ["2135", "DOBRİÇ"], ["3717", "DOĞANKENT"], ["2002", "DORTMUND"], ["2039", "DRESDEN"], ["2021", "DULOVO"], ["1794", "DÜZCE"], ["2241", "DÜZİÇİ"], ["1670", "EDİRNE"], ["2082", "EDREMİT"], ["2156", "ELAZIĞ"], ["2075", "ELEŞKİRT"], ["1802", "ERDEK"], ["2034", "ERİKLİ"], ["1690", "ERZİNCAN"], ["1692", "ERZURUM"], ["2197", "ESKİŞEHİR"], ["2014", "ESPİYE"], ["2015", "EYNESİL"], ["1805", "EZİNE"], ["1806", "FATSA"], ["1612", "GEBZE"], ["1675", "GELİBOLU OTOGAR"], ["2210", "GEMLİK"], ["1811", "GEREDE"], ["2068", "GEVAŞ"], ["1694", "GİRESUN"], ["1813", "Gölcük"], ["1817", "GÖRELE"], ["1823", "Gümüşhacıköy"], ["1695", "GÜMÜŞHANE"], ["2065", "GÜROYMAK"], ["2162", "GÜRÜN"], ["1696", "HAKKARİ"], ["2092", "Hamur"], ["1973", "HASKOVA"], ["1719", "HAVSA"], ["1998", "HAVZA"], ["3712", "HENDEK"], ["2093", "Hilvan"], ["2070", "HİZAN"], ["2130", "HMELNİTSKİ"], ["1832", "HORASAN"], ["1833", "ILGAZ"], ["3720", "İLKADIM"], ["1835", "İMAMOĞLU"], ["2208", "İNEGÖL"], ["2201", "ISPARTA"], ["2212", "İST (BEYLİKDÜZÜ)"], ["2209", "İST (KAVACIK)"], ["1980", "İST (OTOGAR) İST (HAVALİMANI)"], ["2200", "İST (Y.DUDULLU)"], ["2042", "İZMİR"], ["2005", "İZMİT"], ["2129", "JİTOMİR"], ["1843", "KADİRLİ"], ["1967", "KAPAKLI"], ["1972", "KAPTAN ANDREEVO"], ["2108", "Karacabey"], ["1852", "KARAKOÇAN"], ["2102", "KARAMÜRSEL"], ["1854", "KARASU"], ["2174", "KAVAK"], ["2164", "KAYSERİ"], ["2029", "KEMER"], ["2187", "KEŞAN"], ["1862", "Keşap"], ["2128", "KİEV"], ["1979", "KIRCALİ"], ["2172", "KIRIKKALE"], ["2157", "KIRKLARELİ"], ["2166", "KIRŞEHİR"], ["2079", "KOÇHİSAR"], ["2090", "Köprüköy"], ["2072", "KOVANCILAR"], ["1868", "KOZAN"], ["1869", "KOZLU"], ["2095", "Kozluk"], ["2086", "KÜÇÜKKUYU"], ["3716", "KÜRTÜN"], ["2217", "KUŞADASI"], ["2132", "KÜTAHYA"], ["2189", "LAPSEKİ İSKELE"], ["2179", "LÜLEBURGAZ"], ["2007", "MACARİSTAN"], ["2087", "MAÇKA"], ["2158", "MALATYA"], ["1877", "MALKARA"], ["2151", "MANAVGAT"], ["2182", "MANİSA"], ["1880", "MARMARİS"], ["2160", "MERZİFON"], ["1594", "MİLAS"], ["2165", "MUCUR"], ["2109", "MUDANYA"], ["2196", "MUĞLA"], ["2000", "MUNİH"], ["2069", "MURADİYE"], ["1706", "MUŞ"], ["2192", "NAZİLLİ"], ["2061", "Niksar"], ["2019", "OF"], ["1651", "ÖMÜR PLAZA"], ["2199", "ORDU"], ["1633", "ORHANGAZİ"], ["1888", "OSMANCIK"], ["1581", "OSMANİYE"], ["3715", "ÖZKÜRTÜN"], ["1653", "PAMPOROVO"], ["1892", "PASİNLER"], ["1893", "PATNOS"], ["1975", "PERNİK"], ["2077", "PERŞEMBE"], ["2163", "PINARBAŞI"], ["2013", "PİRAZİZ"], ["1974", "PLOVDİV"], ["2186", "POLATLI"], ["2038", "PRAG"], ["1990", "RAZGRAD"], ["2067", "REFAHİYE"], ["1895", "Reşadiye"], ["1708", "RİZE"], ["1991", "RUSSE"], ["2103", "SABİHA GÖKÇEN HAVALİMANI"], ["1898", "SAKARYA"], ["2195", "SALİHLİ"], ["1997", "SALIPAZARI"], ["2175", "SAMSUN"], ["2047", "SELANİK"], ["2145", "SERİK"], ["2136", "SİLİSTRE"], ["2198", "SİLİVRİ"], ["2126", "SİRET"], ["2178", "SİVAS OTOGAR"], ["2094", "Siverek"], ["2044", "SLİVEN"], ["1976", "SOFYA"], ["1718", "SÖKE"], ["2066", "SOLHAN"], ["2043", "STARA ZAGORA"], ["2223", "Sultanbeyli"], ["2107", "Suluova"], ["1989", "SUMEN"], ["1925", "Suşehri"], ["2185", "SUSURLUK"], ["2012", "TARGOVISHTE"], ["1933", "Taşova"], ["1934", "TATVAN"], ["1937", "TEKİRDAĞ"], ["2006", "TEKKEKÖY"], ["1938", "TERCAN"], ["1939", "TERME"], ["2134", "TERVEL"], ["1941", "TİREBOLU"], ["1944", "Torul"], ["1945", "TOSYA"], ["1712", "TRABZON"], ["2204", "TURGUTLU"], ["2074", "TUTAK"], ["1988", "ÜNYE"], ["2206", "UŞAK"], ["2110", "ÜSKÜP"], ["1799", "UZUNKÖPRÜ"], ["1953", "VAKFIKEBİR"], ["1714", "VAN"], ["1994", "VARNA"], ["2131", "VİNİTSİYA"], ["1999", "VİYANA"], ["3721", "YALIKÖY"], ["1715", "YALOVA"], ["2100", "YALOVA-A"], ["2101", "YALOVA-K"], ["2036", "YATAĞAN"], ["2071", "YAYGIN"], ["2099", "Yeni İst Havalimanı"], ["1716", "YOZGAT"], ["1960", "ZARA"], ["2096", "Ziyaret"]];
+
+const SALES="https://www.nilufer.com.tr/otobus-bileti-ara";
+const $=s=>document.querySelector(s);
+const norm=s=>s.toLocaleLowerCase('tr').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ı/g,'i');
+const nice=s=>s.toLocaleLowerCase('tr').replace(/(^|[\s(.\/-])(\p{L})/gu,(m,a,b)=>a+b.toLocaleUpperCase('tr'));
+
+const sel={from:CITIES.find(c=>c[1]==='BURSA'),to:null};
+function ac(key){
+  const inp=$('#'+key),box=$('#s'+key);let idx=-1;
+  const render=()=>{
+    const q=norm(inp.value.trim());
+    const list=CITIES.filter(c=>!q||norm(c[1]).includes(q)).sort((a,b)=>norm(a[1]).indexOf(q)-norm(b[1]).indexOf(q)).slice(0,40);
+    box.innerHTML=list.map(c=>`<div data-i="${c[0]}">${nice(c[1])}</div>`).join('');
+    box.classList.toggle('show',list.length>0);
+  };
+  const pick=id=>{const c=CITIES.find(x=>x[0]===id);sel[key]=c;inp.value=nice(c[1]);box.classList.remove('show');$('#err').textContent='';};
+  inp.addEventListener('focus',()=>{inp.select();idx=-1;render();});
+  inp.addEventListener('input',()=>{sel[key]=null;idx=-1;render();});
+  inp.addEventListener('keydown',e=>{
+    const items=[...box.children];
+    if(e.key==='ArrowDown'){idx=Math.min(idx+1,items.length-1);e.preventDefault();}
+    else if(e.key==='ArrowUp'){idx=Math.max(idx-1,0);e.preventDefault();}
+    else if(e.key==='Enter'&&box.classList.contains('show')&&items.length){e.preventDefault();pick(items[Math.max(idx,0)].dataset.i);return;}
+    else return;
+    items.forEach((el,i)=>el.classList.toggle('act',i===idx));items[idx]?.scrollIntoView({block:'nearest'});
+  });
+  box.addEventListener('mousedown',e=>{const d=e.target.closest('[data-i]');if(d){e.preventDefault();pick(d.dataset.i);}});
+  inp.addEventListener('blur',()=>setTimeout(()=>{box.classList.remove('show');if(!sel[key]){const m=CITIES.find(c=>norm(c[1])===norm(inp.value.trim()));if(m)pick(m[0]);}},120));
+  return pick;
+}
+const pickFrom=ac('from'),pickTo=ac('to');
+$('#from').value='Bursa';
+$('#swap').onclick=()=>{[sel.from,sel.to]=[sel.to,sel.from];$('#from').value=sel.from?nice(sel.from[1]):'';$('#to').value=sel.to?nice(sel.to[1]):'';};
+
+const iso=d=>new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+$('#date').min=iso(new Date());$('#date').value=iso(new Date());
+
+let tripMode='one';
+$('#tripTabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+  tripMode=b.dataset.trip;
+  [...$('#tripTabs').children].forEach(x=>x.classList.toggle('on',x===b));
+  $('#returnWrap').hidden=tripMode==='one';
+  if(tripMode==='round'){$('#rdate').min=$('#date').value;if(!$('#rdate').value||$('#rdate').value<$('#date').value)$('#rdate').value=$('#date').value;}
+};
+$('#date').addEventListener('change',()=>{$('#rdate').min=$('#date').value;if($('#rdate').value&&$('#rdate').value<$('#date').value)$('#rdate').value=$('#date').value;});
+
+$('#quick').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+  const d=new Date();const add=b.dataset.d==='w'?((6-d.getDay()+7)%7||7):+b.dataset.d;d.setDate(d.getDate()+add);
+  $('#date').value=iso(d);$('#rdate').min=iso(d);if($('#rdate').value&&$('#rdate').value<iso(d))$('#rdate').value=iso(d);
+  [...$('#quick').children].forEach(x=>x.classList.toggle('on',x===b));};
+
+const open=()=>{$('#drawer').classList.add('open');$('#scrim').classList.add('open');$('#drawer').setAttribute('aria-hidden','false');};
+const close=()=>{$('#drawer').classList.remove('open');$('#scrim').classList.remove('open');$('#drawer').setAttribute('aria-hidden','true');};
+$('#close').onclick=close;$('#scrim').onclick=close;addEventListener('keydown',e=>e.key==='Escape'&&close());
+
+$('#searchForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!sel.from||!sel.to){$('#err').textContent='Lütfen listeden kalkış ve varış noktası seçin.';return;}
+  if(sel.from[0]===sel.to[0]){$('#err').textContent='Kalkış ve varış noktası aynı olamaz.';return;}
+  if(tripMode==='round'&&(!$('#rdate').value||$('#rdate').value<$('#date').value)){$('#err').textContent='Lütfen gidiş tarihinden sonra bir dönüş tarihi seçin.';return;}
+  const [y,m,d]=$('#date').value.split('-');
+  $('#tFrom').textContent=nice(sel.from[1]);$('#tTo').textContent=nice(sel.to[1]);
+  $('#tDate').textContent=new Date(+y,m-1,+d).toLocaleDateString('tr-TR',{day:'numeric',month:'long',weekday:'short'});
+  $('#tPax').textContent=$('#pax').value+' kişi';
+  let goHref=`${SALES}/${sel.from[0]}-${sel.to[0]}/${d}-${m}-${y}`;
+  if(tripMode==='round'){
+    const [ry,rm,rd]=$('#rdate').value.split('-');
+    $('#tReturn').textContent=new Date(+ry,rm-1,+rd).toLocaleDateString('tr-TR',{day:'numeric',month:'long',weekday:'short'});
+    $('#tReturnWrap').hidden=false;
+    goHref+=`/${sel.to[0]}-${sel.from[0]}/${rd}-${rm}-${ry}`;
+  }else{$('#tReturnWrap').hidden=true;}
+  $('#goSeats').href=goHref;
+  open();
+});
+
+const ROUTES=[['BURSA','ANKARA','Ankara','~5 saat'],['BURSA','İZMİR','İzmir','~5 saat'],['BURSA','İST (Y.DUDULLU)','İstanbul','~2,5 saat'],['BURSA','ESKİŞEHİR','Eskişehir','~2,5 saat'],['BURSA','BALIKESİR','Balıkesir','~2 saat'],['BURSA','EDİRNE','Edirne','~5 saat'],['BURSA','ANTALYA','Antalya','~8 saat'],['BURSA','ADAPAZARI','Sakarya','~2 saat']];
+const byName=n=>CITIES.find(c=>c[1]===n);
+$('#rlist').innerHTML=ROUTES.filter(r=>byName(r[0])&&byName(r[1])).map(r=>`<div class="r rv" data-a="${r[0]}" data-b="${r[1]}"><div class="from">Bursa'dan</div><div class="to">${r[2]} <i>→</i></div><div class="meta">${r[3]} · Günlük sefer</div></div>`).join('');
+$('#rlist').onclick=e=>{const r=e.target.closest('.r');if(!r)return;pickFrom(byName(r.dataset.a)[0]);pickTo(byName(r.dataset.b)[0]);$('#bilet').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>$('#searchForm').requestSubmit(),600);};
+
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px');}));
+
+const count=el=>{const t=+el.dataset.count;let st=null;const f=ts=>{st??=ts;const p=Math.min((ts-st)/1500,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);};requestAnimationFrame(f);};
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;const el=en.target;
+  if(el.dataset.count)count(el);else{const p=el.parentElement;if(p.classList.contains('bento')||p.classList.contains('rgrid'))el.style.transitionDelay=[...p.children].indexOf(el)*60+'ms';el.classList.add('in');}
+  io.unobserve(el);}),{threshold:.12});
+if(location.search.includes('shot')){document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'));document.querySelectorAll('[data-count]').forEach(e=>e.textContent=e.dataset.count);document.querySelectorAll('.reveal-up').forEach(e=>{e.style.animation='none';e.style.opacity='1';e.style.transform='none';});}
+else document.querySelectorAll('.rv,[data-count]').forEach(el=>io.observe(el));
+
+(()=>{const imgs=[...document.querySelectorAll('#heroPhoto img')];if(imgs.length<2)return;let i=0;if(!location.search.includes('shot'))setInterval(()=>{imgs[i].classList.remove('active');i=(i+1)%imgs.length;imgs[i].classList.add('active');imgs[i].style.animation='none';imgs[i].offsetHeight;imgs[i].style.animation='heroKen 9s ease-out forwards';},5000);})();
+
+addEventListener('scroll',()=>$('#hdr').classList.toggle('scrolled',scrollY>40),{passive:true});
+$('#burger').onclick=()=>$('#menu').classList.toggle('open');
+$('#menu').onclick=e=>e.target.tagName==='A'&&$('#menu').classList.remove('open');
+$('#yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
