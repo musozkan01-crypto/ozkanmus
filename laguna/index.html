@@ -72,15 +72,17 @@
 
   html {
     background-color: var(--ground);
-    background-image: url("laguna-ic.jpg");
-    background-size: cover;
-    background-position: center 55%;
+    background-image:
+      linear-gradient(180deg, rgba(4,7,7,.34), rgba(4,7,7,.34)),
+      url("laguna-ic.jpg");
+    background-size: cover, cover;
+    background-position: center, center 55%;
     background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat, no-repeat;
   }
 
   body {
-    background-color: var(--ground);
+    background-color: transparent;
     color: var(--ink);
     font-family: var(--f-body);
     font-size: 16px;
@@ -762,7 +764,7 @@
   <main>
 
   <header>
-    <p class="eyebrow">Renault Laguna III · 2009 · 1.6 Benzin + LPG</p>
+    <p class="eyebrow">Renault Laguna III · 2008 model, 2009 çıkışlı · 1.6 Benzin + LPG</p>
     <h1>Servis Geçmişi ve Araç Durumu</h1>
     <p class="standfirst">
       İlanın meraklısı için hazırlanmış ek sayfa: aracın yetkili Renault servisinde
