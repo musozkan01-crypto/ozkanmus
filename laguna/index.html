@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, follow">
 <meta http-equiv="cache-control" content="no-cache">
-<meta name="description" content="Renault Laguna III 1.6 16V Dynamique 2008 - yetkili servis bakim kayitlari.">
+<meta name="description" content="Renault Laguna III 1.6 16V - yetkili servis bakim gecmisi, ilan eki.">
 <link rel="icon" href="/favicon.ico">
 <style>*{box-sizing:border-box}img{max-width:100%}</style>
 <title>Laguna III Servis Geçmişi</title>
@@ -70,13 +70,17 @@
 
   * { box-sizing: border-box; }
 
+  html {
+    background-image: url("laguna-bg.jpg");
+    background-size: cover;
+    background-position: center 30%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: var(--ground);
+  }
+
   body {
     background-color: var(--ground);
-    background-image:
-      linear-gradient(135deg, rgba(13,110,98,.035) 1px, transparent 1px),
-      linear-gradient(225deg, rgba(13,110,98,.035) 1px, transparent 1px);
-    background-size: 30px 30px;
-    background-attachment: fixed;
     color: var(--ink);
     font-family: var(--f-body);
     font-size: 16px;
@@ -85,6 +89,10 @@
     padding-inline: 20px;
     padding-block: 0;
     -webkit-font-smoothing: antialiased;
+  }
+
+  @supports (background-color: color-mix(in srgb, red 50%, transparent)) {
+    body { background-color: color-mix(in srgb, var(--ground) 91%, transparent); }
   }
 
   .wrap {
@@ -193,10 +201,10 @@
     overflow: hidden;
     isolation: isolate;
     background-image:
-      linear-gradient(95deg, rgba(4,7,7,.96) 0%, rgba(4,7,7,.86) 38%, rgba(4,7,7,.42) 100%),
+      linear-gradient(95deg, rgba(4,7,7,.93) 0%, rgba(4,7,7,.72) 34%, rgba(4,7,7,.28) 100%),
       url("laguna-bg.jpg");
     background-size: cover, cover;
-    background-position: center, 62% 58%;
+    background-position: center, 60% 46%;
     background-color: #050808;
     margin-inline: -20px;
     padding: 0 20px;
@@ -207,7 +215,7 @@
     position: relative;
     max-width: 780px;
     margin-inline: auto;
-    padding-block: 24px;
+    padding-block: 58px;
     display: flex;
     align-items: center;
     gap: 13px;
