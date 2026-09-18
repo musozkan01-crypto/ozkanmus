@@ -278,13 +278,14 @@ footer a:hover{color:#fff}
 .seat.occ:hover{transform:none}
 .seat.occ.m{background:#dbeafe;border-color:#93c5fd;color:#1d4ed8}
 .seat.occ.f{background:#fce7f3;border-color:#f9a8d4;color:#be185d}
-.seat.sel{background:#16a34a;border-color:#16a34a;color:#fff}
+.seat.sel.m{background:#2563eb;border-color:#2563eb;color:#fff}
+.seat.sel.f{background:#db2777;border-color:#db2777;color:#fff}
 .seatlegend{display:flex;flex-wrap:wrap;gap:14px 18px;margin:14px 0 4px;font-size:11.5px;color:var(--mute);font-weight:700}
 .seatlegend span{display:flex;align-items:center;gap:6px}
 .seatlegend .sw{width:13px;height:13px;border-radius:4px;display:inline-block;border:1px solid #d3dae4;background:#fff}
 .seatlegend .sw.m{background:#dbeafe;border-color:#93c5fd}
 .seatlegend .sw.f{background:#fce7f3;border-color:#f9a8d4}
-.seatlegend .sw.sel{background:#16a34a;border-color:#16a34a}
+.seatlegend .sw.sel{background:linear-gradient(135deg,#2563eb 50%,#db2777 50%);border-color:transparent}
 .pform{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
 .pform .fld{display:flex;flex-direction:column;gap:6px}
 .pform label{font-size:12px;font-weight:700;color:var(--mute)}
@@ -920,7 +921,7 @@ $('#busMap').onclick=e=>{
   const n=+el.dataset.seat;
   const existing=$('#busMap').querySelector('.seat.sel');
   if(existing&&+existing.dataset.seat===n){
-    existing.classList.remove('sel');
+    existing.classList.remove('sel','m','f');
     mySeat=null;delete seatData[n];
     $('#tSeat').textContent='—';
     $('#seatConfirm').classList.add('off');
@@ -929,9 +930,9 @@ $('#busMap').onclick=e=>{
   }
   const gender=$('#pGender')?.value==='m'?'m':'f';
   if(seatBlocked(n,gender)){seatAlert(t('drawer.seat.blocked'));return;}
-  if(existing){const on=+existing.dataset.seat;existing.classList.remove('sel');delete seatData[on];}
+  if(existing){const on=+existing.dataset.seat;existing.classList.remove('sel','m','f');delete seatData[on];}
   seatData[n]=gender;mySeat=n;
-  el.classList.add('sel');
+  el.classList.add('sel',gender);
   $('#tSeat').textContent=n;
   $('#seatConfirm').classList.remove('off');
   $('#seatPickedNo').textContent=n;
@@ -940,9 +941,17 @@ $('#busMap').onclick=e=>{
 $('#pGender').onchange=()=>{
   if(mySeat==null)return;
   const n=mySeat,gender=$('#pGender').value==='m'?'m':'f';
+  const el=$(`.seat[data-seat="${n}"]`);
   seatData[n]=undefined;
-  if(seatBlocked(n,gender)){seatData[n]=gender==='m'?'f':'m';seatAlert(t('drawer.seat.blocked'));$('#pGender').value=seatData[n];return;}
+  if(seatBlocked(n,gender)){
+    seatData[n]=gender==='m'?'f':'m';
+    seatAlert(t('drawer.seat.blocked'));
+    $('#pGender').value=seatData[n];
+    return;
+  }
   seatData[n]=gender;
+  el?.classList.remove('m','f');
+  el?.classList.add(gender);
 };
 function showSeatStep(){
   $('#tripStep').hidden=true;
