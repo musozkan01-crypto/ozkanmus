@@ -141,7 +141,25 @@
     margin: 0 0 12px;
   }
 
-  .vcard-art { display: block; width: 100%; height: auto; }
+  .vcard-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    max-width: 100%;
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+  }
+
+  .vcard-cap {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 7px 0 0;
+  }
 
   .vspecs {
     display: grid;
@@ -756,21 +774,8 @@
     <div class="vcard">
       <div>
         <h2 class="vcard-name">Laguna III</h2>
-        <svg class="vcard-art" viewBox="0 0 400 132" role="img" aria-label="Laguna III yandan görünüm çizimi">
-          <path d="M16 96 C14 84 18 78 30 76 L78 66 C100 60 118 56 136 54 L176 26
-                   C182 22 188 20 196 20 L268 20 C292 22 310 30 326 42 L352 58
-                   C366 64 376 70 380 80 C384 88 384 94 382 100
-                   L344 100 A28 28 0 0 0 288 100 L130 100 A28 28 0 0 0 74 100 Z"
-                fill="#1C2322"/>
-          <path d="M143 53 L179 29 L211 29 L211 53 Z" fill="#9FB3B0"/>
-          <path d="M218 29 L261 29 L261 53 L218 53 Z" fill="#9FB3B0"/>
-          <path d="M268 29 L294 31 L318 53 L268 53 Z" fill="#9FB3B0"/>
-          <path d="M136 54 L352 58" stroke="#3A4645" stroke-width="2" fill="none"/>
-          <circle cx="102" cy="100" r="26" fill="#0D1211"/>
-          <circle cx="102" cy="100" r="11" fill="#7E8C8A"/>
-          <circle cx="316" cy="100" r="26" fill="#0D1211"/>
-          <circle cx="316" cy="100" r="11" fill="#7E8C8A"/>
-        </svg>
+        <img class="vcard-art" src="laguna.jpg" alt="Renault Laguna III, yandan görünüm">
+        <p class="vcard-cap">Model görseli · temsilidir</p>
       </div>
       <dl class="vspecs">
         <div><dt>Model Yılı</dt><dd>2009</dd></div>
