@@ -71,7 +71,12 @@
   * { box-sizing: border-box; }
 
   body {
-    background: var(--ground);
+    background-color: var(--ground);
+    background-image:
+      linear-gradient(135deg, rgba(13,110,98,.035) 1px, transparent 1px),
+      linear-gradient(225deg, rgba(13,110,98,.035) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-attachment: fixed;
     color: var(--ink);
     font-family: var(--f-body);
     font-size: 15px;
@@ -91,15 +96,34 @@
   /* ---------- topbar ---------- */
 
   .topbar {
-    background: #0A0A0A;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      radial-gradient(120% 180% at 82% 50%, #2A3A38 0%, #121817 45%, #070A0A 100%);
     margin-inline: -20px;
     padding: 0 20px;
+    border-bottom: 1px solid #000;
+  }
+
+  .topbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(135deg, rgba(255,255,255,.055) 1px, transparent 1px),
+      linear-gradient(225deg, rgba(255,255,255,.055) 1px, transparent 1px);
+    background-size: 34px 34px;
+    -webkit-mask-image: linear-gradient(100deg, transparent 18%, #000 92%);
+    mask-image: linear-gradient(100deg, transparent 18%, #000 92%);
   }
 
   .topbar-in {
+    position: relative;
     max-width: 780px;
     margin-inline: auto;
-    padding-block: 15px;
+    padding-block: 26px;
     display: flex;
     align-items: center;
     gap: 13px;
