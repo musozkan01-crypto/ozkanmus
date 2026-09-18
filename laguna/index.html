@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="Renault Laguna III 1.6 16V Dynamique 2009 - yetkili servis kayitlari, satin alma ekspertizi ve mevcut durum.">
+<link rel="icon" href="/favicon.ico">
+<style>*{box-sizing:border-box}img{max-width:100%}</style>
+<title>Laguna III Servis Geçmişi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #EFF1F0;
+    --surface: #FFFFFF;
+    --surface-2: #E4E8E7;
+    --ink: #15191A;
+    --ink-muted: #5C6968;
+    --ink-faint: #8A9695;
+    --rule: #D3DAD9;
+    --rule-strong: #B6C0BE;
+    --accent: #0D6E62;
+    --accent-soft: #D9E9E6;
+    --major: #A8670A;
+    --major-soft: #F3E6CE;
+    --alert: #A3341F;
+    --alert-soft: #F6E2DD;
+
+    --f-display: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+    --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "Consolas", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #101414;
+      --surface: #171C1C;
+      --surface-2: #1F2626;
+      --ink: #E6EBEA;
+      --ink-muted: #9AA8A6;
+      --ink-faint: #6B7877;
+      --rule: #2A3333;
+      --rule-strong: #3B4645;
+      --accent: #4FBFAE;
+      --accent-soft: #14312D;
+      --major: #D9A441;
+      --major-soft: #332714;
+      --alert: #E0765C;
+      --alert-soft: #35201B;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #101414;
+    --surface: #171C1C;
+    --surface-2: #1F2626;
+    --ink: #E6EBEA;
+    --ink-muted: #9AA8A6;
+    --ink-faint: #6B7877;
+    --rule: #2A3333;
+    --rule-strong: #3B4645;
+    --accent: #4FBFAE;
+    --accent-soft: #14312D;
+    --major: #D9A441;
+    --major-soft: #332714;
+    --alert: #E0765C;
+    --alert-soft: #35201B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    padding-inline: 20px;
+    padding-block: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 780px;
+    margin-inline: auto;
+    padding-block: 48px 72px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .eyebrow {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(34px, 7vw, 52px);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    margin: 0 0 14px;
+  }
+
+  .standfirst {
+    color: var(--ink-muted);
+    font-size: 16px;
+    max-width: 58ch;
+    margin: 0 0 32px;
+  }
+
+  /* ---------- spec strip ---------- */
+
+  .specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 52px;
+  }
+
+  .spec {
+    background: var(--surface);
+    padding: 16px 18px;
+  }
+
+  .spec dt {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+
+  .spec dd {
+    font-family: var(--f-display);
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- ownership callout ---------- */
+
+  .owner {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 18px 22px;
+    margin-bottom: 52px;
+  }
+
+  .owner p {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--ink-muted);
+    max-width: 62ch;
+  }
+
+  .owner strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- expertise table ---------- */
+
+  .panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 20px;
+  }
+
+  .panel {
+    background: var(--surface);
+    padding: 13px 15px;
+  }
+
+  .panel dt {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 5px;
+  }
+
+  .panel dd {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .verdict {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1px 6px;
+    border: 1px solid currentColor;
+  }
+
+  .v-ok { color: var(--accent); }
+  .v-warn { color: var(--major); }
+
+  .kmchain {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .kmchain div {
+    background: var(--surface);
+    padding: 12px 16px;
+    flex: 1 1 130px;
+    font-family: var(--f-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .kmchain b {
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .kmchain span {
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- section headings ---------- */
+
+  section { margin-bottom: 56px; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0 0 6px;
+  }
+
+  .section-note {
+    color: var(--ink-muted);
+    font-size: 14px;
+    max-width: 62ch;
+    margin: 0 0 26px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--rule-strong);
+  }
+
+  /* ---------- ledger ---------- */
+
+  .ledger {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    gap: 0 22px;
+    padding: 22px 0 22px 14px;
+    border-top: 1px solid var(--rule);
+    border-left: 3px solid transparent;
+  }
+
+  .entry:last-child { border-bottom: 1px solid var(--rule); }
+
+  .entry.is-major {
+    border-left-color: var(--major);
+    background: linear-gradient(90deg, var(--major-soft), transparent 46%);
+  }
+
+  .odo {
+    font-family: var(--f-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .odo-km {
+    display: block;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .odo-unit {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+  }
+
+  .odo-date {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 5px;
+  }
+
+  .entry-body h3 {
+    font-family: var(--f-display);
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin: 0 0 9px;
+    text-wrap: balance;
+  }
+
+  .parts {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .parts li {
+    position: relative;
+    padding-left: 15px;
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+
+  .parts li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 1px;
+    background: var(--rule-strong);
+  }
+
+  .parts li strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .meta {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 11px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    margin-bottom: 8px;
+    color: var(--major);
+    background: var(--major-soft);
+    border: 1px solid var(--major);
+  }
+
+  /* ---------- recent work ---------- */
+
+  .work {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 14px;
+  }
+
+  .work-item {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--accent);
+    padding: 15px 17px;
+  }
+
+  .work-item h3 {
+    font-family: var(--f-body);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+
+  .work-item p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-muted);
+  }
+
+  .work-when {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-top: 8px;
+  }
+
+  /* ---------- faults ---------- */
+
+  .faults {
+    border: 1px solid var(--alert);
+    background: var(--alert-soft);
+    padding: 22px 24px;
+  }
+
+  .faults h2 { margin-bottom: 4px; }
+
+  .faults > p {
+    color: var(--ink-muted);
+    font-size: 14px;
+    margin: 0 0 18px;
+    max-width: 60ch;
+  }
+
+  .fault-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .fault-list li {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding-top: 12px;
+    border-top: 1px solid var(--alert);
+  }
+
+  .fault-list li:first-child { border-top: 0; padding-top: 0; }
+
+  .fault-name {
+    font-family: var(--f-display);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    flex: 0 0 auto;
+  }
+
+  .fault-desc {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+  }
+
+  /* ---------- notes ---------- */
+
+  .notes {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 22px 24px;
+  }
+
+  .notes h2 { margin-bottom: 14px; }
+
+  .notes p {
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin: 0 0 12px;
+    max-width: 64ch;
+  }
+
+  .notes p:last-child { margin-bottom: 0; }
+
+  .notes strong { color: var(--ink); font-weight: 600; }
+
+  footer {
+    border-top: 2px solid var(--rule-strong);
+    padding-top: 20px;
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    line-height: 1.7;
+    color: var(--ink-faint);
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 560px) {
+    .entry {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .odo {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .odo-date { margin-top: 0; }
+    .fault-list li { flex-direction: column; gap: 3px; }
+  }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Renault Laguna III · 2009 · 1.6 Benzin + LPG</p>
+    <h1>Servis Geçmişi ve Araç Durumu</h1>
+    <p class="standfirst">
+      İlanın meraklısı için hazırlanmış ek sayfa: yetkili Renault servisi kayıtları,
+      satın alma ekspertizi, benim dönemimde yapılan işlemler ve gösterge panelinde
+      mevcut olan arıza uyarıları. Hiçbir bilgi çıkarılmamıştır — eksiler de artılarla
+      aynı sayfadadır.
+    </p>
+
+    <dl class="specs">
+      <div class="spec">
+        <dt>Model Yılı</dt>
+        <dd>2009</dd>
+      </div>
+      <div class="spec">
+        <dt>Motor</dt>
+        <dd>1.6 · LPG</dd>
+      </div>
+      <div class="spec">
+        <dt>Şanzıman</dt>
+        <dd>Manuel</dd>
+      </div>
+      <div class="spec">
+        <dt>Tramer</dt>
+        <dd>1.532 ₺</dd>
+      </div>
+    </dl>
+
+    <div class="owner">
+      <p>
+        <strong>Bu sayfadaki yetkili servis kayıtları benden önceki döneme aittir.</strong>
+        Aracı <strong>25 Temmuz 2022'de 232.398 km'de</strong> satın aldım; kayıtlar
+        2009–2018 arasını, yani ilk sahibinin Renault yetkili servisinde yaptırdığı
+        işlemleri kapsıyor. Benim dönemimde yapılanları ayrı başlık altında,
+        aracı alırken yaptırdığım ekspertiz raporunu da aşağıda bulacaksınız.
+      </p>
+    </div>
+  </header>
+
+  <section>
+    <h2>Yetkili Servis Kayıtları — 2009 / 2018</h2>
+    <p class="section-note">
+      Aşağıdaki dokuz kayıt Renault yetkili servis sisteminde görünen işlemlerdir ve
+      fatura numaralarıyla birlikte verilmiştir. Kilometre sırasına göre dizilmiştir.
+      Kehribar şeritle işaretlenen kayıtlar ağır bakım kalemleridir.
+    </p>
+
+    <div class="ledger">
+
+      <article class="entry">
+        <div class="odo">
+          <span class="odo-km">5.933<span class="odo-unit"> km</span></span>
+          <span class="odo-date">10.02.2009</span>
+        </div>
+        <div class="entry-body">
+          <h3>Silecek sistemi</h3>
+          <ul class="parts">
+            <li>Cam silecek süpürgesi — 4 adet</li>
+            <li>Ön cam silecek fırçası sök-tak</li>
+          </ul>
+          <p class="meta"><span>Servis: ERNAZ</span><span>Fatura 91751</span></p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="odo">
+          <span class="odo-km">15.300<span class="odo-unit"> km</span></span>
+          <span class="odo-date">16.05.2009</span>
+        </div>
+        <div class="entry-body">
+          <h3>Periyodik bakım — Paket Renault</h3>
+          <ul class="parts">
+            <li><strong>Motor yağı</strong> 5W40 RN710</li>
+            <li>Yağ filtresi · Hava filtresi · Polen filtresi</li>
+            <li>Karter tapa contası</li>
+          </ul>
+          <p class="meta"><span>Fatura 180833</span></p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="odo">
+          <span class="odo-km">14.983<span class="odo-unit"> km</span></span>
+          <span class="odo-date">19.05.2009</span>
+        </div>
+        <div class="entry-body">
+          <h3>Yol yardımı — tekerlek sök-tak</h3>
+          <ul class="parts">
+            <li>Tekerlek sök-tak işlemi</li>
+            <li>Yol ücreti — 17 km</li>
+          </ul>
+          <p class="meta"><span>Fatura 63651</span></p>
+        </div>
+      </article>
+
+      <article class="entry is-major">
+        <div class="odo">
+          <span class="odo-km">30.369<span class="odo-unit"> km</span></span>
+          <span class="odo-date">26.09.2009</span>
+        </div>
+        <div class="entry-body">
+          <span class="tag">Ağır bakım</span>
+          <h3>Direksiyon pompası ve kayış sistemi</h3>
+          <ul class="parts">
+            <li><strong>Hidrolik direksiyon pompası</strong> — takviyeli tip</li>
+            <li><strong>Alternatör kayışı</strong> · kayış gergisi · gergi rulmanı</li>
+            <li><strong>Ön fren balatası</strong></li>
+            <li>Paket bakım: motor yağı, yağ · hava · polen filtresi, buji</li>
+          </ul>
+          <p class="meta"><span>Servis: ERNAZ</span><span>Fatura 104523</span></p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="odo">
+          <span class="odo-km">45.631<span class="odo-unit"> km</span></span>
+          <span class="odo-date">05.03.2010</span>
+        </div>
+        <div class="entry-body">
+          <h3>Arka fren ve periyodik bakım</h3>
+          <ul class="parts">
+            <li><strong>Arka fren balatası takımı</strong></li>
+            <li>Paket bakım: motor yağı, yağ · hava · polen filtresi</li>
+          </ul>
+          <p class="meta"><span>Servis: ERNAZ</span><span>Fatura 113298</span></p>
+        </div>
+      </article>
+
+      <article class="entry is-major">
+        <div class="odo">
+          <span class="odo-km">70.280<span class="odo-unit"> km</span></span>
+          <span class="odo-date">20.08.2010</span>
+        </div>
+        <div class="entry-body">
+          <span class="tag">Ağır bakım</span>
+          <h3>Egzoz sistemi yenilendi</h3>
+          <ul class="parts">
+            <li><strong>Katalizör</strong> değişimi</li>
+            <li><strong>Ön egzoz borusu</strong> ve kelepçeleri</li>
+            <li>Sol ön emniyet kemeri kolu</li>
+            <li>Yağ dekantörü sök-tak</li>
+          </ul>
+          <p class="meta"><span>Servis: ERNAZ</span><span>Fatura 122401</span></p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="odo">
+          <span class="odo-km">86.353<span class="odo-unit"> km</span></span>
+          <span class="odo-date">15.04.2013</span>
+        </div>
+        <div class="entry-body">
+          <h3>Ekspertiz kontrolü</h3>
+          <ul class="parts">
+            <li>Kaporta-boya ekspertizi</li>
+            <li>Mekanik ekspertiz</li>
+            <li>M.K.S. kontrolleri</li>
+          </ul>
+          <p class="meta"><span>Servis: ERNAZ</span><span>Fatura 130400628</span></p>
+        </div>
+      </article>
+
+      <article class="entry is-major">
+        <div class="odo">
+          <span class="odo-km">87.029<span class="odo-unit"> km</span></span>
+          <span class="odo-date">17.04.2013</span>
+        </div>
+        <div class="entry-body">
+          <span class="tag">Ağır bakım</span>
+          <h3>Triger kayışı — birinci değişim</h3>
+          <ul class="parts">
+            <li><strong>Eksantrik (triger) kayışı kiti</strong> — K4M-760</li>
+            <li><strong>Alternatör kayışı kiti</strong></li>
+            <li>Silindir kapak tapası</li>
+            <li>Paket bakım: motor yağı, yağ · hava · polen filtresi, buji</li>
+          </ul>
+          <p class="meta"><span>Fatura 130400266</span></p>
+        </div>
+      </article>
+
+      <article class="entry is-major">
+        <div class="odo">
+          <span class="odo-km">172.731<span class="odo-unit"> km</span></span>
+          <span class="odo-date">08.01.2018</span>
+        </div>
+        <div class="entry-body">
+          <span class="tag">Ağır bakım</span>
+          <h3>Triger kayışı — ikinci değişim</h3>
+          <ul class="parts">
+            <li><strong>Eksantrik (triger) kayışı kiti</strong> — K4M-760</li>
+            <li><strong>Alternatör kayışı</strong> · gergi · gergi rulmanı</li>
+            <li><strong>Şanzıman yağı</strong> — Renaultmatic D3</li>
+            <li><strong>Fren hidroliği</strong> — DOT 4</li>
+            <li>Paket bakım: motor yağı, yağ · hava filtresi, buji</li>
+          </ul>
+          <p class="meta"><span>Servis: FIRAT</span><span>Fatura 180100159</span></p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Satın Alma Ekspertizi — 25.07.2022 / 232.398 km</h2>
+    <p class="section-note">
+      Aracı alırken Eskişehir'de bağımsız bir ekspertiz merkezine çektirdiğim raporun
+      özeti. Raporun tamamı bende mevcuttur, görmek isteyene gösterilir. Olumlu ve
+      olumsuz bulguların tamamı buradadır.
+    </p>
+
+    <h3 style="font-family:var(--f-display);font-size:16px;margin:0 0 12px;">Şase ve taşıyıcı bölümler</h3>
+    <dl class="panels">
+      <div class="panel"><dt>Ön şasi · sağ / sol</dt><dd><span class="verdict v-ok">Orijinal</span></dd></div>
+      <div class="panel"><dt>Arka şasi · sağ / sol</dt><dd><span class="verdict v-ok">Orijinal</span></dd></div>
+      <div class="panel"><dt>Ön kule · sağ / sol</dt><dd><span class="verdict v-ok">Orijinal</span></dd></div>
+      <div class="panel"><dt>Ön podye · sağ / sol</dt><dd><span class="verdict v-ok">Orijinal</span></dd></div>
+      <div class="panel"><dt>Ön iç direk · sağ / sol</dt><dd><span class="verdict v-ok">Orijinal</span></dd></div>
+      <div class="panel"><dt>Arka panel</dt><dd><span class="verdict v-ok">Orijinal</span></dd></div>
+      <div class="panel"><dt>Tavan · kaput · bagaj</dt><dd><span class="verdict v-ok">Orijinal</span></dd></div>
+      <div class="panel"><dt>Hava yastığı sistemi</dt><dd><span class="verdict v-ok">Hatasız</span></dd></div>
+    </dl>
+    <p style="font-size:14px;color:var(--ink-muted);max-width:62ch;margin:0 0 30px;">
+      Raporda <strong>değişen hiçbir parça yoktur</strong>; taşıyıcı bölümlerin tamamı
+      orijinaldir. Elektronik tarama hava yastığı ve gergilileri dahil tüm modülleri
+      hatasız okumuştur — aracın açılmış hava yastığı geçmişi yoktur.
+      Tek tramer kaydı <strong>12.01.2011 tarihli çarpışma</strong>dır ve
+      benden on bir yıl öncesine aittir.
+    </p>
+
+    <h3 style="font-family:var(--f-display);font-size:16px;margin:0 0 12px;">Boya durumu — olduğu gibi</h3>
+    <p style="font-size:14px;color:var(--ink-muted);max-width:62ch;margin:0 0 20px;">
+      Araç boyasız değildir, bunu ilanda da yazmıyorum. Rapora göre
+      <strong>iki kapı boyalı</strong>, <strong>sağ marşpiyel işlemli boyalı</strong>,
+      birkaç bölgede <strong>lokal boya</strong> vardır. Raporun kendi notu:
+      “Tavan dahil muhtelif alanlarda ezik, çizik ve boyasız onarım var.”
+      Rapor tarihinde ön cam kırık olarak kayda geçmiştir.
+    </p>
+
+    <h3 style="font-family:var(--f-display);font-size:16px;margin:0 0 12px;">Test sonuçları</h3>
+    <dl class="panels">
+      <div class="panel"><dt>Servis freni verimi</dt><dd>%70 &nbsp;<span class="verdict v-ok">Geçti</span></dd></div>
+      <div class="panel"><dt>El freni verimi</dt><dd>%26 &nbsp;<span class="verdict v-ok">Geçti</span></dd></div>
+      <div class="panel"><dt>Yanal kayma</dt><dd>−0,0 / −0,6 &nbsp;<span class="verdict v-ok">Geçti</span></dd></div>
+      <div class="panel"><dt>Motor performansı</dt><dd>110 hp'de 93 hp — <strong>%84</strong></dd></div>
+    </dl>
+    <p style="font-size:14px;color:var(--ink-muted);max-width:62ch;margin:0 0 30px;">
+      Rapor tarihinde “kontrol gerekli” olarak işaretlenenler: direksiyon pompasında ses,
+      V kayışı bölgesinde ses, debriyajın yukarıda kavraması ve motor–şanzıman–direksiyon
+      kutusunda yağ sızıntısı. Sağ arka lastikte çivi ve kırık jant notu da vardır.
+      <strong>Kayış ve lastikler o tarihten sonra yenilenmiştir</strong> (bkz. bir alt başlık);
+      diğer maddeler aracı gören ustaya kontrol ettirilebilir.
+    </p>
+
+    <h3 style="font-family:var(--f-display);font-size:16px;margin:0 0 12px;">Kilometre geçmişi</h3>
+    <div class="kmchain">
+      <div><b>112.441</b><span>24.12.2014</span></div>
+      <div><b>183.316</b><span>09.07.2018</span></div>
+      <div><b>216.181</b><span>18.07.2020</span></div>
+      <div><b>230.746</b><span>20.06.2022</span></div>
+      <div><b>232.398</b><span>25.07.2022 · ekspertiz</span></div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-muted);max-width:62ch;margin:16px 0 0;">
+      Sigorta sisteminde kayıtlı kilometreler yıllar içinde <strong>düzenli olarak
+      artmaktadır</strong>; hiçbir noktada geri dönüş yoktur.
+    </p>
+  </section>
+
+  <section>
+    <h2>Benim Dönemimde Yapılanlar</h2>
+    <p class="section-note">
+      Araç 2022'den bu yana bende. Bu dönemde bakımlarını özel serviste yaptırdım.
+      Aşağıdaki işlemler son aylarda yapılmış olup, büyük bölümü son bir hafta içindedir.
+    </p>
+
+    <div class="work">
+      <div class="work-item">
+        <h3>LPG tankı yenilendi</h3>
+        <p>On yıllık yasal ömrünü doldurduğu için değiştirildi. Yeni tank simit (toroidal) tiptedir ve stepne yuvasına monte edilmiştir — bagaj tamamen boştur.</p>
+        <span class="work-when">4 gün önce</span>
+      </div>
+
+      <div class="work-item">
+        <h3>4 adet sıfır lastik</h3>
+        <p>Continental 225/45 R17 yazlık, dördü de sıfır olarak takıldı.</p>
+        <span class="work-when">Yeni</span>
+      </div>
+
+      <div class="work-item">
+        <h3>Sağ ve sol salıncak</h3>
+        <p>Her iki taraf da yenisiyle değiştirildi.</p>
+        <span class="work-when">4 gün önce</span>
+      </div>
+
+      <div class="work-item">
+        <h3>Alternatör kayışı</h3>
+        <p>270.000 km'de değiştirildi. Aracın üçüncü kayış değişimidir.</p>
+        <span class="work-when">270.000 km</span>
+      </div>
+
+      <div class="work-item">
+        <h3>Arka balatalar</h3>
+        <p>Arka fren balataları yenilendi.</p>
+        <span class="work-when">4 ay önce</span>
+      </div>
+
+      <div class="work-item">
+        <h3>Muayene yapıldı</h3>
+        <p>Araç muayeneden geçti, vizesi yenidir.</p>
+        <span class="work-when">Ayın 14'ü</span>
+      </div>
+
+      <div class="work-item">
+        <h3>Multimedya ekranı</h3>
+        <p>Apple CarPlay ve Android Auto destekli ekran sonradan takılmıştır.</p>
+        <span class="work-when">Ek donanım</span>
+      </div>
+
+      <div class="work-item">
+        <h3>Stepne mevcut</h3>
+        <p>LPG tankı stepne yuvasına girdiği için yedek lastik kapalı ortamda saklanmaktadır, araçla birlikte teslim edilir.</p>
+        <span class="work-when">Araçla verilir</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="faults">
+    <h2>Gösterge Panelinde Mevcut Arızalar</h2>
+    <p>
+      Aracı gördüğünüzde sürpriz yaşamamanız için, şu an ekranda görünen üç uyarıyı
+      olduğu gibi yazıyorum.
+    </p>
+    <ul class="fault-list">
+      <li>
+        <span class="fault-name">Egzoz emisyon arızası</span>
+        <span class="fault-desc">Ekranda sürekli görünüyor. LPG kaynaklı olduğunu düşünüyorum; araç bu uyarıyla muayeneden geçmiştir.</span>
+      </li>
+      <li>
+        <span class="fault-name">Park freni arızası</span>
+        <span class="fault-desc">Uyarı ışığı yanıyor, ancak park freni çalışmaktadır.</span>
+      </li>
+      <li>
+        <span class="fault-name">Motor sistemi arızası</span>
+        <span class="fault-desc">Aralıklı olarak geliyor ve gidiyor; bazen kısa, bazen uzun süre ekranda kalıyor.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="notes">
+    <h2>Diğer Bilgiler</h2>
+    <p>
+      <strong>Hasar durumu.</strong> Tek tramer kaydı 1.532 ₺'dir ve 2011 tarihlidir.
+      Değişen parça yoktur; ayrıntısı yukarıdaki ekspertiz başlığındadır.
+    </p>
+    <p>
+      <strong>Dış görünüm.</strong> Yaşına uygun muhtelif çizikler vardır, tamamı
+      fotoğraflarda görülmektedir. Araca “boyasız” demiyorum — boyalı bölgeler
+      yukarıda tek tek yazılıdır.
+    </p>
+    <p>
+      <strong>İç mekan.</strong> Orijinal koltuklar on üzerinden sekiz durumdadır.
+      Yıpranmasınlar diye üzerlerine kılıf takılmıştır — fotoğraflarda görünen kılıftır.
+      Yaşına uygun olarak deri bölgelerde çatlaklar mevcuttur.
+    </p>
+    <p>
+      <strong>Kullanım.</strong> Araç Temmuz 2022'den beri bendedir; bu süre içinde
+      232.398 km'den bugünkü kilometresine benim kullanımımla gelmiştir.
+    </p>
+  </section>
+
+  <footer>
+    Bu sayfa ilan ekidir. Servis kayıtları Renault yetkili servis sisteminden alınmıştır
+    ve fatura numaraları üzerinden teyit edilebilir; ekspertiz raporu 25.07.2022 tarihli
+    bağımsız ekspertiz merkezi raporudur. Belgelerin görüntüleri talep üzerine paylaşılır.
+    Plaka, şasi numarası ve kişisel bilgiler gizlilik gereği bu sayfada yer almaz.
+  </footer>
+
+</div>
+
+</body>
+</html>
