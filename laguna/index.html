@@ -70,14 +70,7 @@
 
   * { box-sizing: border-box; }
 
-  html {
-    background-image: url("laguna-bg.jpg");
-    background-size: cover;
-    background-position: center 30%;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: var(--ground);
-  }
+  html { background-color: var(--ground); }
 
   body {
     background-color: var(--ground);
@@ -89,10 +82,6 @@
     padding-inline: 20px;
     padding-block: 0;
     -webkit-font-smoothing: antialiased;
-  }
-
-  @supports (background-color: color-mix(in srgb, red 50%, transparent)) {
-    body { background-color: color-mix(in srgb, var(--ground) 91%, transparent); }
   }
 
   .wrap {
@@ -215,7 +204,7 @@
     position: relative;
     max-width: 780px;
     margin-inline: auto;
-    padding-block: 58px;
+    padding-block: 72px;
     display: flex;
     align-items: center;
     gap: 13px;
