@@ -88,9 +88,84 @@
   }
 
   .wrap {
-    max-width: 780px;
+    max-width: 1000px;
     margin-inline: auto;
-    padding-block: 30px 44px;
+    padding-block: 34px 48px;
+    display: grid;
+    grid-template-columns: 178px minmax(0, 1fr);
+    gap: 0 44px;
+    align-items: start;
+  }
+
+  .nav {
+    position: sticky;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .nav a {
+    font-family: var(--f-body);
+    font-size: 15px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    padding: 7px 0;
+    border-bottom: 1px solid transparent;
+  }
+
+  .nav a:hover,
+  .nav a:focus-visible {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ---------- arac karti ---------- */
+
+  .vcard {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 22px 30px;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 22px 26px;
+    margin-bottom: 30px;
+  }
+
+  .vcard-name {
+    font-family: var(--f-display);
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+  }
+
+  .vcard-art { display: block; width: 100%; height: auto; }
+
+  .vspecs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+    gap: 15px 20px;
+    margin: 0;
+  }
+
+  .vspecs dt {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 3px;
+  }
+
+  .vspecs dd {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
   }
 
   /* ---------- topbar ---------- */
@@ -620,6 +695,23 @@
     letter-spacing: 0.02em;
   }
 
+  @media (max-width: 860px) {
+    .wrap {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+    }
+    .nav {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0 18px;
+      padding-bottom: 16px;
+      margin-bottom: 22px;
+      border-bottom: 2px solid var(--rule-strong);
+    }
+    .vcard { grid-template-columns: minmax(0, 1fr); }
+  }
+
   @media (max-width: 560px) {
     .entry > summary { padding: 14px 14px 14px 12px; gap: 10px; }
     .odo { gap: 4px 12px; }
@@ -638,11 +730,19 @@
       <path d="M11 7.5 17 15 11 22.5 5 15Z" fill="none" stroke="#FFFFFF" stroke-width="1.6"/>
     </svg>
     <span class="topbar-name">Laguna III</span>
-    <span class="topbar-sub">Bakım Dosyası</span>
+    <span class="topbar-sub">İlan Eki · Bakım Dosyası</span>
   </div>
 </div>
 
 <div class="wrap">
+
+  <aside class="nav">
+    <a href="#servis">Yetkili Servis Kayıtları</a>
+    <a href="#km">Kilometre Geçmişi</a>
+    <a href="#benim">Benim Dönemim</a>
+  </aside>
+
+  <main>
 
   <header>
     <p class="eyebrow">Renault Laguna III · 2009 · 1.6 Benzin + LPG</p>
@@ -653,24 +753,29 @@
       Kayıtlar olduğu gibi, hiçbiri çıkarılmadan verilmiştir.
     </p>
 
-    <dl class="specs">
-      <div class="spec">
-        <dt>Model Yılı</dt>
-        <dd>2009</dd>
+    <div class="vcard">
+      <div>
+        <h2 class="vcard-name">Laguna III</h2>
+        <svg class="vcard-art" viewBox="0 0 400 130" role="img" aria-label="Laguna III yandan görünüm çizimi">
+          <path d="M26 96c-8 0-13-5-14-13l-1-12c-1-9 4-14 13-16l44-9 38-26c7-5 15-7 24-8l84-3c14 0 26 3 37 10l45 28 39 7c11 2 17 8 18 18l1 11c0 8-5 13-13 13z"
+                fill="#1C2322"/>
+          <path d="M120 44l-33 23 79 1 2-25zM178 43l-2 25 108 1-38-23c-7-4-14-6-22-6z"
+                fill="#9FB3B0"/>
+          <circle cx="96" cy="96" r="24" fill="#0D1211"/>
+          <circle cx="96" cy="96" r="11" fill="#7E8C8A"/>
+          <circle cx="300" cy="96" r="24" fill="#0D1211"/>
+          <circle cx="300" cy="96" r="11" fill="#7E8C8A"/>
+        </svg>
       </div>
-      <div class="spec">
-        <dt>Motor</dt>
-        <dd>1.6 · LPG</dd>
-      </div>
-      <div class="spec">
-        <dt>Şanzıman</dt>
-        <dd>Manuel</dd>
-      </div>
-      <div class="spec">
-        <dt>Tramer</dt>
-        <dd>1.532 ₺</dd>
-      </div>
-    </dl>
+      <dl class="vspecs">
+        <div><dt>Model Yılı</dt><dd>2009</dd></div>
+        <div><dt>Renk</dt><dd>Siyah</dd></div>
+        <div><dt>Motor</dt><dd>1.6 16V</dd></div>
+        <div><dt>Yakıt</dt><dd>Benzin + LPG</dd></div>
+        <div><dt>Şanzıman</dt><dd>Manuel</dd></div>
+        <div><dt>Teslimat</dt><dd>14.12.2008</dd></div>
+      </dl>
+    </div>
 
     <div class="owner">
       <p>
@@ -684,7 +789,7 @@
   </header>
 
   <section>
-    <h2>Yetkili Servis Kayıtları — 2009 / 2018</h2>
+    <h2 id="servis">Yetkili Servis Kayıtları — 2009 / 2018</h2>
     <p class="section-note">
       Aşağıdaki dokuz kayıt Renault yetkili servis sisteminde görünen işlemlerdir ve
       fatura numaralarıyla birlikte verilmiştir. Tarih sırasına göre dizilmiştir —
@@ -848,7 +953,7 @@
   </section>
 
   <section>
-    <h2>Kilometre Geçmişi</h2>
+    <h2 id="km">Kilometre Geçmişi</h2>
     <p class="section-note">
       Sigorta sisteminde yıllar içinde kayda geçen kilometre değerleri.
       Değerler <strong>düzenli olarak artmaktadır</strong>; hiçbir noktada geri dönüş yoktur.
@@ -864,7 +969,7 @@
   </section>
 
   <section>
-    <h2>Benim Dönemimde Yapılanlar</h2>
+    <h2 id="benim">Benim Dönemimde Yapılanlar</h2>
     <p class="section-note">
       Araç 2022'den bu yana bende. Bu dönemde bakımlarını özel serviste yaptırdım.
       Aşağıdaki işlemler son aylarda yapılmış olup, büyük bölümü 14 Eylül 2026 tarihinde yapılmıştır.
@@ -961,6 +1066,8 @@
     fatura numaraları üzerinden teyit edilebilir; belge görüntüleri talep üzerine paylaşılır.
     Plaka, şasi numarası ve kişisel bilgiler gizlilik gereği bu sayfada yer almaz.
   </footer>
+
+  </main>
 
 </div>
 
