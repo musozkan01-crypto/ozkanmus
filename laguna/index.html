@@ -273,32 +273,71 @@
   }
 
   .entry {
-    display: grid;
-    grid-template-columns: 112px 1fr;
-    gap: 0 22px;
-    padding: 22px 0 22px 14px;
     border-top: 1px solid var(--rule);
     border-left: 3px solid transparent;
+    background: var(--surface);
   }
 
   .entry:last-child { border-bottom: 1px solid var(--rule); }
 
-  .entry.is-major {
-    border-left-color: var(--major);
-    background: linear-gradient(90deg, var(--major-soft), transparent 46%);
+  .entry.is-major { border-left-color: var(--major); }
+
+  .entry > summary {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 16px 18px 16px 15px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .entry > summary::-webkit-details-marker { display: none; }
+
+  .entry > summary:hover { background: var(--accent-soft); }
+
+  .entry > summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  .entry > summary::after {
+    content: "+";
+    margin-left: auto;
+    font-family: var(--f-mono);
+    font-size: 17px;
+    line-height: 1;
+    color: var(--accent);
+    flex: 0 0 auto;
+  }
+
+  .entry[open] > summary::after { content: "–"; }
+
+  .entry[open] > summary {
+    border-bottom: 1px solid var(--rule);
   }
 
   .odo {
     font-family: var(--f-mono);
     font-variant-numeric: tabular-nums;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .odo-date {
+    order: -1;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
   }
 
   .odo-km {
-    display: block;
-    font-size: 19px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--ink);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink-muted);
   }
 
   .odo-unit {
@@ -308,11 +347,20 @@
     letter-spacing: 0.08em;
   }
 
-  .odo-date {
-    display: block;
-    font-size: 12px;
-    color: var(--ink-muted);
-    margin-top: 5px;
+  .entry.is-major .odo-date::before {
+    content: "●";
+    font-size: 9px;
+    color: var(--major);
+    margin-right: 8px;
+    vertical-align: 2px;
+  }
+
+  .entry-body {
+    padding: 18px 18px 22px 15px;
+  }
+
+  .entry.is-major .entry-body {
+    background: linear-gradient(90deg, var(--major-soft), transparent 55%);
   }
 
   .entry-body h3 {
@@ -497,16 +545,9 @@
   }
 
   @media (max-width: 560px) {
-    .entry {
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    .odo {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-    }
-    .odo-date { margin-top: 0; }
+    .entry > summary { padding: 14px 14px 14px 12px; gap: 10px; }
+    .odo { gap: 4px 12px; }
+    .entry-body { padding: 16px 14px 20px 12px; }
     .fault-list li { flex-direction: column; gap: 3px; }
   }
 </style>
@@ -560,17 +601,18 @@
     <h2>Yetkili Servis Kayıtları — 2009 / 2018</h2>
     <p class="section-note">
       Aşağıdaki dokuz kayıt Renault yetkili servis sisteminde görünen işlemlerdir ve
-      fatura numaralarıyla birlikte verilmiştir. Kilometre sırasına göre dizilmiştir.
-      Kehribar şeritle işaretlenen kayıtlar ağır bakım kalemleridir.
+      fatura numaralarıyla birlikte verilmiştir. Tarih sırasına göre dizilmiştir —
+      <strong>bir tarihe tıklayın, o tarihte yapılan işlemlerin dökümü açılsın.</strong>
+      Kehribar şeritli ve noktalı kayıtlar ağır bakım kalemleridir.
     </p>
 
     <div class="ledger">
 
-      <article class="entry">
-        <div class="odo">
+      <details class="entry">
+        <summary><span class="odo">
           <span class="odo-km">5.933<span class="odo-unit"> km</span></span>
           <span class="odo-date">10.02.2009</span>
-        </div>
+        </span></summary>
         <div class="entry-body">
           <h3>Silecek sistemi</h3>
           <ul class="parts">
@@ -579,13 +621,13 @@
           </ul>
           <p class="meta"><span>Servis: ERNAZ</span><span>Fatura 91751</span></p>
         </div>
-      </article>
+      </details>
 
-      <article class="entry">
-        <div class="odo">
+      <details class="entry">
+        <summary><span class="odo">
           <span class="odo-km">15.300<span class="odo-unit"> km</span></span>
           <span class="odo-date">16.05.2009</span>
-        </div>
+        </span></summary>
         <div class="entry-body">
           <h3>Periyodik bakım — Paket Renault</h3>
           <ul class="parts">
@@ -595,13 +637,13 @@
           </ul>
           <p class="meta"><span>Fatura 180833</span></p>
         </div>
-      </article>
+      </details>
 
-      <article class="entry">
-        <div class="odo">
+      <details class="entry">
+        <summary><span class="odo">
           <span class="odo-km">14.983<span class="odo-unit"> km</span></span>
           <span class="odo-date">19.05.2009</span>
-        </div>
+        </span></summary>
         <div class="entry-body">
           <h3>Yol yardımı — tekerlek sök-tak</h3>
           <ul class="parts">
@@ -610,13 +652,13 @@
           </ul>
           <p class="meta"><span>Fatura 63651</span></p>
         </div>
-      </article>
+      </details>
 
-      <article class="entry is-major">
-        <div class="odo">
+      <details class="entry is-major">
+        <summary><span class="odo">
           <span class="odo-km">30.369<span class="odo-unit"> km</span></span>
           <span class="odo-date">26.09.2009</span>
-        </div>
+        </span></summary>
         <div class="entry-body">
           <span class="tag">Ağır bakım</span>
           <h3>Direksiyon pompası ve kayış sistemi</h3>
@@ -628,13 +670,13 @@
           </ul>
           <p class="meta"><span>Servis: ERNAZ</span><span>Fatura 104523</span></p>
         </div>
-      </article>
+      </details>
 
-      <article class="entry">
-        <div class="odo">
+      <details class="entry">
+        <summary><span class="odo">
           <span class="odo-km">45.631<span class="odo-unit"> km</span></span>
           <span class="odo-date">05.03.2010</span>
-        </div>
+        </span></summary>
         <div class="entry-body">
           <h3>Arka fren ve periyodik bakım</h3>
           <ul class="parts">
@@ -643,13 +685,13 @@
           </ul>
           <p class="meta"><span>Servis: ERNAZ</span><span>Fatura 113298</span></p>
         </div>
-      </article>
+      </details>
 
-      <article class="entry is-major">
-        <div class="odo">
+      <details class="entry is-major">
+        <summary><span class="odo">
           <span class="odo-km">70.280<span class="odo-unit"> km</span></span>
           <span class="odo-date">20.08.2010</span>
-        </div>
+        </span></summary>
         <div class="entry-body">
           <span class="tag">Ağır bakım</span>
           <h3>Egzoz sistemi yenilendi</h3>
@@ -661,13 +703,13 @@
           </ul>
           <p class="meta"><span>Servis: ERNAZ</span><span>Fatura 122401</span></p>
         </div>
-      </article>
+      </details>
 
-      <article class="entry">
-        <div class="odo">
+      <details class="entry">
+        <summary><span class="odo">
           <span class="odo-km">86.353<span class="odo-unit"> km</span></span>
           <span class="odo-date">15.04.2013</span>
-        </div>
+        </span></summary>
         <div class="entry-body">
           <h3>Ekspertiz kontrolü</h3>
           <ul class="parts">
@@ -677,13 +719,13 @@
           </ul>
           <p class="meta"><span>Servis: ERNAZ</span><span>Fatura 130400628</span></p>
         </div>
-      </article>
+      </details>
 
-      <article class="entry is-major">
-        <div class="odo">
+      <details class="entry is-major">
+        <summary><span class="odo">
           <span class="odo-km">87.029<span class="odo-unit"> km</span></span>
           <span class="odo-date">17.04.2013</span>
-        </div>
+        </span></summary>
         <div class="entry-body">
           <span class="tag">Ağır bakım</span>
           <h3>Triger kayışı — birinci değişim</h3>
@@ -695,13 +737,13 @@
           </ul>
           <p class="meta"><span>Fatura 130400266</span></p>
         </div>
-      </article>
+      </details>
 
-      <article class="entry is-major">
-        <div class="odo">
+      <details class="entry is-major">
+        <summary><span class="odo">
           <span class="odo-km">172.731<span class="odo-unit"> km</span></span>
           <span class="odo-date">08.01.2018</span>
-        </div>
+        </span></summary>
         <div class="entry-body">
           <span class="tag">Ağır bakım</span>
           <h3>Triger kayışı — ikinci değişim</h3>
@@ -714,7 +756,7 @@
           </ul>
           <p class="meta"><span>Servis: FIRAT</span><span>Fatura 180100159</span></p>
         </div>
-      </article>
+      </details>
 
     </div>
   </section>
@@ -788,26 +830,26 @@
     <h2>Benim Dönemimde Yapılanlar</h2>
     <p class="section-note">
       Araç 2022'den bu yana bende. Bu dönemde bakımlarını özel serviste yaptırdım.
-      Aşağıdaki işlemler son aylarda yapılmış olup, büyük bölümü son bir hafta içindedir.
+      Aşağıdaki işlemler son aylarda yapılmış olup, büyük bölümü 14 Eylül 2026 tarihinde yapılmıştır.
     </p>
 
     <div class="work">
       <div class="work-item">
         <h3>LPG tankı yenilendi</h3>
         <p>On yıllık yasal ömrünü doldurduğu için değiştirildi. Yeni tank simit (toroidal) tiptedir ve stepne yuvasına monte edilmiştir — bagaj tamamen boştur.</p>
-        <span class="work-when">4 gün önce</span>
+        <span class="work-when">14.09.2026</span>
       </div>
 
       <div class="work-item">
         <h3>4 adet sıfır lastik</h3>
         <p>Continental 225/45 R17 yazlık, dördü de sıfır olarak takıldı.</p>
-        <span class="work-when">Yeni</span>
+        <span class="work-when">Eylül 2026</span>
       </div>
 
       <div class="work-item">
         <h3>Sağ ve sol salıncak</h3>
         <p>Her iki taraf da yenisiyle değiştirildi.</p>
-        <span class="work-when">4 gün önce</span>
+        <span class="work-when">14.09.2026</span>
       </div>
 
       <div class="work-item">
@@ -819,13 +861,13 @@
       <div class="work-item">
         <h3>Arka balatalar</h3>
         <p>Arka fren balataları yenilendi.</p>
-        <span class="work-when">4 ay önce</span>
+        <span class="work-when">Mayıs 2026</span>
       </div>
 
       <div class="work-item">
         <h3>Muayene yapıldı</h3>
         <p>Araç muayeneden geçti, vizesi yenidir.</p>
-        <span class="work-when">Ayın 14'ü</span>
+        <span class="work-when">14.09.2026</span>
       </div>
 
       <div class="work-item">
