@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="1992 Tofaş Serçe için ESP32 tabanlı dijital gösterge paneli - canlı simülasyon, üç çizim tarzı.">
+<meta property="og:title" content="Serçe Dijital Gösterge">
+<meta property="og:description" content="1992 Tofaş Serçe için ESP32 tabanlı dijital gösterge paneli - canlı simülasyon, üç çizim tarzı.">
+<meta property="og:type" content="website">
+<style>
+:root{color-scheme:light dark}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+.xnav{
+  display:flex;justify-content:center;gap:8px;
+  padding:14px 16px 0;font:500 13px/1 system-ui,sans-serif;
+}
+.xnav a{
+  color:inherit;text-decoration:none;opacity:.62;
+  border:1px solid rgba(128,140,155,.42);border-radius:999px;
+  padding:7px 15px;transition:opacity .15s,border-color .15s;
+}
+.xnav a:hover{opacity:1;border-color:rgba(128,140,155,.85)}
+.xnav a[aria-current="page"]{opacity:1;border-color:currentColor}
+</style>
+</head>
+<body>
+<nav class="xnav">
+<a href="./" aria-current="page">Gösterge</a>
+<a href="montaj.html" >Montaj kartı</a>
+</nav><title>Serçe Dijital Gösterge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&family=Chakra+Petch:wght@500;600;700&display=swap">
+
+<style>
+:root{
+  --bg:#07090C;
+  --panel:#10141A;
+  --screen:#0A0D12;
+  --ink:#E9EEF4;
+  --dim:#79848F;
+  --line:#1C222C;
+  --amber:#FFAE2B;
+  --amber-soft:#FFD089;
+  --red:#FF4A3D;
+  --green:#2FD46B;
+  --blue:#56A9FF;
+}
+
+*{box-sizing:border-box}
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Barlow","Segoe UI",system-ui,sans-serif;
+  margin:0;
+  padding-block:28px 56px;
+  padding-left:20px;
+  padding-right:20px;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:26px}
+
+/* ---------- header ---------- */
+.eyebrow{
+  font-family:"Barlow Condensed","Barlow",sans-serif;
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--amber);margin:0;
+}
+h1{
+  font-family:"Chakra Petch","Barlow Condensed",sans-serif;
+  font-weight:700;font-size:clamp(26px,5vw,38px);
+  letter-spacing:-.01em;margin:6px 0 0;text-wrap:balance;
+}
+.lede{color:var(--dim);margin:8px 0 0;max-width:62ch;line-height:1.55;font-size:15px}
+
+/* ---------- bezel ---------- */
+.bezel{
+  position:relative;
+  border-radius:18px;
+  padding:14px;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.022) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg,#232932 0%, #171C24 42%, #10141A 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    inset 0 -1px 0 rgba(0,0,0,.6),
+    0 18px 40px -20px rgba(0,0,0,.9);
+  border:1px solid #2A313C;
+}
+.bezel::after{
+  content:"PLA · 0.2 mm";
+  position:absolute;right:16px;bottom:-20px;
+  font-family:"Barlow Condensed",sans-serif;
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#3E4753;
+}
+
+/* ---------- screen ---------- */
+.screen{
+  container-type:inline-size;
+  position:relative;
+  background:radial-gradient(120% 140% at 50% 0%, #10151C 0%, var(--screen) 70%);
+  border-radius:8px;
+  border:1px solid #05070A;
+  aspect-ratio:16/7;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:inset 0 0 60px rgba(0,0,0,.7);
+}
+.screen.off{background:#050709}
+.screen.off .stage,.screen.off .tells,.screen.off .foot{opacity:0;transition:opacity .18s}
+.stage,.tells,.foot{transition:opacity .35s}
+
+.offmsg{
+  position:absolute;inset:0;display:none;
+  align-items:center;justify-content:center;
+  font-family:"Barlow Condensed",sans-serif;
+  letter-spacing:.3em;text-transform:uppercase;
+  font-size:2.4cqw;color:#222932;
+}
+.screen.off .offmsg{display:flex}
+
+/* tell-tale row */
+.tells{
+  display:flex;align-items:center;justify-content:center;gap:3.4cqw;
+  padding:1.6cqw 0 .6cqw;
+  height:7cqw;flex:0 0 auto;
+}
+.tell{width:3.1cqw;height:3.1cqw;opacity:.13;color:#5A6472;transition:opacity .12s}
+.tell svg{width:100%;height:100%;display:block}
+.tell.on{opacity:1}
+.tell.c-green{color:var(--green)}
+.tell.c-amber{color:var(--amber)}
+.tell.c-red{color:var(--red)}
+.tell.c-blue{color:var(--blue)}
+.tell.blink.on{animation:blink 1s steps(1) infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.13}}
+
+/* stage */
+.stage{flex:1;display:flex;align-items:center;justify-content:center;gap:2cqw;padding:0 3cqw;min-height:0}
+
+/* --- shared readout type --- */
+.big{
+  font-family:"Chakra Petch","Barlow Condensed",sans-serif;
+  font-weight:700;font-variant-numeric:tabular-nums;
+  line-height:.86;letter-spacing:-.02em;
+  color:var(--ink);
+}
+.unit{
+  font-family:"Barlow Condensed",sans-serif;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--dim);
+}
+
+/* --- MODERN skin --- */
+.mod{display:none;width:100%;align-items:center;justify-content:space-between;gap:2cqw}
+.skin-modern .mod{display:flex}
+.mod .tachoWrap{position:relative;width:30cqw;flex:0 0 auto}
+.mod .tachoWrap svg{width:100%;display:block}
+.mod .tachoVal{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:.4cqw;padding-top:2cqw;
+}
+.mod .tachoVal .n{font-size:5.4cqw}
+.mod .tachoVal .unit{font-size:1.15cqw}
+
+.mod .center{display:flex;flex-direction:column;align-items:center;gap:.6cqw;flex:1}
+.mod .spd{font-size:17cqw}
+.mod .center .unit{font-size:1.5cqw}
+.mod .gearchip{
+  font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:1.7cqw;
+  border:1px solid var(--line);border-radius:3px;padding:.35cqw 1.1cqw;
+  color:var(--amber-soft);letter-spacing:.1em;
+}
+
+.bars{display:flex;flex-direction:column;gap:1.6cqw;width:15cqw;flex:0 0 auto}
+.bar .barhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.6cqw}
+.bar .barhead .unit{font-size:1.05cqw}
+.bar .barhead .v{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:1.9cqw;font-variant-numeric:tabular-nums}
+.segs{display:flex;gap:.3cqw;height:1.5cqw}
+.segs i{flex:1;background:#1A202A;border-radius:1px;transition:background .15s}
+.segs i.f{background:var(--amber-soft)}
+.segs i.warn{background:var(--red)}
+
+/* --- KLASİK skin --- */
+.kla{display:none;width:100%;align-items:center;justify-content:space-between;gap:1cqw}
+.skin-klasik .kla{display:flex}
+.kla .dial{width:31cqw;position:relative;flex:0 0 auto}
+.kla .dial svg{width:100%;display:block}
+.kla .dialCap{
+  position:absolute;left:0;right:0;bottom:19%;text-align:center;
+}
+.kla .dialCap .n{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:3.4cqw;font-variant-numeric:tabular-nums}
+.kla .dialCap .unit{display:block;font-size:1.05cqw;margin-top:.2cqw}
+.kla .mid{flex:1;display:flex;flex-direction:column;align-items:center;gap:1.4cqw;padding:0 1cqw}
+.kla .mid .gearchip{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:2.6cqw;color:var(--amber-soft)}
+.kla .mid .bars{width:100%}
+
+/* --- SADE skin --- */
+.sad{display:none;width:100%;flex-direction:column;align-items:center;gap:1.4cqw}
+.skin-sade .sad{display:flex}
+.sad .spd{font-size:21cqw;letter-spacing:-.04em}
+.sad .spdrow{display:flex;align-items:flex-end;gap:1.4cqw}
+.sad .spdrow .unit{font-size:1.7cqw;padding-bottom:2cqw}
+.sad .rpmline{width:64cqw;height:.7cqw;background:#181E27;border-radius:1px;overflow:hidden}
+.sad .rpmline i{display:block;height:100%;width:0%;background:var(--amber-soft);transition:width .06s linear}
+.sad .rpmline i.red{background:var(--red)}
+.sad .nums{display:flex;gap:5cqw;align-items:baseline}
+.sad .nums div{display:flex;flex-direction:column;align-items:center;gap:.4cqw}
+.sad .nums .n{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:3cqw;font-variant-numeric:tabular-nums}
+.sad .nums .unit{font-size:1.05cqw}
+
+/* foot */
+.foot{
+  flex:0 0 auto;height:6.4cqw;
+  border-top:1px solid #151B23;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3.4cqw;gap:2cqw;
+}
+.foot div{display:flex;align-items:baseline;gap:.7cqw}
+.foot .unit{font-size:1.05cqw}
+.foot .v{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:1.85cqw;font-variant-numeric:tabular-nums;color:#BFC8D2}
+
+/* ---------- controls ---------- */
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch}
+.ctlgroup{
+  display:flex;gap:8px;align-items:center;
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:10px;padding:8px;
+}
+button{
+  font-family:"Barlow Condensed","Barlow",sans-serif;
+  font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  background:#1A212B;color:#C3CCD6;border:1px solid #262E3A;
+  border-radius:6px;padding:9px 14px;cursor:pointer;
+  transition:background .12s,color .12s,border-color .12s;
+}
+button:hover{background:#222A36;color:var(--ink)}
+button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#14100A}
+#kontak[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#06180D}
+#gaz{min-width:150px;background:#2A2016;border-color:#4A3A22;color:var(--amber-soft)}
+#gaz:active,#gaz.held{background:var(--amber);color:#14100A;border-color:var(--amber)}
+.ctllabel{
+  font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:#4E5766;padding-left:4px;
+}
+
+/* ---------- signal map ---------- */
+.map h2{
+  font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:19px;
+  margin:0 0 4px;
+}
+.map p.sub{color:var(--dim);margin:0 0 16px;font-size:14px;line-height:1.5;max-width:62ch}
+.rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.row{background:var(--panel);padding:13px 15px;display:flex;flex-direction:column;gap:5px}
+.row .top{display:flex;align-items:center;gap:9px}
+.row .what{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:14px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink)}
+.chip{
+  font-family:"Barlow Condensed",sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;
+  padding:2px 7px;border-radius:3px;margin-left:auto;white-space:nowrap;
+}
+.chip.pulse{background:rgba(255,174,43,.13);color:var(--amber)}
+.chip.analog{background:rgba(86,169,255,.13);color:var(--blue)}
+.chip.digital{background:rgba(47,212,107,.13);color:var(--green)}
+.row .how{color:var(--dim);font-size:13.5px;line-height:1.5}
+.row.flag{border-left:3px solid var(--red);padding-left:12px}
+.row.flag .what{color:var(--red)}
+
+footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--line);padding-top:16px}
+
+@media (max-width:560px){
+  .controls{flex-direction:column}
+  .ctlgroup{justify-content:center;flex-wrap:wrap}
+  #gaz{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .tell.blink.on{animation:none}
+  *{transition-duration:.01ms !important}
+}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">1992 Tofaş Serçe · ESP32 + 4.3&quot; IPS</p>
+    <h1>Serçe Dijital Gösterge</h1>
+    <p class="lede">Orijinal gösterge kasasının içine oturan, 3D basılmış çerçeveli dijital panel. Aşağıdaki panel gerçek araç davranışını taklit ediyor: kontağı aç, gaza bas. Üç farklı çizim tarzını karşılaştırabilirsin.</p>
+  </header>
+
+  <div class="bezel">
+    <div class="screen off skin-modern" id="screen">
+      <div class="offmsg">Kontak kapalı</div>
+
+      <div class="tells" id="tells"></div>
+
+      <div class="stage">
+        <!-- MODERN -->
+        <div class="mod">
+          <div class="tachoWrap">
+            <svg viewBox="0 0 200 150" aria-hidden="true">
+              <path id="tachoTrack" fill="none" stroke="#161C25" stroke-width="9" stroke-linecap="round"/>
+              <path id="tachoRed" fill="none" stroke="#3A1512" stroke-width="9" stroke-linecap="round"/>
+              <path id="tachoFill" fill="none" stroke="#FFAE2B" stroke-width="9" stroke-linecap="round"/>
+              <g id="tachoTicks" stroke="#39424F" stroke-width="1.4"></g>
+              <g id="tachoNums" fill="#5A6472" font-family="Chakra Petch, sans-serif" font-size="9" font-weight="600" text-anchor="middle"></g>
+            </svg>
+            <div class="tachoVal">
+              <span class="big n" id="m_rpm">0</span>
+              <span class="unit">RPM</span>
+            </div>
+          </div>
+
+          <div class="center">
+            <span class="big spd" id="m_spd">0</span>
+            <span class="unit">KM / S</span>
+            <span class="gearchip" id="m_gear">N</span>
+          </div>
+
+          <div class="bars">
+            <div class="bar">
+              <div class="barhead"><span class="unit">Yakıt</span><span class="v" id="m_fuelv">46 L</span></div>
+              <div class="segs" id="m_fuelsegs"></div>
+            </div>
+            <div class="bar">
+              <div class="barhead"><span class="unit">Hararet</span><span class="v" id="m_tempv">20°</span></div>
+              <div class="segs" id="m_tempsegs"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KLASİK -->
+        <div class="kla">
+          <div class="dial">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <circle cx="100" cy="100" r="92" fill="#0C1016" stroke="#1B222C" stroke-width="1.5"/>
+              <g id="kRpmTicks"></g>
+              <g id="kRpmNums" fill="#7A8593" font-family="Chakra Petch, sans-serif" font-size="13" font-weight="600" text-anchor="middle"></g>
+              <g id="kRpmNeedle">
+                <path d="M100 100 L100 26" stroke="#FF4A3D" stroke-width="3.2" stroke-linecap="round"/>
+              </g>
+              <circle cx="100" cy="100" r="7" fill="#161C25" stroke="#2B333F" stroke-width="1.5"/>
+            </svg>
+            <div class="dialCap"><span class="n" id="k_rpm">0</span><span class="unit">RPM</span></div>
+          </div>
+
+          <div class="mid">
+            <span class="gearchip" id="k_gear">N</span>
+            <div class="bars">
+              <div class="bar">
+                <div class="barhead"><span class="unit">Yakıt</span><span class="v" id="k_fuelv">46 L</span></div>
+                <div class="segs" id="k_fuelsegs"></div>
+              </div>
+              <div class="bar">
+                <div class="barhead"><span class="unit">Hararet</span><span class="v" id="k_tempv">20°</span></div>
+                <div class="segs" id="k_tempsegs"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dial">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <circle cx="100" cy="100" r="92" fill="#0C1016" stroke="#1B222C" stroke-width="1.5"/>
+              <g id="kSpdTicks"></g>
+              <g id="kSpdNums" fill="#7A8593" font-family="Chakra Petch, sans-serif" font-size="13" font-weight="600" text-anchor="middle"></g>
+              <g id="kSpdNeedle">
+                <path d="M100 100 L100 26" stroke="#FFAE2B" stroke-width="3.2" stroke-linecap="round"/>
+              </g>
+              <circle cx="100" cy="100" r="7" fill="#161C25" stroke="#2B333F" stroke-width="1.5"/>
+            </svg>
+            <div class="dialCap"><span class="n" id="k_spd">0</span><span class="unit">KM / S</span></div>
+          </div>
+        </div>
+
+        <!-- SADE -->
+        <div class="sad">
+          <div class="spdrow">
+            <span class="big spd" id="s_spd">0</span>
+            <span class="unit">KM / S</span>
+          </div>
+          <div class="rpmline"><i id="s_rpmbar"></i></div>
+          <div class="nums">
+            <div><span class="n" id="s_rpm">0</span><span class="unit">RPM</span></div>
+            <div><span class="n" id="s_gear">N</span><span class="unit">Vites</span></div>
+            <div><span class="n" id="s_fuel">46</span><span class="unit">Litre</span></div>
+            <div><span class="n" id="s_temp">20</span><span class="unit">Hararet °C</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div><span class="unit">ODO</span><span class="v" id="f_odo">247.891</span><span class="unit">km</span></div>
+        <div><span class="unit">Günlük</span><span class="v" id="f_trip">0,0</span><span class="unit">km</span></div>
+        <div><span class="unit">Akü</span><span class="v" id="f_volt">12,2</span><span class="unit">V</span></div>
+        <div><span class="unit">Saat</span><span class="v" id="f_clock">--:--</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="ctlgroup">
+      <span class="ctllabel">Araç</span>
+      <button id="kontak" aria-pressed="false">Kontak</button>
+      <button id="gaz" aria-label="Gaza bas ve basılı tut">Gaza bas (tut)</button>
+    </div>
+    <div class="ctlgroup">
+      <span class="ctllabel">Çizim</span>
+      <button class="skin" data-skin="modern" aria-pressed="true">Modern</button>
+      <button class="skin" data-skin="klasik" aria-pressed="false">Klasik</button>
+      <button class="skin" data-skin="sade" aria-pressed="false">Sade</button>
+    </div>
+    <div class="ctlgroup">
+      <span class="ctllabel">İkaz</span>
+      <button class="tog" data-t="sol" aria-pressed="false">Sol sinyal</button>
+      <button class="tog" data-t="sag" aria-pressed="false">Sağ sinyal</button>
+      <button class="tog" data-t="far" aria-pressed="false">Uzun far</button>
+      <button class="tog" data-t="fren" aria-pressed="true">El freni</button>
+    </div>
+  </div>
+
+  <section class="map">
+    <h2>Ekrandaki her değer nereden geliyor</h2>
+    <p class="sub">Panelde gördüğün her rakamın arkasında araçtan çekilmiş gerçek bir sinyal var — GPS yok. Sinyal tipi, devreyi nasıl kuracağını belirliyor.</p>
+    <div class="rows">
+      <div class="row">
+        <div class="top"><span class="what">Devir</span><span class="chip pulse">Darbe</span></div>
+        <p class="how">Bobin eksi ucu → 100 k direnç, 5,1 V zener, optokuplör → ESP32 kesme pini. 4 silindir tekli bobinde sayacı ikiye böl.</p>
+      </div>
+      <div class="row">
+        <div class="top"><span class="what">Hız</span><span class="chip pulse">Darbe</span></div>
+        <p class="how">Şaft üzerine kelepçe + 4 mıknatıs, karşısına A3144 hall sensörü. Diferansiyel 4,1 ve lastik çevresinden km/s hesaplanır.</p>
+      </div>
+      <div class="row">
+        <div class="top"><span class="what">Yakıt</span><span class="chip analog">Analog</span></div>
+        <p class="how">Depo şamandırası direnci → gerilim bölücü → ADC. 20–30 saniyelik ortalama şart, yoksa her frende gösterge zıplar.</p>
+      </div>
+      <div class="row">
+        <div class="top"><span class="what">Hararet</span><span class="chip analog">Analog</span></div>
+        <p class="how">Müşür NTC → bölücü → ADC. Direnç eğrisi doğrusal değil; soğuk, 80°, 90° ve fan anında ölçüp tablo çıkar.</p>
+      </div>
+      <div class="row">
+        <div class="top"><span class="what">Akü gerilimi</span><span class="chip analog">Analog</span></div>
+        <p class="how">Kontak sonrası 12 V hattından bölücü. Marşta 6 V'a düşer, alternatör atarsa 40 V'a fırlar — TVS diyot koy.</p>
+      </div>
+      <div class="row">
+        <div class="top"><span class="what">Sinyal, far, el freni, yağ</span><span class="chip digital">Dijital</span></div>
+        <p class="how">Her biri 12 V var/yok sinyali. 10 k / 2,2 k bölücü veya optokuplör ile dijital girişe.</p>
+      </div>
+      <div class="row flag">
+        <div class="top"><span class="what">Şarj lambası — tuzak</span><span class="chip digital">Dijital</span></div>
+        <p class="how">Bu lamba alternatörü uyarır. Devreden çıkarırsan alternatör şarj etmez. Orijinal ampulü gizli bırak ya da yerine 82 Ω 5 W direnç koy, sinyali oradan oku.</p>
+      </div>
+      <div class="row">
+        <div class="top"><span class="what">Kilometre hafızası</span><span class="chip digital">Dijital</span></div>
+        <p class="how">Kontak kesilince ekran anında sönmesin; kondansatörle 200–300 ms tut, ESP32 son km'yi flash'a yazıp kapansın.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Bu panel bir taklit: değerler gerçek araç fizikçesine göre üretiliyor (1,4 motor, 5 ileri, 4,1 diferansiyel, 155/80 R13). Gerçek montajda orijinal gösterge sökülmeden arkada bırakılır — kalibrasyon için ikisi bir süre yan yana çalışmalı.
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- geometry helpers ---------- */
+  function polar(cx,cy,r,deg){var a=(deg-90)*Math.PI/180;return[cx+r*Math.cos(a),cy+r*Math.sin(a)];}
+  function arcPath(cx,cy,r,a0,a1){
+    var p0=polar(cx,cy,r,a0),p1=polar(cx,cy,r,a1);
+    var large=(a1-a0)>180?1:0;
+    return "M"+p0[0].toFixed(2)+" "+p0[1].toFixed(2)+" A"+r+" "+r+" 0 "+large+" 1 "+p1[0].toFixed(2)+" "+p1[1].toFixed(2);
+  }
+  var SVGNS="http://www.w3.org/2000/svg";
+  function el(tag,attrs){var n=document.createElementNS(SVGNS,tag);for(var k in attrs)n.setAttribute(k,attrs[k]);return n;}
+
+  /* ---------- tell-tales ---------- */
+  var ICONS={
+    sol:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 4 4 12l10 8v-5h6V9h-6z"/></svg>',
+    sag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4l10 8-10 8v-5H4V9h6z"/></svg>',
+    far:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h6a6 6 0 0 1 0 12H3z"/><path d="M14 8h7M14 12h7M14 16h7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>',
+    fren:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="8"/><path d="M12 8v5" stroke-linecap="round"/><circle cx="12" cy="16.2" r="1" fill="currentColor" stroke="none"/></svg>',
+    yag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h9l3-3h4v3l3 1v4H3z"/><path d="M6 10c0-2 2-4 2-4s2 2 2 4a2 2 0 1 1-4 0z"/></svg>',
+    sarj:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="7" width="18" height="11" rx="1.5"/><path d="M8 5v2M16 5v2M7.5 12.5h3M14 12.5h3M15.5 11v3" stroke-linecap="round"/></svg>',
+    hararet:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a2.5 2.5 0 0 1 2.5 2.5v7.2a4.6 4.6 0 1 1-5 0V5.5A2.5 2.5 0 0 1 12 3z" opacity=".95"/></svg>',
+    rezerv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V5.5A1.5 1.5 0 0 1 5.5 4h6A1.5 1.5 0 0 1 13 5.5V20M3 20h11M6.5 8.5h4" stroke-linecap="round"/><path d="M16 9l2.5-2.5V16a1.8 1.8 0 0 0 3.5 0v-5" stroke-linecap="round"/></svg>'
+  };
+  var TELLS=[
+    {k:"sol",cls:"c-green blink"},
+    {k:"rezerv",cls:"c-amber"},
+    {k:"sarj",cls:"c-red"},
+    {k:"yag",cls:"c-red"},
+    {k:"hararet",cls:"c-red"},
+    {k:"fren",cls:"c-red"},
+    {k:"far",cls:"c-blue"},
+    {k:"sag",cls:"c-green blink"}
+  ];
+  var tellEls={};
+  (function(){
+    var host=document.getElementById("tells");
+    TELLS.forEach(function(t){
+      var d=document.createElement("div");
+      d.className="tell "+t.cls;
+      d.innerHTML=ICONS[t.k];
+      host.appendChild(d);
+      tellEls[t.k]=d;
+    });
+  })();
+  function tell(k,on){var e=tellEls[k];if(e)e.classList.toggle("on",!!on);}
+
+  /* ---------- build gauge furniture ---------- */
+  var TA0=-115, TA1=115; // modern tacho sweep
+  (function buildModernTacho(){
+    document.getElementById("tachoTrack").setAttribute("d",arcPath(100,100,78,TA0,TA1));
+    document.getElementById("tachoRed").setAttribute("d",arcPath(100,100,78,TA0+(TA1-TA0)*(5500/7000),TA1));
+    var fill=document.getElementById("tachoFill");
+    fill.setAttribute("d",arcPath(100,100,78,TA0,TA1));
+    var len=fill.getTotalLength();
+    fill.style.strokeDasharray=len;
+    fill.style.strokeDashoffset=len;
+    fill.dataset.len=len;
+
+    var ticks=document.getElementById("tachoTicks"), nums=document.getElementById("tachoNums");
+    for(var i=0;i<=7;i++){
+      var a=TA0+(TA1-TA0)*(i/7);
+      var p0=polar(100,100,68,a), p1=polar(100,100,60,a);
+      ticks.appendChild(el("line",{x1:p0[0],y1:p0[1],x2:p1[0],y2:p1[1]}));
+      var pn=polar(100,100,51,a);
+      var t=el("text",{x:pn[0],y:pn[1]+3.2});
+      t.textContent=i;
+      nums.appendChild(t);
+    }
+  })();
+
+  function buildDial(tickId,numId,max,step,minorDiv,labelDiv){
+    var ticks=document.getElementById(tickId), nums=document.getElementById(numId);
+    var A0=-135, A1=135, n=max/step;
+    for(var i=0;i<=n;i++){
+      var a=A0+(A1-A0)*(i/n);
+      var major=(i%minorDiv===0);
+      var p0=polar(100,100,84,a), p1=polar(100,100,major?70:77,a);
+      ticks.appendChild(el("line",{x1:p0[0],y1:p0[1],x2:p1[0],y2:p1[1],
+        stroke:major?"#8A94A2":"#39424F","stroke-width":major?2:1.2,"stroke-linecap":"round"}));
+      if(major && (i*step)%labelDiv===0){
+        var pn=polar(100,100,58,a);
+        var t=el("text",{x:pn[0],y:pn[1]+4.5});
+        t.textContent=i*step;
+        nums.appendChild(t);
+      }
+    }
+    // redline arc on tacho only
+    if(tickId==="kRpmTicks"){
+      var red=el("path",{d:arcPath(100,100,88,A0+(A1-A0)*(5.5/7),A1),fill:"none",stroke:"#FF4A3D","stroke-width":3.5,"stroke-linecap":"round"});
+      ticks.parentNode.insertBefore(red,ticks);
+    }
+  }
+  buildDial("kRpmTicks","kRpmNums",7,0.5,2,1);
+  buildDial("kSpdTicks","kSpdNums",180,10,2,20);
+
+  /* ---------- segmented bars ---------- */
+  function buildSegs(id,n){
+    var host=document.getElementById(id), arr=[];
+    for(var i=0;i<n;i++){var s=document.createElement("i");host.appendChild(s);arr.push(s);}
+    return arr;
+  }
+  var segs={
+    mf:buildSegs("m_fuelsegs",12), mt:buildSegs("m_tempsegs",12),
+    kf:buildSegs("k_fuelsegs",12), kt:buildSegs("k_tempsegs",12)
+  };
+  function paintSegs(arr,frac,warnLow,warnHigh){
+    var n=arr.length, lit=Math.round(frac*n);
+    for(var i=0;i<n;i++){
+      var on=i<lit;
+      arr[i].className=on?(((warnLow&&i<2)||(warnHigh&&i>=n-2))?"f warn":"f"):"";
+    }
+  }
+
+  /* ---------- vehicle state ---------- */
+  var RATIOS=[3.61,2.16,1.44,1.00,0.88], DIFF=4.1, CIRC=1.78;
+  var S={on:false,rpm:0,speed:0,gear:0,fuel:46,temp:20,volt:12.2,odo:247891,trip:0,boot:0};
+  var throttle=false, skin="modern";
+  var manual={sol:false,sag:false,far:false,fren:true};
+
+  try{
+    var saved=localStorage.getItem("serce_odo");
+    if(saved) S.odo=parseFloat(saved)||S.odo;
+  }catch(e){}
+
+  function speedFor(rpm,g){ return rpm*60*CIRC/(RATIOS[g]*DIFF*1000); }
+  function rpmFor(spd,g){ return spd*RATIOS[g]*DIFF*1000/(60*CIRC); }
+
+  function step(dt){
+    if(!S.on){
+      S.rpm+=(0-S.rpm)*Math.min(1,dt*3);
+      S.speed+=(0-S.speed)*Math.min(1,dt*0.9);
+      S.volt+=(12.2-S.volt)*Math.min(1,dt*2);
+      S.temp+=(20-S.temp)*Math.min(1,dt*0.02);
+      if(S.speed<0.4)S.speed=0;
+      S.gear=0;
+      return;
+    }
+    if(S.boot>0){S.boot=Math.max(0,S.boot-dt);return;}
+
+    var target = throttle ? 5600 : (S.speed>2 ? rpmFor(S.speed,S.gear) : 850);
+    if(!throttle && target<850) target=850;
+    S.rpm += (target-S.rpm)*Math.min(1,dt*(throttle?2.2:1.6));
+
+    if(throttle){
+      if(S.rpm>5300 && S.gear<4){ S.gear++; S.rpm=rpmFor(S.speed,S.gear)||S.rpm*0.62; }
+      S.speed = speedFor(S.rpm,S.gear);
+    }else{
+      S.speed += (0-S.speed)*Math.min(1,dt*0.28);
+      if(S.speed<1.2){S.speed=0;S.gear=0;}
+      else{
+        while(S.gear>0 && rpmFor(S.speed,S.gear)<1300) S.gear--;
+      }
+    }
+    if(S.speed>178)S.speed=178;
+    if(S.rpm>6800)S.rpm=6800;
+
+    var km=S.speed*dt/3600;
+    S.odo+=km; S.trip+=km;
+    S.fuel = Math.max(0, S.fuel - dt*(0.00042 + S.rpm*0.0000008));
+    var heatTarget = 88 + (throttle?6:0);
+    S.temp += (heatTarget-S.temp)*Math.min(1,dt*0.035);
+    if(S.temp>97) S.temp += (92-S.temp)*Math.min(1,dt*0.2);
+    S.volt += ((throttle?14.1:13.8)-S.volt)*Math.min(1,dt*1.5);
+  }
+
+  /* ---------- render ---------- */
+  var q=function(id){return document.getElementById(id);};
+  var tachoFill=q("tachoFill"), tachoLen=parseFloat(tachoFill.dataset.len);
+  var screen=q("screen");
+  var lastClock="";
+
+  function render(){
+    var rpm=S.rpm, spd=S.speed;
+    if(S.boot>0){
+      var t=1-Math.abs(S.boot/0.55-1); // 0→1→0
+      rpm=7000*t; spd=180*t;
+    }
+    var rF=Math.min(1,rpm/7000), sTxt=Math.round(spd);
+    var gearTxt = (!S.on||S.speed<1) ? "N" : String(S.gear+1);
+    var fuelF=S.fuel/47, tempF=Math.min(1,Math.max(0,(S.temp-40)/(110-40)));
+
+    // modern
+    tachoFill.style.strokeDashoffset=tachoLen*(1-rF);
+    tachoFill.setAttribute("stroke", rpm>5500 ? "#FF4A3D" : "#FFAE2B");
+    q("m_rpm").textContent=Math.round(rpm/10)*10;
+    q("m_spd").textContent=sTxt;
+    q("m_gear").textContent=gearTxt;
+    q("m_fuelv").textContent=Math.round(S.fuel)+" L";
+    q("m_tempv").textContent=Math.round(S.temp)+"°";
+
+    // klasik
+    q("kRpmNeedle").setAttribute("transform","rotate("+(-135+270*rF)+" 100 100)");
+    q("kSpdNeedle").setAttribute("transform","rotate("+(-135+270*Math.min(1,spd/180))+" 100 100)");
+    q("k_rpm").textContent=Math.round(rpm/10)*10;
+    q("k_spd").textContent=sTxt;
+    q("k_gear").textContent=gearTxt;
+    q("k_fuelv").textContent=Math.round(S.fuel)+" L";
+    q("k_tempv").textContent=Math.round(S.temp)+"°";
+
+    // sade
+    q("s_spd").textContent=sTxt;
+    var bar=q("s_rpmbar");
+    bar.style.width=(rF*100)+"%";
+    bar.className = rpm>5500 ? "red" : "";
+    q("s_rpm").textContent=Math.round(rpm/10)*10;
+    q("s_gear").textContent=gearTxt;
+    q("s_fuel").textContent=Math.round(S.fuel);
+    q("s_temp").textContent=Math.round(S.temp);
+
+    paintSegs(segs.mf,fuelF,true,false);
+    paintSegs(segs.kf,fuelF,true,false);
+    paintSegs(segs.mt,tempF,false,true);
+    paintSegs(segs.kt,tempF,false,true);
+
+    q("f_odo").textContent=Math.floor(S.odo).toLocaleString("tr-TR");
+    q("f_trip").textContent=S.trip.toFixed(1).replace(".",",");
+    q("f_volt").textContent=S.volt.toFixed(1).replace(".",",");
+    var d=new Date(), c=("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2);
+    if(c!==lastClock){q("f_clock").textContent=c;lastClock=c;}
+
+    var booting=S.boot>0;
+    tell("sol", S.on && (booting||manual.sol));
+    tell("sag", S.on && (booting||manual.sag));
+    tell("far", S.on && (booting||manual.far));
+    tell("fren", S.on && (booting||manual.fren));
+    tell("yag", S.on && (booting || S.rpm<400));
+    tell("sarj", S.on && (booting || S.rpm<400));
+    tell("hararet", S.on && (booting || S.temp>97));
+    tell("rezerv", S.on && (booting || S.fuel<8));
+  }
+
+  var last=performance.now();
+  function loop(now){
+    var dt=Math.min(0.05,(now-last)/1000); last=now;
+    step(dt); render();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  window.addEventListener("pagehide",function(){
+    try{localStorage.setItem("serce_odo",String(S.odo));}catch(e){}
+  });
+
+  /* ---------- controls ---------- */
+  var kontak=q("kontak");
+  kontak.addEventListener("click",function(){
+    S.on=!S.on;
+    kontak.setAttribute("aria-pressed",String(S.on));
+    screen.classList.toggle("off",!S.on);
+    if(S.on){
+      var rm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      S.boot=rm?0:1.1; S.rpm=850; S.trip=0;
+    }else{ throttle=false; gaz.classList.remove("held"); }
+  });
+
+  var gaz=q("gaz");
+  function setT(v){ throttle=v && S.on && S.boot<=0; gaz.classList.toggle("held",throttle); }
+  gaz.addEventListener("pointerdown",function(e){e.preventDefault();setT(true);});
+  ["pointerup","pointerleave","pointercancel"].forEach(function(ev){
+    gaz.addEventListener(ev,function(){setT(false);});
+  });
+  gaz.addEventListener("keydown",function(e){if(e.key===" "||e.key==="Enter"){e.preventDefault();setT(true);}});
+  gaz.addEventListener("keyup",function(e){if(e.key===" "||e.key==="Enter"){setT(false);}});
+  window.addEventListener("blur",function(){setT(false);});
+
+  Array.prototype.forEach.call(document.querySelectorAll(".skin"),function(b){
+    b.addEventListener("click",function(){
+      skin=b.dataset.skin;
+      screen.className=screen.className.replace(/skin-\w+/,"skin-"+skin);
+      Array.prototype.forEach.call(document.querySelectorAll(".skin"),function(o){
+        o.setAttribute("aria-pressed",String(o===b));
+      });
+    });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll(".tog"),function(b){
+    b.addEventListener("click",function(){
+      var k=b.dataset.t;
+      manual[k]=!manual[k];
+      b.setAttribute("aria-pressed",String(manual[k]));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
