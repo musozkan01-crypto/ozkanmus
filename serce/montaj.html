@@ -31,498 +31,353 @@ img{max-width:100%}
 <nav class="xnav">
 <a href="./" >Gösterge</a>
 <a href="montaj.html" aria-current="page">Montaj kartı</a>
-</nav><title>Serçe Panel Montaj Kartı</title>
+</nav>
+<title>Serçe Panel Montaj Kartı</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 
 <style>
 :root{
-  --ground:#F7F8FA;
-  --surface:#FFFFFF;
-  --ink:#11161C;
-  --dim:#5C6874;
-  --rule:#D9DEE5;
-  --rule-soft:#E8ECF1;
-  --amber:#A76200;
-  --amber-bg:#FBF1E2;
-  --blue:#1A63C4;
-  --blue-bg:#E8F0FC;
-  --green:#126B3C;
-  --green-bg:#E5F3EA;
+  --ground:#FBFBFC;
+  --ink:#14181D;
+  --dim:#606B77;
+  --rule:#E1E5EA;
+  --hair:#EDF0F3;
+  --amber:#9C5D00;
   --red:#B32D24;
-  --red-bg:#FBEBE9;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --ground:#0C0F13;
-    --surface:#131920;
-    --ink:#E6ECF3;
-    --dim:#8B96A3;
-    --rule:#232B35;
-    --rule-soft:#1A212A;
+    --ground:#0D1014;
+    --ink:#E4EAF1;
+    --dim:#8792A0;
+    --rule:#222A34;
+    --hair:#191F27;
     --amber:#FFB43C;
-    --amber-bg:#241B0C;
-    --blue:#6FB2FF;
-    --blue-bg:#0E1A2A;
-    --green:#45D183;
-    --green-bg:#0D1F16;
     --red:#FF6F62;
-    --red-bg:#241110;
   }
 }
 :root[data-theme="dark"]{
-  --ground:#0C0F13;
-  --surface:#131920;
-  --ink:#E6ECF3;
-  --dim:#8B96A3;
-  --rule:#232B35;
-  --rule-soft:#1A212A;
+  --ground:#0D1014;
+  --ink:#E4EAF1;
+  --dim:#8792A0;
+  --rule:#222A34;
+  --hair:#191F27;
   --amber:#FFB43C;
-  --amber-bg:#241B0C;
-  --blue:#6FB2FF;
-  --blue-bg:#0E1A2A;
-  --green:#45D183;
-  --green-bg:#0D1F16;
   --red:#FF6F62;
-  --red-bg:#241110;
 }
 
 *{box-sizing:border-box}
 body{
-  background:var(--ground);
-  color:var(--ink);
+  background:var(--ground);color:var(--ink);
   font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
-  margin:0;
-  padding-block:30px 60px;
-  padding-left:18px;padding-right:18px;
-  line-height:1.5;
+  font-size:14px;line-height:1.45;margin:0;
+  padding-block:24px 44px;padding-left:18px;padding-right:18px;
   -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:34px}
+.wrap{max-width:660px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
 
-.kicker{
-  font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:0;
-}
-h1{font-size:clamp(24px,4.6vw,32px);font-weight:700;letter-spacing:-.015em;margin:7px 0 0;text-wrap:balance}
-.lede{color:var(--dim);margin:8px 0 0;max-width:64ch;font-size:15px}
+header{display:flex;flex-direction:column;gap:3px}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber);margin:0}
+h1{font-size:21px;font-weight:600;letter-spacing:-.01em;margin:0}
+.lede{color:var(--dim);margin:2px 0 0;font-size:13.5px;max-width:58ch}
 
-section{display:flex;flex-direction:column;gap:14px}
+section{display:flex;flex-direction:column;gap:9px}
 h2{
-  font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  margin:0;padding-bottom:9px;border-bottom:1px solid var(--rule);
-  display:flex;align-items:baseline;gap:10px;
+  font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--dim);margin:0;padding-bottom:6px;border-bottom:1px solid var(--rule);
 }
-h2 .no{font-family:"IBM Plex Mono",monospace;color:var(--amber);font-size:12px}
+h2 b{color:var(--amber);font-family:"IBM Plex Mono",monospace;font-weight:500;margin-right:7px}
 
-figure{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:9px;padding:16px 14px 12px}
+figure{margin:0}
 .scroll{overflow-x:auto}
-figure svg{display:block;width:100%;min-width:520px;max-width:100%;height:auto;color:var(--ink)}
-figcaption{
-  margin-top:12px;padding-top:11px;border-top:1px solid var(--rule-soft);
-  color:var(--dim);font-size:13.5px;
-}
-figcaption code,.mono{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink)}
+figure svg{display:block;width:100%;min-width:480px;max-width:100%;height:auto;color:var(--ink)}
+figcaption{margin-top:7px;color:var(--dim);font-size:12.5px;max-width:60ch}
+code{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink)}
+b{font-weight:600}
 
-/* svg element classes */
-.bx{fill:var(--surface);stroke:var(--rule);stroke-width:1.4}
-.bx-a{fill:var(--amber-bg);stroke:var(--amber);stroke-width:1.4}
-.bx-g{fill:var(--green-bg);stroke:var(--green);stroke-width:1.4}
-.bx-r{fill:var(--red-bg);stroke:var(--red);stroke-width:1.4}
-.bx-b{fill:var(--blue-bg);stroke:var(--blue);stroke-width:1.4}
-.ln{stroke:var(--ink);stroke-width:1.4;fill:none}
-.ln-r{stroke:var(--red);stroke-width:1.6;fill:none}
-.ln-g{stroke:var(--green);stroke-width:1.6;fill:none}
-.ln-d{stroke:var(--dim);stroke-width:1.2;fill:none;stroke-dasharray:4 3}
-.ah{fill:var(--ink)}
+/* svg */
+.bx{fill:none;stroke:var(--rule);stroke-width:1.3}
+.bx-k{fill:none;stroke:var(--ink);stroke-width:1.3}
+.bx-a{fill:none;stroke:var(--amber);stroke-width:1.4}
+.bx-r{fill:none;stroke:var(--red);stroke-width:1.4}
+.ln{stroke:var(--dim);stroke-width:1.2;fill:none}
+.ln-r{stroke:var(--red);stroke-width:1.4;fill:none}
+.ln-d{stroke:var(--rule);stroke-width:1.1;fill:none;stroke-dasharray:3 3}
+.ah{fill:var(--dim)}
 .ah-r{fill:var(--red)}
-.ah-g{fill:var(--green)}
-.t{fill:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:12px;font-weight:500}
-.tb{fill:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:12.5px;font-weight:600}
-.tm{fill:var(--dim);font-family:"IBM Plex Mono",monospace;font-size:10.5px}
-.tm-r{fill:var(--red);font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:500}
-.tm-g{fill:var(--green);font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:500}
-.hd{fill:var(--dim);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em}
+.t{fill:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:11.5px}
+.tm{fill:var(--dim);font-family:"IBM Plex Mono",monospace;font-size:9.5px}
+.tm-r{fill:var(--red);font-family:"IBM Plex Mono",monospace;font-size:9.5px}
+.tm-a{fill:var(--amber);font-family:"IBM Plex Mono",monospace;font-size:9.5px}
 
-/* BOM */
-.bom{display:flex;flex-direction:column;gap:18px}
-.grp{background:var(--surface);border:1px solid var(--rule);border-radius:9px;overflow:hidden}
-.grp h3{
-  margin:0;padding:11px 15px;font-size:12px;font-weight:600;
-  letter-spacing:.11em;text-transform:uppercase;
-  background:var(--rule-soft);border-bottom:1px solid var(--rule);
-  display:flex;justify-content:space-between;gap:10px;align-items:baseline;
-}
-.grp h3 em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--dim);letter-spacing:.05em;text-transform:none}
-.it{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:11px 15px;border-bottom:1px solid var(--rule-soft)}
-.it:last-child{border-bottom:0}
-.it .nm{font-weight:600;font-size:14px}
-.it .qt{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--amber);white-space:nowrap;align-self:start;padding-top:2px}
-.it .nt{grid-column:1/-1;color:var(--dim);font-size:13px}
-.it .nt b{color:var(--ink);font-weight:600}
+/* liste */
+.li{display:flex;justify-content:space-between;gap:14px;padding:6px 0;border-bottom:1px solid var(--hair)}
+.li:last-child{border-bottom:0}
+.li .a{display:flex;flex-direction:column;gap:1px;min-width:0}
+.li .n{font-weight:500}
+.li .s{color:var(--dim);font-size:12.5px}
+.li .q{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--dim);white-space:nowrap;padding-top:2px}
+.sub{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:12px 0 2px}
+.sub:first-of-type{margin-top:2px}
 
-.pick{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
-.opt{background:var(--surface);border:1px solid var(--rule);border-radius:9px;padding:15px}
-.opt.lean{border-color:var(--amber);box-shadow:inset 3px 0 0 var(--amber)}
-.opt .tag{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--dim)}
-.opt.lean .tag{color:var(--amber)}
-.opt h4{margin:6px 0 7px;font-size:15.5px;font-weight:600}
-.opt p{margin:0;color:var(--dim);font-size:13.5px}
-.opt .part{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink);margin-top:9px;display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.two>div{display:flex;flex-direction:column;gap:2px}
+.two .tag{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.two .lean .tag{color:var(--amber)}
+.two h3{margin:0;font-size:14px;font-weight:600}
+.two p{margin:0;color:var(--dim);font-size:12.5px}
+.two .part{font-family:"IBM Plex Mono",monospace;font-size:11.5px;margin-top:3px}
+@media (max-width:520px){.two{grid-template-columns:1fr}}
 
-.warn{
-  background:var(--red-bg);border:1px solid var(--red);border-radius:9px;
-  padding:14px 16px;display:flex;flex-direction:column;gap:5px;
-}
-.warn strong{color:var(--red);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
-.warn p{margin:0;font-size:14px}
-
-footer{color:var(--dim);font-size:13px;border-top:1px solid var(--rule);padding-top:16px}
+.note{border-left:2px solid var(--amber);padding-left:12px;color:var(--dim);font-size:13px}
+.note b{color:var(--ink)}
+footer{color:var(--dim);font-size:12.5px;border-top:1px solid var(--rule);padding-top:12px}
 </style>
 
 <div class="wrap">
 
 <header>
-  <p class="kicker">1992 Tofaş Serçe · ESP32 dijital gösterge</p>
-  <h1>Serçe Panel Montaj Kartı</h1>
-  <p class="lede">Hangi sinyal nereden çekiliyor, arada hangi devre var ve malzeme listesi ne. Her bölüm tek başına okunur — ayrı ayrı ekran görüntüsü alabilirsin.</p>
+  <p class="kicker">1992 Tofaş Serçe · ESP32</p>
+  <h1>Panel Montaj Kartı</h1>
+  <p class="lede">Hangi sinyal nereden çekiliyor, arada hangi devre var, ne alınacak.</p>
 </header>
 
-<!-- ========== 1 ========== -->
 <section>
-  <h2><span class="no">01</span> Sistemin tamamı</h2>
+  <h2><b>01</b>Sistemin tamamı</h2>
   <figure class="scroll">
-    <svg viewBox="0 0 780 350" role="img" aria-label="Araç sensörlerinden koruma devrelerine, oradan ESP32 ve ekrana giden sinyal akışı">
-      <defs><marker id="a1" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><polygon class="ah" points="0,0 10,4 0,8"/></marker></defs>
+    <svg viewBox="0 0 640 286" role="img" aria-label="Araç sensörlerinden koruma devrelerine, oradan ESP32 ve ekrana giden sinyal akışı">
+      <defs><marker id="a1" viewBox="0 0 9 7" refX="8" refY="3.5" markerWidth="7" markerHeight="6" orient="auto"><polygon class="ah" points="0,0 9,3.5 0,7"/></marker></defs>
+      <text class="tm" x="10" y="14">ARAÇ</text>
+      <text class="tm" x="236" y="14">KORUMA / ÇEVİRİM</text>
+      <text class="tm" x="470" y="14">İŞLEM</text>
 
-      <text class="hd" x="14" y="26">ARAÇTAN GELEN</text>
-      <text class="hd" x="300" y="26">KORUMA / ÇEVİRİM</text>
-      <text class="hd" x="560" y="26">İŞLEME + GÖSTERİM</text>
+      <rect class="bx" x="10" y="30" width="126" height="30" rx="4"/><text class="t" x="73" y="49" text-anchor="middle">Bobin (−)</text>
+      <rect class="bx" x="10" y="72" width="126" height="30" rx="4"/><text class="t" x="73" y="91" text-anchor="middle">Şaft hall</text>
+      <rect class="bx" x="10" y="114" width="126" height="30" rx="4"/><text class="t" x="73" y="133" text-anchor="middle">Şamandıra</text>
+      <rect class="bx" x="10" y="156" width="126" height="30" rx="4"/><text class="t" x="73" y="175" text-anchor="middle">Müşür (NTC)</text>
+      <rect class="bx" x="10" y="198" width="126" height="30" rx="4"/><text class="t" x="73" y="217" text-anchor="middle">12 V ikazlar</text>
 
-      <rect class="bx" x="14" y="46" width="150" height="38" rx="5"/>
-      <text class="t" x="89" y="70" text-anchor="middle">Bobin (−) ucu</text>
-      <rect class="bx" x="14" y="98" width="150" height="38" rx="5"/>
-      <text class="t" x="89" y="122" text-anchor="middle">Şaft hall sensörü</text>
-      <rect class="bx" x="14" y="150" width="150" height="38" rx="5"/>
-      <text class="t" x="89" y="174" text-anchor="middle">Depo şamandırası</text>
-      <rect class="bx" x="14" y="202" width="150" height="38" rx="5"/>
-      <text class="t" x="89" y="226" text-anchor="middle">Müşür (NTC)</text>
-      <rect class="bx" x="14" y="254" width="150" height="38" rx="5"/>
-      <text class="t" x="89" y="278" text-anchor="middle">12 V ikaz hatları</text>
+      <line class="ln" x1="136" y1="45" x2="232" y2="45" marker-end="url(#a1)"/><text class="tm" x="184" y="39" text-anchor="middle">kıvılcım</text>
+      <line class="ln" x1="136" y1="87" x2="232" y2="87" marker-end="url(#a1)"/><text class="tm" x="184" y="81" text-anchor="middle">4 darbe/tur</text>
+      <line class="ln" x1="136" y1="129" x2="232" y2="129" marker-end="url(#a1)"/><text class="tm" x="184" y="123" text-anchor="middle">ohm</text>
+      <line class="ln" x1="136" y1="171" x2="232" y2="171" marker-end="url(#a1)"/><text class="tm" x="184" y="165" text-anchor="middle">ohm</text>
+      <line class="ln" x1="136" y1="213" x2="232" y2="213" marker-end="url(#a1)"/><text class="tm" x="184" y="207" text-anchor="middle">12 V var/yok</text>
 
-      <line class="ln" x1="164" y1="65" x2="294" y2="65" marker-end="url(#a1)"/>
-      <text class="tm" x="229" y="58" text-anchor="middle">kıvılcım darbesi</text>
-      <line class="ln" x1="164" y1="117" x2="294" y2="117" marker-end="url(#a1)"/>
-      <text class="tm" x="229" y="110" text-anchor="middle">4 darbe / tur</text>
-      <line class="ln" x1="164" y1="169" x2="294" y2="169" marker-end="url(#a1)"/>
-      <text class="tm" x="229" y="162" text-anchor="middle">direnç, ohm</text>
-      <line class="ln" x1="164" y1="221" x2="294" y2="221" marker-end="url(#a1)"/>
-      <text class="tm" x="229" y="214" text-anchor="middle">direnç, ohm</text>
-      <line class="ln" x1="164" y1="273" x2="294" y2="273" marker-end="url(#a1)"/>
-      <text class="tm" x="229" y="266" text-anchor="middle">12 V var / yok</text>
+      <rect class="bx-k" x="236" y="30" width="136" height="30" rx="4"/><text class="t" x="304" y="49" text-anchor="middle">Zener + opto</text>
+      <rect class="bx-k" x="236" y="72" width="136" height="30" rx="4"/><text class="t" x="304" y="91" text-anchor="middle">10 kΩ pull-up</text>
+      <rect class="bx-k" x="236" y="114" width="136" height="30" rx="4"/><text class="t" x="304" y="133" text-anchor="middle">Gerilim bölücü</text>
+      <rect class="bx-k" x="236" y="156" width="136" height="30" rx="4"/><text class="t" x="304" y="175" text-anchor="middle">Gerilim bölücü</text>
+      <rect class="bx-k" x="236" y="198" width="136" height="30" rx="4"/><text class="t" x="304" y="217" text-anchor="middle">Optokuplör ×8</text>
 
-      <rect class="bx-a" x="300" y="46" width="150" height="38" rx="5"/>
-      <text class="t" x="375" y="70" text-anchor="middle">Zener + optokuplör</text>
-      <rect class="bx-a" x="300" y="98" width="150" height="38" rx="5"/>
-      <text class="t" x="375" y="122" text-anchor="middle">10 kΩ pull-up</text>
-      <rect class="bx-b" x="300" y="150" width="150" height="38" rx="5"/>
-      <text class="t" x="375" y="174" text-anchor="middle">Gerilim bölücü</text>
-      <rect class="bx-b" x="300" y="202" width="150" height="38" rx="5"/>
-      <text class="t" x="375" y="226" text-anchor="middle">Gerilim bölücü</text>
-      <rect class="bx-g" x="300" y="254" width="150" height="38" rx="5"/>
-      <text class="t" x="375" y="278" text-anchor="middle">Optokuplör ×8</text>
+      <polyline class="ln" points="372,45 414,45 414,129"/>
+      <polyline class="ln" points="372,87 414,87"/>
+      <polyline class="ln" points="372,129 414,129"/>
+      <polyline class="ln" points="372,171 414,171 414,129"/>
+      <polyline class="ln" points="372,213 414,213 414,129"/>
+      <line class="ln" x1="414" y1="129" x2="466" y2="129" marker-end="url(#a1)"/>
 
-      <polyline class="ln" points="450,65 505,65 505,169"/>
-      <polyline class="ln" points="450,117 505,117"/>
-      <polyline class="ln" points="450,169 505,169"/>
-      <polyline class="ln" points="450,221 505,221 505,169"/>
-      <polyline class="ln" points="450,273 505,273 505,169"/>
-      <line class="ln" x1="505" y1="169" x2="556" y2="169" marker-end="url(#a1)"/>
-
-      <rect class="bx-a" x="560" y="130" width="200" height="78" rx="6"/>
-      <text class="tb" x="660" y="163" text-anchor="middle">ESP32-S3</text>
-      <text class="tm" x="660" y="181" text-anchor="middle">2 çekirdek: sayaç + çizim</text>
-
-      <line class="ln" x1="660" y1="208" x2="660" y2="246" marker-end="url(#a1)"/>
-      <text class="tm" x="670" y="232">RGB</text>
-
-      <rect class="bx" x="560" y="250" width="200" height="56" rx="6"/>
-      <text class="tb" x="660" y="275" text-anchor="middle">4,3&quot; IPS ekran</text>
-      <text class="tm" x="660" y="292" text-anchor="middle">800 × 480</text>
+      <rect class="bx-a" x="470" y="102" width="160" height="54" rx="5"/>
+      <text class="t" x="550" y="124" text-anchor="middle">ESP32-S3</text>
+      <text class="tm" x="550" y="140" text-anchor="middle">sayaç + çizim ayrı çekirdek</text>
+      <line class="ln" x1="550" y1="156" x2="550" y2="190" marker-end="url(#a1)"/>
+      <rect class="bx" x="470" y="194" width="160" height="40" rx="5"/>
+      <text class="t" x="550" y="212" text-anchor="middle">4,3&quot; IPS · 800×480</text>
+      <text class="tm" x="550" y="226" text-anchor="middle">ekran</text>
     </svg>
-    <figcaption>Hiçbir araç sinyali doğrudan işlemciye girmiyor. Ortadaki sütun tamamen koruma ve seviye çevirimi — bu sütunu atlarsan ilk marşta kart gider.</figcaption>
+    <figcaption>Hiçbir araç sinyali doğrudan işlemciye girmiyor — ortadaki sütun atlanırsa ilk marşta kart gider.</figcaption>
   </figure>
 </section>
 
-<!-- ========== 2 ========== -->
 <section>
-  <h2><span class="no">02</span> Devir girişi — kartı öldüren devre</h2>
+  <h2><b>02</b>Devir girişi</h2>
   <figure class="scroll">
-    <svg viewBox="0 0 780 210" role="img" aria-label="Bobin negatif ucundan alınan devir sinyalinin direnç, zener ve optokuplör üzerinden ESP32'ye ulaşması">
-      <defs><marker id="a2" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><polygon class="ah" points="0,0 10,4 0,8"/></marker></defs>
+    <svg viewBox="0 0 640 150" role="img" aria-label="Bobin negatif ucundan direnç, zener ve optokuplör üzerinden ESP32'ye giden devir sinyali">
+      <defs><marker id="a2" viewBox="0 0 9 7" refX="8" refY="3.5" markerWidth="7" markerHeight="6" orient="auto"><polygon class="ah" points="0,0 9,3.5 0,7"/></marker></defs>
 
-      <rect class="bx-r" x="14" y="62" width="118" height="46" rx="5"/>
-      <text class="tb" x="73" y="82" text-anchor="middle">BOBİN −</text>
-      <text class="tm-r" x="73" y="98" text-anchor="middle">300 V'a varan sıkma</text>
+      <rect class="bx-r" x="10" y="38" width="100" height="36" rx="4"/>
+      <text class="t" x="60" y="55" text-anchor="middle">BOBİN −</text>
+      <text class="tm-r" x="60" y="68" text-anchor="middle">300 V sıkma</text>
 
-      <line class="ln" x1="132" y1="85" x2="184" y2="85" marker-end="url(#a2)"/>
+      <line class="ln" x1="110" y1="56" x2="152" y2="56" marker-end="url(#a2)"/>
+      <rect class="bx" x="156" y="41" width="70" height="30" rx="4"/><text class="t" x="191" y="60" text-anchor="middle">100 kΩ</text>
 
-      <rect class="bx" x="188" y="66" width="86" height="38" rx="5"/>
-      <text class="t" x="231" y="90" text-anchor="middle">100 kΩ</text>
+      <line class="ln" x1="226" y1="56" x2="276" y2="56"/>
+      <circle class="ah" cx="276" cy="56" r="2.6"/>
+      <line class="ln" x1="276" y1="56" x2="276" y2="92"/>
+      <rect class="bx" x="248" y="92" width="56" height="24" rx="3"/><text class="t" x="276" y="109" text-anchor="middle">5,1 V</text>
+      <line class="ln" x1="276" y1="116" x2="276" y2="128"/>
+      <line class="ln" x1="264" y1="128" x2="288" y2="128"/>
+      <line class="ln" x1="269" y1="133" x2="283" y2="133"/>
+      <line class="ln" x1="273" y1="138" x2="279" y2="138"/>
+      <text class="tm" x="312" y="109">zener</text>
 
-      <line class="ln" x1="274" y1="85" x2="330" y2="85"/>
-      <circle class="ah" cx="330" cy="85" r="3"/>
-      <line class="ln" x1="330" y1="85" x2="330" y2="132"/>
-      <rect class="bx" x="300" y="132" width="60" height="30" rx="4"/>
-      <text class="t" x="330" y="152" text-anchor="middle">5,1 V</text>
-      <line class="ln" x1="330" y1="162" x2="330" y2="180"/>
-      <line class="ln" x1="314" y1="180" x2="346" y2="180"/>
-      <line class="ln" x1="320" y1="186" x2="340" y2="186"/>
-      <line class="ln" x1="326" y1="192" x2="334" y2="192"/>
-      <text class="tm" x="368" y="152">zener</text>
+      <line class="ln" x1="276" y1="56" x2="356" y2="56" marker-end="url(#a2)"/>
+      <rect class="bx-a" x="360" y="40" width="90" height="32" rx="4"/><text class="t" x="405" y="60" text-anchor="middle">PC817</text>
+      <line class="ln-d" x1="405" y1="14" x2="405" y2="130"/>
+      <text class="tm-a" x="412" y="24">galvanik sınır</text>
 
-      <line class="ln" x1="330" y1="85" x2="420" y2="85" marker-end="url(#a2)"/>
-
-      <rect class="bx-a" x="424" y="60" width="104" height="50" rx="5"/>
-      <text class="tb" x="476" y="80" text-anchor="middle">PC817</text>
-      <text class="tm" x="476" y="97" text-anchor="middle">optokuplör</text>
-
-      <line class="ln-d" x1="476" y1="24" x2="476" y2="176"/>
-      <text class="tm" x="486" y="36">galvanik sınır</text>
-
-      <line class="ln" x1="528" y1="85" x2="596" y2="85" marker-end="url(#a2)"/>
-      <text class="tm" x="562" y="78" text-anchor="middle">temiz kare</text>
-
-      <rect class="bx-a" x="600" y="60" width="166" height="50" rx="5"/>
-      <text class="tb" x="683" y="80" text-anchor="middle">ESP32 kesme pini</text>
-      <text class="tm" x="683" y="97" text-anchor="middle">sayacı 2'ye böl</text>
+      <line class="ln" x1="450" y1="56" x2="500" y2="56" marker-end="url(#a2)"/>
+      <rect class="bx-a" x="504" y="40" width="126" height="32" rx="4"/><text class="t" x="567" y="60" text-anchor="middle">ESP32 kesme pini</text>
     </svg>
-    <figcaption>Optokuplör sadece seviye düşürmüyor, aracın kütlesi ile kartın kütlesini birbirinden ayırıyor. 4 silindir tekli bobinde bir motor turunda <strong>iki</strong> kıvılcım olur; yazılımda ikiye bölmezsen devri iki katı gösterir.</figcaption>
+    <figcaption>Optokuplör aracın kütlesini kartınkinden ayırıyor. 4 silindir tekli bobinde bir turda <b>iki</b> kıvılcım var — sayacı ikiye bölmezsen devri iki katı gösterir.</figcaption>
   </figure>
 </section>
 
-<!-- ========== 3 ========== -->
 <section>
-  <h2><span class="no">03</span> Hız — şaft üzerine mıknatıs</h2>
+  <h2><b>03</b>Hız — şaft üzerine mıknatıs</h2>
   <figure class="scroll">
-    <svg viewBox="0 0 780 250" role="img" aria-label="Şaft üzerindeki bilezik üzerine yerleştirilmiş dört mıknatıs ve karşısındaki hall sensörü">
-      <defs><marker id="a3" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><polygon class="ah" points="0,0 10,4 0,8"/></marker></defs>
+    <svg viewBox="0 0 640 196" role="img" aria-label="Şaft üzerindeki bilezikte dört mıknatıs ve karşısındaki hall sensörü, yandan ve önden görünüş">
+      <defs><marker id="a3" viewBox="0 0 9 7" refX="8" refY="3.5" markerWidth="7" markerHeight="6" orient="auto"><polygon class="ah" points="0,0 9,3.5 0,7"/></marker></defs>
+      <text class="tm" x="10" y="14">YANDAN</text>
+      <text class="tm" x="390" y="14">ÖNDEN</text>
 
-      <text class="hd" x="14" y="26">YANDAN GÖRÜNÜŞ</text>
-      <text class="hd" x="430" y="26">ÖNDEN GÖRÜNÜŞ</text>
+      <rect class="bx" x="10" y="74" width="268" height="32" rx="16"/><text class="tm" x="30" y="94">şaft</text>
+      <rect class="bx-a" x="120" y="62" width="24" height="56" rx="3"/><text class="tm" x="132" y="56" text-anchor="middle">bilezik</text>
+      <rect class="bx-k" x="114" y="132" width="36" height="22" rx="3"/><text class="tm" x="132" y="146" text-anchor="middle">A3144</text>
+      <line class="ln-d" x1="132" y1="118" x2="132" y2="132"/><text class="tm" x="158" y="129">2–3 mm</text>
 
-      <rect class="bx" x="14" y="112" width="330" height="40" rx="20"/>
-      <text class="tm" x="40" y="137">şaft</text>
+      <line class="ln" x1="150" y1="143" x2="208" y2="143" marker-end="url(#a3)"/>
+      <text class="tm" x="179" y="137" text-anchor="middle">4 darbe/tur</text>
+      <rect class="bx" x="212" y="128" width="66" height="30" rx="4"/><text class="t" x="245" y="147" text-anchor="middle">ESP32</text>
 
-      <rect class="bx-a" x="150" y="98" width="30" height="68" rx="4"/>
-      <text class="tm" x="165" y="90" text-anchor="middle">bilezik</text>
-
-      <rect class="bx-g" x="144" y="182" width="42" height="26" rx="4"/>
-      <text class="tm-g" x="165" y="199" text-anchor="middle">A3144</text>
-      <line class="ln-d" x1="165" y1="166" x2="165" y2="182"/>
-      <text class="tm" x="196" y="177">2–3 mm</text>
-
-      <polyline class="ln" points="186,195 258,195" marker-end="url(#a3)"/>
-      <text class="tm" x="222" y="188" text-anchor="middle">4 darbe / tur</text>
-      <rect class="bx" x="262" y="178" width="82" height="34" rx="5"/>
-      <text class="t" x="303" y="199" text-anchor="middle">ESP32</text>
-
-      <circle class="bx" cx="545" cy="135" r="62"/>
-      <circle class="bx-a" cx="545" cy="135" r="44"/>
-      <circle class="bx-r" cx="545" cy="91" r="9"/>
-      <circle class="bx-r" cx="589" cy="135" r="9"/>
-      <circle class="bx-r" cx="545" cy="179" r="9"/>
-      <circle class="bx-r" cx="501" cy="135" r="9"/>
-      <text class="tm-r" x="545" y="60" text-anchor="middle">4 × neodyum 5×3 mm</text>
-
-      <rect class="bx-g" x="646" y="122" width="52" height="26" rx="4"/>
-      <text class="tm-g" x="672" y="139" text-anchor="middle">A3144</text>
-      <line class="ln-d" x1="607" y1="135" x2="646" y2="135"/>
-
-      <text class="tm" x="545" y="225" text-anchor="middle">mıknatıslar 90° aralıkla, aynı kutup dışa bakacak</text>
+      <circle class="bx" cx="476" cy="104" r="52"/>
+      <circle class="bx-a" cx="476" cy="104" r="36"/>
+      <circle class="bx-r" cx="476" cy="68" r="7"/>
+      <circle class="bx-r" cx="512" cy="104" r="7"/>
+      <circle class="bx-r" cx="476" cy="140" r="7"/>
+      <circle class="bx-r" cx="440" cy="104" r="7"/>
+      <text class="tm-r" x="476" y="44" text-anchor="middle">4 × neodyum 5×3 mm</text>
+      <rect class="bx-k" x="562" y="93" width="44" height="22" rx="3"/><text class="tm" x="584" y="107" text-anchor="middle">A3144</text>
+      <line class="ln-d" x1="528" y1="104" x2="562" y2="104"/>
+      <text class="tm" x="476" y="180" text-anchor="middle">90° aralıkla, aynı kutup dışa</text>
     </svg>
-    <figcaption>Dört mıknatıs, tek mıknatıstan dört kat daha sık okuma verir — düşük hızda gösterge takılmaz. Hız hesabı: <code>km/s = (darbe/s ÷ 4 ÷ 4,1) × 1,78 × 3,6</code> — yani diferansiyel oranı ve lastik çevresi. Kalibrasyonu bilinen bir mesafede bir kez yaparsın, bir daha bozulmaz.</figcaption>
+    <figcaption>Dört mıknatıs düşük hızda göstergenin takılmasını önler. <code>km/s = (darbe/s ÷ 4 ÷ 4,1) × 1,78 × 3,6</code> — diferansiyel oranı ve lastik çevresi. Bir kez kalibre edilir.</figcaption>
   </figure>
 </section>
 
-<!-- ========== 4 ========== -->
 <section>
-  <h2><span class="no">04</span> Besleme zinciri</h2>
+  <h2><b>04</b>Besleme zinciri</h2>
   <figure class="scroll">
-    <svg viewBox="0 0 780 190" role="img" aria-label="Aküden sigorta, ters kutup diyodu, TVS ve buck regülatör üzerinden ESP32'ye giden besleme zinciri">
-      <defs><marker id="a4" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><polygon class="ah" points="0,0 10,4 0,8"/></marker></defs>
+    <svg viewBox="0 0 640 140" role="img" aria-label="Aküden sigorta, ters kutup diyodu, TVS ve buck regülatör üzerinden ESP32'ye giden besleme">
+      <defs><marker id="a4" viewBox="0 0 9 7" refX="8" refY="3.5" markerWidth="7" markerHeight="6" orient="auto"><polygon class="ah" points="0,0 9,3.5 0,7"/></marker></defs>
+      <text class="tm-r" x="240" y="16" text-anchor="middle">marşta 6 V ↓ · alternatör atarsa 40 V ↑</text>
+      <polyline class="ln-d" points="120,24 120,40 380,40 380,24"/>
 
-      <text class="tm-r" x="300" y="28" text-anchor="middle">marşta 6 V'a düşer · alternatör atarsa 40 V'a fırlar</text>
-      <line class="ln-d" x1="150" y1="36" x2="150" y2="62"/>
-      <line class="ln-d" x1="450" y1="36" x2="450" y2="62"/>
-      <line class="ln-d" x1="150" y1="36" x2="450" y2="36"/>
+      <rect class="bx" x="10" y="44" width="78" height="32" rx="4"/><text class="t" x="49" y="64" text-anchor="middle">AKÜ 12 V</text>
+      <line class="ln" x1="88" y1="60" x2="114" y2="60" marker-end="url(#a4)"/>
+      <rect class="bx" x="118" y="44" width="66" height="32" rx="4"/><text class="t" x="151" y="64" text-anchor="middle">Sigorta 2 A</text>
+      <line class="ln" x1="184" y1="60" x2="210" y2="60" marker-end="url(#a4)"/>
+      <rect class="bx" x="214" y="44" width="66" height="32" rx="4"/><text class="t" x="247" y="64" text-anchor="middle">SS34</text>
+      <line class="ln" x1="280" y1="60" x2="306" y2="60" marker-end="url(#a4)"/>
+      <rect class="bx-r" x="310" y="44" width="80" height="32" rx="4"/><text class="t" x="350" y="64" text-anchor="middle">SMBJ24A</text>
+      <line class="ln" x1="390" y1="60" x2="416" y2="60" marker-end="url(#a4)"/>
+      <rect class="bx-a" x="420" y="44" width="86" height="32" rx="4"/><text class="t" x="463" y="64" text-anchor="middle">Buck 5 V</text>
+      <line class="ln" x1="506" y1="60" x2="532" y2="60" marker-end="url(#a4)"/>
+      <rect class="bx-a" x="536" y="44" width="70" height="32" rx="4"/><text class="t" x="571" y="64" text-anchor="middle">ESP32</text>
 
-      <rect class="bx" x="14" y="62" width="104" height="44" rx="5"/>
-      <text class="t" x="66" y="82" text-anchor="middle">AKÜ</text>
-      <text class="tm" x="66" y="98" text-anchor="middle">12 V, pis hat</text>
-      <line class="ln" x1="118" y1="84" x2="150" y2="84" marker-end="url(#a4)"/>
-
-      <rect class="bx" x="154" y="62" width="86" height="44" rx="5"/>
-      <text class="t" x="197" y="82" text-anchor="middle">Sigorta</text>
-      <text class="tm" x="197" y="98" text-anchor="middle">2 A</text>
-      <line class="ln" x1="240" y1="84" x2="272" y2="84" marker-end="url(#a4)"/>
-
-      <rect class="bx" x="276" y="62" width="96" height="44" rx="5"/>
-      <text class="t" x="324" y="82" text-anchor="middle">SS34</text>
-      <text class="tm" x="324" y="98" text-anchor="middle">ters kutup</text>
-      <line class="ln" x1="372" y1="84" x2="404" y2="84" marker-end="url(#a4)"/>
-
-      <rect class="bx-r" x="408" y="62" width="104" height="44" rx="5"/>
-      <text class="t" x="460" y="82" text-anchor="middle">SMBJ24A</text>
-      <text class="tm" x="460" y="98" text-anchor="middle">TVS, gerilim kırpar</text>
-      <line class="ln" x1="512" y1="84" x2="544" y2="84" marker-end="url(#a4)"/>
-
-      <rect class="bx-a" x="548" y="62" width="104" height="44" rx="5"/>
-      <text class="t" x="600" y="82" text-anchor="middle">Buck 5 V</text>
-      <text class="tm" x="600" y="98" text-anchor="middle">MP1584, 3 A</text>
-      <line class="ln" x1="652" y1="84" x2="684" y2="84" marker-end="url(#a4)"/>
-
-      <rect class="bx-a" x="688" y="62" width="78" height="44" rx="5"/>
-      <text class="t" x="727" y="89" text-anchor="middle">ESP32</text>
-
-      <line class="ln" x1="600" y1="106" x2="600" y2="140"/>
-      <rect class="bx-g" x="540" y="140" width="120" height="34" rx="5"/>
-      <text class="tm-g" x="600" y="161" text-anchor="middle">1000 µF · 300 ms yazma</text>
+      <line class="ln" x1="463" y1="76" x2="463" y2="100"/>
+      <rect class="bx-k" x="404" y="100" width="118" height="26" rx="4"/>
+      <text class="tm" x="463" y="117" text-anchor="middle">1000 µF · 300 ms yazma</text>
     </svg>
-    <figcaption>Kondansatör süs değil: kontak kesildiğinde ESP32'ye kilometreyi flash'a yazacak kadar süre tanıyor. Onsuz her kapanışta günlük km kaybolur.</figcaption>
+    <figcaption>Kondansatör süs değil: kontak kesilince ESP32'ye kilometreyi flash'a yazacak süreyi tanıyor.</figcaption>
   </figure>
 </section>
 
-<!-- ========== 5 ========== -->
 <section>
-  <h2><span class="no">05</span> Şarj lambası — iki yol arasındaki fark</h2>
+  <h2><b>05</b>Şarj lambası — iki yolun farkı</h2>
   <figure class="scroll">
-    <svg viewBox="0 0 780 230" role="img" aria-label="Şarj lambası devresinin yanlış ve doğru kurulumunun karşılaştırması">
-      <defs>
-        <marker id="a5" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><polygon class="ah" points="0,0 10,4 0,8"/></marker>
-        <marker id="a5g" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><polygon class="ah-g" points="0,0 10,4 0,8"/></marker>
-      </defs>
+    <svg viewBox="0 0 640 176" role="img" aria-label="Şarj lambası devresinin yanlış ve doğru kurulumunun karşılaştırması">
+      <defs><marker id="a5" viewBox="0 0 9 7" refX="8" refY="3.5" markerWidth="7" markerHeight="6" orient="auto"><polygon class="ah" points="0,0 9,3.5 0,7"/></marker></defs>
 
-      <text class="tm-r" x="14" y="26">YANLIŞ — lambayı söküp yerine ekranı koymak</text>
-      <rect class="bx" x="14" y="44" width="96" height="40" rx="5"/>
-      <text class="t" x="62" y="69" text-anchor="middle">KONTAK</text>
-      <line class="ln-r" x1="110" y1="64" x2="196" y2="64"/>
-      <line class="ln-r" x1="140" y1="50" x2="166" y2="78"/>
-      <line class="ln-r" x1="166" y1="50" x2="140" y2="78"/>
-      <text class="tm-r" x="153" y="98" text-anchor="middle">uyarma akımı yok</text>
-      <rect class="bx-r" x="200" y="44" width="122" height="40" rx="5"/>
-      <text class="t" x="261" y="62" text-anchor="middle">ALTERNATÖR</text>
-      <text class="tm-r" x="261" y="77" text-anchor="middle">şarj etmiyor</text>
+      <text class="tm-r" x="10" y="16">YANLIŞ · lambayı söküp yerine ekranı koymak</text>
+      <rect class="bx" x="10" y="30" width="76" height="30" rx="4"/><text class="t" x="48" y="49" text-anchor="middle">KONTAK</text>
+      <line class="ln-r" x1="86" y1="45" x2="160" y2="45"/>
+      <line class="ln-r" x1="112" y1="34" x2="134" y2="56"/><line class="ln-r" x1="134" y1="34" x2="112" y2="56"/>
+      <text class="tm-r" x="123" y="72" text-anchor="middle">uyarma akımı yok</text>
+      <rect class="bx-r" x="164" y="30" width="104" height="30" rx="4"/><text class="t" x="216" y="49" text-anchor="middle">ALTERNATÖR ✕</text>
 
-      <line class="ln-d" x1="380" y1="20" x2="380" y2="210"/>
+      <line class="ln-d" x1="10" y1="96" x2="630" y2="96"/>
 
-      <text class="tm-g" x="420" y="26">DOĞRU — direnci devrede bırak, sinyali üstünden oku</text>
-      <rect class="bx" x="420" y="44" width="96" height="40" rx="5"/>
-      <text class="t" x="468" y="69" text-anchor="middle">KONTAK</text>
-      <line class="ln-g" x1="516" y1="64" x2="552" y2="64"/>
-      <rect class="bx-g" x="556" y="46" width="72" height="36" rx="5"/>
-      <text class="t" x="592" y="69" text-anchor="middle">82 Ω 5 W</text>
-      <line class="ln-g" x1="628" y1="64" x2="664" y2="64" marker-end="url(#a5g)"/>
-      <rect class="bx-g" x="668" y="44" width="98" height="40" rx="5"/>
-      <text class="t" x="717" y="62" text-anchor="middle">ALTERNATÖR</text>
-      <text class="tm-g" x="717" y="77" text-anchor="middle">D+ uyarıldı</text>
-
-      <circle class="ah-g" cx="648" cy="64" r="3"/>
-      <line class="ln-g" x1="648" y1="64" x2="648" y2="128"/>
-      <line class="ln-g" x1="648" y1="128" x2="576" y2="128"/>
-      <rect class="bx-a" x="468" y="110" width="108" height="36" rx="5"/>
-      <text class="t" x="522" y="133" text-anchor="middle">Optokuplör</text>
-      <line class="ln-g" x1="468" y1="128" x2="432" y2="128" marker-end="url(#a5g)"/>
-      <text class="tm" x="420" y="132" text-anchor="end">ESP32</text>
-
-      <text class="tm" x="592" y="176" text-anchor="middle">D+ ucundaki gerilim düşünce ikaz yanar</text>
+      <text class="tm-a" x="10" y="118">DOĞRU · direnci devrede bırak, sinyali üstünden oku</text>
+      <rect class="bx" x="10" y="130" width="76" height="30" rx="4"/><text class="t" x="48" y="149" text-anchor="middle">KONTAK</text>
+      <line class="ln" x1="86" y1="145" x2="118" y2="145"/>
+      <rect class="bx-a" x="122" y="131" width="70" height="28" rx="4"/><text class="t" x="157" y="149" text-anchor="middle">82 Ω 5 W</text>
+      <line class="ln" x1="192" y1="145" x2="224" y2="145" marker-end="url(#a5)"/>
+      <rect class="bx" x="228" y="130" width="112" height="30" rx="4"/><text class="t" x="284" y="149" text-anchor="middle">ALTERNATÖR D+</text>
+      <circle class="ah" cx="210" cy="145" r="2.6"/>
+      <polyline class="ln" points="210,145 210,118 300,118"/>
+      <line class="ln" x1="300" y1="118" x2="380" y2="118" marker-end="url(#a5)"/>
+      <rect class="bx-a" x="384" y="104" width="92" height="28" rx="4"/><text class="t" x="430" y="122" text-anchor="middle">Optokuplör</text>
+      <line class="ln" x1="476" y1="118" x2="520" y2="118" marker-end="url(#a5)"/>
+      <text class="t" x="526" y="122">ESP32</text>
     </svg>
-    <figcaption>Serçe'de şarj lambası sadece ikaz değil, alternatörü uyandıran devrenin bir parçası. Ampulü çıkarıp yerine ekran ikonu koyarsan alternatör hiç şarj etmez — sonra günlerce &quot;alternatör bozuldu&quot; diye aranır.</figcaption>
+    <figcaption>Bu lamba alternatörü uyandıran devrenin parçası. Ampulü çıkarıp yerine ekran ikonu koyarsan alternatör hiç şarj etmez.</figcaption>
   </figure>
 </section>
 
-<!-- ========== 6 ========== -->
 <section>
-  <h2><span class="no">06</span> Ekran kararı</h2>
-  <div class="pick">
-    <div class="opt lean">
-      <span class="tag">A yolu · önerilen</span>
-      <h4>Hepsi bir arada kart</h4>
-      <p>Ekran, işlemci ve bellek tek kartta. Ayrı kablolama yok, tasarımı LVGL ile sen çizersin — tam esneklik.</p>
+  <h2><b>06</b>Ekran kararı</h2>
+  <div class="two">
+    <div class="lean">
+      <span class="tag">A · önerilen</span>
+      <h3>Hepsi bir arada</h3>
+      <p>Ekran, işlemci ve bellek tek kartta. Tasarımı LVGL ile sen çizersin, tam esneklik.</p>
       <span class="part">Waveshare ESP32-S3-Touch-LCD-4.3</span>
     </div>
-    <div class="opt">
-      <span class="tag">B yolu · kolay</span>
-      <h4>Nextion + ayrı ESP32</h4>
-      <p>Arayüzü PC'de sürükle-bırak çizersin, ESP32 seri porttan değer yollar. Daha hızlı sonuç, daha az esneklik.</p>
+    <div>
+      <span class="tag">B · kolay</span>
+      <h3>Nextion + ESP32</h3>
+      <p>Arayüz PC'de sürükle-bırak. Hızlı sonuç, daha az esneklik.</p>
       <span class="part">NX4827K043 + ESP32-WROOM-32</span>
     </div>
   </div>
 </section>
 
-<!-- ========== 7 ========== -->
 <section>
-  <h2><span class="no">07</span> Malzeme listesi</h2>
-  <div class="bom">
+  <h2><b>07</b>Malzeme listesi</h2>
 
-    <div class="grp">
-      <h3>Sinyal devresi <em>hangi yolu seçersen seç lazım</em></h3>
-      <div class="it"><span class="nm">PC817 optokuplör</span><span class="qt">2 ad</span><span class="nt">Devir girişi için. Yedekli al, ucuz.</span></div>
-      <div class="it"><span class="nm">PC847 dört kanal optokuplör</span><span class="qt">2 ad</span><span class="nt">Sinyal, far, el freni, yağ, şarj — sekiz ikaz hattı için.</span></div>
-      <div class="it"><span class="nm">A3144 hall sensörü</span><span class="qt">3 ad</span><span class="nt">Şaft hız okuması. Üçüncüsü yedek — montajda kırılabilir.</span></div>
-      <div class="it"><span class="nm">Neodyum mıknatıs 5×3 mm</span><span class="qt">6 ad</span><span class="nt">Dördü kullanılacak, aynı kutup dışa bakacak.</span></div>
-      <div class="it"><span class="nm">Zener 5,1 V 1 W</span><span class="qt">4 ad</span><span class="nt">Bobin girişinde gerilim kırpma.</span></div>
-      <div class="it"><span class="nm">1N4148 diyot</span><span class="qt">10 ad</span></div>
-      <div class="it"><span class="nm">Direnç seti %1 hassas</span><span class="qt">1 set</span><span class="nt">Özellikle <b>100 k, 10 k, 4,7 k, 2,2 k, 1 k, 220 Ω</b> bol olsun.</span></div>
-      <div class="it"><span class="nm">82 Ω 5 W çimento direnç</span><span class="qt">1 ad</span><span class="nt">Şarj lambasının yerine — yukarıdaki 05 numaralı şemaya bak.</span></div>
-      <div class="it"><span class="nm">100 nF kondansatör</span><span class="qt">20 ad</span><span class="nt">ADC girişlerinde gürültü filtresi.</span></div>
-    </div>
+  <p class="sub">Sinyal devresi</p>
+  <div class="li"><div class="a"><span class="n">PC817 optokuplör</span><span class="s">devir girişi</span></div><span class="q">2</span></div>
+  <div class="li"><div class="a"><span class="n">PC847 dört kanal optokuplör</span><span class="s">sekiz ikaz hattı</span></div><span class="q">2</span></div>
+  <div class="li"><div class="a"><span class="n">A3144 hall sensörü</span><span class="s">biri yedek, montajda kırılır</span></div><span class="q">3</span></div>
+  <div class="li"><div class="a"><span class="n">Neodyum mıknatıs 5×3 mm</span></div><span class="q">6</span></div>
+  <div class="li"><div class="a"><span class="n">Zener 5,1 V 1 W</span></div><span class="q">4</span></div>
+  <div class="li"><div class="a"><span class="n">1N4148 diyot</span></div><span class="q">10</span></div>
+  <div class="li"><div class="a"><span class="n">Direnç seti %1</span><span class="s">100 k, 10 k, 4,7 k, 2,2 k, 1 k, 220 Ω bol olsun</span></div><span class="q">1 set</span></div>
+  <div class="li"><div class="a"><span class="n">82 Ω 5 W çimento direnç</span><span class="s">şarj lambası yerine — bkz. 05</span></div><span class="q">1</span></div>
+  <div class="li"><div class="a"><span class="n">100 nF kondansatör</span><span class="s">ADC gürültü filtresi</span></div><span class="q">20</span></div>
 
-    <div class="grp">
-      <h3>Besleme <em>burada ucuza kaçma</em></h3>
-      <div class="it"><span class="nm">MP1584 tabanlı buck modül 12→5 V 3 A</span><span class="qt">1 ad</span><span class="nt"><b>LM2596 alma</b> — gürültülü, ekranda titreme yapar.</span></div>
-      <div class="it"><span class="nm">SS34 schottky diyot</span><span class="qt">3 ad</span><span class="nt">Ters kutup koruması.</span></div>
-      <div class="it"><span class="nm">SMBJ24A TVS diyot</span><span class="qt">3 ad</span><span class="nt">Alternatör atmasına karşı. Bu olmadan araca bağlama.</span></div>
-      <div class="it"><span class="nm">Kondansatör 470 µF 35 V + 1000 µF 10 V</span><span class="qt">2+2 ad</span><span class="nt">Giriş yumuşatma ve kapanışta yazma süresi.</span></div>
-      <div class="it"><span class="nm">Cam sigorta 2 A + yuva</span><span class="qt">1 set</span></div>
-      <div class="it"><span class="nm">Ferrit boncuk</span><span class="qt">5 ad</span><span class="nt">Ateşleme gürültüsü besleme hattına binmesin.</span></div>
-    </div>
+  <p class="sub">Besleme</p>
+  <div class="li"><div class="a"><span class="n">MP1584 buck 12→5 V 3 A</span><span class="s"><b>LM2596 alma</b> — ekranda titreme yapar</span></div><span class="q">1</span></div>
+  <div class="li"><div class="a"><span class="n">SS34 schottky</span><span class="s">ters kutup</span></div><span class="q">3</span></div>
+  <div class="li"><div class="a"><span class="n">SMBJ24A TVS</span><span class="s">bu olmadan araca bağlama</span></div><span class="q">3</span></div>
+  <div class="li"><div class="a"><span class="n">470 µF 35 V + 1000 µF 10 V</span></div><span class="q">2+2</span></div>
+  <div class="li"><div class="a"><span class="n">Cam sigorta 2 A + yuva</span></div><span class="q">1</span></div>
+  <div class="li"><div class="a"><span class="n">Ferrit boncuk</span><span class="s">ateşleme gürültüsü</span></div><span class="q">5</span></div>
 
-    <div class="grp">
-      <h3>Kablolama ve montaj</h3>
-      <div class="it"><span class="nm">Delikli pertinaks 7×9 cm</span><span class="qt">3 ad</span><span class="nt">Prototip için. Çalışınca JLCPCB'den PCB bastırırsın, çok ucuz.</span></div>
-      <div class="it"><span class="nm">Otomotiv faston terminal 2,8 mm seti</span><span class="qt">1 set</span></div>
-      <div class="it"><span class="nm">JST-XH konnektör seti</span><span class="qt">1 set</span><span class="nt">Kart içi bağlantılar — lehimli sabit bağlantı yapma, sökemezsin.</span></div>
-      <div class="it"><span class="nm">Otomotiv kablosu 0,5 mm²</span><span class="qt">4 renk</span></div>
-      <div class="it"><span class="nm">Isı makaronu, kablo spirali, kelepçe</span><span class="qt">1 set</span></div>
-      <div class="it"><span class="nm">Paslanmaz kelepçe + metal epoksi</span><span class="qt">1 ad</span><span class="nt">Mıknatıs bileziğini şafta sabitlemek için. JB Weld iş görür.</span></div>
-    </div>
+  <p class="sub">Kablolama ve montaj</p>
+  <div class="li"><div class="a"><span class="n">Delikli pertinaks 7×9 cm</span><span class="s">çalışınca JLCPCB'den PCB bastır</span></div><span class="q">3</span></div>
+  <div class="li"><div class="a"><span class="n">Faston terminal 2,8 mm seti</span></div><span class="q">1 set</span></div>
+  <div class="li"><div class="a"><span class="n">JST-XH konnektör seti</span><span class="s">sabit lehimleme yapma, sökemezsin</span></div><span class="q">1 set</span></div>
+  <div class="li"><div class="a"><span class="n">Otomotiv kablosu 0,5 mm²</span></div><span class="q">4 renk</span></div>
+  <div class="li"><div class="a"><span class="n">Makaron, spiral, kelepçe</span></div><span class="q">1 set</span></div>
+  <div class="li"><div class="a"><span class="n">Paslanmaz kelepçe + metal epoksi</span><span class="s">mıknatıs bileziğini şafta sabitlemek</span></div><span class="q">1</span></div>
 
-    <div class="grp">
-      <h3>3D baskı ve kasa</h3>
-      <div class="it"><span class="nm">PETG filament, siyah</span><span class="qt">1 kg</span><span class="nt"><b>PLA kullanma</b> — araç içi yazın 70 °C'yi bulur, çerçeve sarkar. Kapalı kabinin varsa ASA daha da iyi.</span></div>
-      <div class="it"><span class="nm">Akrilik levha 2 mm</span><span class="qt">1 ad</span><span class="nt">Ekranın önüne. Hem çizilmez hem bitmiş görünür.</span></div>
-    </div>
+  <p class="sub">3D baskı ve kasa</p>
+  <div class="li"><div class="a"><span class="n">PETG filament, siyah</span><span class="s"><b>PLA kullanma</b> — araç içi 70 °C'yi bulur, çerçeve sarkar</span></div><span class="q">1 kg</span></div>
+  <div class="li"><div class="a"><span class="n">Akrilik levha 2 mm</span><span class="s">ekranın önüne</span></div><span class="q">1</span></div>
 
-    <div class="grp">
-      <h3>Alet <em>muhtemelen çoğu var</em></h3>
-      <div class="it"><span class="nm">Multimetre</span><span class="qt">şart</span><span class="nt">Şamandıra ve müşür direncini ölçmeden hiçbir şeye başlayamazsın.</span></div>
-      <div class="it"><span class="nm">Havya, lehim, yan keski</span><span class="qt">şart</span></div>
-      <div class="it"><span class="nm">DSO138 mini osiloskop</span><span class="qt">isteğe bağlı</span><span class="nt">Bobin sinyalini gözle görmek çok iş kolaylaştırır ama şart değil.</span></div>
-    </div>
-
-  </div>
+  <p class="sub">Alet</p>
+  <div class="li"><div class="a"><span class="n">Multimetre</span><span class="s">ölçmeden hiçbir şeye başlanmaz</span></div><span class="q">şart</span></div>
+  <div class="li"><div class="a"><span class="n">Havya, lehim, yan keski</span></div><span class="q">şart</span></div>
+  <div class="li"><div class="a"><span class="n">DSO138 mini osiloskop</span><span class="s">bobin sinyalini görmek için</span></div><span class="q">opsiyon</span></div>
 </section>
 
-<div class="warn">
-  <strong>Alış sırası</strong>
-  <p>Sinyal devresi, besleme ve kablolama malzemelerini şimdi al — hangi ekranı seçersen seç bunlar lazım ve toplamları ekranın yarısı bile tutmaz. Ekranı en sona bırak: önce şamandıra ile müşürün gerçek direnç değerlerini ölç, sonra karar ver.</p>
-</div>
+<p class="note"><b>Alış sırası:</b> sinyal, besleme ve kablolama malzemelerini şimdi al — hangi ekranı seçersen seç lazım ve toplamları ekranın yarısı bile tutmaz. Ekranı en sona bırak; önce şamandıra ile müşürün gerçek ohm değerlerini ölç.</p>
 
-<footer>
-  Montaj boyunca orijinal gösterge sökülmeden arkada kalsın. Kalibrasyon için iki gösterge bir süre yan yana çalışmalı, hem de geri dönüş yirmi dakika sürsün.
-</footer>
+<footer>Montaj boyunca orijinal gösterge sökülmeden arkada kalsın — kalibrasyon için ikisi bir süre yan yana çalışmalı, hem de geri dönüş yirmi dakika sürsün.</footer>
 
 </div>
 
