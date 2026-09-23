@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="1992 Tofas Serce dijital gostergesinin Raspberry Pi 5 surumu - gercek zamanli 3B, yansiyan zemin, parlama islemesi.">
+<meta property="og:title" content="Serce Gosterge - Pi Surumu">
+<meta property="og:description" content="1992 Tofas Serce dijital gostergesinin Raspberry Pi 5 surumu - gercek zamanli 3B, yansiyan zemin, parlama islemesi.">
+<meta property="og:type" content="website">
+<style>
+:root{color-scheme:light dark}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+.xnav{display:flex;justify-content:center;gap:8px;padding:14px 16px 0;font:500 13px/1 system-ui,sans-serif;}
+.xnav a{color:inherit;text-decoration:none;opacity:.62;border:1px solid rgba(128,140,155,.42);border-radius:999px;padding:7px 15px;}
+.xnav a:hover{opacity:1}
+</style>
+</head>
+<body>
+<nav class="xnav"><a href="./">G&#246;sterge</a><a href="pi.html">Pi s&#252;r&#252;m&#252;</a><a href="montaj.html">Montaj kart&#305;</a></nav>
+<title>Serçe Gösterge · Pi Sürümü</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&family=Chakra+Petch:wght@500;600;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+
+<style>
+:root{
+  --bg:#07090C; --panel:#10141A; --ink:#E9EEF4; --dim:#79848F; --line:#1C222C;
+  --amber:#FFAE2B; --amber-soft:#FFD089; --red:#FF4A3D; --green:#2FD46B;
+  --blue:#56A9FF; --cyan:#6FE3FF;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Barlow","Segoe UI",system-ui,sans-serif;
+  margin:0;padding:28px 20px 56px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+
+.eyebrow{font-family:"Barlow Condensed",sans-serif;font-size:12px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--cyan);margin:0}
+h1{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(25px,5vw,36px);
+  letter-spacing:-.01em;margin:6px 0 0}
+.lede{color:var(--dim);margin:8px 0 0;max-width:64ch;line-height:1.55;font-size:15px}
+
+.bezel{position:relative;border-radius:18px;padding:14px;border:1px solid #2A313C;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 3px),
+             linear-gradient(180deg,#232932 0%,#171C24 42%,#10141A 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -1px 0 rgba(0,0,0,.6),0 18px 40px -20px rgba(0,0,0,.9)}
+.bezel::after{content:"PETG · 1280 × 480";position:absolute;right:16px;bottom:-20px;
+  font-family:"Barlow Condensed",sans-serif;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:#3E4753}
+
+.screen{container-type:inline-size;position:relative;aspect-ratio:8/3;overflow:hidden;
+  border-radius:8px;border:1px solid #05070A;background:#04070C;
+  display:flex;flex-direction:column;contain:layout paint}
+
+/* ---- açılış ---- */
+.boot{position:absolute;inset:0;z-index:40;display:none;flex-direction:column;
+  align-items:center;justify-content:center;gap:1.4cqw;background:#04070C}
+.screen.booting .boot{display:flex}
+.boot .logo{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:2.6cqw;
+  letter-spacing:.08em;color:#2A3B4A}
+.boot .bar{width:26cqw;height:.5cqw;background:#101923;border-radius:99px;overflow:hidden}
+.boot .bar i{display:block;height:100%;width:0;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.boot .log{font-family:"Barlow Condensed",sans-serif;font-size:1.05cqw;letter-spacing:.14em;
+  text-transform:uppercase;color:#3C5266;min-height:1.4cqw}
+.boot .warn{font-family:"Barlow Condensed",sans-serif;font-size:.95cqw;letter-spacing:.14em;
+  text-transform:uppercase;color:#6B4A1E;margin-top:.8cqw}
+
+.screen.off .hud,.screen.off .tells,.screen.off .foot,.screen.off #picv{opacity:0}
+.hud,.tells,.foot,#picv{transition:opacity .35s}
+.offmsg{position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  font-family:"Barlow Condensed",sans-serif;letter-spacing:.3em;text-transform:uppercase;
+  font-size:2cqw;color:#1C2531}
+.screen.off .offmsg{display:flex}
+
+#picv{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.vig{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(112% 88% at 50% 48%,transparent 42%,rgba(2,5,10,.66) 82%,#02050A 100%)}
+
+.tells{position:relative;z-index:6;display:flex;align-items:center;justify-content:center;
+  gap:3cqw;padding:1.3cqw 0 0;height:5.2cqw;flex:0 0 auto}
+.tell{width:2.5cqw;height:2.5cqw;opacity:.12;color:#4E5A68}
+.tell svg{width:100%;height:100%;display:block}
+.tell.on{opacity:1}
+.tell.c-green{color:var(--green)} .tell.c-amber{color:var(--amber)}
+.tell.c-red{color:var(--red)} .tell.c-blue{color:var(--blue)}
+.tell.blink.on{animation:blink 1s steps(1) infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.12}}
+
+.hud{position:relative;z-index:6;flex:1;display:flex;align-items:stretch;
+  justify-content:space-between;padding:0 3.4cqw;min-height:0;pointer-events:none}
+.side{display:flex;flex-direction:column;justify-content:center;gap:1.6cqw;width:17cqw}
+.side.r{align-items:flex-end;text-align:right}
+.unit{font-family:"Barlow Condensed",sans-serif;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--dim);font-size:1cqw}
+.spd{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:9.4cqw;line-height:.85;
+  font-variant-numeric:tabular-nums;letter-spacing:-.03em;
+  text-shadow:0 0 28px rgba(111,227,255,.22)}
+.mv{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:2.4cqw;
+  font-variant-numeric:tabular-nums;line-height:1}
+.mv.warn{color:var(--red)}
+.cell{display:flex;flex-direction:column;gap:.3cqw}
+.track{width:100%;height:.55cqw;background:#131C26;border-radius:99px;overflow:hidden}
+.side.r .track{direction:rtl}
+.track i{display:block;height:100%;width:0;background:var(--amber-soft);
+  box-shadow:0 0 10px rgba(255,208,137,.5);transition:width .25s linear}
+.track i.warn{background:var(--red);box-shadow:0 0 10px rgba(255,74,61,.6)}
+
+.foot{position:relative;z-index:6;flex:0 0 auto;height:4.6cqw;border-top:1px solid #101821;
+  display:flex;align-items:center;justify-content:space-between;padding:0 3.4cqw;gap:2cqw}
+.foot div{display:flex;align-items:baseline;gap:.6cqw}
+.foot .unit{font-size:.92cqw}
+.foot .v{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:1.5cqw;
+  font-variant-numeric:tabular-nums;color:#B7C2CD}
+
+.controls{display:flex;flex-wrap:wrap;gap:12px}
+.ctlgroup{display:flex;gap:8px;align-items:center;background:var(--panel);
+  border:1px solid var(--line);border-radius:10px;padding:8px}
+button{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;
+  text-transform:uppercase;background:#1A212B;color:#C3CCD6;border:1px solid #262E3A;
+  border-radius:6px;padding:9px 14px;cursor:pointer;touch-action:manipulation;
+  transition:background .12s,color .12s,border-color .12s}
+button:hover{background:#222A36;color:var(--ink)}
+button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--cyan);border-color:var(--cyan);color:#04141B}
+#kontak[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#06180D}
+#gaz{min-width:120px;background:#2A2016;border-color:#4A3A22;color:var(--amber-soft)}
+#gaz[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#14100A}
+.ctllabel{font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:#4E5766;padding-left:4px}
+
+.cmp h2{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:18px;margin:0 0 4px}
+.cmp p.sub{color:var(--dim);margin:0 0 15px;font-size:14px;line-height:1.5;max-width:64ch}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Barlow Condensed",sans-serif;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;font-size:11.5px;color:var(--dim)}
+td.good{color:var(--green)} td.bad{color:var(--red)}
+tbody tr:last-child td{border-bottom:none}
+
+footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--line);padding-top:16px}
+@media (max-width:560px){.controls{flex-direction:column}.ctlgroup{justify-content:center;flex-wrap:wrap}}
+@media (prefers-reduced-motion:reduce){.tell.blink.on{animation:none}*{transition-duration:.01ms !important}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Raspberry Pi 5 · OpenGL ES · 1280 × 480</p>
+  <h1>Serçe Gösterge — Pi Sürümü</h1>
+  <p class="lede">Gerçek zamanlı 3B: metalik gövde, yansıyan zemin, parlama işlemesi. ESP32'nin yapamadığı her şey burada var — bedeli de açılış ekranında görünüyor.</p>
+</header>
+
+<div class="bezel">
+  <div class="screen off" id="screen">
+    <div class="offmsg">Kontak kapalı</div>
+
+    <div class="boot">
+      <div class="logo">SERÇE OS</div>
+      <div class="bar"><i id="bootbar"></i></div>
+      <div class="log" id="bootlog">çekirdek yükleniyor</div>
+      <div class="warn" id="bootsec">0,0 sn — gerçekte 12–50 sn</div>
+    </div>
+
+    <canvas id="picv"></canvas>
+    <div class="vig"></div>
+    <div class="tells" id="tells"></div>
+
+    <div class="hud">
+      <div class="side">
+        <div class="cell">
+          <span class="unit">Hız · km/s</span>
+          <span class="spd" id="p_spd">0</span>
+        </div>
+        <div class="cell">
+          <span class="unit">Yakıt</span>
+          <div class="track"><i id="p_fuelbar"></i></div>
+          <span class="mv" id="p_fuel">46 L</span>
+        </div>
+      </div>
+      <div class="side r">
+        <div class="cell">
+          <span class="unit">Şarj voltajı</span>
+          <span class="mv" id="p_volt">12,2 V</span>
+        </div>
+        <div class="cell">
+          <span class="unit">Motor sıcaklığı</span>
+          <div class="track"><i id="p_tempbar"></i></div>
+          <span class="mv" id="p_temp">20 °C</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div><span class="unit">Günlük</span><span class="v" id="f_trip">0,0</span><span class="unit">km</span></div>
+      <div><span class="unit">Ortalama</span><span class="v" id="f_avg">0</span><span class="unit">km/s</span></div>
+      <div><span class="unit">Kare</span><span class="v" id="f_fps">–</span><span class="unit">fps</span></div>
+      <div><span class="unit">Saat</span><span class="v" id="f_clock">--:--</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ctlgroup">
+    <span class="ctllabel">Araç</span>
+    <button id="kontak" aria-pressed="false">Kontak</button>
+    <button id="gaz" aria-pressed="false">Gaz</button>
+  </div>
+  <div class="ctlgroup">
+    <span class="ctllabel">Sahne</span>
+    <button id="bloom" aria-pressed="true">Parlama</button>
+    <button id="turn" aria-pressed="true">Tur</button>
+  </div>
+  <div class="ctlgroup">
+    <span class="ctllabel">İkaz</span>
+    <button class="tog" data-t="sol" aria-pressed="false">Sol</button>
+    <button class="tog" data-t="sag" aria-pressed="false">Sağ</button>
+    <button class="tog" data-t="far" aria-pressed="false">Far</button>
+    <button class="tog" data-t="fren" aria-pressed="true">El freni</button>
+  </div>
+</div>
+
+<section class="cmp">
+  <h2>Pi sürümünde fazladan ne var</h2>
+  <p class="sub">Soldaki sütun bu sayfa, sağdaki ESP32 sürümü. Fark ekranda değil, ekranın arkasında.</p>
+  <table>
+    <thead><tr><th>Konu</th><th>Raspberry Pi 5</th><th>ESP32-P4</th></tr></thead>
+    <tbody>
+      <tr><td>3B render</td><td class="good">Gerçek zamanlı OpenGL ES</td><td>Önceden render edilmiş kareler</td></tr>
+      <tr><td>Malzeme, ışık</td><td class="good">Metalik gövde, yansıyan zemin, gölge</td><td>Kareye pişmiş, aynı görünür</td></tr>
+      <tr><td>Parlama işlemesi</td><td class="good">UnrealBloomPass, her karede</td><td>Kareye pişmiş</td></tr>
+      <tr><td>Açılış süresi</td><td class="bad">12–50 saniye</td><td class="good">Anında</td></tr>
+      <tr><td>Ani kontak kesme</td><td class="bad">SD kart bozulur, UPS kartı şart</td><td class="good">Sorunsuz</td></tr>
+      <tr><td>Torpido sıcaklığı</td><td class="bad">60–70 °C'de kısılmaya girer</td><td class="good">Sınıfı zaten endüstriyel</td></tr>
+      <tr><td>Güç tüketimi</td><td>5–8 W</td><td class="good">1–2 W</td></tr>
+      <tr><td>Maliyet</td><td>~11.000 TL + UPS kartı</td><td class="good">~8.500 TL</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  Açılış ekranını kısalttım — burada 3,5 saniye sürüyor, gerçekte 12 ile 50 saniye arası. Bir gösterge için asıl mesele bu: yağ basıncı lambasını motor çalıştıktan yarım dakika sonra görüyorsan o lamba işe yaramaz. Pi'yi kullanacaksan ya kontak kapanınca kapanmayıp uykuya geçmeli, ya da yanına anlık çizim yapan ikinci bir kart konmalı.
+</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  function $(i){return document.getElementById(i);}
+  var screen=$("screen");
+
+  /* ---------- ikaz lambaları ---------- */
+  var ICONS={
+    sol:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 4 4 12l10 8v-5h6V9h-6z"/></svg>',
+    sag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4l10 8-10 8v-5H4V9h6z"/></svg>',
+    far:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h6a6 6 0 0 1 0 12H3z"/><path d="M14 8h7M14 12h7M14 16h7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>',
+    fren:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="8"/><path d="M12 8v5" stroke-linecap="round"/><circle cx="12" cy="16.2" r="1" fill="currentColor" stroke="none"/></svg>',
+    yag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h9l3-3h4v3l3 1v4H3z"/><path d="M6 10c0-2 2-4 2-4s2 2 2 4a2 2 0 1 1-4 0z"/></svg>',
+    sarj:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="7" width="18" height="11" rx="1.5"/><path d="M8 5v2M16 5v2M7.5 12.5h3M14 12.5h3M15.5 11v3" stroke-linecap="round"/></svg>',
+    hararet:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a2.5 2.5 0 0 1 2.5 2.5v7.2a4.6 4.6 0 1 1-5 0V5.5A2.5 2.5 0 0 1 12 3z"/></svg>',
+    rezerv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V5.5A1.5 1.5 0 0 1 5.5 4h6A1.5 1.5 0 0 1 13 5.5V20M3 20h11M6.5 8.5h4" stroke-linecap="round"/><path d="M16 9l2.5-2.5V16a1.8 1.8 0 0 0 3.5 0v-5" stroke-linecap="round"/></svg>'
+  };
+  var TELLS=[{k:"sol",c:"c-green blink"},{k:"rezerv",c:"c-amber"},{k:"sarj",c:"c-red"},{k:"yag",c:"c-red"},
+             {k:"hararet",c:"c-red"},{k:"fren",c:"c-red"},{k:"far",c:"c-blue"},{k:"sag",c:"c-green blink"}];
+  var tellEls={}, tellOn={};
+  (function(){
+    var host=$("tells");
+    TELLS.forEach(function(t){
+      var d=document.createElement("div");
+      d.className="tell "+t.c; d.innerHTML=ICONS[t.k];
+      host.appendChild(d); tellEls[t.k]=d; tellOn[t.k]=false;
+    });
+  })();
+  function tell(k,on){on=!!on;if(tellOn[k]===on)return;tellOn[k]=on;tellEls[k].classList.toggle("on",on);}
+
+  /* ---------- 3B sahne ---------- */
+  var G=(function(){
+    var cv=$("picv");
+    if(!cv||!window.THREE) return null;
+    var renderer;
+    try{ renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true}); }catch(e){ return null; }
+    renderer.setClearColor(0x04070C,1);
+    renderer.setPixelRatio(Math.min(1.5,window.devicePixelRatio||1));
+
+    var scene=new THREE.Scene();
+    scene.fog=new THREE.Fog(0x04070C,14,40);
+    var cam=new THREE.PerspectiveCamera(26,2.66,0.1,160);
+
+    scene.add(new THREE.HemisphereLight(0x3C9BD6,0x050A10,0.75));
+    var key=new THREE.DirectionalLight(0xBFE9FF,1.25); key.position.set(6,9,5); scene.add(key);
+    var fill=new THREE.DirectionalLight(0xFFAE2B,0.55); fill.position.set(-7,3,-5); scene.add(fill);
+    var under=new THREE.PointLight(0x49C8FF,1.1,7); under.position.set(0,0.28,0); scene.add(under);
+
+    /* gövde */
+    var P=[[-2.02,0.46],[-2.06,0.76],[-1.94,0.96],[-1.62,1.02],[-0.92,1.04],
+           [-0.70,1.47],[0.56,1.49],[1.00,1.05],[1.70,1.00],[1.96,0.93],
+           [2.04,0.74],[2.00,0.46],[1.52,0.43],[1.26,0.39],[-1.26,0.39],[-1.52,0.43]];
+    var sh=new THREE.Shape(); sh.moveTo(P[0][0],P[0][1]);
+    for(var i=1;i<P.length;i++) sh.lineTo(P[i][0],P[i][1]);
+    sh.closePath();
+    var bg=new THREE.ExtrudeGeometry(sh,{depth:1.62,bevelEnabled:true,bevelSize:.06,bevelThickness:.06,bevelSegments:2});
+    bg.translate(0,0,-0.81);
+
+    var car=new THREE.Group();
+    car.add(new THREE.Mesh(bg,new THREE.MeshStandardMaterial({color:0x10405F,metalness:.92,roughness:.26})));
+    car.add(new THREE.LineSegments(new THREE.EdgesGeometry(bg,16),
+      new THREE.LineBasicMaterial({color:0x9DEEFF})));
+
+    /* camlar */
+    var gs=new THREE.Shape();
+    var Gl=[[-0.88,1.06],[-0.68,1.42],[0.54,1.44],[0.94,1.07]];
+    gs.moveTo(Gl[0][0],Gl[0][1]);
+    for(i=1;i<Gl.length;i++) gs.lineTo(Gl[i][0],Gl[i][1]);
+    gs.closePath();
+    var gg=new THREE.ExtrudeGeometry(gs,{depth:1.68,bevelEnabled:false});
+    gg.translate(0,0,-0.84);
+    car.add(new THREE.Mesh(gg,new THREE.MeshStandardMaterial({
+      color:0x061420,metalness:1,roughness:.08,transparent:true,opacity:.72})));
+
+    /* farlar ve stoplar */
+    function lamp(x,z,c,w,h){
+      var m=new THREE.Mesh(new THREE.BoxGeometry(.10,h,w),
+        new THREE.MeshBasicMaterial({color:c}));
+      m.position.set(x,.74,z); return m;
+    }
+    [[2.02,.56],[2.02,-.56]].forEach(function(p){ car.add(lamp(p[0],p[1],0xFFF4D6,.42,.20)); });
+    [[-2.04,.58],[-2.04,-.58]].forEach(function(p){ car.add(lamp(p[0],p[1],0xFF3B2E,.40,.18)); });
+
+    /* tekerlekler */
+    var wheels=[];
+    var wg=new THREE.CylinderGeometry(.335,.335,.21,20); wg.rotateX(Math.PI/2);
+    var rg=new THREE.TorusGeometry(.20,.022,6,18);
+    [[1.28,.85],[1.28,-.85],[-1.28,.85],[-1.28,-.85]].forEach(function(p){
+      var g=new THREE.Group();
+      g.add(new THREE.Mesh(wg,new THREE.MeshStandardMaterial({color:0x080F16,metalness:.4,roughness:.85})));
+      var rim=new THREE.Mesh(rg,new THREE.MeshBasicMaterial({color:0x5FD2FF}));
+      rim.position.z=.112; g.add(rim);
+      var rim2=rim.clone(); rim2.position.z=-.112; g.add(rim2);
+      g.position.set(p[0],.335,p[1]); car.add(g); wheels.push(g);
+    });
+
+    var turn=new THREE.Group(); turn.add(car); scene.add(turn);
+
+    /* yansıma */
+    var refl=car.clone(true);
+    refl.traverse(function(o){
+      if(o.material){
+        o.material=o.material.clone();
+        o.material.transparent=true;
+        o.material.opacity=(o.material.opacity||1)*0.16;
+        o.material.depthWrite=false;
+      }
+    });
+    refl.scale.y=-1; refl.position.y=-0.015;
+    turn.add(refl);
+
+    /* zemin */
+    var floor=new THREE.Mesh(new THREE.PlaneGeometry(70,70),
+      new THREE.MeshStandardMaterial({color:0x030810,metalness:.95,roughness:.22}));
+    floor.rotation.x=-Math.PI/2; floor.position.y=-0.02; scene.add(floor);
+
+    var CELL=0.6;
+    var grid=new THREE.GridHelper(70,Math.round(70/CELL),0x2E8FBB,0x0E3244);
+    grid.material.transparent=true; grid.material.opacity=.42; grid.material.depthWrite=false;
+    scene.add(grid);
+
+    /* post-process */
+    var composer=null, bloomPass=null, useBloom=!!(window.THREE.EffectComposer&&window.THREE.UnrealBloomPass);
+    if(useBloom){
+      composer=new THREE.EffectComposer(renderer);
+      composer.addPass(new THREE.RenderPass(scene,cam));
+      bloomPass=new THREE.UnrealBloomPass(new THREE.Vector2(800,300),0.82,0.52,0.52);
+      composer.addPass(bloomPass);
+    }
+
+    var w=0,h=0,host=cv.parentNode;
+    function resize(){
+      var r=host.getBoundingClientRect();
+      if(!r.width||!r.height) return;
+      if(Math.abs(r.width-w)<1&&Math.abs(r.height-h)<1) return;
+      w=r.width;h=r.height;
+      renderer.setSize(w,h,false);
+      if(composer) composer.setSize(w,h);
+      cam.aspect=w/h; cam.updateProjectionMatrix();
+    }
+    if(window.ResizeObserver) new ResizeObserver(resize).observe(host);
+    else window.addEventListener("resize",resize);
+    resize();
+
+    var t=0;
+    return {
+      bloomOn:true, turnOn:true,
+      setBloom:function(v){this.bloomOn=v;if(bloomPass)bloomPass.enabled=v;},
+      frame:function(dt,speed){
+        resize(); if(!w||!h) return;
+        t+=dt;
+        var v=speed/3.6;
+        grid.position.z=(grid.position.z+v*dt)%CELL;
+        var spin=v/0.335;
+        for(var i=0;i<wheels.length;i++) wheels[i].rotation.z-=spin*dt;
+        if(this.turnOn) turn.rotation.y+=dt*0.16;
+        var a=t*0.09;
+        cam.position.set(Math.sin(a)*1.1+5.4, 2.25+Math.sin(t*0.13)*0.16, 5.7+Math.cos(a)*0.7);
+        cam.lookAt(0,0.76,0);
+        under.intensity=1.0+Math.sin(t*1.7)*0.18;
+        if(composer && this.bloomOn) composer.render(); else renderer.render(scene,cam);
+      }
+    };
+  })();
+
+  /* ---------- fizik ---------- */
+  var S={on:false,booting:false,bt:0,speed:0,rpm:0,gear:0,fuel:46,temp:20,volt:12.2,trip:0,tsum:0,tcnt:0};
+  var RATIOS=[3.61,2.16,1.44,1.00,0.88],DIFF=4.1,CIRC=1.78;
+  function rpmFor(s,g){return s*RATIOS[g]*DIFF*1000/(60*CIRC);}
+  function speedFor(r,g){return r*60*CIRC/(RATIOS[g]*DIFF*1000);}
+  var throttle=false, manual={sol:false,sag:false,far:false,fren:true};
+
+  var BOOTLOG=[[0,"çekirdek yükleniyor"],[.8,"dosya sistemi bağlanıyor"],[1.6,"GPU başlatılıyor"],
+               [2.4,"OpenGL bağlamı"],[3.0,"gösterge yükleniyor"]];
+  var BOOT_T=3.5;
+
+  function step(dt){
+    if(S.booting){
+      S.bt+=dt;
+      if(S.bt>=BOOT_T){ S.booting=false; screen.classList.remove("booting"); }
+      return;
+    }
+    if(!S.on){
+      S.speed+=(0-S.speed)*Math.min(1,dt*0.9); if(S.speed<0.4)S.speed=0;
+      S.rpm+=(0-S.rpm)*Math.min(1,dt*3);
+      S.volt+=(12.2-S.volt)*Math.min(1,dt*2);
+      S.temp+=(20-S.temp)*Math.min(1,dt*0.02);
+      S.gear=0; return;
+    }
+    if(throttle){
+      S.rpm+=(6300-S.rpm)*Math.min(1,dt*0.62);
+      if(S.rpm>5300&&S.gear<4){S.gear++;S.rpm=rpmFor(S.speed,S.gear);}
+      S.speed=speedFor(S.rpm,S.gear);
+    }else{
+      S.speed=Math.max(0,S.speed-dt*(7+S.speed*0.05));
+      while(S.gear>0&&rpmFor(S.speed,S.gear)<1300) S.gear--;
+      var r=rpmFor(S.speed,S.gear);
+      S.rpm+=((S.speed>1?Math.max(850,r):850)-S.rpm)*Math.min(1,dt*4);
+    }
+    if(S.speed>178){S.speed=178;S.rpm=rpmFor(178,S.gear);}
+    S.trip+=S.speed*dt/3600; S.tsum+=S.speed*dt; S.tcnt+=dt;
+    S.fuel=Math.max(0,S.fuel-dt*(0.0006+S.rpm*0.0000009));
+    var ht=88+(throttle?5:0);
+    S.temp+=(ht-S.temp)*Math.min(1,dt*0.035);
+    if(S.temp>97) S.temp+=(92-S.temp)*Math.min(1,dt*0.2);
+    S.volt+=((S.rpm>1200?14.2:13.7)-S.volt)*Math.min(1,dt*1.5);
+  }
+
+  /* ---------- çizim ---------- */
+  var cache={};
+  function put(id,txt,warn){
+    var k=id+"|"+txt+"|"+(warn?1:0);
+    if(cache[id]===k) return; cache[id]=k;
+    var e=$(id);
+    if(e.textContent!==txt) e.textContent=txt;
+    if(warn!==undefined){
+      var base=e.className.replace(/\s*warn$/,"");
+      var want=warn?base+" warn":base;
+      if(e.className!==want) e.className=want;
+    }
+  }
+  function bar(id,frac,warn){
+    var e=$(id), pct=Math.round(Math.min(1,Math.max(0,frac))*100)+"%";
+    var k=id+pct+(warn?1:0);
+    if(cache[k]) return; cache[k]=1;
+    if(e.style.width!==pct) e.style.width=pct;
+    var want=warn?"warn":"";
+    if(e.className!==want) e.className=want;
+  }
+
+  var lastLog="";
+  function drawBoot(){
+    var p=Math.min(1,S.bt/BOOT_T);
+    $("bootbar").style.width=(p*100).toFixed(0)+"%";
+    var msg=BOOTLOG[0][1];
+    for(var i=0;i<BOOTLOG.length;i++) if(S.bt>=BOOTLOG[i][0]) msg=BOOTLOG[i][1];
+    if(msg!==lastLog){ $("bootlog").textContent=msg; lastLog=msg; }
+    $("bootsec").textContent=S.bt.toFixed(1).replace(".",",")+" sn — gerçekte 12–50 sn";
+  }
+
+  var fpsN=0,fpsT=0,fps=0;
+  function draw(){
+    if(S.booting){ drawBoot(); return; }
+    var fLow=S.fuel<8, tBad=S.temp>97, vBad=S.on&&S.volt<13.2;
+    put("p_spd",String(Math.round(S.speed)));
+    put("p_fuel",Math.round(S.fuel)+" L",fLow);
+    put("p_temp",Math.round(S.temp)+" °C",tBad);
+    put("p_volt",S.volt.toFixed(1).replace(".",",")+" V",vBad);
+    bar("p_fuelbar",S.fuel/47,fLow);
+    bar("p_tempbar",(S.temp-40)/70,tBad);
+    put("f_trip",S.trip.toFixed(1).replace(".",","));
+    put("f_avg",String(S.tcnt>0?Math.round(S.tsum/S.tcnt):0));
+    put("f_fps",S.on?String(fps):"–");
+    var d=new Date();
+    put("f_clock",("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2));
+
+    var live=S.on;
+    tell("sol",live&&manual.sol); tell("sag",live&&manual.sag);
+    tell("far",live&&manual.far); tell("fren",live&&manual.fren);
+    tell("yag",live&&S.volt<13);  tell("sarj",live&&S.volt<13);
+    tell("hararet",live&&tBad);   tell("rezerv",live&&fLow);
+  }
+
+  /* ---------- döngü ---------- */
+  var last=performance.now(),a2=0,a3=0,ST2=1/25,ST3=1/40;
+  function loop(now){
+    var dt=(now-last)/1000; last=now;
+    if(dt>0.25) dt=0.25;
+    step(dt);
+    fpsN++; fpsT+=dt; if(fpsT>=0.5){ fps=Math.round(fpsN/fpsT); fpsN=0; fpsT=0; }
+    a2+=dt; if(a2>=ST2){ a2%=ST2; draw(); }
+    a3+=dt; if(a3>=ST3){ var d3=a3; a3%=ST3; if(G && S.on && !S.booting) G.frame(d3,S.speed); }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  /* ---------- kumandalar ---------- */
+  var kontak=$("kontak"), gaz=$("gaz");
+  function setThrottle(v){ v=!!v&&S.on&&!S.booting; if(throttle===v)return; throttle=v; gaz.setAttribute("aria-pressed",String(v)); }
+  kontak.addEventListener("click",function(){
+    S.on=!S.on;
+    kontak.setAttribute("aria-pressed",String(S.on));
+    screen.classList.toggle("off",!S.on);
+    if(S.on){
+      S.booting=true; S.bt=0; lastLog=""; screen.classList.add("booting");
+      S.trip=0; S.tsum=0; S.tcnt=0; S.gear=0; cache={};
+    }else{ setThrottle(false); S.booting=false; screen.classList.remove("booting"); }
+  });
+  gaz.addEventListener("click",function(){ setThrottle(!throttle); });
+  $("bloom").addEventListener("click",function(){
+    var v=this.getAttribute("aria-pressed")!=="true";
+    this.setAttribute("aria-pressed",String(v)); if(G) G.setBloom(v);
+  });
+  $("turn").addEventListener("click",function(){
+    var v=this.getAttribute("aria-pressed")!=="true";
+    this.setAttribute("aria-pressed",String(v)); if(G) G.turnOn=v;
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".tog"),function(b){
+    b.addEventListener("click",function(){
+      manual[b.dataset.t]=!manual[b.dataset.t];
+      b.setAttribute("aria-pressed",String(manual[b.dataset.t]));
+    });
+  });
+})();
+</script>
