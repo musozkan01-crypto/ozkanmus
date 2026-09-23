@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta name="description" content="1992 Tofas Serce icin ESP32-S3 tabanli dijital gosterge - hiz, yakit, hararet, sarj voltaji, ikaz lambalari.">
+<meta name="description" content="1992 Tofas Serce icin ESP32-S3 tabanli dijital gosterge - canli 3B arac modeli, hiz, yakit, hararet, sarj voltaji.">
 <meta property="og:title" content="Serce Dijital Gosterge">
-<meta property="og:description" content="1992 Tofas Serce icin ESP32-S3 tabanli dijital gosterge - hiz, yakit, hararet, sarj voltaji, ikaz lambalari.">
+<meta property="og:description" content="1992 Tofas Serce icin ESP32-S3 tabanli dijital gosterge - canli 3B arac modeli, hiz, yakit, hararet, sarj voltaji.">
 <meta property="og:type" content="website">
 <style>
 :root{color-scheme:light dark}
@@ -25,6 +25,7 @@ img{max-width:100%}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&family=Chakra+Petch:wght@500;600;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
 :root{
@@ -119,44 +120,22 @@ h1{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font
 .mod .spd{font-size:11.5cqw}
 .mod .spdrow .unit{font-size:1.3cqw;padding-bottom:1.1cqw}
 
-/* --- araç: ekranın içinde, Tron işlemesiyle --- */
-.car{
-  position:relative;flex:1;width:100%;min-height:0;isolation:isolate;
-  -webkit-mask-image:radial-gradient(ellipse 54% 62% at 50% 46%, #000 38%, rgba(0,0,0,.55) 62%, transparent 80%);
-          mask-image:radial-gradient(ellipse 54% 62% at 50% 46%, #000 38%, rgba(0,0,0,.55) 62%, transparent 80%);
-}
-.car>div{position:absolute;inset:0;pointer-events:none}
-.car-img{
-  background:url("arac.jpg") no-repeat 50% 40%;background-size:contain;
-  filter:grayscale(1) contrast(1.6) brightness(.46);
-}
-.car-duo{
-  mix-blend-mode:color;opacity:.85;
-  background:linear-gradient(112deg,#0AC2F0 0%,#0B62DC 52%,#FFAE2B 100%);
-}
-.car-edge{
-  mix-blend-mode:screen;
-  background:
-    radial-gradient(42% 34% at 58% 44%, rgba(96,214,255,.34), transparent 72%),
-    radial-gradient(28% 22% at 30% 58%, rgba(255,174,43,.20), transparent 74%);
-}
-.car-scan{
-  mix-blend-mode:overlay;opacity:.38;
+/* --- araç: ekranın içinde canlı 3B, Tron tel kafes --- */
+.car{position:relative;flex:1;width:100%;min-height:0;isolation:isolate}
+.car canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.car>.ov{position:absolute;inset:0;pointer-events:none}
+.ov-scan{
+  mix-blend-mode:overlay;opacity:.3;
   background:repeating-linear-gradient(0deg, rgba(150,228,255,.42) 0 1px, transparent 1px 3px);
 }
-.car-sweep{
-  mix-blend-mode:screen;opacity:.45;
-  background:linear-gradient(102deg, transparent 40%, rgba(130,224,255,.5) 50%, transparent 60%);
-  background-size:280% 100%;animation:sweep 7s linear infinite;
-}
-@keyframes sweep{from{background-position:190% 0}to{background-position:-90% 0}}
-.car-floor{
-  top:auto;height:26%;
-  background:radial-gradient(60% 100% at 50% 100%, rgba(74,196,255,.30), transparent 72%);
+.ov-glow{
   mix-blend-mode:screen;
+  background:radial-gradient(46% 40% at 50% 46%, rgba(72,198,255,.16), transparent 72%);
 }
-.screen.off .car-sweep{animation-play-state:paused}
-@media (prefers-reduced-motion:reduce){.car-sweep{animation:none;opacity:.22}}
+.ov-fade{
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);
+}
 .mod .voltrow{display:flex;align-items:baseline;gap:1cqw}
 .mod .voltrow .unit{font-size:1.05cqw}
 .mod .voltrow .v{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:2.3cqw;font-variant-numeric:tabular-nums}
@@ -247,13 +226,10 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
         </div>
         <div class="mid">
           <div class="spdrow"><span class="big spd" id="m_spd">0</span><span class="unit">km / s</span></div>
-          <div class="car" role="img" aria-label="Tofaş Serçe">
-            <div class="car-img"></div>
-            <div class="car-duo"></div>
-            <div class="car-edge"></div>
-            <div class="car-scan"></div>
-            <div class="car-sweep"></div>
-            <div class="car-floor"></div>
+          <div class="car" role="img" aria-label="Tofaş Serçe üç boyutlu modeli">
+            <canvas id="carcv"></canvas>
+            <div class="ov ov-glow"></div>
+            <div class="ov ov-scan"></div>
           </div>
           <div class="voltrow"><span class="unit">Şarj</span><span class="v" id="m_volt">12,2 V</span></div>
         </div>
@@ -453,6 +429,96 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     $(id).setAttribute("transform","rotate("+d+" 100 100)");
   }
 
+  /* ---------- 3B Serçe: yan siluetten katı gövde, Tron tel kafes ---------- */
+  var car3d = (function(){
+    var cv=$("carcv"), host=cv&&cv.parentNode;
+    if(!cv || !window.THREE) return null;
+
+    var renderer;
+    try{ renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true,powerPreference:"low-power"}); }
+    catch(e){ return null; }
+    renderer.setClearColor(0x000000,0);
+    renderer.setPixelRatio(Math.min(1.5,window.devicePixelRatio||1));
+
+    var scene=new THREE.Scene();
+    var cam=new THREE.PerspectiveCamera(27,2,0.1,120);
+    cam.position.set(5.15,2.30,5.85); cam.lookAt(0,0.74,0);
+
+    var CY=0x5CD8FF, DIM=0x2B7FA6;
+
+    /* Serçe yan silueti — üç hacimli, köşeli gövde */
+    var P=[[-2.02,0.46],[-2.06,0.76],[-1.94,0.96],[-1.62,1.02],[-0.92,1.04],
+           [-0.70,1.47],[0.56,1.49],[1.00,1.05],[1.70,1.00],[1.96,0.93],
+           [2.04,0.74],[2.00,0.46],[1.52,0.43],[1.26,0.39],[-1.26,0.39],[-1.52,0.43]];
+    var sh=new THREE.Shape();
+    sh.moveTo(P[0][0],P[0][1]);
+    for(var i=1;i<P.length;i++) sh.lineTo(P[i][0],P[i][1]);
+    sh.closePath();
+
+    var body=new THREE.ExtrudeGeometry(sh,{depth:1.62,bevelEnabled:true,bevelSize:.055,bevelThickness:.055,bevelSegments:1});
+    body.translate(0,0,-0.81);
+    scene.add(new THREE.Mesh(body,new THREE.MeshBasicMaterial({color:0x0A2438,transparent:true,opacity:.62})));
+    scene.add(new THREE.LineSegments(new THREE.EdgesGeometry(body,16),new THREE.LineBasicMaterial({color:CY})));
+
+    /* kapı çizgileri */
+    (function(){
+      var pts=[], z=0.845, seam=[[0.60,0.44,1.40],[-0.34,0.42,1.42]];
+      seam.forEach(function(s){
+        [z,-z].forEach(function(zz){ pts.push(new THREE.Vector3(s[0],s[1],zz), new THREE.Vector3(s[0],s[2],zz)); });
+      });
+      var g=new THREE.BufferGeometry().setFromPoints(pts);
+      scene.add(new THREE.LineSegments(g,new THREE.LineBasicMaterial({color:DIM})));
+    })();
+
+    /* tekerlekler */
+    var wheels=[], wg=new THREE.CylinderGeometry(.335,.335,.20,14);
+    wg.rotateX(Math.PI/2);
+    var we=new THREE.EdgesGeometry(wg,20);
+    [[1.28,.86],[1.28,-.86],[-1.28,.86],[-1.28,-.86]].forEach(function(p){
+      var grp=new THREE.Group();
+      grp.add(new THREE.Mesh(wg,new THREE.MeshBasicMaterial({color:0x061520})));
+      grp.add(new THREE.LineSegments(we,new THREE.LineBasicMaterial({color:DIM})));
+      grp.position.set(p[0],.335,p[1]);
+      scene.add(grp); wheels.push(grp);
+    });
+
+    /* Tron zemini — hızla akar */
+    var CELL=0.5;
+    var grid=new THREE.GridHelper(18,36,0x2E8FBB,0x123F55);
+    grid.material.transparent=true; grid.material.opacity=.5; grid.material.depthWrite=false;
+    scene.add(grid);
+
+    var w=0,h=0;
+    function resize(){
+      var r=host.getBoundingClientRect();
+      if(!r.width||!r.height) return;
+      if(Math.abs(r.width-w)<1 && Math.abs(r.height-h)<1) return;
+      w=r.width; h=r.height;
+      renderer.setSize(w,h,false);
+      cam.aspect=w/h; cam.updateProjectionMatrix();
+    }
+    if(window.ResizeObserver) new ResizeObserver(resize).observe(host);
+    else window.addEventListener("resize",resize);
+    resize();
+
+    var t=0;
+    return {
+      frame:function(dt,speed){
+        resize();
+        if(!w||!h) return;
+        t+=dt;
+        var v=speed/3.6;                                  /* m/s */
+        grid.position.z=(grid.position.z+v*dt)%CELL;
+        var spin=v/0.335;
+        for(var i=0;i<wheels.length;i++) wheels[i].rotation.z-=spin*dt;
+        cam.position.x=5.15+Math.sin(t*0.16)*0.34;
+        cam.position.y=2.30+Math.sin(t*0.11)*0.10;
+        cam.lookAt(0,0.74,0);
+        renderer.render(scene,cam);
+      }
+    };
+  })();
+
   /* ---------- physics ---------- */
   var RATIOS=[3.61,2.16,1.44,1.00,0.88], DIFF=4.1, CIRC=1.78;
   function speedFor(rpm,g){ return rpm*60*CIRC/(RATIOS[g]*DIFF*1000); }
@@ -540,13 +606,18 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
   }
 
   /* ---------- loop: physics every frame, paint at 25 Hz ---------- */
-  var last=performance.now(), acc=0, STEP=1/25;
+  var last=performance.now(), acc=0, acc3=0, STEP=1/25, STEP3=1/30;
   function loop(now){
     var dt=(now-last)/1000; last=now;
     if(dt>0.25) dt=0.25;               /* sekmeden dönüşte sıçramayı engelle */
     stepSim(dt);
     acc+=dt;
     if(acc>=STEP){ acc%=STEP; render(); }
+    acc3+=dt;
+    if(acc3>=STEP3){
+      var d3=acc3; acc3%=STEP3;
+      if(car3d && S.on && skin==="modern") car3d.frame(d3,S.speed);
+    }
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
