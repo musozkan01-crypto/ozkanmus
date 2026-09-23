@@ -62,18 +62,44 @@ h1{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(25px,5v
   border-radius:8px;border:1px solid #05070A;background:#04070C;
   display:flex;flex-direction:column;contain:layout paint}
 
-/* ---- açılış ---- */
+/* ---- karşılama ekranı ---- */
 .boot{position:absolute;inset:0;z-index:40;display:none;flex-direction:column;
-  align-items:center;justify-content:center;gap:1.4cqw;background:#04070C}
+  align-items:center;justify-content:center;background:#04070C;overflow:hidden}
 .screen.booting .boot{display:flex}
-.boot .logo{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:2.6cqw;
-  letter-spacing:.08em;color:#2A3B4A}
-.boot .bar{width:26cqw;height:.5cqw;background:#101923;border-radius:99px;overflow:hidden}
-.boot .bar i{display:block;height:100%;width:0;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
-.boot .log{font-family:"Barlow Condensed",sans-serif;font-size:1.05cqw;letter-spacing:.14em;
-  text-transform:uppercase;color:#3C5266;min-height:1.4cqw}
-.boot .warn{font-family:"Barlow Condensed",sans-serif;font-size:.95cqw;letter-spacing:.14em;
-  text-transform:uppercase;color:#6B4A1E;margin-top:.8cqw}
+.boot::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(58% 70% at 50% 50%,rgba(56,168,222,.16),transparent 72%)}
+.boot::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(111,227,255,.5),transparent);
+  transform:scaleX(0);animation:sweep 1.5s .15s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes sweep{to{transform:scaleX(1);opacity:0}}
+
+.welcome{position:relative;display:flex;flex-direction:column;align-items:center;gap:.7cqw;
+  text-align:center}
+.welcome>*{opacity:0;animation:akis .95s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes akis{from{opacity:0;transform:translateX(42cqw);filter:blur(4px)}
+                to{opacity:1;transform:none;filter:blur(0)}}
+.w-hi{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:1.5cqw;
+  letter-spacing:.42em;text-transform:uppercase;color:var(--cyan);animation-delay:.1s}
+.w-name{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:5.4cqw;line-height:1;
+  letter-spacing:.06em;animation-delay:.42s;
+  background:linear-gradient(100deg,#E9EEF4 12%,#6FE3FF 38%,#FFFFFF 50%,#6FE3FF 62%,#E9EEF4 88%);
+  background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 18px rgba(111,227,255,.3))}
+.screen.booting .w-name{animation:akis .95s .42s cubic-bezier(.16,1,.3,1) forwards,
+                                  parla 2.1s 1.05s linear}
+@keyframes parla{from{background-position:180% 0}to{background-position:-80% 0}}
+.w-rule{width:22cqw;height:1px;background:linear-gradient(90deg,transparent,#2E7FA8,transparent);
+  animation-delay:.78s}
+.w-sub{font-family:"Barlow Condensed",sans-serif;font-weight:500;font-size:1.25cqw;
+  letter-spacing:.34em;text-transform:uppercase;color:#5D7080;animation-delay:.95s}
+
+.bootfoot{position:absolute;left:0;right:0;bottom:2.4cqw;display:flex;flex-direction:column;
+  align-items:center;gap:.8cqw}
+.bootfoot .bar{width:18cqw;height:.32cqw;background:#0D1620;border-radius:99px;overflow:hidden}
+.bootfoot .bar i{display:block;height:100%;width:0;background:var(--cyan);
+  box-shadow:0 0 10px var(--cyan)}
+.bootfoot .sec{font-family:"Barlow Condensed",sans-serif;font-size:.9cqw;letter-spacing:.16em;
+  text-transform:uppercase;color:#4A3A22}
 
 .screen.off .hud,.screen.off .tells,.screen.off .foot,.screen.off #picv{opacity:0}
 .hud,.tells,.foot,#picv{transition:opacity .35s}
@@ -165,10 +191,16 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     <div class="offmsg">Kontak kapalı</div>
 
     <div class="boot">
-      <div class="logo">SERÇE OS</div>
-      <div class="bar"><i id="bootbar"></i></div>
-      <div class="log" id="bootlog">çekirdek yükleniyor</div>
-      <div class="warn" id="bootsec">0,0 sn — gerçekte 12–50 sn</div>
+      <div class="welcome">
+        <span class="w-hi">Hoş geldin</span>
+        <span class="w-name">TAYFUN TUNÇ ÇELİK</span>
+        <span class="w-rule"></span>
+        <span class="w-sub">Tofaş Serçe · 1992</span>
+      </div>
+      <div class="bootfoot">
+        <div class="bar"><i id="bootbar"></i></div>
+        <div class="sec" id="bootsec">0,0 sn — gerçekte 12–50 sn</div>
+      </div>
     </div>
 
     <canvas id="picv"></canvas>
@@ -248,7 +280,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
 </section>
 
 <footer>
-  Açılış ekranını kısalttım — burada 3,5 saniye sürüyor, gerçekte 12 ile 50 saniye arası. Bir gösterge için asıl mesele bu: yağ basıncı lambasını motor çalıştıktan yarım dakika sonra görüyorsan o lamba işe yaramaz. Pi'yi kullanacaksan ya kontak kapanınca kapanmayıp uykuya geçmeli, ya da yanına anlık çizim yapan ikinci bir kart konmalı.
+  Karşılama ekranı burada 4 saniye sürüyor, gerçekte 12 ile 50 saniye arası. Bir gösterge için asıl mesele bu: yağ basıncı lambasını motor çalıştıktan yarım dakika sonra görüyorsan o lamba işe yaramaz. Pi'yi kullanacaksan ya kontak kapanınca kapanmayıp uykuya geçmeli, ya da yanına anlık çizim yapan ikinci bir kart konmalı.
 </footer>
 </div>
 
@@ -300,53 +332,153 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     var fill=new THREE.DirectionalLight(0xFFAE2B,0.55); fill.position.set(-7,3,-5); scene.add(fill);
     var under=new THREE.PointLight(0x49C8FF,1.1,7); under.position.set(0,0.28,0); scene.add(under);
 
-    /* gövde */
-    var P=[[-2.02,0.46],[-2.06,0.76],[-1.94,0.96],[-1.62,1.02],[-0.92,1.04],
-           [-0.70,1.47],[0.56,1.49],[1.00,1.05],[1.70,1.00],[1.96,0.93],
-           [2.04,0.74],[2.00,0.46],[1.52,0.43],[1.26,0.39],[-1.26,0.39],[-1.52,0.43]];
-    var sh=new THREE.Shape(); sh.moveTo(P[0][0],P[0][1]);
-    for(var i=1;i<P.length;i++) sh.lineTo(P[i][0],P[i][1]);
-    sh.closePath();
-    var bg=new THREE.ExtrudeGeometry(sh,{depth:1.62,bevelEnabled:true,bevelSize:.06,bevelThickness:.06,bevelSegments:2});
-    bg.translate(0,0,-0.81);
+    /* ---- Serçe gövdesi: kesit kesit örülür, ekstrüzyon değil ---- */
+    function buildSerce(pbr){
+      var grp=new THREE.Group(), wheels=[];
+      var PAINT = pbr
+        ? new THREE.MeshStandardMaterial({color:0x11455F,metalness:.88,roughness:.3,side:THREE.DoubleSide})
+        : new THREE.MeshBasicMaterial({color:0x0A2438,transparent:true,opacity:.62,side:THREE.DoubleSide});
+      var GLASS = pbr
+        ? new THREE.MeshStandardMaterial({color:0x08202E,metalness:1,roughness:.06,transparent:true,opacity:.76,side:THREE.DoubleSide})
+        : new THREE.MeshBasicMaterial({color:0x071A26,transparent:true,opacity:.45,side:THREE.DoubleSide});
+      var TRIM = pbr
+        ? new THREE.MeshStandardMaterial({color:0x0B1219,metalness:.55,roughness:.6})
+        : new THREE.MeshBasicMaterial({color:0x08131C});
+      var CHROME = pbr
+        ? new THREE.MeshStandardMaterial({color:0x8FB6C8,metalness:1,roughness:.18})
+        : new THREE.MeshBasicMaterial({color:0x2B7FA6});
+      var EDGE=new THREE.LineBasicMaterial({color:pbr?0x9DEEFF:0x5CD8FF});
+      var SEAM=new THREE.LineBasicMaterial({color:0x2B7FA6});
 
-    var car=new THREE.Group();
-    car.add(new THREE.Mesh(bg,new THREE.MeshStandardMaterial({color:0x10405F,metalness:.92,roughness:.26})));
-    car.add(new THREE.LineSegments(new THREE.EdgesGeometry(bg,16),
-      new THREE.LineBasicMaterial({color:0x9DEEFF})));
+      /* kesitleri süperelips olarak ör — üstü yuvarlak, altı düz */
+      function loft(secs,T,nT,nB){
+        var pos=[],idx=[],i,j;
+        for(i=0;i<secs.length;i++){
+          var s=secs[i], cy=(s.t+s.b)/2, hy=(s.t-s.b)/2;
+          for(j=0;j<T;j++){
+            var a=2*Math.PI*j/T, c=Math.cos(a), sn=Math.sin(a), n=(sn>=0?nT:nB);
+            pos.push(s.x,
+              cy+hy*(sn<0?-1:1)*Math.pow(Math.abs(sn),2/n),
+              s.w*(c<0?-1:1)*Math.pow(Math.abs(c),2/n));
+          }
+        }
+        for(i=0;i<secs.length-1;i++) for(j=0;j<T;j++){
+          var a0=i*T+j, b0=i*T+(j+1)%T;
+          idx.push(a0,a0+T,b0+T, a0,b0+T,b0);
+        }
+        var base=secs.length*T, f=secs[0], l=secs[secs.length-1], o=(secs.length-1)*T;
+        pos.push(f.x,(f.t+f.b)/2,0, l.x,(l.t+l.b)/2,0);
+        for(j=0;j<T;j++){ idx.push(base,j,(j+1)%T); idx.push(base+1,o+(j+1)%T,o+j); }
+        var gm=new THREE.BufferGeometry();
+        gm.setAttribute("position",new THREE.Float32BufferAttribute(pos,3));
+        gm.setIndex(idx); gm.computeVertexNormals();
+        return gm;
+      }
 
-    /* camlar */
-    var gs=new THREE.Shape();
-    var Gl=[[-0.88,1.06],[-0.68,1.42],[0.54,1.44],[0.94,1.07]];
-    gs.moveTo(Gl[0][0],Gl[0][1]);
-    for(i=1;i<Gl.length;i++) gs.lineTo(Gl[i][0],Gl[i][1]);
-    gs.closePath();
-    var gg=new THREE.ExtrudeGeometry(gs,{depth:1.68,bevelEnabled:false});
-    gg.translate(0,0,-0.84);
-    car.add(new THREE.Mesh(gg,new THREE.MeshStandardMaterial({
-      color:0x061420,metalness:1,roughness:.08,transparent:true,opacity:.72})));
+      /* alt gövde: burun ve kuyruk daralır, orta en geniş */
+      var BODY=[
+        {x:-2.06,t:.94,b:.52,w:.56},{x:-2.00,t:.99,b:.47,w:.69},
+        {x:-1.82,t:1.01,b:.43,w:.79},{x:-1.40,t:1.03,b:.40,w:.835},
+        {x:-0.80,t:1.05,b:.39,w:.848},{x: 0.00,t:1.05,b:.39,w:.850},
+        {x: 0.80,t:1.04,b:.39,w:.848},{x: 1.40,t:1.02,b:.40,w:.835},
+        {x: 1.82,t:1.00,b:.43,w:.79},{x: 2.00,t:.97,b:.47,w:.69},
+        {x: 2.06,t:.92,b:.52,w:.56}];
+      var bg=loft(BODY,26,4.6,7.5);
+      grp.add(new THREE.Mesh(bg,PAINT));
+      grp.add(new THREE.LineSegments(new THREE.EdgesGeometry(bg,32),EDGE));
 
-    /* farlar ve stoplar */
-    function lamp(x,z,c,w,h){
-      var m=new THREE.Mesh(new THREE.BoxGeometry(.10,h,w),
-        new THREE.MeshBasicMaterial({color:c}));
-      m.position.set(x,.74,z); return m;
+      /* kabin: gövdeden dar, ayrı hacim */
+      var CAB=[
+        {x:-0.98,t:1.09,b:1.00,w:.60},{x:-0.86,t:1.24,b:1.00,w:.68},
+        {x:-0.66,t:1.40,b:1.00,w:.735},{x:-0.42,t:1.475,b:1.00,w:.745},
+        {x: 0.10,t:1.485,b:1.00,w:.745},{x: 0.30,t:1.455,b:1.00,w:.74},
+        {x: 0.46,t:1.30,b:1.00,w:.72},{x: 0.62,t:1.09,b:1.00,w:.66}];
+      var cg=loft(CAB,26,5.5,8);
+      grp.add(new THREE.Mesh(cg,PAINT));
+      grp.add(new THREE.LineSegments(new THREE.EdgesGeometry(cg,34),EDGE));
+
+      /* camlar */
+      function quad(a,b,c,d,mat){
+        var gm=new THREE.BufferGeometry();
+        gm.setAttribute("position",new THREE.Float32BufferAttribute(
+          [a[0],a[1],a[2], b[0],b[1],b[2], c[0],c[1],c[2],
+           a[0],a[1],a[2], c[0],c[1],c[2], d[0],d[1],d[2]],3));
+        gm.computeVertexNormals();
+        var m=new THREE.Mesh(gm,mat); grp.add(m); return m;
+      }
+      quad([.60,1.10,.66],[.33,1.43,.72],[.33,1.43,-.72],[.60,1.10,-.66],GLASS);      /* ön cam */
+      quad([-.64,1.40,.72],[-.90,1.13,.62],[-.90,1.13,-.62],[-.64,1.40,-.72],GLASS);   /* arka cam */
+      [.755,-.755].forEach(function(z){
+        quad([.30,1.42,z],[-.06,1.455,z],[-.06,1.09,z],[.31,1.07,z],GLASS);            /* ön kapı camı */
+        quad([-.13,1.455,z],[-.52,1.44,z],[-.55,1.09,z],[-.13,1.09,z],GLASS);          /* arka kapı camı */
+      });
+
+      /* çamurluk kemerleri */
+      var arch=new THREE.TorusGeometry(.44,.042,6,22,Math.PI);
+      [[1.28,.856],[1.28,-.856],[-1.28,.856],[-1.28,-.856]].forEach(function(p){
+        var m=new THREE.Mesh(arch,TRIM); m.position.set(p[0],.34,p[1]); grp.add(m);
+      });
+
+      /* tamponlar, ızgara, lambalar */
+      function box(w,h,d,x,y,z,mat){
+        var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);
+        m.position.set(x,y,z); grp.add(m); return m;
+      }
+      box(.15,.20,1.66, 2.02,.57,0,TRIM);   box(.15,.20,1.66,-2.03,.57,0,TRIM);
+      box(.16,.03,1.68, 2.02,.68,0,CHROME); box(.16,.03,1.68,-2.03,.68,0,CHROME);
+      box(.06,.22,1.02, 2.06,.80,0,TRIM);
+      box(.07,.03,1.04, 2.07,.80,0,CHROME);
+      var LAMP=new THREE.MeshBasicMaterial({color:0xFFF3D2});
+      var TAIL=new THREE.MeshBasicMaterial({color:0xFF3B2E});
+      [.60,-.60].forEach(function(z){ box(.05,.19,.34, 2.06,.81,z,LAMP); });
+      [.62,-.62].forEach(function(z){ box(.05,.24,.36,-2.07,.80,z,TAIL); });
+
+      /* kapı dikişleri, aynalar, egzoz */
+      (function(){
+        var pts=[];
+        [.855,-.855].forEach(function(z){
+          [[.58,.44,1.03],[-.10,.42,1.04],[-.78,.44,1.02]].forEach(function(s){
+            pts.push(new THREE.Vector3(s[0],s[1],z),new THREE.Vector3(s[0],s[2],z));
+          });
+          pts.push(new THREE.Vector3(1.55,.70,z),new THREE.Vector3(-1.55,.70,z));
+        });
+        grp.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts),SEAM));
+      })();
+      [.86,-.86].forEach(function(z){
+        box(.055,.09,.055,.56,1.10,z*.99,TRIM);
+        box(.09,.07,.16,.52,1.14,z+(z>0?.05:-.05),TRIM);
+      });
+      var ex=new THREE.Mesh(new THREE.CylinderGeometry(.045,.045,.16,10),CHROME);
+      ex.rotation.z=Math.PI/2; ex.position.set(-2.06,.45,-.52); grp.add(ex);
+
+      /* tekerlekler */
+      var tire=new THREE.CylinderGeometry(.34,.34,.21,22); tire.rotateX(Math.PI/2);
+      var disc=new THREE.CylinderGeometry(.205,.205,.216,22); disc.rotateX(Math.PI/2);
+      var lip=new THREE.TorusGeometry(.205,.018,6,20);
+      var RUB = pbr
+        ? new THREE.MeshStandardMaterial({color:0x080D13,metalness:.25,roughness:.92})
+        : new THREE.MeshBasicMaterial({color:0x061520});
+      [[1.28,.855],[1.28,-.855],[-1.28,.855],[-1.28,-.855]].forEach(function(p){
+        var g=new THREE.Group();
+        g.add(new THREE.Mesh(tire,RUB));
+        g.add(new THREE.Mesh(disc,TRIM));
+        for(var k=0;k<5;k++){                       /* jant kolları */
+          var sp=new THREE.Mesh(new THREE.BoxGeometry(.035,.30,.02),CHROME);
+          sp.rotation.z=k*Math.PI/2.5; sp.position.z=.105; g.add(sp);
+          var sp2=sp.clone(); sp2.position.z=-.105; g.add(sp2);
+        }
+        [.108,-.108].forEach(function(z){
+          var l=new THREE.Mesh(lip,CHROME); l.position.z=z; g.add(l);
+        });
+        g.position.set(p[0],.34,p[1]); grp.add(g); wheels.push(g);
+      });
+
+      grp.userData.wheels=wheels;
+      return grp;
     }
-    [[2.02,.56],[2.02,-.56]].forEach(function(p){ car.add(lamp(p[0],p[1],0xFFF4D6,.42,.20)); });
-    [[-2.04,.58],[-2.04,-.58]].forEach(function(p){ car.add(lamp(p[0],p[1],0xFF3B2E,.40,.18)); });
 
-    /* tekerlekler */
-    var wheels=[];
-    var wg=new THREE.CylinderGeometry(.335,.335,.21,20); wg.rotateX(Math.PI/2);
-    var rg=new THREE.TorusGeometry(.20,.022,6,18);
-    [[1.28,.85],[1.28,-.85],[-1.28,.85],[-1.28,-.85]].forEach(function(p){
-      var g=new THREE.Group();
-      g.add(new THREE.Mesh(wg,new THREE.MeshStandardMaterial({color:0x080F16,metalness:.4,roughness:.85})));
-      var rim=new THREE.Mesh(rg,new THREE.MeshBasicMaterial({color:0x5FD2FF}));
-      rim.position.z=.112; g.add(rim);
-      var rim2=rim.clone(); rim2.position.z=-.112; g.add(rim2);
-      g.position.set(p[0],.335,p[1]); car.add(g); wheels.push(g);
-    });
+    var car=buildSerce(true);
+    var wheels=car.userData.wheels;
 
     var turn=new THREE.Group(); turn.add(car); scene.add(turn);
 
@@ -424,9 +556,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
   function speedFor(r,g){return r*60*CIRC/(RATIOS[g]*DIFF*1000);}
   var throttle=false, manual={sol:false,sag:false,far:false,fren:true};
 
-  var BOOTLOG=[[0,"çekirdek yükleniyor"],[.8,"dosya sistemi bağlanıyor"],[1.6,"GPU başlatılıyor"],
-               [2.4,"OpenGL bağlamı"],[3.0,"gösterge yükleniyor"]];
-  var BOOT_T=3.5;
+  var BOOT_T=4.0;
 
   function step(dt){
     if(S.booting){
@@ -482,13 +612,9 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     if(e.className!==want) e.className=want;
   }
 
-  var lastLog="";
   function drawBoot(){
     var p=Math.min(1,S.bt/BOOT_T);
     $("bootbar").style.width=(p*100).toFixed(0)+"%";
-    var msg=BOOTLOG[0][1];
-    for(var i=0;i<BOOTLOG.length;i++) if(S.bt>=BOOTLOG[i][0]) msg=BOOTLOG[i][1];
-    if(msg!==lastLog){ $("bootlog").textContent=msg; lastLog=msg; }
     $("bootsec").textContent=S.bt.toFixed(1).replace(".",",")+" sn — gerçekte 12–50 sn";
   }
 
@@ -536,7 +662,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     kontak.setAttribute("aria-pressed",String(S.on));
     screen.classList.toggle("off",!S.on);
     if(S.on){
-      S.booting=true; S.bt=0; lastLog=""; screen.classList.add("booting");
+      S.booting=true; S.bt=0; screen.classList.add("booting");
       S.trip=0; S.tsum=0; S.tcnt=0; S.gear=0; cache={};
     }else{ setThrottle(false); S.booting=false; screen.classList.remove("booting"); }
   });
