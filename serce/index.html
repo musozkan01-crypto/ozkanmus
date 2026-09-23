@@ -53,61 +53,6 @@ body{
 h1{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font-size:clamp(25px,5vw,36px);letter-spacing:-.01em;margin:6px 0 0;text-wrap:balance}
 .lede{color:var(--dim);margin:8px 0 0;max-width:62ch;line-height:1.55;font-size:15px}
 
-/* --- sahne: araç fotoğrafı, Tron işlemi --- */
-.scene{
-  position:relative;isolation:isolate;overflow:hidden;
-  border-radius:20px;padding:clamp(26px,6vw,64px) clamp(16px,4vw,40px);
-  background:#04060A;border:1px solid #131A24;
-}
-.scene>*{position:relative;z-index:6}
-.scene .lay{position:absolute;inset:0;z-index:1;pointer-events:none}
-
-/* 1 · fotoğraf: gri, koyu, alt bant kadraj dışında */
-.lay-img{
-  background-image:url("arac.jpg");background-size:cover;background-position:50% 38%;
-  transform:scale(1.14) translateY(-2%);
-  filter:grayscale(1) contrast(1.45) brightness(.34);
-}
-/* 2 · duotone: gölgeler mavi, ışıklar amber */
-.lay-duo{
-  z-index:2;mix-blend-mode:color;
-  background:linear-gradient(118deg,#0AB7E8 0%,#0A5FD6 46%,#FFAE2B 100%);
-  opacity:.72;
-}
-/* 3 · parlama */
-.lay-bloom{
-  z-index:3;mix-blend-mode:screen;
-  background:
-    radial-gradient(48% 40% at 62% 46%, rgba(86,209,255,.30), transparent 70%),
-    radial-gradient(34% 30% at 26% 62%, rgba(255,174,43,.20), transparent 72%);
-}
-/* 4 · ızgara + tarama çizgileri */
-.lay-grid{
-  z-index:4;opacity:.3;mix-blend-mode:overlay;
-  background:
-    repeating-linear-gradient(0deg, rgba(150,225,255,.30) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, rgba(150,225,255,.10) 0 1px, transparent 1px 46px);
-}
-/* 5 · gezinen ışık */
-.lay-sweep{
-  z-index:5;mix-blend-mode:screen;opacity:.5;
-  background:linear-gradient(104deg, transparent 38%, rgba(120,220,255,.42) 50%, transparent 62%);
-  background-size:260% 100%;
-  animation:sweep 7.5s linear infinite;
-}
-@keyframes sweep{from{background-position:180% 0}to{background-position:-80% 0}}
-/* 6 · vinyet */
-.lay-vig{
-  z-index:5;
-  background:radial-gradient(120% 92% at 50% 44%, transparent 34%, rgba(2,4,8,.60) 76%, #02040A 100%);
-}
-.scene-cap{
-  position:absolute;left:clamp(16px,4vw,40px);bottom:12px;z-index:7;
-  font-family:"Barlow Condensed",sans-serif;font-size:10px;letter-spacing:.2em;
-  text-transform:uppercase;color:#3A4C5E;
-}
-@media (prefers-reduced-motion:reduce){.lay-sweep{animation:none;opacity:.25}}
-
 /* bezel */
 .bezel{
   position:relative;border-radius:18px;padding:14px;
@@ -169,10 +114,49 @@ h1{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font
 /* --- MODERN --- */
 .mod{display:none;flex:1;align-items:stretch;gap:2.4cqw;min-width:0}
 .skin-modern .mod{display:flex}
-.mod .mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6cqw;min-width:0}
-.mod .spdrow{display:flex;align-items:flex-end;gap:1.6cqw}
-.mod .spd{font-size:19cqw}
-.mod .spdrow .unit{font-size:1.6cqw;padding-bottom:1.9cqw}
+.mod .mid{flex:1;display:flex;flex-direction:column;align-items:center;gap:.2cqw;min-width:0;min-height:0}
+.mod .spdrow{display:flex;align-items:flex-end;gap:1.2cqw;flex:0 0 auto}
+.mod .spd{font-size:11.5cqw}
+.mod .spdrow .unit{font-size:1.3cqw;padding-bottom:1.1cqw}
+
+/* --- araç: ekranın içinde, Tron işlemesiyle --- */
+.car{
+  position:relative;flex:1;width:100%;min-height:0;isolation:isolate;
+  -webkit-mask-image:radial-gradient(ellipse 54% 62% at 50% 46%, #000 38%, rgba(0,0,0,.55) 62%, transparent 80%);
+          mask-image:radial-gradient(ellipse 54% 62% at 50% 46%, #000 38%, rgba(0,0,0,.55) 62%, transparent 80%);
+}
+.car>div{position:absolute;inset:0;pointer-events:none}
+.car-img{
+  background:url("arac.jpg") no-repeat 50% 40%;background-size:contain;
+  filter:grayscale(1) contrast(1.6) brightness(.46);
+}
+.car-duo{
+  mix-blend-mode:color;opacity:.85;
+  background:linear-gradient(112deg,#0AC2F0 0%,#0B62DC 52%,#FFAE2B 100%);
+}
+.car-edge{
+  mix-blend-mode:screen;
+  background:
+    radial-gradient(42% 34% at 58% 44%, rgba(96,214,255,.34), transparent 72%),
+    radial-gradient(28% 22% at 30% 58%, rgba(255,174,43,.20), transparent 74%);
+}
+.car-scan{
+  mix-blend-mode:overlay;opacity:.38;
+  background:repeating-linear-gradient(0deg, rgba(150,228,255,.42) 0 1px, transparent 1px 3px);
+}
+.car-sweep{
+  mix-blend-mode:screen;opacity:.45;
+  background:linear-gradient(102deg, transparent 40%, rgba(130,224,255,.5) 50%, transparent 60%);
+  background-size:280% 100%;animation:sweep 7s linear infinite;
+}
+@keyframes sweep{from{background-position:190% 0}to{background-position:-90% 0}}
+.car-floor{
+  top:auto;height:26%;
+  background:radial-gradient(60% 100% at 50% 100%, rgba(74,196,255,.30), transparent 72%);
+  mix-blend-mode:screen;
+}
+.screen.off .car-sweep{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.car-sweep{animation:none;opacity:.22}}
 .mod .voltrow{display:flex;align-items:baseline;gap:1cqw}
 .mod .voltrow .unit{font-size:1.05cqw}
 .mod .voltrow .v{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:2.3cqw;font-variant-numeric:tabular-nums}
@@ -248,15 +232,6 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
   <p class="lede">Hız, yakıt, motor sıcaklığı, şarj voltajı ve ikaz lambaları. Kontağı aç, gaz düğmesine bas.</p>
 </header>
 
-<div class="scene">
-  <div class="lay lay-img"></div>
-  <div class="lay lay-duo"></div>
-  <div class="lay lay-bloom"></div>
-  <div class="lay lay-grid"></div>
-  <div class="lay lay-sweep"></div>
-  <div class="lay lay-vig"></div>
-  <span class="scene-cap">Tofaş Serçe · 1992</span>
-
 <div class="bezel">
   <div class="screen off skin-modern" id="screen">
     <div class="offmsg">Kontak kapalı</div>
@@ -272,6 +247,14 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
         </div>
         <div class="mid">
           <div class="spdrow"><span class="big spd" id="m_spd">0</span><span class="unit">km / s</span></div>
+          <div class="car" role="img" aria-label="Tofaş Serçe">
+            <div class="car-img"></div>
+            <div class="car-duo"></div>
+            <div class="car-edge"></div>
+            <div class="car-scan"></div>
+            <div class="car-sweep"></div>
+            <div class="car-floor"></div>
+          </div>
           <div class="voltrow"><span class="unit">Şarj</span><span class="v" id="m_volt">12,2 V</span></div>
         </div>
         <div class="vcol">
@@ -321,7 +304,6 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
       <div><span class="unit">Saat</span><span class="v" id="f_clock">--:--</span></div>
     </div>
   </div>
-</div>
 </div>
 
 <div class="controls">
