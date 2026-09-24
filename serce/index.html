@@ -273,7 +273,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
 </div>
 
 <div class="controls">
-  <p class="sub" style="font-size:12px;color:#5A6472;margin:10px 0 0">3B araç modeli geçicidir: three.js örnek varlığı, model vicent091036. Passat/Tesla GLB dosyası gelince yerine geçecek.</p>
+  <p class="sub" style="font-size:12px;color:#5A6472;margin:10px 0 0">3B model: Volkswagen Golf GTI (2025), geyges — Sketchfab. Geçici: Serçe modeli bulunursa yerine geçecek.</p>
 <div class="ctlgroup">
     <span class="ctllabel">Araç</span>
     <button id="kontak" aria-pressed="false">Kontak</button>
@@ -608,15 +608,23 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
         m.scale.setScalar(4.35/Math.max(sz.x,sz.z));
         box.setFromObject(m); var c=new THREE.Vector3(); box.getCenter(c);
         m.position.set(-c.x,-box.min.y,-c.z);
-        /* VW gostergesindeki notr gri boya */
-        var boya=new THREE.MeshStandardMaterial({color:0xAEB7C0,metalness:.42,roughness:.34});
-        var govde=m.getObjectByName("body"); if(govde) govde.material=boya;
-        var nw=[];
-        ["wheel_fl","wheel_fr","wheel_rl","wheel_rr"].forEach(function(n){
-          var o=m.getObjectByName(n); if(o) nw.push(o);
+        /* tekerlekler: Sketchfab hiyerarsisinde FL/FR/RL/RR olarak adlandirilmis.
+           Her biri icin merkezine bir pivot kurup asagi tasiyoruz, yoksa arac
+           ekseninde donerler. */
+        ebeveyn.add(m); m.updateMatrixWorld(true);
+        var kose={}, nw=[];
+        m.traverse(function(o){
+          var mm=/_(FL|FR|RL|RR)_\d+$/.exec(o.name||"");
+          if(mm && !kose[mm[1]]) kose[mm[1]]=o;
+        });
+        ["FL","FR","RL","RR"].forEach(function(k){
+          var o=kose[k]; if(!o||!o.parent) return;
+          var b=new THREE.Box3().setFromObject(o), c=new THREE.Vector3(); b.getCenter(c);
+          var p=new THREE.Group(); o.parent.add(p);
+          p.position.copy(o.parent.worldToLocal(c.clone()));
+          p.updateMatrixWorld(true); p.attach(o); nw.push(p);
         });
         ebeveyn.remove(eski);
-        ebeveyn.add(m);
         if(nw.length){ wheels.length=0; wheelAxis="x";
           for(var i=0;i<nw.length;i++) wheels.push(nw[i]); }
       },undefined,function(){});
