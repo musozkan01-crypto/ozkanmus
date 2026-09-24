@@ -24,7 +24,7 @@ img{max-width:100%}
 <title>Serçe Gösterge · Pi Sürümü</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&family=Chakra+Petch:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
@@ -40,13 +40,13 @@ img{max-width:100%}
   --blue:#56A9FF; --cyan:#6FE3FF;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:"Barlow","Segoe UI",system-ui,sans-serif;
+body{background:var(--bg);color:var(--ink);font-family:"Inter","Segoe UI",system-ui,sans-serif;
   margin:0;padding:28px 20px 56px;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
 
-.eyebrow{font-family:"Barlow Condensed",sans-serif;font-size:12px;letter-spacing:.18em;
+.eyebrow{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--cyan);margin:0}
-h1{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(25px,5vw,36px);
+h1{font-family:"Inter Tight",sans-serif;font-weight:700;font-size:clamp(25px,5vw,36px);
   letter-spacing:-.01em;margin:6px 0 0}
 .lede{color:var(--dim);margin:8px 0 0;max-width:64ch;line-height:1.55;font-size:15px}
 
@@ -55,7 +55,7 @@ h1{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(25px,5v
              linear-gradient(180deg,#232932 0%,#171C24 42%,#10141A 100%);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -1px 0 rgba(0,0,0,.6),0 18px 40px -20px rgba(0,0,0,.9)}
 .bezel::after{content:"PETG · 1280 × 480";position:absolute;right:16px;bottom:-20px;
-  font-family:"Barlow Condensed",sans-serif;font-size:10px;letter-spacing:.16em;
+  font-family:"Inter",sans-serif;font-size:10px;letter-spacing:.16em;
   text-transform:uppercase;color:#3E4753}
 
 .screen{container-type:inline-size;position:relative;aspect-ratio:8/3;overflow:hidden;
@@ -78,9 +78,9 @@ h1{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(25px,5v
 .welcome>*{opacity:0;animation:akis .95s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes akis{from{opacity:0;transform:translateX(42cqw);filter:blur(4px)}
                 to{opacity:1;transform:none;filter:blur(0)}}
-.w-hi{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:1.5cqw;
+.w-hi{font-family:"Inter",sans-serif;font-weight:600;font-size:1.5cqw;
   letter-spacing:.42em;text-transform:uppercase;color:var(--cyan);animation-delay:.1s}
-.w-name{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:5.4cqw;line-height:1;
+.w-name{font-family:"Inter Tight",sans-serif;font-weight:700;font-size:5.4cqw;line-height:1;
   letter-spacing:.06em;animation-delay:.42s;
   background:linear-gradient(100deg,#E9EEF4 12%,#6FE3FF 38%,#FFFFFF 50%,#6FE3FF 62%,#E9EEF4 88%);
   background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
@@ -90,7 +90,7 @@ h1{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(25px,5v
 @keyframes parla{from{background-position:180% 0}to{background-position:-80% 0}}
 .w-rule{width:22cqw;height:1px;background:linear-gradient(90deg,transparent,#2E7FA8,transparent);
   animation-delay:.78s}
-.w-sub{font-family:"Barlow Condensed",sans-serif;font-weight:500;font-size:1.25cqw;
+.w-sub{font-family:"Inter",sans-serif;font-weight:500;font-size:1.25cqw;
   letter-spacing:.34em;text-transform:uppercase;color:#5D7080;animation-delay:.95s}
 
 .bootfoot{position:absolute;left:0;right:0;bottom:2.4cqw;display:flex;flex-direction:column;
@@ -98,13 +98,13 @@ h1{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(25px,5v
 .bootfoot .bar{width:18cqw;height:.32cqw;background:#0D1620;border-radius:99px;overflow:hidden}
 .bootfoot .bar i{display:block;height:100%;width:0;background:var(--cyan);
   box-shadow:0 0 10px var(--cyan)}
-.bootfoot .sec{font-family:"Barlow Condensed",sans-serif;font-size:.9cqw;letter-spacing:.16em;
+.bootfoot .sec{font-family:"Inter",sans-serif;font-size:.9cqw;letter-spacing:.16em;
   text-transform:uppercase;color:#4A3A22}
 
 .screen.off .hud,.screen.off .tells,.screen.off .foot,.screen.off #picv{opacity:0}
 .hud,.tells,.foot,#picv{transition:opacity .35s}
 .offmsg{position:absolute;inset:0;display:none;align-items:center;justify-content:center;
-  font-family:"Barlow Condensed",sans-serif;letter-spacing:.3em;text-transform:uppercase;
+  font-family:"Inter",sans-serif;letter-spacing:.3em;text-transform:uppercase;
   font-size:2cqw;color:#1C2531}
 .screen.off .offmsg{display:flex}
 
@@ -113,8 +113,8 @@ h1{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(25px,5v
   background:radial-gradient(112% 88% at 50% 48%,transparent 42%,rgba(2,5,10,.66) 82%,#02050A 100%)}
 
 .tells{position:relative;z-index:6;display:flex;align-items:center;justify-content:center;
-  gap:3cqw;padding:1.3cqw 0 0;height:5.2cqw;flex:0 0 auto}
-.tell{width:2.5cqw;height:2.5cqw;opacity:.12;color:#4E5A68}
+  gap:1.3cqw;padding:1.3cqw 0 0;height:5.2cqw;flex:0 0 auto}
+.tell{width:2.05cqw;height:2.05cqw;opacity:.12;color:#4E5A68}
 .tell svg{width:100%;height:100%;display:block}
 .tell.on{opacity:1}
 .tell.c-green{color:var(--green)} .tell.c-amber{color:var(--amber)}
@@ -126,12 +126,12 @@ h1{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(25px,5v
   justify-content:space-between;padding:0 3.4cqw;min-height:0;pointer-events:none}
 .side{display:flex;flex-direction:column;justify-content:center;gap:1.6cqw;width:17cqw}
 .side.r{align-items:flex-end;text-align:right}
-.unit{font-family:"Barlow Condensed",sans-serif;font-weight:600;letter-spacing:.2em;
+.unit{font-family:"Inter",sans-serif;font-weight:600;letter-spacing:.2em;
   text-transform:uppercase;color:var(--dim);font-size:1cqw}
-.spd{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:9.4cqw;line-height:.85;
+.spd{font-family:"Inter Tight",sans-serif;font-weight:700;font-size:9.4cqw;line-height:.85;
   font-variant-numeric:tabular-nums;letter-spacing:-.03em;
   text-shadow:0 0 28px rgba(111,227,255,.22)}
-.mv{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:2.4cqw;
+.mv{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:2.4cqw;
   font-variant-numeric:tabular-nums;line-height:1}
 .mv.warn{color:var(--red)}
 .cell{display:flex;flex-direction:column;gap:.3cqw}
@@ -145,13 +145,13 @@ h1{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(25px,5v
   display:flex;align-items:center;justify-content:space-between;padding:0 3.4cqw;gap:2cqw}
 .foot div{display:flex;align-items:baseline;gap:.6cqw}
 .foot .unit{font-size:.92cqw}
-.foot .v{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:1.5cqw;
+.foot .v{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:1.5cqw;
   font-variant-numeric:tabular-nums;color:#B7C2CD}
 
 .controls{display:flex;flex-wrap:wrap;gap:12px}
 .ctlgroup{display:flex;gap:8px;align-items:center;background:var(--panel);
   border:1px solid var(--line);border-radius:10px;padding:8px}
-button{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;
+button{font-family:"Inter",sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;
   text-transform:uppercase;background:#1A212B;color:#C3CCD6;border:1px solid #262E3A;
   border-radius:6px;padding:9px 14px;cursor:pointer;touch-action:manipulation;
   transition:background .12s,color .12s,border-color .12s}
@@ -161,14 +161,14 @@ button[aria-pressed="true"]{background:var(--cyan);border-color:var(--cyan);colo
 #kontak[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#06180D}
 #gaz{min-width:120px;background:#2A2016;border-color:#4A3A22;color:var(--amber-soft)}
 #gaz[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#14100A}
-.ctllabel{font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.16em;
+.ctllabel{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:#4E5766;padding-left:4px}
 
-.cmp h2{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:18px;margin:0 0 4px}
+.cmp h2{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:18px;margin:0 0 4px}
 .cmp p.sub{color:var(--dim);margin:0 0 15px;font-size:14px;line-height:1.5;max-width:64ch}
 table{width:100%;border-collapse:collapse;font-size:14px}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-family:"Barlow Condensed",sans-serif;font-weight:600;letter-spacing:.12em;
+th{font-family:"Inter",sans-serif;font-weight:600;letter-spacing:.12em;
   text-transform:uppercase;font-size:11.5px;color:var(--dim)}
 td.good{color:var(--green)} td.bad{color:var(--red)}
 tbody tr:last-child td{border-bottom:none}
@@ -258,6 +258,10 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     <button class="tog" data-t="sag" aria-pressed="false">Sağ</button>
     <button class="tog" data-t="far" aria-pressed="false">Uzun far</button>
     <button class="tog" data-t="fren" aria-pressed="true">El freni</button>
+    <button class="tog" data-t="kisa" aria-pressed="false">Kısa far</button>
+    <button class="tog" data-t="sisOn" aria-pressed="false">Sis</button>
+    <button class="tog" data-t="dortlu" aria-pressed="false">Dörtlü</button>
+    <button id="lamptest" aria-pressed="false">Tüm ikazlar</button>
   </div>
 </div>
 
@@ -289,21 +293,38 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
   "use strict";
   function $(i){return document.getElementById(i);}
   var screen=$("screen");
+  (function(){ var lt=document.getElementById("lamptest"); if(!lt) return;
+    lt.addEventListener("click",function(){ lampTest=!lampTest;
+      lt.setAttribute("aria-pressed",lampTest?"true":"false"); lt.classList.toggle("on",lampTest); });
+  })();
 
   /* ---------- ikaz lambaları ---------- */
   /* ISO 2575 ikaz sembolleri — araçlardaki çizimin aynısı */
+  /* ISO 2575 / ECE R121 ikaz sembolleri - VW-Tesla-BMW gostergesindeki cizimin ayni hali */
   var ICONS={
     sol:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.5 3.2 1.4 12l9.1 8.8v-5.4H20V8.6h-9.5z"/></svg>',
     sag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 3.2 22.6 12l-9.1 8.8v-5.4H4V8.6h9.5z"/></svg>',
-    far:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 5.2h3.6a6.8 6.8 0 0 1 0 13.6H3.5z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M13.6 7.6h6.7M13.6 12h6.7M13.6 16.4h6.7"/></svg>',
+    dortlu:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 4.2 20.4 19H3.6z"/></svg>',
+    far:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.4 5.2H7a6.8 6.8 0 0 1 0 13.6H3.4z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M13.4 6.6h7.2M13.4 10.9h7.2M13.4 15.2h7.2M13.4 19.5h7.2"/></svg>',
+    kisa:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.4 5.2H7a6.8 6.8 0 0 1 0 13.6H3.4z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M13.4 5.6 20.6 8.4M13.4 10 20.6 12.8M13.4 14.4 20.6 17.2M13.4 18.8l7.2 2.8"/></svg>',
+    sisOn:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M2.4 5.2H6a6.8 6.8 0 0 1 0 13.6H2.4z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M11.6 5.4 17 7.5M11.6 10.4 17 12.5M11.6 15.4 17 17.5"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M20.6 4.4c-1.3 1.6-1.3 3.2 0 4.8s1.3 3.2 0 4.8-1.3 3.2 0 4.8"/></svg>',
+    sisArka:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M2.4 5.2H6a6.8 6.8 0 0 1 0 13.6H2.4z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M11.6 7.4H17M11.6 12H17M11.6 16.6H17"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M20.6 4.4c-1.3 1.6-1.3 3.2 0 4.8s1.3 3.2 0 4.8-1.3 3.2 0 4.8"/></svg>',
     fren:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="6.3"/><path d="M3.7 7.5a10.5 10.5 0 0 0 0 9M20.3 7.5a10.5 10.5 0 0 1 0 9" stroke-linecap="round"/><path d="M10.4 15.6V8.4h2.3a2 2 0 0 1 0 4.1h-2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    abs:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="6.4"/><path d="M3.6 7.5a10.5 10.5 0 0 0 0 9M20.4 7.5a10.5 10.5 0 0 1 0 9" stroke-linecap="round"/><text x="12" y="14.6" font-size="6.1" font-weight="700" text-anchor="middle" fill="currentColor" stroke="none" font-family="Inter,sans-serif">ABS</text></svg>',
     yag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 12.3h-1.4l-2.7-2.6h-3.2l-2.1 1.7H7.9c-2.6 0-4.8 1.7-5.3 4.1-.1.6.4 1.1 1 1.1h15.2c1.5 0 2.8-1.2 2.8-2.7z"/><path d="M18.5 5.1s1.9 2.1 1.9 3.1a1.9 1.9 0 0 1-3.8 0c0-1 1.9-3.1 1.9-3.1z"/></svg>',
     sarj:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="2.6" y="7" width="18.8" height="10.4" rx="1.2"/><path d="M6.8 7V5h3.1v2M14.1 7V5h3.1v2"/><path d="M5.6 12.2h3.2M7.2 10.6v3.2M15.2 12.2h3.2"/></svg>',
     hararet:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3.4a1.9 1.9 0 0 1 1.9 1.9v7.4a3.9 3.9 0 1 1-3.8 0V5.3A1.9 1.9 0 0 1 12 3.4z"/><circle cx="12" cy="16.4" r="1.7" fill="currentColor" stroke="none"/><path d="M1.6 14.6c.9-1.1 1.9-1.1 2.8 0s1.9 1.1 2.8 0"/><path d="M16.8 14.6c.9-1.1 1.9-1.1 2.8 0s1.9 1.1 2.8 0"/></svg>',
-    rezerv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 20.4V5.4a1.5 1.5 0 0 1 1.5-1.5h5.9a1.5 1.5 0 0 1 1.5 1.5v15"/><path d="M2 20.4h11.3M5 8.6h5.4"/><path d="M12.1 10.1h3.2a1.3 1.3 0 0 1 1.3 1.3v5.1a1.6 1.6 0 0 0 3.2 0V9.1l-2.1-2.1"/></svg>'
+    rezerv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 20.4V5.4a1.5 1.5 0 0 1 1.5-1.5h5.9a1.5 1.5 0 0 1 1.5 1.5v15"/><path d="M2 20.4h11.3M5 8.6h5.4"/><path d="M12.1 10.1h3.2a1.3 1.3 0 0 1 1.3 1.3v5.1a1.6 1.6 0 0 0 3.2 0V9.1l-2.1-2.1"/></svg>',
+    motor:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.8 9.6h-1.6V7.9h-3.4V6.2h-4.6v1.7H8.9L7.2 9.6H5.5V7.9H3.2v8.5h2.3v-1.7h1.7l1.7 1.7h2.3v1.7h4.6v-1.7h1.9v-2.1h3.1z"/></svg>',
+    kemer:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="5.2" r="2.4"/><path d="M15.8 3.4v17.2"/><path d="M15.8 20.6H6.2v-6.4a4 4 0 0 1 4-4h1.4"/><path d="M7.4 9.4 15 18.4"/></svg>',
+    kapi:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 6.4h5.6v11.2H9.2z"/><path d="M9.2 9 3.4 6v9.6l5.8-2.2"/><path d="M14.8 9l5.8-3v9.6l-5.8-2.2"/></svg>',
+    airbag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.6" cy="5.4" r="2.4"/><path d="M3.4 20.6v-6.2a3.9 3.9 0 0 1 3.9-3.9h1"/><path d="M3.4 20.6h6.2"/><circle cx="15.4" cy="13.6" r="4.2"/><path d="M20.8 3.6v17"/></svg>'
   };
-  var TELLS=[{k:"sol",c:"c-green blink"},{k:"rezerv",c:"c-amber"},{k:"sarj",c:"c-red"},{k:"yag",c:"c-red"},
-             {k:"hararet",c:"c-red"},{k:"fren",c:"c-red"},{k:"far",c:"c-blue"},{k:"sag",c:"c-green blink"}];
+  var TELLS=[{k:"sol",c:"c-green blink"},{k:"dortlu",c:"c-red blink"},{k:"kisa",c:"c-green"},{k:"far",c:"c-blue"},
+             {k:"sisOn",c:"c-green"},{k:"sisArka",c:"c-amber"},{k:"rezerv",c:"c-amber"},{k:"sarj",c:"c-red"},
+             {k:"yag",c:"c-red"},{k:"hararet",c:"c-red"},{k:"motor",c:"c-amber"},{k:"abs",c:"c-amber"},
+             {k:"fren",c:"c-red"},{k:"kemer",c:"c-red"},{k:"kapi",c:"c-red"},{k:"airbag",c:"c-red"},
+             {k:"sag",c:"c-green blink"}];
   var tellEls={}, tellOn={};
   (function(){
     var host=$("tells");
@@ -530,7 +551,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
   var RATIOS=[3.61,2.16,1.44,1.00,0.88],DIFF=4.1,CIRC=1.78;
   function rpmFor(s,g){return s*RATIOS[g]*DIFF*1000/(60*CIRC);}
   function speedFor(r,g){return r*60*CIRC/(RATIOS[g]*DIFF*1000);}
-  var throttle=false, manual={sol:false,sag:false,far:false,fren:true};
+  var throttle=false, manual={sol:false,sag:false,far:false,fren:true,kisa:false,sisOn:false,dortlu:false}, lampTest=false;
 
   var BOOT_T=4.0;
 
@@ -615,6 +636,10 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     tell("far",live&&manual.far); tell("fren",live&&manual.fren);
     tell("yag",live&&S.volt<13);  tell("sarj",live&&S.volt<13);
     tell("hararet",live&&tBad);   tell("rezerv",live&&fLow);
+    tell("kisa",live&&manual.kisa); tell("sisOn",live&&manual.sisOn);
+    tell("dortlu",live&&manual.dortlu);
+    ["sisArka","motor","abs","kemer","kapi","airbag"].forEach(function(k){tell(k,false);});
+    if(lampTest&&live){ for(var _k in tellEls) tell(_k,true); }
   }
 
   /* ---------- döngü ---------- */

@@ -24,7 +24,7 @@ img{max-width:100%}
 <title>Serçe Dijital Gösterge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&family=Chakra+Petch:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
@@ -44,14 +44,14 @@ img{max-width:100%}
 *{box-sizing:border-box}
 body{
   background:var(--bg);color:var(--ink);
-  font-family:"Barlow","Segoe UI",system-ui,sans-serif;
+  font-family:"Inter","Segoe UI",system-ui,sans-serif;
   margin:0;padding-block:28px 56px;padding-left:20px;padding-right:20px;
   -webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
 
-.eyebrow{font-family:"Barlow Condensed",sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin:0}
-h1{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font-size:clamp(25px,5vw,36px);letter-spacing:-.01em;margin:6px 0 0;text-wrap:balance}
+.eyebrow{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin:0}
+h1{font-family:"Inter Tight","Inter",sans-serif;font-weight:700;font-size:clamp(25px,5vw,36px);letter-spacing:-.01em;margin:6px 0 0;text-wrap:balance}
 .lede{color:var(--dim);margin:8px 0 0;max-width:62ch;line-height:1.55;font-size:15px}
 
 /* bezel */
@@ -65,7 +65,7 @@ h1{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font
 }
 .bezel::after{
   content:"PETG · 0.2 mm";position:absolute;right:16px;bottom:-20px;
-  font-family:"Barlow Condensed",sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#3E4753;
+  font-family:"Inter",sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#3E4753;
 }
 
 /* screen */
@@ -81,14 +81,14 @@ h1{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font
 .stage,.tells,.foot{transition:opacity .3s}
 .offmsg{
   position:absolute;inset:0;display:none;align-items:center;justify-content:center;
-  font-family:"Barlow Condensed",sans-serif;letter-spacing:.3em;text-transform:uppercase;
+  font-family:"Inter",sans-serif;letter-spacing:.3em;text-transform:uppercase;
   font-size:2.4cqw;color:#222932;
 }
 .screen.off .offmsg{display:flex}
 
 /* tell-tales */
-.tells{display:flex;align-items:center;justify-content:center;gap:3.6cqw;padding:1.6cqw 0 .2cqw;height:6.4cqw;flex:0 0 auto}
-.tell{width:3.1cqw;height:3.1cqw;opacity:.13;color:#5A6472;will-change:opacity}
+.tells{display:flex;align-items:center;justify-content:center;gap:1.5cqw;padding:1.6cqw 0 .2cqw;height:6.4cqw;flex:0 0 auto}
+.tell{width:2.6cqw;height:2.6cqw;opacity:.13;color:#5A6472;will-change:opacity}
 .tell svg{width:100%;height:100%;display:block}
 .tell.on{opacity:1}
 .tell.c-green{color:var(--green)}
@@ -99,13 +99,13 @@ h1{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font
 @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.13}}
 
 .stage{flex:1;display:flex;min-height:0;padding:0 3cqw .6cqw}
-.big{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font-variant-numeric:tabular-nums;line-height:.86;letter-spacing:-.025em}
-.unit{font-family:"Barlow Condensed",sans-serif;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.big{font-family:"Inter Tight","Inter",sans-serif;font-weight:700;font-variant-numeric:tabular-nums;line-height:.86;letter-spacing:-.025em}
+.unit{font-family:"Inter",sans-serif;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
 
 /* vertical bars */
 .vcol{display:flex;flex-direction:column;align-items:center;gap:.8cqw;width:8.5cqw;flex:0 0 auto;padding:.8cqw 0 .2cqw}
 .vcol .unit{font-size:1.05cqw}
-.vcol .v{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:1.75cqw;font-variant-numeric:tabular-nums}
+.vcol .v{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:1.75cqw;font-variant-numeric:tabular-nums}
 .vcol .v.warn{color:var(--red)}
 .vbar{flex:1;width:3cqw;min-height:0;display:flex;flex-direction:column-reverse;gap:.32cqw}
 .vbar i{flex:1;background:#171D26;border-radius:1px}
@@ -130,7 +130,7 @@ h1{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font
 }
 .mod .voltrow{display:flex;align-items:baseline;gap:1cqw}
 .mod .voltrow .unit{font-size:1.05cqw}
-.mod .voltrow .v{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:2.3cqw;font-variant-numeric:tabular-nums}
+.mod .voltrow .v{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:2.3cqw;font-variant-numeric:tabular-nums}
 .mod .voltrow .v.warn{color:var(--red)}
 
 /* --- KLASİK --- */
@@ -140,11 +140,11 @@ h1{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font
 .dial svg{width:100%;display:block}
 .dial g.needle{transition:transform .09s linear;will-change:transform}
 .dialCap{position:absolute;left:0;right:0;bottom:15%;text-align:center}
-.dialCap .n{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:3.6cqw;font-variant-numeric:tabular-nums}
+.dialCap .n{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:3.6cqw;font-variant-numeric:tabular-nums}
 .dialCap .unit{display:block;font-size:1cqw;margin-top:.15cqw}
 .kla .ctr{display:flex;flex-direction:column;align-items:center;gap:1.2cqw;flex:0 0 auto;padding-bottom:1cqw}
 .kla .ctr .unit{font-size:1cqw}
-.kla .ctr .v{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:2cqw;font-variant-numeric:tabular-nums}
+.kla .ctr .v{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:2cqw;font-variant-numeric:tabular-nums}
 .kla .ctr .v.warn{color:var(--red)}
 .kla .ctr .cell{display:flex;flex-direction:column;align-items:center;gap:.25cqw}
 
@@ -155,13 +155,13 @@ h1{font-family:"Chakra Petch","Barlow Condensed",sans-serif;font-weight:700;font
 }
 .foot div{display:flex;align-items:baseline;gap:.7cqw}
 .foot .unit{font-size:1.02cqw}
-.foot .v{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:1.8cqw;font-variant-numeric:tabular-nums;color:#BFC8D2}
+.foot .v{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:1.8cqw;font-variant-numeric:tabular-nums;color:#BFC8D2}
 
 /* controls */
 .controls{display:flex;flex-wrap:wrap;gap:12px}
 .ctlgroup{display:flex;gap:8px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px}
 button{
-  font-family:"Barlow Condensed","Barlow",sans-serif;font-weight:600;font-size:13px;
+  font-family:"Inter","Inter",sans-serif;font-weight:600;font-size:13px;
   letter-spacing:.1em;text-transform:uppercase;background:#1A212B;color:#C3CCD6;
   border:1px solid #262E3A;border-radius:6px;padding:9px 14px;cursor:pointer;
   transition:background .12s,color .12s,border-color .12s;touch-action:manipulation;
@@ -172,16 +172,16 @@ button[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);co
 #kontak[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#06180D}
 #gaz{min-width:132px;background:#2A2016;border-color:#4A3A22;color:var(--amber-soft)}
 #gaz[aria-pressed="true"]{background:var(--amber);color:#14100A;border-color:var(--amber)}
-.ctllabel{font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#4E5766;padding-left:4px}
+.ctllabel{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#4E5766;padding-left:4px}
 
 /* signal map */
-.map h2{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:18px;margin:0 0 4px}
+.map h2{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:18px;margin:0 0 4px}
 .map p.sub{color:var(--dim);margin:0 0 15px;font-size:14px;line-height:1.5;max-width:62ch}
 .rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .row{background:var(--panel);padding:12px 15px;display:flex;flex-direction:column;gap:4px}
 .row .top{display:flex;align-items:center;gap:9px}
-.row .what{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:14px;letter-spacing:.09em;text-transform:uppercase}
-.chip{font-family:"Barlow Condensed",sans-serif;font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:auto;white-space:nowrap}
+.row .what{font-family:"Inter",sans-serif;font-weight:600;font-size:14px;letter-spacing:.09em;text-transform:uppercase}
+.chip{font-family:"Inter",sans-serif;font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:auto;white-space:nowrap}
 .chip.pulse{background:rgba(255,174,43,.13);color:var(--amber)}
 .chip.analog{background:rgba(86,169,255,.13);color:var(--blue)}
 .chip.digital{background:rgba(47,212,107,.13);color:var(--green)}
@@ -236,7 +236,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
           <svg viewBox="0 0 200 200" aria-label="Hız göstergesi" role="img">
             <circle cx="100" cy="100" r="92" fill="#0C1016" stroke="#1B222C" stroke-width="1.5"/>
             <g id="kSpdTicks"></g>
-            <g id="kSpdNums" fill="#7A8593" font-family="Chakra Petch, sans-serif" font-size="13" font-weight="600" text-anchor="middle"></g>
+            <g id="kSpdNums" fill="#7A8593" font-family="Inter Tight, sans-serif" font-size="13" font-weight="600" text-anchor="middle"></g>
             <g class="needle" id="kSpdNeedle"><path d="M100 100 L100 26" stroke="#FFAE2B" stroke-width="3.2" stroke-linecap="round"/></g>
             <circle cx="100" cy="100" r="7" fill="#161C25" stroke="#2B333F" stroke-width="1.5"/>
           </svg>
@@ -254,7 +254,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
             <circle cx="100" cy="100" r="92" fill="#0C1016" stroke="#1B222C" stroke-width="1.5"/>
             <path id="kRpmRed" fill="none" stroke="#FF4A3D" stroke-width="3.5" stroke-linecap="round" opacity=".85"/>
             <g id="kRpmTicks"></g>
-            <g id="kRpmNums" fill="#7A8593" font-family="Chakra Petch, sans-serif" font-size="13" font-weight="600" text-anchor="middle"></g>
+            <g id="kRpmNums" fill="#7A8593" font-family="Inter Tight, sans-serif" font-size="13" font-weight="600" text-anchor="middle"></g>
             <g class="needle" id="kRpmNeedle"><path d="M100 100 L100 26" stroke="#FFAE2B" stroke-width="3.2" stroke-linecap="round"/></g>
             <circle cx="100" cy="100" r="7" fill="#161C25" stroke="#2B333F" stroke-width="1.5"/>
           </svg>
@@ -289,6 +289,10 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     <button class="tog" data-t="sag" aria-pressed="false">Sağ sinyal</button>
     <button class="tog" data-t="far" aria-pressed="false">Uzun far</button>
     <button class="tog" data-t="fren" aria-pressed="true">El freni</button>
+    <button class="tog" data-t="kisa" aria-pressed="false">Kısa far</button>
+    <button class="tog" data-t="sisOn" aria-pressed="false">Sis</button>
+    <button class="tog" data-t="dortlu" aria-pressed="false">Dörtlü</button>
+    <button id="lamptest" aria-pressed="false">Tüm ikazlar</button>
   </div>
 </div>
 
@@ -338,18 +342,31 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
 
   /* ---------- tell-tales ---------- */
   /* ISO 2575 ikaz sembolleri — araçlardaki çizimin aynısı */
+  /* ISO 2575 / ECE R121 ikaz sembolleri - VW-Tesla-BMW gostergesindeki cizimin ayni hali */
   var ICONS={
     sol:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.5 3.2 1.4 12l9.1 8.8v-5.4H20V8.6h-9.5z"/></svg>',
     sag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 3.2 22.6 12l-9.1 8.8v-5.4H4V8.6h9.5z"/></svg>',
-    far:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 5.2h3.6a6.8 6.8 0 0 1 0 13.6H3.5z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M13.6 7.6h6.7M13.6 12h6.7M13.6 16.4h6.7"/></svg>',
+    dortlu:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 4.2 20.4 19H3.6z"/></svg>',
+    far:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.4 5.2H7a6.8 6.8 0 0 1 0 13.6H3.4z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M13.4 6.6h7.2M13.4 10.9h7.2M13.4 15.2h7.2M13.4 19.5h7.2"/></svg>',
+    kisa:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.4 5.2H7a6.8 6.8 0 0 1 0 13.6H3.4z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M13.4 5.6 20.6 8.4M13.4 10 20.6 12.8M13.4 14.4 20.6 17.2M13.4 18.8l7.2 2.8"/></svg>',
+    sisOn:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M2.4 5.2H6a6.8 6.8 0 0 1 0 13.6H2.4z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M11.6 5.4 17 7.5M11.6 10.4 17 12.5M11.6 15.4 17 17.5"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M20.6 4.4c-1.3 1.6-1.3 3.2 0 4.8s1.3 3.2 0 4.8-1.3 3.2 0 4.8"/></svg>',
+    sisArka:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M2.4 5.2H6a6.8 6.8 0 0 1 0 13.6H2.4z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M11.6 7.4H17M11.6 12H17M11.6 16.6H17"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M20.6 4.4c-1.3 1.6-1.3 3.2 0 4.8s1.3 3.2 0 4.8-1.3 3.2 0 4.8"/></svg>',
     fren:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="6.3"/><path d="M3.7 7.5a10.5 10.5 0 0 0 0 9M20.3 7.5a10.5 10.5 0 0 1 0 9" stroke-linecap="round"/><path d="M10.4 15.6V8.4h2.3a2 2 0 0 1 0 4.1h-2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    abs:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="6.4"/><path d="M3.6 7.5a10.5 10.5 0 0 0 0 9M20.4 7.5a10.5 10.5 0 0 1 0 9" stroke-linecap="round"/><text x="12" y="14.6" font-size="6.1" font-weight="700" text-anchor="middle" fill="currentColor" stroke="none" font-family="Inter,sans-serif">ABS</text></svg>',
     yag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 12.3h-1.4l-2.7-2.6h-3.2l-2.1 1.7H7.9c-2.6 0-4.8 1.7-5.3 4.1-.1.6.4 1.1 1 1.1h15.2c1.5 0 2.8-1.2 2.8-2.7z"/><path d="M18.5 5.1s1.9 2.1 1.9 3.1a1.9 1.9 0 0 1-3.8 0c0-1 1.9-3.1 1.9-3.1z"/></svg>',
     sarj:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="2.6" y="7" width="18.8" height="10.4" rx="1.2"/><path d="M6.8 7V5h3.1v2M14.1 7V5h3.1v2"/><path d="M5.6 12.2h3.2M7.2 10.6v3.2M15.2 12.2h3.2"/></svg>',
     hararet:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3.4a1.9 1.9 0 0 1 1.9 1.9v7.4a3.9 3.9 0 1 1-3.8 0V5.3A1.9 1.9 0 0 1 12 3.4z"/><circle cx="12" cy="16.4" r="1.7" fill="currentColor" stroke="none"/><path d="M1.6 14.6c.9-1.1 1.9-1.1 2.8 0s1.9 1.1 2.8 0"/><path d="M16.8 14.6c.9-1.1 1.9-1.1 2.8 0s1.9 1.1 2.8 0"/></svg>',
-    rezerv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 20.4V5.4a1.5 1.5 0 0 1 1.5-1.5h5.9a1.5 1.5 0 0 1 1.5 1.5v15"/><path d="M2 20.4h11.3M5 8.6h5.4"/><path d="M12.1 10.1h3.2a1.3 1.3 0 0 1 1.3 1.3v5.1a1.6 1.6 0 0 0 3.2 0V9.1l-2.1-2.1"/></svg>'
+    rezerv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 20.4V5.4a1.5 1.5 0 0 1 1.5-1.5h5.9a1.5 1.5 0 0 1 1.5 1.5v15"/><path d="M2 20.4h11.3M5 8.6h5.4"/><path d="M12.1 10.1h3.2a1.3 1.3 0 0 1 1.3 1.3v5.1a1.6 1.6 0 0 0 3.2 0V9.1l-2.1-2.1"/></svg>',
+    motor:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.8 9.6h-1.6V7.9h-3.4V6.2h-4.6v1.7H8.9L7.2 9.6H5.5V7.9H3.2v8.5h2.3v-1.7h1.7l1.7 1.7h2.3v1.7h4.6v-1.7h1.9v-2.1h3.1z"/></svg>',
+    kemer:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="5.2" r="2.4"/><path d="M15.8 3.4v17.2"/><path d="M15.8 20.6H6.2v-6.4a4 4 0 0 1 4-4h1.4"/><path d="M7.4 9.4 15 18.4"/></svg>',
+    kapi:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 6.4h5.6v11.2H9.2z"/><path d="M9.2 9 3.4 6v9.6l5.8-2.2"/><path d="M14.8 9l5.8-3v9.6l-5.8-2.2"/></svg>',
+    airbag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.6" cy="5.4" r="2.4"/><path d="M3.4 20.6v-6.2a3.9 3.9 0 0 1 3.9-3.9h1"/><path d="M3.4 20.6h6.2"/><circle cx="15.4" cy="13.6" r="4.2"/><path d="M20.8 3.6v17"/></svg>'
   };
-  var TELLS=[{k:"sol",c:"c-green blink"},{k:"rezerv",c:"c-amber"},{k:"sarj",c:"c-red"},{k:"yag",c:"c-red"},
-             {k:"hararet",c:"c-red"},{k:"fren",c:"c-red"},{k:"far",c:"c-blue"},{k:"sag",c:"c-green blink"}];
+  var TELLS=[{k:"sol",c:"c-green blink"},{k:"dortlu",c:"c-red blink"},{k:"kisa",c:"c-green"},{k:"far",c:"c-blue"},
+             {k:"sisOn",c:"c-green"},{k:"sisArka",c:"c-amber"},{k:"rezerv",c:"c-amber"},{k:"sarj",c:"c-red"},
+             {k:"yag",c:"c-red"},{k:"hararet",c:"c-red"},{k:"motor",c:"c-amber"},{k:"abs",c:"c-amber"},
+             {k:"fren",c:"c-red"},{k:"kemer",c:"c-red"},{k:"kapi",c:"c-red"},{k:"airbag",c:"c-red"},
+             {k:"sag",c:"c-green blink"}];
   var tellEls={}, tellState={};
   (function(){
     var host=$("tells");
@@ -620,7 +637,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
   function rpmFor(spd,g){ return spd*RATIOS[g]*DIFF*1000/(60*CIRC); }
 
   var S={on:false,rpm:0,speed:0,gear:0,fuel:46,temp:20,volt:12.2,trip:0,tsum:0,tcnt:0,boot:0};
-  var throttle=false, manual={sol:false,sag:false,far:false,fren:true};
+  var throttle=false, manual={sol:false,sag:false,far:false,fren:true,kisa:false,sisOn:false,dortlu:false}, lampTest=false;
 
   function stepSim(dt){
     if(!S.on){
@@ -655,6 +672,10 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
 
   /* ---------- render (only the visible skin) ---------- */
   var screen=$("screen"), skin="modern";
+  (function(){ var lt=document.getElementById("lamptest"); if(!lt) return;
+    lt.addEventListener("click",function(){ lampTest=!lampTest;
+      lt.setAttribute("aria-pressed",lampTest?"true":"false"); lt.classList.toggle("on",lampTest); });
+  })();
 
   function render(){
     var spd=S.speed, rpm=S.rpm;
@@ -698,6 +719,10 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     tell("sarj",live&&(b||S.volt<13));
     tell("hararet",live&&(b||tBad));
     tell("rezerv",live&&(b||fLow));
+    tell("kisa",live&&(b||manual.kisa)); tell("sisOn",live&&(b||manual.sisOn));
+    tell("dortlu",live&&(b||manual.dortlu));
+    ["sisArka","motor","abs","kemer","kapi","airbag"].forEach(function(k){tell(k,live&&b);});
+    if(lampTest&&live){ for(var _k in tellEls) tell(_k,true); }
   }
 
   /* ---------- loop: physics every frame, paint at 25 Hz ---------- */
