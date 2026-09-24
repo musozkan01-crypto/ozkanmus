@@ -273,7 +273,8 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
 </div>
 
 <div class="controls">
-  <div class="ctlgroup">
+  <p class="sub" style="font-size:12px;color:#5A6472;margin:10px 0 0">3B araç modeli geçicidir: three.js örnek varlığı, model vicent091036. Passat/Tesla GLB dosyası gelince yerine geçecek.</p>
+<div class="ctlgroup">
     <span class="ctllabel">Araç</span>
     <button id="kontak" aria-pressed="false">Kontak</button>
     <button id="gaz" aria-pressed="false">Gaz</button>
@@ -593,6 +594,35 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     var carGrp=buildSerce(); carGrp.rotation.y=-0.34; scene.add(carGrp);
     var wheels=carGrp.userData.wheels;
 
+    /* gercek arac modeli (GLB). Yuklenirse elle cizilen govdenin yerine gecer,
+       yuklenemezse elle cizilen kalir - gosterge her halukarda calisir. */
+    var wheelAxis="z";
+    (function(eski,ebeveyn){
+      if(!THREE.GLTFLoader||!THREE.DRACOLoader) return;
+      var dl=new THREE.DRACOLoader();
+      dl.setDecoderPath("https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/draco/gltf/");
+      var gl=new THREE.GLTFLoader(); gl.setDRACOLoader(dl);
+      gl.load("model/car.glb",function(g){
+        var m=g.scene;
+        var box=new THREE.Box3().setFromObject(m), sz=new THREE.Vector3(); box.getSize(sz);
+        m.scale.setScalar(4.35/Math.max(sz.x,sz.z));
+        box.setFromObject(m); var c=new THREE.Vector3(); box.getCenter(c);
+        m.position.set(-c.x,-box.min.y,-c.z);
+        /* VW gostergesindeki notr gri boya */
+        var boya=new THREE.MeshStandardMaterial({color:0xAEB7C0,metalness:.42,roughness:.34});
+        var govde=m.getObjectByName("body"); if(govde) govde.material=boya;
+        var nw=[];
+        ["wheel_fl","wheel_fr","wheel_rl","wheel_rr"].forEach(function(n){
+          var o=m.getObjectByName(n); if(o) nw.push(o);
+        });
+        ebeveyn.remove(eski);
+        ebeveyn.add(m);
+        if(nw.length){ wheels.length=0; wheelAxis="x";
+          for(var i=0;i<nw.length;i++) wheels.push(nw[i]); }
+      },undefined,function(){});
+    })(carGrp,scene);
+
+
     /* zemine düşen yumuşak gölge */
     (function(){
       var c=document.createElement("canvas"); c.width=c.height=128;
@@ -625,7 +655,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
         resize();
         if(!w||!h) return;
         var spin=(speed/3.6)/0.34;
-        for(var i=0;i<wheels.length;i++) wheels[i].rotation.z-=spin*dt;
+        for(var i=0;i<wheels.length;i++) if(wheelAxis==="x") wheels[i].rotation.x-=spin*dt; else wheels[i].rotation.z-=spin*dt;
         renderer.render(scene,cam);
       }
     };
