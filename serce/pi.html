@@ -183,7 +183,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
 <header>
   <p class="eyebrow">Raspberry Pi 5 · OpenGL ES · 1280 × 480</p>
   <h1>Serçe Gösterge — Pi Sürümü</h1>
-  <p class="lede">Gerçek zamanlı 3B: metalik gövde, yansıyan zemin, parlama işlemesi. ESP32'nin yapamadığı her şey burada var — bedeli de açılış ekranında görünüyor.</p>
+  <p class="lede">Gerçek zamanlı 3B: stüdyo ışığı altında metalik gövde, zemine düşen yumuşak gölge. ESP32'nin yapamadığı her şey burada var — bedeli de açılış ekranında görünüyor.</p>
 </header>
 
 <div class="bezel">
@@ -250,13 +250,13 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
   <div class="ctlgroup">
     <span class="ctllabel">Sahne</span>
     <button id="bloom" aria-pressed="true">Parlama</button>
-    <button id="turn" aria-pressed="true">Tur</button>
+    <button id="turn" aria-pressed="false">Tur</button>
   </div>
   <div class="ctlgroup">
     <span class="ctllabel">İkaz</span>
     <button class="tog" data-t="sol" aria-pressed="false">Sol</button>
     <button class="tog" data-t="sag" aria-pressed="false">Sağ</button>
-    <button class="tog" data-t="far" aria-pressed="false">Far</button>
+    <button class="tog" data-t="far" aria-pressed="false">Uzun far</button>
     <button class="tog" data-t="fren" aria-pressed="true">El freni</button>
   </div>
 </div>
@@ -268,7 +268,7 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     <thead><tr><th>Konu</th><th>Raspberry Pi 5</th><th>ESP32-P4</th></tr></thead>
     <tbody>
       <tr><td>3B render</td><td class="good">Gerçek zamanlı OpenGL ES</td><td>Önceden render edilmiş kareler</td></tr>
-      <tr><td>Malzeme, ışık</td><td class="good">Metalik gövde, yansıyan zemin, gölge</td><td>Kareye pişmiş, aynı görünür</td></tr>
+      <tr><td>Malzeme, ışık</td><td class="good">Stüdyo ışığı, metalik boya, yumuşak gölge</td><td>Kareye pişmiş, aynı görünür</td></tr>
       <tr><td>Parlama işlemesi</td><td class="good">UnrealBloomPass, her karede</td><td>Kareye pişmiş</td></tr>
       <tr><td>Açılış süresi</td><td class="bad">12–50 saniye</td><td class="good">Anında</td></tr>
       <tr><td>Ani kontak kesme</td><td class="bad">SD kart bozulur, UPS kartı şart</td><td class="good">Sorunsuz</td></tr>
@@ -291,15 +291,16 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
   var screen=$("screen");
 
   /* ---------- ikaz lambaları ---------- */
+  /* ISO 2575 ikaz sembolleri — araçlardaki çizimin aynısı */
   var ICONS={
-    sol:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 4 4 12l10 8v-5h6V9h-6z"/></svg>',
-    sag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4l10 8-10 8v-5H4V9h6z"/></svg>',
-    far:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h6a6 6 0 0 1 0 12H3z"/><path d="M14 8h7M14 12h7M14 16h7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>',
-    fren:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="8"/><path d="M12 8v5" stroke-linecap="round"/><circle cx="12" cy="16.2" r="1" fill="currentColor" stroke="none"/></svg>',
-    yag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h9l3-3h4v3l3 1v4H3z"/><path d="M6 10c0-2 2-4 2-4s2 2 2 4a2 2 0 1 1-4 0z"/></svg>',
-    sarj:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="7" width="18" height="11" rx="1.5"/><path d="M8 5v2M16 5v2M7.5 12.5h3M14 12.5h3M15.5 11v3" stroke-linecap="round"/></svg>',
-    hararet:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a2.5 2.5 0 0 1 2.5 2.5v7.2a4.6 4.6 0 1 1-5 0V5.5A2.5 2.5 0 0 1 12 3z"/></svg>',
-    rezerv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V5.5A1.5 1.5 0 0 1 5.5 4h6A1.5 1.5 0 0 1 13 5.5V20M3 20h11M6.5 8.5h4" stroke-linecap="round"/><path d="M16 9l2.5-2.5V16a1.8 1.8 0 0 0 3.5 0v-5" stroke-linecap="round"/></svg>'
+    sol:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.5 3.2 1.4 12l9.1 8.8v-5.4H20V8.6h-9.5z"/></svg>',
+    sag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 3.2 22.6 12l-9.1 8.8v-5.4H4V8.6h9.5z"/></svg>',
+    far:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 5.2h3.6a6.8 6.8 0 0 1 0 13.6H3.5z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M13.6 7.6h6.7M13.6 12h6.7M13.6 16.4h6.7"/></svg>',
+    fren:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="6.3"/><path d="M3.7 7.5a10.5 10.5 0 0 0 0 9M20.3 7.5a10.5 10.5 0 0 1 0 9" stroke-linecap="round"/><path d="M10.4 15.6V8.4h2.3a2 2 0 0 1 0 4.1h-2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    yag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 12.3h-1.4l-2.7-2.6h-3.2l-2.1 1.7H7.9c-2.6 0-4.8 1.7-5.3 4.1-.1.6.4 1.1 1 1.1h15.2c1.5 0 2.8-1.2 2.8-2.7z"/><path d="M18.5 5.1s1.9 2.1 1.9 3.1a1.9 1.9 0 0 1-3.8 0c0-1 1.9-3.1 1.9-3.1z"/></svg>',
+    sarj:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="2.6" y="7" width="18.8" height="10.4" rx="1.2"/><path d="M6.8 7V5h3.1v2M14.1 7V5h3.1v2"/><path d="M5.6 12.2h3.2M7.2 10.6v3.2M15.2 12.2h3.2"/></svg>',
+    hararet:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3.4a1.9 1.9 0 0 1 1.9 1.9v7.4a3.9 3.9 0 1 1-3.8 0V5.3A1.9 1.9 0 0 1 12 3.4z"/><circle cx="12" cy="16.4" r="1.7" fill="currentColor" stroke="none"/><path d="M1.6 14.6c.9-1.1 1.9-1.1 2.8 0s1.9 1.1 2.8 0"/><path d="M16.8 14.6c.9-1.1 1.9-1.1 2.8 0s1.9 1.1 2.8 0"/></svg>',
+    rezerv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 20.4V5.4a1.5 1.5 0 0 1 1.5-1.5h5.9a1.5 1.5 0 0 1 1.5 1.5v15"/><path d="M2 20.4h11.3M5 8.6h5.4"/><path d="M12.1 10.1h3.2a1.3 1.3 0 0 1 1.3 1.3v5.1a1.6 1.6 0 0 0 3.2 0V9.1l-2.1-2.1"/></svg>'
   };
   var TELLS=[{k:"sol",c:"c-green blink"},{k:"rezerv",c:"c-amber"},{k:"sarj",c:"c-red"},{k:"yag",c:"c-red"},
              {k:"hararet",c:"c-red"},{k:"fren",c:"c-red"},{k:"far",c:"c-blue"},{k:"sag",c:"c-green blink"}];
@@ -324,31 +325,23 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     renderer.setPixelRatio(Math.min(1.5,window.devicePixelRatio||1));
 
     var scene=new THREE.Scene();
-    scene.fog=new THREE.Fog(0x04070C,14,40);
-    var cam=new THREE.PerspectiveCamera(26,2.66,0.1,160);
+    var cam=new THREE.PerspectiveCamera(25,2.66,0.1,120);
 
-    scene.add(new THREE.HemisphereLight(0x3C9BD6,0x050A10,0.75));
-    var key=new THREE.DirectionalLight(0xBFE9FF,1.25); key.position.set(6,9,5); scene.add(key);
-    var fill=new THREE.DirectionalLight(0xFFAE2B,0.55); fill.position.set(-7,3,-5); scene.add(fill);
-    var under=new THREE.PointLight(0x49C8FF,1.1,7); under.position.set(0,0.28,0); scene.add(under);
+    /* stüdyo aydınlatması — renkli ışık yok, sadece beyaz */
+    scene.add(new THREE.HemisphereLight(0xC4D2DE,0x0A0E13,0.62));
+    var key=new THREE.DirectionalLight(0xFFFFFF,1.45);  key.position.set(4.5,8.5,5.5);  scene.add(key);
+    var fill=new THREE.DirectionalLight(0xAFC2D2,0.42); fill.position.set(-6,3.5,4);    scene.add(fill);
+    var rim=new THREE.DirectionalLight(0xFFFFFF,0.65);  rim.position.set(-3.5,4.5,-7);  scene.add(rim);
 
     /* ---- Serçe gövdesi: kesit kesit örülür, ekstrüzyon değil ---- */
     function buildSerce(pbr){
       var grp=new THREE.Group(), wheels=[];
-      var PAINT = pbr
-        ? new THREE.MeshStandardMaterial({color:0x11455F,metalness:.88,roughness:.3,side:THREE.DoubleSide})
-        : new THREE.MeshBasicMaterial({color:0x0A2438,transparent:true,opacity:.62,side:THREE.DoubleSide});
-      var GLASS = pbr
-        ? new THREE.MeshStandardMaterial({color:0x08202E,metalness:1,roughness:.06,transparent:true,opacity:.76,side:THREE.DoubleSide})
-        : new THREE.MeshBasicMaterial({color:0x071A26,transparent:true,opacity:.45,side:THREE.DoubleSide});
-      var TRIM = pbr
-        ? new THREE.MeshStandardMaterial({color:0x0B1219,metalness:.55,roughness:.6})
-        : new THREE.MeshBasicMaterial({color:0x08131C});
-      var CHROME = pbr
-        ? new THREE.MeshStandardMaterial({color:0x8FB6C8,metalness:1,roughness:.18})
-        : new THREE.MeshBasicMaterial({color:0x2B7FA6});
-      var EDGE=new THREE.LineBasicMaterial({color:pbr?0x9DEEFF:0x5CD8FF});
-      var SEAM=new THREE.LineBasicMaterial({color:0x2B7FA6});
+      var PAINT=new THREE.MeshStandardMaterial({color:0xAEB7C0,metalness:.42,roughness:.34,side:THREE.DoubleSide});
+      var GLASS=new THREE.MeshStandardMaterial({color:0x161D25,metalness:.9,roughness:.1,
+                                                transparent:true,opacity:.88,side:THREE.DoubleSide});
+      var TRIM=new THREE.MeshStandardMaterial({color:0x272D35,metalness:.35,roughness:.68});
+      var CHROME=new THREE.MeshStandardMaterial({color:0xC6CFD8,metalness:1,roughness:.16});
+      var SEAM=new THREE.LineBasicMaterial({color:0x5A646E,transparent:true,opacity:.55});
 
       /* kesitleri süperelips olarak ör — üstü yuvarlak, altı düz */
       function loft(secs,T,nT,nB){
@@ -383,19 +376,17 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
         {x: 0.80,t:1.04,b:.39,w:.848},{x: 1.40,t:1.02,b:.40,w:.835},
         {x: 1.82,t:1.00,b:.43,w:.79},{x: 2.00,t:.97,b:.47,w:.69},
         {x: 2.06,t:.92,b:.52,w:.56}];
-      var bg=loft(BODY,26,4.6,7.5);
+      var bg=loft(BODY,30,4.6,7.5);
       grp.add(new THREE.Mesh(bg,PAINT));
-      grp.add(new THREE.LineSegments(new THREE.EdgesGeometry(bg,32),EDGE));
 
-      /* kabin: gövdeden dar, ayrı hacim */
+      /* kabin: gövdeden dar, üç hacimli sedan oranı — kaput kısa, kabin ortada */
       var CAB=[
-        {x:-0.98,t:1.09,b:1.00,w:.60},{x:-0.86,t:1.24,b:1.00,w:.68},
-        {x:-0.66,t:1.40,b:1.00,w:.735},{x:-0.42,t:1.475,b:1.00,w:.745},
-        {x: 0.10,t:1.485,b:1.00,w:.745},{x: 0.30,t:1.455,b:1.00,w:.74},
-        {x: 0.46,t:1.30,b:1.00,w:.72},{x: 0.62,t:1.09,b:1.00,w:.66}];
-      var cg=loft(CAB,26,5.5,8);
+        {x:-1.06,t:1.08,b:1.00,w:.58},{x:-0.94,t:1.25,b:1.00,w:.67},
+        {x:-0.74,t:1.40,b:1.00,w:.725},{x:-0.52,t:1.465,b:1.00,w:.745},
+        {x: 0.10,t:1.475,b:1.00,w:.745},{x: 0.42,t:1.455,b:1.00,w:.74},
+        {x: 0.64,t:1.28,b:1.00,w:.71},{x: 0.86,t:1.08,b:1.00,w:.64}];
+      var cg=loft(CAB,30,5.5,8);
       grp.add(new THREE.Mesh(cg,PAINT));
-      grp.add(new THREE.LineSegments(new THREE.EdgesGeometry(cg,34),EDGE));
 
       /* camlar */
       function quad(a,b,c,d,mat){
@@ -406,16 +397,16 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
         gm.computeVertexNormals();
         var m=new THREE.Mesh(gm,mat); grp.add(m); return m;
       }
-      quad([.60,1.10,.66],[.33,1.43,.72],[.33,1.43,-.72],[.60,1.10,-.66],GLASS);      /* ön cam */
-      quad([-.64,1.40,.72],[-.90,1.13,.62],[-.90,1.13,-.62],[-.64,1.40,-.72],GLASS);   /* arka cam */
-      [.755,-.755].forEach(function(z){
-        quad([.30,1.42,z],[-.06,1.455,z],[-.06,1.09,z],[.31,1.07,z],GLASS);            /* ön kapı camı */
-        quad([-.13,1.455,z],[-.52,1.44,z],[-.55,1.09,z],[-.13,1.09,z],GLASS);          /* arka kapı camı */
+      quad([.84,1.10,.64],[.46,1.44,.72],[.46,1.44,-.72],[.84,1.10,-.64],GLASS);       /* ön cam */
+      quad([-.74,1.40,.72],[-1.00,1.12,.60],[-1.00,1.12,-.60],[-.74,1.40,-.72],GLASS); /* arka cam */
+      [.752,-.752].forEach(function(z){
+        quad([.44,1.42,z],[.04,1.455,z],[.04,1.09,z],[.46,1.08,z],GLASS);              /* ön kapı camı */
+        quad([-.03,1.455,z],[-.62,1.43,z],[-.65,1.09,z],[-.03,1.09,z],GLASS);          /* arka kapı camı */
       });
 
       /* çamurluk kemerleri */
-      var arch=new THREE.TorusGeometry(.44,.042,6,22,Math.PI);
-      [[1.28,.856],[1.28,-.856],[-1.28,.856],[-1.28,-.856]].forEach(function(p){
+      var arch=new THREE.TorusGeometry(.44,.04,6,24,Math.PI);
+      [[1.33,.856],[1.33,-.856],[-1.33,.856],[-1.33,-.856]].forEach(function(p){
         var m=new THREE.Mesh(arch,TRIM); m.position.set(p[0],.34,p[1]); grp.add(m);
       });
 
@@ -436,17 +427,17 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
       /* kapı dikişleri, aynalar, egzoz */
       (function(){
         var pts=[];
-        [.855,-.855].forEach(function(z){
-          [[.58,.44,1.03],[-.10,.42,1.04],[-.78,.44,1.02]].forEach(function(s){
+        [.856,-.856].forEach(function(z){
+          [[.88,.44,1.03],[.02,.42,1.04],[-.70,.44,1.02]].forEach(function(s){
             pts.push(new THREE.Vector3(s[0],s[1],z),new THREE.Vector3(s[0],s[2],z));
           });
-          pts.push(new THREE.Vector3(1.55,.70,z),new THREE.Vector3(-1.55,.70,z));
+          pts.push(new THREE.Vector3(1.60,.70,z),new THREE.Vector3(-1.60,.70,z));
         });
         grp.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts),SEAM));
       })();
-      [.86,-.86].forEach(function(z){
-        box(.055,.09,.055,.56,1.10,z*.99,TRIM);
-        box(.09,.07,.16,.52,1.14,z+(z>0?.05:-.05),TRIM);
+      [.86,-.86].forEach(function(z){                    /* yan aynalar */
+        box(.05,.08,.05,.80,1.09,z*.99,TRIM);
+        box(.09,.07,.16,.76,1.13,z+(z>0?.05:-.05),TRIM);
       });
       var ex=new THREE.Mesh(new THREE.CylinderGeometry(.045,.045,.16,10),CHROME);
       ex.rotation.z=Math.PI/2; ex.position.set(-2.06,.45,-.52); grp.add(ex);
@@ -455,10 +446,8 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
       var tire=new THREE.CylinderGeometry(.34,.34,.21,22); tire.rotateX(Math.PI/2);
       var disc=new THREE.CylinderGeometry(.205,.205,.216,22); disc.rotateX(Math.PI/2);
       var lip=new THREE.TorusGeometry(.205,.018,6,20);
-      var RUB = pbr
-        ? new THREE.MeshStandardMaterial({color:0x080D13,metalness:.25,roughness:.92})
-        : new THREE.MeshBasicMaterial({color:0x061520});
-      [[1.28,.855],[1.28,-.855],[-1.28,.855],[-1.28,-.855]].forEach(function(p){
+      var RUB=new THREE.MeshStandardMaterial({color:0x14181E,metalness:.15,roughness:.95});
+      [[1.33,.855],[1.33,-.855],[-1.33,.855],[-1.33,-.855]].forEach(function(p){
         var g=new THREE.Group();
         g.add(new THREE.Mesh(tire,RUB));
         g.add(new THREE.Mesh(disc,TRIM));
@@ -482,35 +471,26 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
 
     var turn=new THREE.Group(); turn.add(car); scene.add(turn);
 
-    /* yansıma */
-    var refl=car.clone(true);
-    refl.traverse(function(o){
-      if(o.material){
-        o.material=o.material.clone();
-        o.material.transparent=true;
-        o.material.opacity=(o.material.opacity||1)*0.16;
-        o.material.depthWrite=false;
-      }
-    });
-    refl.scale.y=-1; refl.position.y=-0.015;
-    turn.add(refl);
+    /* zemine düşen yumuşak gölge — ızgara yok, parlayan zemin yok */
+    (function(){
+      var c=document.createElement("canvas"); c.width=c.height=128;
+      var x=c.getContext("2d");
+      var g=x.createRadialGradient(64,64,4,64,64,62);
+      g.addColorStop(0,"rgba(0,0,0,.72)"); g.addColorStop(.45,"rgba(0,0,0,.34)");
+      g.addColorStop(1,"rgba(0,0,0,0)");
+      x.fillStyle=g; x.fillRect(0,0,128,128);
+      var sh=new THREE.Mesh(new THREE.PlaneGeometry(5.6,2.7),
+        new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c),transparent:true,
+                                     depthWrite:false,opacity:.9}));
+      sh.rotation.x=-Math.PI/2; sh.position.y=0.004; scene.add(sh);
+    })();
 
-    /* zemin */
-    var floor=new THREE.Mesh(new THREE.PlaneGeometry(70,70),
-      new THREE.MeshStandardMaterial({color:0x030810,metalness:.95,roughness:.22}));
-    floor.rotation.x=-Math.PI/2; floor.position.y=-0.02; scene.add(floor);
-
-    var CELL=0.6;
-    var grid=new THREE.GridHelper(70,Math.round(70/CELL),0x2E8FBB,0x0E3244);
-    grid.material.transparent=true; grid.material.opacity=.42; grid.material.depthWrite=false;
-    scene.add(grid);
-
-    /* post-process */
-    var composer=null, bloomPass=null, useBloom=!!(window.THREE.EffectComposer&&window.THREE.UnrealBloomPass);
-    if(useBloom){
+    /* post-process: sadece parlak yüzeylere hafif hale, sahneyi patlatmaz */
+    var composer=null, bloomPass=null;
+    if(window.THREE.EffectComposer&&window.THREE.UnrealBloomPass){
       composer=new THREE.EffectComposer(renderer);
       composer.addPass(new THREE.RenderPass(scene,cam));
-      bloomPass=new THREE.UnrealBloomPass(new THREE.Vector2(800,300),0.82,0.52,0.52);
+      bloomPass=new THREE.UnrealBloomPass(new THREE.Vector2(800,300),0.24,0.4,0.86);
       composer.addPass(bloomPass);
     }
 
@@ -528,22 +508,18 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
     else window.addEventListener("resize",resize);
     resize();
 
-    var t=0;
+    /* sabit üç çeyrek açı — araç ekranlarındaki duruş */
+    turn.rotation.y=-0.34;
+    cam.position.set(5.9,2.45,5.2); cam.lookAt(0,0.74,0);
+
     return {
-      bloomOn:true, turnOn:true,
+      bloomOn:true, turnOn:false,
       setBloom:function(v){this.bloomOn=v;if(bloomPass)bloomPass.enabled=v;},
       frame:function(dt,speed){
         resize(); if(!w||!h) return;
-        t+=dt;
-        var v=speed/3.6;
-        grid.position.z=(grid.position.z+v*dt)%CELL;
-        var spin=v/0.335;
+        var spin=(speed/3.6)/0.34;
         for(var i=0;i<wheels.length;i++) wheels[i].rotation.z-=spin*dt;
-        if(this.turnOn) turn.rotation.y+=dt*0.16;
-        var a=t*0.09;
-        cam.position.set(Math.sin(a)*1.1+5.4, 2.25+Math.sin(t*0.13)*0.16, 5.7+Math.cos(a)*0.7);
-        cam.lookAt(0,0.76,0);
-        under.intensity=1.0+Math.sin(t*1.7)*0.18;
+        if(this.turnOn) turn.rotation.y+=dt*0.22;
         if(composer && this.bloomOn) composer.render(); else renderer.render(scene,cam);
       }
     };
