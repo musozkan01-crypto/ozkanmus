@@ -602,7 +602,8 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
       var dl=new THREE.DRACOLoader();
       dl.setDecoderPath("https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/draco/gltf/");
       var gl=new THREE.GLTFLoader(); gl.setDRACOLoader(dl);
-      gl.load("model/car.glb",function(g){
+      var bitti=false;
+      var tamam=function(g){ if(bitti) return; bitti=true;
         var m=g.scene;
         var box=new THREE.Box3().setFromObject(m), sz=new THREE.Vector3(); box.getSize(sz);
         m.scale.setScalar(4.35/Math.max(sz.x,sz.z));
@@ -627,7 +628,12 @@ footer{color:#49525F;font-size:13px;line-height:1.6;border-top:1px solid var(--l
         ebeveyn.remove(eski);
         if(nw.length){ wheels.length=0; wheelAxis="x";
           for(var i=0;i<nw.length;i++) wheels.push(nw[i]); }
-      },undefined,function(){});
+      };
+      /* draco cozucusu bazi tarayicilarda takiliyor: 12 sn icinde model
+         gelmezse sikistirmasiz surume geciyoruz. */
+      var yedek=function(){ if(bitti) return; gl.load("model/car_plain.glb",tamam,undefined,function(){}); };
+      gl.load("model/car.glb",tamam,undefined,yedek);
+      setTimeout(yedek,12000);
     })(carGrp,scene);
 
 
