@@ -1341,7 +1341,7 @@ cv.addEventListener('webglcontextrestored',start);
 const box=document.getElementById('robotbox'),cv=document.getElementById('robotcv');
 if(!(matchMedia('(pointer:coarse)').matches||innerWidth<700||matchMedia('(prefers-reduced-motion: reduce)').matches)){
  new IntersectionObserver((en,io)=>{if(!en[0].isIntersecting)return;io.disconnect();
-  import('https://unpkg.com/@splinetool/runtime@2.0.82/build/runtime.js').then(m=>{const app=new m.Application(cv);window.__spl=app;return app.load('https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode').then(()=>{cv.addEventListener('mouseleave',()=>{try{app.stop()}catch(_){}});cv.addEventListener('mouseenter',()=>{try{app.play()}catch(_){}})})}).catch(e=>console.warn('spline',e))},{rootMargin:'200px'}).observe(box)}
+  import('https://unpkg.com/@splinetool/runtime@2.0.82/build/runtime.js').then(m=>{const app=new m.Application(cv);window.__spl=app;return app.load('https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode').then(()=>{for(const t of ['mouseleave','pointerleave','mouseout','pointerout'])cv.addEventListener(t,e=>e.stopImmediatePropagation(),true)})}).catch(e=>console.warn('spline',e))},{rootMargin:'200px'}).observe(box)}
 </script>
 </body>
 </html>
