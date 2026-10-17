@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Özkan Muş | Fiyatlar ve İletişim</title>
+<meta name="description" content="Paketler, fiyat aralıkları ve iletişim formu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--amber:#ffb547;--amber2:#ffd08a;--bg:#0b0907;--ink:#f4ede3;--mute:#b8ad9d;--dim:#9a8f80;--line:rgba(244,237,227,.12);--bad:#ff8a7a;--ok:#7fe0a8;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);scroll-behavior:smooth;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1200px,100% - 2*clamp(16px,4vw,48px));margin:0 auto}
+.sec{position:relative;padding:clamp(70px,10vw,140px) 0;isolation:isolate;overflow:hidden}
+.sec::before,.sec::after{content:"";position:absolute;pointer-events:none;z-index:-1;border-radius:50%;filter:blur(70px)}
+.sec::before{width:min(620px,70vw);height:min(620px,70vw);right:-8%;top:-6%;background:radial-gradient(circle,rgba(255,181,71,.16),transparent 65%);animation:drift 18s ease-in-out infinite alternate}
+.sec::after{width:min(520px,60vw);height:min(520px,60vw);left:-10%;bottom:4%;background:radial-gradient(circle,rgba(255,120,60,.08),transparent 65%);animation:drift 22s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate3d(-40px,30px,0) scale(1.08)}}
+.eyebrow{font-size:12.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.eyebrow:before{content:"";width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--amber))}
+h2{font-weight:500;font-size:clamp(32px,5vw,64px);line-height:1;letter-spacing:-.035em;text-wrap:balance}
+h2 em{font-style:normal;background:linear-gradient(100deg,var(--amber),var(--amber2) 60%,var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+.shead{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end;margin-bottom:clamp(30px,5vw,56px)}
+.shead p{color:var(--mute);max-width:52ch;justify-self:end;font-size:1.04rem}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* paketler */
+.tiers{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;perspective:1200px}
+.tier{grid-column:span 2;position:relative;border-radius:22px;padding:1px;background:linear-gradient(160deg,rgba(244,237,227,.22),rgba(244,237,227,.05) 40%,rgba(244,237,227,.1));box-shadow:0 24px 50px -28px rgba(0,0,0,.9);transition:transform .35s var(--ease),box-shadow .4s;--mx:50%;--my:50%;--o:0}
+.tier:nth-child(4),.tier:nth-child(5){grid-column:span 3}
+.tier:hover{box-shadow:0 34px 60px -26px rgba(0,0,0,.95)}
+.tier::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(280px circle at var(--mx) var(--my),rgba(255,181,71,.95),transparent 60%);opacity:var(--o);transition:opacity .35s;pointer-events:none}
+.tier .in{position:relative;height:100%;border-radius:21px;background-color:#150f0a;background-image:radial-gradient(340px circle at var(--mx) var(--my),rgba(255,181,71,calc(.11*var(--o))),transparent 70%),linear-gradient(180deg,#1b150e,#120e09);padding:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.tier .in::after{content:"";position:absolute;left:12%;right:12%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,226,170,.45),transparent)}
+.tier.hot{background:linear-gradient(160deg,rgba(255,181,71,.8),rgba(255,181,71,.12) 55%,rgba(255,181,71,.4));box-shadow:0 0 0 1px rgba(255,181,71,.35),0 28px 80px -24px rgba(255,181,71,.45)}
+.tier.hot .in{background-image:radial-gradient(340px circle at var(--mx) var(--my),rgba(255,181,71,calc(.11*var(--o))),transparent 70%),radial-gradient(120% 70% at 50% -10%,rgba(255,181,71,.14),transparent 60%),linear-gradient(180deg,#1d1710,#130e08)}
+.tier.hot .in::before{content:"";position:absolute;inset:-1px;background:linear-gradient(115deg,transparent 40%,rgba(255,226,170,.12) 50%,transparent 60%);transform:translateX(-120%);animation:sheen 6s ease-in-out 1.2s infinite;pointer-events:none}
+@keyframes sheen{40%,100%{transform:translateX(120%)}}
+.badge{position:absolute;top:-11px;right:20px;z-index:2;background:linear-gradient(180deg,var(--amber2),var(--amber));color:#1a1106;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:.04em;box-shadow:0 6px 18px -4px rgba(255,181,71,.6)}
+.tier .n{font-size:12.5px;letter-spacing:.14em;color:var(--dim);font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:10px}
+.tier .n:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.tier h3{font-weight:600;font-size:clamp(1.15rem,1rem + .6vw,1.45rem);line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
+.tier .sub2{font-size:.84rem;color:var(--dim);margin-top:-8px;letter-spacing:.01em}
+.tier .p{font-weight:600;font-size:clamp(1.3rem,1.05rem + .8vw,1.75rem);letter-spacing:-.025em;font-variant-numeric:tabular-nums;color:var(--amber);padding-top:4px}
+.tier .p small{display:block;font-size:.82rem;font-weight:400;color:var(--mute);letter-spacing:0;margin-top:2px}
+.tier p.d{color:var(--mute);font-size:.93rem}
+.tier ul{list-style:none;display:grid;gap:9px;font-size:.9rem;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.tier li{display:flex;gap:10px;align-items:baseline}
+.tier li:before{content:"";flex:none;width:15px;height:15px;border-radius:50%;background:rgba(127,224,168,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4.5 8.4 2.3 2.3 4.7-5' fill='none' stroke='%237fe0a8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat;transform:translateY(2px)}
+.tier li.no{color:var(--dim);text-decoration:line-through;text-decoration-color:rgba(154,143,128,.5)}
+.tier li.no:before{background:rgba(244,237,227,.06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 8h6' stroke='%239a8f80' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.price-note{margin-top:24px;font-size:.9rem;color:var(--dim)}
+
+/* iletişim */
+.cgrid{position:relative;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.card{position:relative;border-radius:24px;background:linear-gradient(180deg,rgba(34,27,18,.62),rgba(18,14,9,.5));backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);border:1px solid rgba(255,181,71,.16);box-shadow:0 1px 0 rgba(255,255,255,.07) inset,0 30px 70px -20px rgba(0,0,0,.7)}
+.card::before{content:"";position:absolute;left:10%;right:10%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,208,138,.6),transparent);pointer-events:none}
+.cintro{margin-bottom:28px}
+form{display:grid;gap:16px;padding:clamp(20px,3vw,36px);position:relative}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fld{position:relative}
+.fld input,.fld textarea{width:100%;padding:26px 16px 10px;border-radius:14px;border:1px solid rgba(244,237,227,.2);background:rgba(244,237,227,.04);color:var(--ink);font:400 1rem 'Inter Tight',sans-serif;outline:none;transition:border-color .3s,background .3s,box-shadow .35s;resize:vertical}
+.fld input:hover,.fld textarea:hover{border-color:rgba(244,237,227,.34)}
+.fld textarea{min-height:140px;padding-bottom:26px}
+.fld input:focus,.fld textarea:focus{border-color:var(--amber);background:rgba(255,181,71,.06);box-shadow:0 0 0 4px rgba(255,181,71,.16),0 12px 30px -14px rgba(255,181,71,.45)}
+.fld label{position:absolute;left:17px;top:17px;font:400 .98rem 'Inter Tight',sans-serif;color:var(--dim);pointer-events:none;transition:all .28s var(--ease)}
+.fld input:focus+label,.fld input:not(:placeholder-shown)+label,.fld textarea:focus+label,.fld textarea:not(:placeholder-shown)+label{top:8px;font-size:.72rem;color:var(--amber);letter-spacing:.06em}
+.fld [aria-invalid="true"]{border-color:var(--bad)}
+.fld [aria-invalid="true"]:focus{box-shadow:0 0 0 4px rgba(255,138,122,.18)}
+.hint{display:none;margin-top:6px;font-size:.84rem;color:var(--bad)}
+.hint.show{display:block}
+.hint.soft{color:var(--mute)}
+.count{position:absolute;right:14px;bottom:8px;font-size:.74rem;color:var(--dim);font-variant-numeric:tabular-nums;pointer-events:none}
+.kvkk{display:grid;gap:8px}
+.chk{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:.88rem;color:var(--mute);line-height:1.45}
+.chk input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;margin-top:1px;border-radius:6px;border:1px solid rgba(244,237,227,.35);background:rgba(244,237,227,.04);cursor:pointer;display:grid;place-items:center;transition:background .2s,border-color .2s,box-shadow .2s}
+.chk input:checked{background:var(--amber);border-color:var(--amber)}
+.chk input:checked:after{content:"";width:9px;height:5px;border-left:2px solid #1a1106;border-bottom:2px solid #1a1106;transform:rotate(-45deg) translate(1px,-1px)}
+.chk input[aria-invalid="true"]{border-color:var(--bad);box-shadow:0 0 0 3px rgba(255,138,122,.2)}
+.kdet{font-size:.8rem;color:var(--dim);margin-left:32px}
+.kdet summary{cursor:pointer;color:var(--mute);width:max-content;padding:2px 0}
+.kdet p{margin-top:6px;max-width:60ch}
+.emsg{display:none;color:var(--bad);font-size:.9rem;padding:10px 14px;border-radius:12px;background:rgba(255,138,122,.08);border:1px solid rgba(255,138,122,.25)}.emsg.show{display:block}
+.sub{justify-self:start;display:inline-flex;align-items:center;gap:10px;padding:15px 34px;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(180deg,var(--amber2),var(--amber));color:#1a1106;font:600 1rem 'Inter Tight',sans-serif;box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 10px 30px -10px rgba(255,181,71,.55);transition:transform .3s var(--ease),box-shadow .3s}
+.sub:hover:not(:disabled){box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 14px 40px -8px rgba(255,181,71,.7);transform:translateY(-2px)}
+.sub:active:not(:disabled){transform:translateY(0) scale(.98)}
+.sub:disabled{opacity:.7;cursor:default}
+.sub .sp{display:none;width:15px;height:15px;border-radius:50%;border:2px solid rgba(26,17,6,.3);border-top-color:#1a1106;animation:spin .7s linear infinite}
+.sub.busy .sp{display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sent{display:none;padding:clamp(28px,4vw,48px);outline:none}
+.sent.show{display:block;animation:pop .6s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}}
+.sent .ck{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(127,224,168,.12);border:1px solid rgba(127,224,168,.4);margin-bottom:18px}
+.sent .ck svg{width:24px;height:24px;stroke:var(--ok);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sent h3{font-weight:500;font-size:1.5rem;letter-spacing:-.02em;margin-bottom:8px}
+.sent p{color:var(--mute)}
+
+/* süs panel */
+.status{padding:24px 26px;position:sticky;top:24px}
+.status h3{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:500;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 0 rgba(255,181,71,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(255,181,71,0)}100%{box-shadow:0 0 0 0 rgba(255,181,71,0)}}
+.rows{display:grid;font-size:.92rem}
+.rows div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.rows span{color:var(--mute)}.rows b{font-weight:500}
+.bars{display:flex;align-items:flex-end;gap:4px;height:46px;margin-top:18px}
+.bars i{flex:1;background:linear-gradient(to top,rgba(255,181,71,.2),var(--amber));border-radius:3px 3px 0 0;height:30%;animation:bar 2.4s ease-in-out infinite alternate}
+@keyframes bar{to{height:var(--h,80%)}}
+.cap2{margin-top:12px;font-size:.78rem;color:var(--dim)}
+
+/* footer */
+footer{position:relative;border-top:1px solid var(--line);background:var(--bg)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:22px 0 10px;font-size:.84rem;color:var(--dim)}
+.src{padding:6px 0 30px;font-size:.82rem;color:var(--dim)}
+.src summary{cursor:pointer;display:inline-block;color:var(--mute);padding:4px 0}
+.src div{margin-top:10px;display:grid;gap:4px;max-width:900px}
+.src h4{font-weight:600;color:var(--mute);font-size:.82rem;margin-top:8px}
+.src ul{list-style:none;display:grid;gap:3px}
+.src a{color:var(--mute);text-underline-offset:3px}.src a:hover{color:var(--amber)}
+
+@media(max-width:900px){
+ .shead{grid-template-columns:1fr}.shead p{justify-self:start}
+ .tiers{grid-template-columns:1fr 1fr}.tier,.tier:nth-child(4),.tier:nth-child(5){grid-column:auto}
+ .tier:nth-child(5){grid-column:1 / -1}
+ .cgrid{grid-template-columns:1fr}.status{position:static}
+}
+@media(max-width:560px){.tiers{grid-template-columns:1fr}.tier:nth-child(5){grid-column:auto}.f2{grid-template-columns:1fr}.sub{justify-self:stretch;justify-content:center}.kdet{margin-left:0}}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;transition:none!important}
+ html{scroll-behavior:auto}.rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<main>
+<section class="sec" id="fiyat">
+  <div class="wrap">
+    <div class="shead rv">
+      <div><div class="eyebrow">05 — Fiyatlar</div><h2>Beş katman,<br><em>net</em> kapsam.</h2></div>
+      <p>Fiyatlar kapsama göre değişir; aşağıdakiler 2026 Türkiye piyasası için referans aralıklarıdır.</p>
+    </div>
+    <div class="tiers rv" id="tiers"></div>
+    <p class="price-note">4. ve 5. katmanda iş başlamadan keşif toplantısı yapılır, ödeme aşamalara bölünür.</p>
+  </div>
+</section>
+
+<section class="sec" id="iletisim">
+  <div class="wrap">
+    <div class="cintro rv"><div class="eyebrow">06 — İletişim</div><h2>Projenizi <em>konuşalım.</em></h2></div>
+    <div class="cgrid">
+      <div class="card rv">
+        <form id="pf-form" novalidate aria-label="İletişim formu">
+          <input id="pf-website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <div class="f2">
+            <div class="fld"><input id="pf-name" name="ad" placeholder=" " required maxlength="60" autocomplete="given-name" aria-describedby="h-name"><label for="pf-name">Ad</label><div class="hint" id="h-name"></div></div>
+            <div class="fld"><input id="pf-surname" name="soyad" placeholder=" " required maxlength="60" autocomplete="family-name" aria-describedby="h-surname"><label for="pf-surname">Soyad</label><div class="hint" id="h-surname"></div></div>
+          </div>
+          <div class="fld"><input id="pf-email" name="email" type="email" placeholder=" " required maxlength="120" autocomplete="email" aria-describedby="h-email"><label for="pf-email">E-posta</label><div class="hint" id="h-email"></div></div>
+          <div class="fld"><input id="pf-phone" name="telefon" type="tel" inputmode="tel" maxlength="18" placeholder=" " autocomplete="tel" aria-describedby="h-phone"><label for="pf-phone">Telefon (isteğe bağlı)</label><div class="hint soft" id="h-phone"></div></div>
+          <div class="fld"><textarea id="pf-msg" name="mesaj" placeholder=" " required maxlength="2000" aria-describedby="h-msg"></textarea><label for="pf-msg">Projenizi kısaca anlatın</label><span class="count" id="pf-count" aria-hidden="true">0 / 2000</span><div class="hint" id="h-msg"></div></div>
+          <div class="kvkk">
+            <label class="chk" for="pf-kvkk"><input id="pf-kvkk" type="checkbox" required aria-describedby="h-kvkk"><span>Kişisel verilerimin, talebime yanıt verilmesi amacıyla 6698 sayılı KVKK kapsamında işlenmesini kabul ediyorum.</span></label>
+            <div class="hint" id="h-kvkk" style="margin:0 0 0 32px"></div>
+            <details class="kdet"><summary>Aydınlatma metni</summary><p>Veri sorumlusu Özkan Muş'tur. Formdaki ad, soyad, e-posta, telefon ve mesaj bilgileriniz yalnızca talebinizi yanıtlamak ve sizinle iletişim kurmak amacıyla işlenir; hukuki sebep açık rızanızdır. KVKK madde 11 kapsamındaki haklarınızı (bilgi talep etme, düzeltme, silme) bu form üzerinden veya yanıt e-postasına cevap vererek kullanabilirsiniz.</p></details>
+          </div>
+          <div class="emsg" id="pf-emsg" role="alert"></div>
+          <button class="sub" id="pf-btn" type="submit"><span class="sp" aria-hidden="true"></span><span id="pf-btn-t">Gönder</span></button>
+        </form>
+        <div class="sent" id="pf-sent" role="status" aria-live="polite" tabindex="-1">
+          <div class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+          <h3>Mesajınız ulaştı.</h3>
+          <p>Teşekkürler. En kısa sürede e-postayla dönüyorum.</p>
+        </div>
+      </div>
+      <aside class="card status rv" aria-hidden="true">
+        <h3><span class="dot"></span>Örnek görünüm</h3>
+        <div class="rows">
+          <div><span>Form</span><b>Hazır</b></div>
+          <div><span>Doğrulama</span><b>Tarayıcıda</b></div>
+          <div><span>Yanıt</span><b>E-posta ile</b></div>
+        </div>
+        <div class="bars" id="bars"></div>
+        <p class="cap2">Örnek görünüm; gerçek bir sistem durumu değildir.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot"><span>© 2026 Özkan Muş</span><span>Bu sitedeki içerik, tasarım ve yazılım Özkan Muş'a aittir.</span></div>
+    <details class="src"><summary>Kaynaklar</summary>
+      <div>
+        <h4>Poly Haven (CC0, atıf gerekmez) — <a href="https://polyhaven.com" rel="noopener">polyhaven.com</a></h4>
+        <ul>
+          <li>studio_small_09_1k.hdr — <a href="https://polyhaven.com/a/studio_small_09" rel="noopener">studio_small_09</a></li>
+          <li>classic_laptop — <a href="https://polyhaven.com/a/classic_laptop" rel="noopener">classic_laptop</a></li>
+        </ul>
+        <p>3B modeller gltf-transform ile optimize edildi (meshopt + WebP).</p>
+      </div>
+    </details>
+  </div>
+</footer>
+
+<script>
+var $=function(s,r){return (r||document).querySelector(s)};
+var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ---------- fiyat katmanları ---------- */
+(function(){
+ var T=[
+  ['Statik / tanıtım sitesi','HTML, CSS, JS · veritabanı yok','₺6.000 – 15.000','3 – 6 iş günü','Tanıtım odaklı, içeriği seyrek değişen işletmeler için. Hızlı açılır, bakımı kolaydır.',[['Mobil uyumlu tasarım',1],['SEO ve hız optimizasyonu',1],['İletişim formu',1],['Veritabanı ve kullanıcı girişi',0]]],
+  ['CMS tabanlı site','WordPress · içerik paneli','₺10.000 – 25.000','7 – 14 iş günü','İçeriği kendi ekibinizin güncelleyeceği siteler: blog, haber, küçük mağaza.',[['WordPress kurulum ve özelleştirilmiş tema',1],['İçerik yönetim paneli',1],['Güvenlik ve yedekleme ayarı',1],['Özel yazılım mimarisi',0]]],
+  ['Özel web uygulaması','PHP 8 · MySQL · AJAX','₺30.000 – 70.000','15 – 25 iş günü','WordPress yok, her satır işinize göre yazılır: rezervasyon, CRM, sipariş takibi.',[['Sıfırdan backend ve veritabanı tasarımı',1],['Kayıt, giriş, şifre sıfırlama',1],['CSRF ve oturum güvenliği',1],['Yönetim paneli ve e-posta bildirimleri',1]],1],
+  ['Kurumsal yönetim platformu','Çok modül · rol bazlı yetki','₺55.000 – 130.000','25 – 45 iş günü','Bayi/şube yönetimi, destek merkezi, finans ve operasyon portalı gibi çok modüllü sistemler.',[['Rol ve departman bazlı yetki (RBAC)',1],['Canlı istatistik panelleri',1],['Tahsilat, tediye, maliyet modülleri',1],['Audit log: kim, ne zaman, ne yaptı',1]]],
+  ['ERP entegre canlı veri platformu','Nebim V3 · SQL Server · GİB','Teklif alın','45+ iş günü · keşif şart','Nebim V3 veya özel ERP\'ye doğrudan bağlanan canlı veri platformu. Fiyat kapsama göre teklifle belirlenir.',[['Nebim V3 / özel ERP entegrasyonu',1],['T-SQL, stored procedure, index optimizasyonu',1],['e-Fatura ve e-İrsaliye takibi',1],['REST / SOAP API tasarımı',1]]]
+ ];
+ var box=$('#tiers');
+ T.forEach(function(t,i){
+  var d=document.createElement('article');d.className='tier'+(t[6]?' hot':'');
+  var li=t[5].map(function(f){return '<li'+(f[1]?'':' class="no"')+'>'+f[0]+'</li>'}).join('');
+  d.innerHTML=(t[6]?'<span class="badge">Öne çıkan</span>':'')+'<div class="in"><span class="n">0'+(i+1)+'</span><h3>'+t[0]+'</h3><div class="sub2">'+t[1]+'</div><div class="p">'+t[2]+'<small>'+t[3]+'</small></div><p class="d">'+t[4]+'</p><ul>'+li+'</ul></div>';
+  if(!RM&&matchMedia('(hover:hover)').matches){
+   d.addEventListener('pointermove',function(e){var r=d.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+    d.style.setProperty('--mx',x+'px');d.style.setProperty('--my',y+'px');d.style.setProperty('--o',1);
+    d.style.transform='translateY(-4px) rotateY('+((x/r.width-.5)*4)+'deg) rotateX('+((.5-y/r.height)*4)+'deg)'});
+   d.addEventListener('pointerleave',function(){d.style.setProperty('--o',0);d.style.transform=''});
+  }
+  box.appendChild(d);
+ });
+})();
+
+/* ---------- süs panel çubukları ---------- */
+(function(){var b=$('#bars'),h='';for(var i=0;i<24;i++)h+='<i style="--h:'+(30+Math.round(Math.abs(Math.sin(i*1.7))*65))+'%;animation-delay:'+(i*0.11).toFixed(2)+'s"></i>';b.innerHTML=h})();
+
+/* ---------- görünürlükte belirme ---------- */
+(function(){var els=document.querySelectorAll('.rv');
+ if(!('IntersectionObserver' in window)||RM){els.forEach(function(e){e.classList.add('in')});return}
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+ els.forEach(function(e){io.observe(e)})})();
+
+/* ---------- iletişim formu ---------- */
+(function(){
+ var f=$('#pf-form'),ENDPOINT='https://nevasdestek.online/ozkanmus_iletisim.php',sending=false,done=false;
+ var RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+ function el(id){return document.getElementById(id)}
+ function v(id){return el(id).value.trim()}
+ /* alan durumu: aria-invalid + ilgili ipucu metni */
+ function set(id,hid,msg){var i=el(id),h=el(hid);h.textContent=msg||'';h.classList.toggle('show',!!msg);
+  if(msg)i.setAttribute('aria-invalid','true');else i.removeAttribute('aria-invalid');return !msg}
+ var chk={
+  name:function(){return set('pf-name','h-name',v('pf-name')?'':'Adınızı yazın.')},
+  surname:function(){return set('pf-surname','h-surname',v('pf-surname')?'':'Soyadınızı yazın.')},
+  email:function(){var e=v('pf-email');return set('pf-email','h-email',!e?'E-posta adresi gerekli.':(!RE.test(e)?'Geçerli bir e-posta adresi girin (örnek: ad@alanadi.com).':''))},
+  phone:function(){var p=v('pf-phone'),dg=p.replace(/\D/g,'');
+   var bad=p&&(!/^[+\d\s()\-]+$/.test(p)||dg.length<10||dg.length>13);
+   var ok=set('pf-phone','h-phone',bad?'Telefon numarası 10 haneli olmalı (örnek: 5xx xxx xx xx). Boş bırakabilirsiniz.':'');return ok},
+  msg:function(){var m=v('pf-msg');return set('pf-msg','h-msg',!m?'Mesaj gerekli.':(m.length<10?'Lütfen en az 10 karakterlik kısa bir açıklama yazın.':''))},
+  kvkk:function(){return set('pf-kvkk','h-kvkk',el('pf-kvkk').checked?'':'Devam etmek için KVKK onayı gerekli.')}
+ };
+ var map={'pf-name':'name','pf-surname':'surname','pf-email':'email','pf-phone':'phone','pf-msg':'msg','pf-kvkk':'kvkk'};
+ Object.keys(map).forEach(function(id){var k=map[id],n=el(id);
+  n.addEventListener(id==='pf-kvkk'?'change':'blur',function(){if(id==='pf-kvkk'||n.value.length||n.hasAttribute('aria-invalid'))chk[k]()});
+  n.addEventListener('input',function(){if(n.hasAttribute('aria-invalid'))chk[k]()});
+ });
+ el('pf-msg').addEventListener('input',function(){el('pf-count').textContent=this.value.length+' / 2000'});
+ function err(t){var m=el('pf-emsg');m.textContent=t||'';m.classList.toggle('show',!!t)}
+ function busy(b){var btn=el('pf-btn');btn.disabled=b;btn.classList.toggle('busy',b);btn.setAttribute('aria-busy',b?'true':'false');el('pf-btn-t').textContent=b?'Gönderiliyor…':'Gönder'}
+ f.addEventListener('submit',async function(e){
+  e.preventDefault();
+  if(sending||done)return;               /* çift gönderim engeli */
+  var order=['name','surname','email','phone','msg','kvkk'],first=null;
+  order.forEach(function(k){if(!chk[k]()&&!first)first=k});
+  if(first){err('Lütfen işaretli alanları düzeltin.');var ids={name:'pf-name',surname:'pf-surname',email:'pf-email',phone:'pf-phone',msg:'pf-msg',kvkk:'pf-kvkk'};el(ids[first]).focus();return}
+  err('');sending=true;busy(true);
+  var payload={ad:v('pf-name'),soyad:v('pf-surname'),email:v('pf-email'),telefon:v('pf-phone'),mesaj:v('pf-msg'),website:v('pf-website')};
+  var ac=window.AbortController?new AbortController():null,to=setTimeout(function(){ac&&ac.abort()},15000);
+  try{
+   var r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:ac?ac.signal:undefined});
+   var d=null;try{d=await r.json()}catch(_){}
+   if(!r.ok||!d||!d.success){var x=new Error('srv');x.status=r.status;throw x}
+   done=true;f.style.display='none';var s=el('pf-sent');s.classList.add('show');s.focus({preventScroll:true});
+  }catch(ex){
+   sending=false;busy(false);
+   err(ex&&ex.status===429?'Çok fazla deneme yapıldı. Lütfen biraz bekleyip tekrar deneyin.':(ex&&ex.name==='AbortError'?'Sunucu yanıt vermedi. Lütfen tekrar deneyin.':'Gönderilemedi. Birkaç dakika sonra tekrar deneyin.'));
+  }finally{clearTimeout(to);if(done)sending=false}
+ });
+})();
+
+/* ---------- iframe yükseklik bildirimi (ebeveyn ResizeObserver/scrollHeight kullanır; ek olarak postMessage) ---------- */
+(function(){
+ if(window.parent===window)return;
+ var last=0;
+ function send(){var h=document.documentElement.scrollHeight;if(h!==last){last=h;try{parent.postMessage({type:'iletisim-height',height:h},'*')}catch(e){}}}
+ if(window.ResizeObserver)new ResizeObserver(send).observe(document.body);
+ addEventListener('load',send);addEventListener('resize',send);send();
+})();
+</script>
+</body>
+</html>
