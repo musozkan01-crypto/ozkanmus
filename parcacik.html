@@ -184,7 +184,7 @@ else{
   function resize(){
     const w=innerWidth,h=innerHeight;renderer.setPixelRatio(DPR);renderer.setSize(w,h,false);
     cam.aspect=w/h;cam.updateProjectionMatrix();uni.uAsp.value=w/h;uni.uDpr.value=DPR;
-    cam.fov=w/h<.9?46:32;cam.updateProjectionMatrix();
+    cam.fov=w/h<.9?Math.min(62,46+(.9-w/h)*70):32;cam.updateProjectionMatrix();
   }
   addEventListener('resize',resize);resize();
   const mT=new THREE.Vector2(9,9);let strT=0,idle=0;
