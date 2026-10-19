@@ -45,7 +45,7 @@ const root=document.getElementById('pcz-root'),canvas=document.getElementById('p
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const mobile=Math.min(innerWidth,innerHeight)<700||/Android|iPhone|iPad/i.test(navigator.userAgent);
 const Q=new URLSearchParams(location.search);
-const F=+Q.get('f')||(mobile?5000:16000), S=mobile?40:56, DUST=mobile?22000:80000;
+const F=+Q.get('f')||(mobile?3000:16000), S=mobile?32:56, DUST=mobile?9000:80000;
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
 const sstep=(a,b,x)=>{x=clamp((x-a)/(b-a),0,1);return x*x*(3-2*x)};
 
@@ -151,7 +151,7 @@ if(!renderer){/* WebGL yok: görsel yedek kalır */}
 else{
   renderer.setClearColor(0x0a0a0b,1);
   renderer.toneMapping=THREE.NoToneMapping;
-  let DPR=Math.min(devicePixelRatio||1,mobile?2:2.5);
+  let DPR=Math.min(devicePixelRatio||1,mobile?1.5:2.5);
   const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(32,1,.02,40);
   const uni={uM:{value:new THREE.Vector2(9,9)},uStr:{value:0},uAsp:{value:1},uDpr:{value:DPR},uCamD:{value:4.6},uT:{value:0}};
   const fg=buildFibers(),dg=buildDust();
