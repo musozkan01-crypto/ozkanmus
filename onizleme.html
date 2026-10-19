@@ -16,7 +16,7 @@
 <meta property="og:description" content="Mağazalar kapanmadan ciro, stok ve e-belge tek ekranda.">
 <meta property="og:image" content="https://ozkanmus.com.tr/logo/final/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="logo/final/favicon-uzay.svg"><link rel="apple-touch-icon" href="logo/final/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="logo/final/favicon-uzay.svg"><link rel="apple-touch-icon" href="logo/final/apple-touch-icon.png">
 <link rel="preload" href="fonts/InterTight-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/ChakraPetch-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/ChakraPetch-600-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -57,7 +57,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{fon
 .pill{position:relative;display:flex;align-items:center;gap:20px;height:48px;padding:0 30px;border:1px solid rgba(220,215,255,.22);border-radius:99px;background:rgba(8,8,16,.62);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font:500 .82rem var(--tech);letter-spacing:.06em;text-transform:uppercase}
 .pill::after{content:"";position:absolute;left:18%;right:18%;bottom:-16px;height:22px;background:radial-gradient(50% 50% at 50% 0,rgba(160,190,255,.55),transparent 70%);filter:blur(5px);pointer-events:none;animation:glw 4s ease-in-out infinite}
 @keyframes glw{50%{opacity:.45}}
-.pill i{width:48px;height:1px;background:rgba(220,215,255,.45)}.pill a{opacity:.9;transition:color .2s}.pill a:hover{color:var(--lav)}
+.pill i{width:48px;height:1px;background:rgba(220,215,255,.45)}#snd{display:flex;align-items:flex-end;gap:2px;height:14px;padding:0;border:0;background:none;cursor:pointer;color:inherit}#snd b{width:2px;height:100%;background:currentColor;transform-origin:bottom;transform:scaleY(.25);transition:transform .3s}#snd.on b{animation:eq 1s ease-in-out infinite alternate}#snd.on b:nth-child(2){animation-delay:-.35s}#snd.on b:nth-child(3){animation-delay:-.7s}#snd.on b:nth-child(4){animation-delay:-.15s}#snd:hover{color:var(--lav)}@keyframes eq{0%{transform:scaleY(.25)}100%{transform:scaleY(1)}}.pill a{opacity:.9;transition:color .2s}.pill a:hover{color:var(--lav)}
 @media(max-width:700px){.brand span{display:none}.pill{gap:10px;padding:0 18px;height:42px;font-size:.72rem}.pill i{width:14px}}
 /* açılış satırı */
 .intro{position:fixed;left:0;right:0;bottom:clamp(28px,6vh,60px);z-index:10;text-align:center;pointer-events:none;font:500 .74rem var(--tech);letter-spacing:.32em;text-transform:uppercase;color:var(--mut)}
@@ -126,8 +126,34 @@ html.det-on .look,html.det-on .intro{opacity:0!important;pointer-events:none!imp
 
 <header class="top">
   <a class="brand" href="#" data-stop="0" aria-label="Özkan Muş, başa dön"><img src="logo/final/isaret-uzay.svg" alt="" width="22" height="22"><span>Özkan Muş</span></a>
-  <nav class="pill" aria-label="Ana menü"><a href="#calismalar" data-stop="6">Çalışmalar</a><i></i><a href="#iletisim" data-stop="9">İletişim</a></nav>
+  <nav class="pill" aria-label="Ana menü"><a href="#calismalar" data-stop="6">Çalışmalar</a><i></i><a href="#iletisim" data-stop="9">İletişim</a><i></i><button id="snd" type="button" aria-label="Sesi kapat" aria-pressed="true"><b></b><b></b><b></b><b></b></button></nav>
 </header>
+<script>
+/* sesler: dosya yok, WebAudio ile anlık sentez — ilk dokunuşta açılır */
+window.SND=(()=>{let ac=null,out=null,rv=null,nz=null,on=true;try{on=localStorage.getItem('snd')!=='0'}catch(e){}
+ const init=()=>{if(ac){if(ac.state==='suspended')ac.resume();return}try{ac=new(window.AudioContext||window.webkitAudioContext)()}catch(e){return}
+  out=ac.createGain();out.gain.value=.5;out.connect(ac.destination);
+  const L=ac.sampleRate*2.2,ir=ac.createBuffer(2,L,ac.sampleRate);for(let c=0;c<2;c++){const d=ir.getChannelData(c);for(let i=0;i<L;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/L,3)}
+  rv=ac.createConvolver();rv.buffer=ir;const rg=ac.createGain();rg.gain.value=.45;rv.connect(rg);rg.connect(out);
+  nz=ac.createBuffer(1,ac.sampleRate,ac.sampleRate);const d=nz.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1};
+ const ok=()=>on&&ac&&ac.state==='running';
+ const env=(g,t,a,p,r)=>{g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(p,t+a);g.gain.exponentialRampToValueAtTime(.0001,t+a+r)};
+ const dst=g=>{g.connect(out);g.connect(rv)};
+ const tone=(f0,f1,t,dur,type,vol)=>{const o=ac.createOscillator(),g=ac.createGain();o.type=type;o.frequency.setValueAtTime(f0,t);o.frequency.exponentialRampToValueAtTime(f1,t+dur);env(g,t,.012,vol,dur);o.connect(g);dst(g);o.start(t);o.stop(t+dur+.05)};
+ const air=(f0,f1,t,dur,vol,q=1.2)=>{const s=ac.createBufferSource(),b=ac.createBiquadFilter(),g=ac.createGain();s.buffer=nz;s.loop=true;b.type='bandpass';b.Q.value=q;b.frequency.setValueAtTime(f0,t);b.frequency.exponentialRampToValueAtTime(f1,t+dur);env(g,t,dur*.35,vol,dur*.65);s.connect(b);b.connect(g);dst(g);s.start(t);s.stop(t+dur+.05)};
+ let lw=0;
+ const api={
+  whoosh(){if(!ok())return;const t=ac.currentTime;if(t-lw<.18)return;lw=t;air(350,2600,t,.42,.16,.9);tone(392,523,t+.02,.35,'sine',.035)},
+  dive(){if(!ok())return;const t=ac.currentTime;air(3000,180,t,1.1,.22,.8);tone(1320,82,t,1.05,'sine',.12);tone(660,55,t+.04,1.1,'triangle',.05);
+   [523.25,659.25,783.99,1046.5].forEach((f,i)=>tone(f,f,t+.5+i*.07,.9,'sine',.05));tone(55,40,t+.85,.7,'sine',.22)},
+  exit(){if(!ok())return;const t=ac.currentTime;air(180,3200,t,.85,.2,.8);tone(82,1320,t,.8,'sine',.1);
+   [1046.5,783.99,659.25,523.25].forEach((f,i)=>tone(f,f,t+.05+i*.06,.6,'sine',.04))},
+  tick(){if(!ok())return;tone(1800,1400,ac.currentTime,.06,'sine',.05)},
+  get on(){return on},toggle(){on=!on;try{localStorage.setItem('snd',on?'1':'0')}catch(e){}if(on){init();api.tick()}return on},init};
+ ['pointerdown','keydown','touchstart','wheel'].forEach(e=>addEventListener(e,init,{passive:true}));
+ return api})();
+(()=>{const b=document.getElementById('snd'),u=()=>{b.classList.toggle('on',SND.on);b.setAttribute('aria-pressed',SND.on);b.setAttribute('aria-label',SND.on?'Sesi kapat':'Sesi aç')};u();b.addEventListener('click',e=>{e.stopPropagation();SND.toggle();u()})})();
+</script>
 
 <main>
 <div class="intro" id="heroT">
@@ -225,7 +251,7 @@ let R;
 try{R=new T.WebGLRenderer({canvas:cv,antialias:false,alpha:false,powerPreference:'high-performance'});if(!R.capabilities.isWebGL2)throw 0}catch(e){R=null;root.classList.add('nogl')}
 if(!R){hideLd()}else{
  const BG=0x05060b,STOPS=10;
- let dpr=Math.min(devicePixelRatio||1,small?1.5:2);
+ let dpr=Math.min(devicePixelRatio||1,small?1.25:2);
  R.setPixelRatio(dpr);R.setClearColor(BG,1);
  const scene=new T.Scene();scene.fog=new T.FogExp2(BG,.034);
  const cam=new T.PerspectiveCamera(40,1,.1,160);
@@ -240,7 +266,7 @@ if(!R){hideLd()}else{
  const pan=(c,i,x,y,z,w,h)=>{const m=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color:new T.Color(c).multiplyScalar(i),side:T.DoubleSide}));m.position.set(x,y,z);m.lookAt(0,0,0);env.add(m)};
  pan(0xffffff,9,-6,3,4,.5,12);pan(0xff5fa8,5,-7,-1,-3,3,8);pan(0x7f6bff,6,7,1,-1,2.5,9);pan(0x5fe0ff,5,5,-6,4,6,1.4);pan(0xffffff,6,0,8,0,8,.5);pan(0xffb36b,4,2,-8,-3,10,1);pan(0x1a1030,2,0,0,-9,20,20);
  const pm=new T.PMREMGenerator(R);scene.environment=pm.fromScene(env,.015).texture;pm.dispose();
- const chrome=o=>new T.MeshPhysicalMaterial(Object.assign({color:0xb8b2c8,metalness:1,roughness:.13,iridescence:1,iridescenceIOR:1.75,iridescenceThicknessRange:[150,900],clearcoat:1,clearcoatRoughness:.05,envMapIntensity:1.9},o));
+ const chrome=o=>new T.MeshPhysicalMaterial(Object.assign({color:0xb8b2c8,metalness:1,roughness:.13,iridescence:1,iridescenceIOR:1.75,iridescenceThicknessRange:[150,900],clearcoat:small?0:1,clearcoatRoughness:.05,envMapIntensity:1.9},o));
  /* ---- yerleşim: kartlar sütunun etrafında döner ---- */
  const cyl=(a,r,y)=>new T.Vector3(r*Math.cos(a),y,r*Math.sin(a));
  const AK=k=>.5+(k-1)*1.25,YK=k=>-1.2-(k-1)*3,COLTOP=.7,COLBOT=-31,CW=3.4,CH=2.1;
@@ -266,15 +292,27 @@ if(!R){hideLd()}else{
    const P=new Float32Array(n*3),N=new Float32Array(n*3);let o=0;gs.forEach(q=>{P.set(q.attributes.position.array,o);N.set(q.attributes.normal.array,o);o+=q.attributes.position.array.length});
    const g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(P,3));g.setAttribute('normal',new T.BufferAttribute(N,3));return g};
   const M=(px,py,pz,rx,ry,rz,sx=1,sy=1,sz=1)=>new T.Matrix4().compose(new T.Vector3(px,py,pz),new T.Quaternion().setFromEuler(new T.Euler(rx,ry,rz)),new T.Vector3(sx,sy,sz));
-  const prof=[[0,-.24],[.5,-.25],[.66,-.21],[.72,-.14],[.6,0],[.72,.14],[.66,.21],[.5,.25],[0,.24]].map(p=>new T.Vector2(p[0],p[1]));
-  const body=new T.LatheGeometry(prof,28),spn=new T.ConeGeometry(.17,1.25,10,6),trn=new T.ConeGeometry(.13,.95,10,6),arc=new T.TorusGeometry(.34,.11,10,26,Math.PI),fac=new T.SphereGeometry(.14,12,10);
-  const V=merge([[body,M(0,0,0,0,0,0)],[arc,M(0,.02,.62,Math.PI/2,0,0)],[spn,M(0,-.22,1.42,Math.PI/2+.42,0,0)],[trn,M(.82,.02,.5,0,-.5,-Math.PI/2)],[trn,M(-.82,.02,.5,0,.5,Math.PI/2)],[fac,M(.3,.26,.82,0,0,0,1,.7,1)],[fac,M(-.3,.26,.82,0,0,0,1,.7,1)]]);
-  /* erimiş, organik yüzey */
-  const ps=V.attributes.position;for(let i=0;i<ps.count;i++){const x=ps.getX(i),y=ps.getY(i),z=ps.getZ(i),d=pn(x*2.2,y*2.2,z*2.2)*.09+pn(x*6,y*6,z*6)*.025,l=Math.hypot(x,z)||1;ps.setXYZ(i,x+x/l*d,y+d*.6,z+z/l*d)}
-  const top=COLTOP-.7,gap=.66,NL=Math.floor((top-COLBOT)/gap),vm=chrome({color:0xa9a4b8,roughness:.2,envMapIntensity:1.15,iridescenceThicknessRange:[250,1000]}),im=new T.InstancedMesh(V,vm,NL),dk=new T.InstancedMesh(new T.CylinderGeometry(.56,.56,.16,28,1),chrome({color:0x8a5a78,roughness:.35,iridescence:.5,envMapIntensity:.9}),NL);
-  for(let k=0;k<NL;k++){const y=top-k*gap,s=.92+.1*Math.sin(k*.4)+.06*pn(k*.37,.5,.2),ry=k*.42+pn(k*.2,3.1,0)*1.4;
-   dm.position.set(pn(k*.15,9,1)*.12,y,pn(k*.15,1,9)*.12);dm.rotation.set(pn(k*.3,5,5)*.12,ry,pn(k*.3,7,2)*.12);dm.scale.set(s,s*1.05,s);dm.updateMatrix();im.setMatrixAt(k,dm.matrix);
-   dm.position.y=y-gap/2;dm.rotation.set(0,0,0);dm.scale.setScalar(s*.95);dm.updateMatrix();dk.setMatrixAt(k,dm.matrix)}
+  /* yumuşak normaller: aynı konumdaki köşelerin yüz normallerini topla (fasetsiz, pürüzsüz krom) */
+  const smooth=g=>{const P=g.attributes.position.array,N=new Float32Array(P.length),H=new Map(),a=new T.Vector3(),b=new T.Vector3(),c=new T.Vector3(),f=new T.Vector3(),K=i=>Math.round(P[i]*1e4)+','+Math.round(P[i+1]*1e4)+','+Math.round(P[i+2]*1e4);
+   for(let i=0;i<P.length;i+=9){a.fromArray(P,i);b.fromArray(P,i+3);c.fromArray(P,i+6);f.subVectors(c,b).cross(a.clone().sub(b));for(let v=0;v<9;v+=3){const k=K(i+v),h=H.get(k);if(h)h.add(f);else H.set(k,f.clone())}}
+   for(let i=0;i<P.length;i+=3){const h=H.get(K(i));(h.lengthSq()?h.clone().normalize():new T.Vector3(0,1,0)).toArray(N,i)}g.setAttribute('normal',new T.BufferAttribute(N,3));return g};
+  /* böbrek kesiti: arka tarafı içe çökük omur gövdesi */
+  const kid=(rx,rz)=>{const s=new T.Shape();for(let i=0;i<=72;i++){const a=i/72*6.2832,n=Math.exp(-Math.pow((a-4.712)/.55,2))*rz*.42,x=Math.cos(a)*rx,y=Math.sin(a)*rz+n;i?s.lineTo(x,y):s.moveTo(x,y)}return s};
+  const slabK=(rx,rz,d,bv)=>{const g=new T.ExtrudeGeometry(kid(rx,rz),{depth:d,bevelEnabled:true,bevelThickness:bv,bevelSize:bv*.85,bevelSegments:6,curveSegments:1});g.rotateX(-Math.PI/2);g.translate(0,-d/2,0);return g};
+  const body=slabK(.52,.4,.25,.065);{const p=body.attributes.position;for(let i=0;i<p.count;i++){const y=p.getY(i),w=1-.15*Math.max(0,1-Math.pow(y/.19,2));p.setX(i,p.getX(i)*w);p.setZ(i,p.getZ(i)*w)}}
+  const ped=new T.CylinderGeometry(.07,.09,.3,18,1),arc=new T.TorusGeometry(.24,.068,18,48,Math.PI),spn=new T.ConeGeometry(.1,.85,24,8),trn=new T.ConeGeometry(.12,.68,20,6),knob=new T.SphereGeometry(.08,18,12),fac=new T.SphereGeometry(.085,18,12);
+  const h=Math.PI/2,V=smooth(merge([[body,M(0,0,0,0,0,0)],
+   [ped,M(.24,.04,.34,h,0,0)],[ped,M(-.24,.04,.34,h,0,0)],[arc,M(0,.04,.46,h,0,0,1,1,1.15)],
+   [spn,M(0,-.1,.9,h+.45,0,0,.42,.8,1.5)],[knob,M(0,-.25,1.2,0,0,0,.7,1.3,1)],
+   [trn,M(.6,.06,.44,0,-.45,-h,1,1,.7)],[trn,M(-.6,.06,.44,0,.45,h,1,1,.7)],[knob,M(.9,.06,.6,0,0,0)],[knob,M(-.9,.06,.6,0,0,0)],
+   [fac,M(.2,.25,.5,.3,0,0,1,.45,1)],[fac,M(-.2,.25,.5,.3,0,0,1,.45,1)],[fac,M(.2,-.19,.6,-.3,0,0,1,.45,1)],[fac,M(-.2,-.19,.6,-.3,0,0,1,.45,1)]]));
+
+  const DG=smooth(slabK(.43,.32,.1,.04));
+  const top=COLTOP-.7,gap=.66,NL=Math.floor((top-COLBOT)/gap),vm=chrome({color:0xb4afc4,roughness:.13,envMapIntensity:1.25,iridescenceThicknessRange:[250,1000]}),im=new T.InstancedMesh(V,vm,NL),dk=new T.InstancedMesh(DG,chrome({color:0x6a3f66,roughness:.5,iridescence:.4,envMapIntensity:.7}),NL);
+  /* boyun → bel: omurlar aşağı indikçe büyür, hepsi aynı yöne bakar (gerçek omurga gibi) */
+  for(let k=0;k<NL;k++){const y=top-k*gap,f=k/(NL-1),s=.85+.36*f+.03*pn(k*.37,.5,.2),ry=.25+pn(k*.2,3.1,0)*.08;
+   dm.position.set(pn(k*.15,9,1)*.05,y,pn(k*.15,1,9)*.05);dm.rotation.set(pn(k*.3,5,5)*.04,ry,pn(k*.3,7,2)*.04);dm.scale.set(s,Math.min(s,1),s);dm.updateMatrix();im.setMatrixAt(k,dm.matrix);
+   dm.position.y=y-gap/2;dm.scale.set(s,1,s);dm.updateMatrix();dk.setMatrixAt(k,dm.matrix)}
   scene.add(im,dk);
   /* zincir: omurganın çevresine sarmal */
   const L=new T.TorusGeometry(.12,.035,8,18);L.scale(1,1.7,1);const NC=Math.floor((top-COLBOT)/.3),ch=new T.InstancedMesh(L,chrome({color:0x7d8cff,roughness:.18,iridescence:.5}),NC),up=new T.Vector3(0,1,0),tg=new T.Vector3(),q=new T.Quaternion(),q2=new T.Quaternion();
@@ -282,7 +320,7 @@ if(!R){hideLd()}else{
    q.setFromUnitVectors(up,tg);q2.setFromAxisAngle(tg,(i%2)*Math.PI/2+a);dm.quaternion.copy(q2.multiply(q));dm.position.set(Math.cos(a)*r,y,Math.sin(a)*r);dm.scale.setScalar(1);dm.updateMatrix();ch.setMatrixAt(i,dm.matrix)}
   }
  /* ---- parçacık kümeleri: gölgeli küçük küreler ---- */
- const PN=small?34000:120000,pp=new Float32Array(PN*3),pc=new Float32Array(PN*3),pz=new Float32Array(PN);
+ const PN=small?26000:120000,pp=new Float32Array(PN*3),pc=new Float32Array(PN*3),pz=new Float32Array(PN);
  {const top=[0xc8bf5a,0x8f9e44,0xe0c98a,0x6f9a6a,0xb0a040],low=[0xff6fb0,0xb06cff,0x6a86ff,0xffb36b,0x8fdcff,0xe0458a,0x9d7bff],c=new T.Color();
   const SEG=[];for(let k=1;k<=8;k++)[false,true].forEach(m=>{const s=st(k,m),a=cyl(AK(k),3.4,YK(k)),d=cyl(s[0],s[1],s[2]).sub(a);SEG.push({a,d,l2:d.lengthSq(),r:2.2})});
   const gs=()=>{let s=0;for(let i=0;i<4;i++)s+=rnd();return(s-2)/2};
@@ -295,11 +333,11 @@ if(!R){hideLd()}else{
     if(L<g.r){const s=g.r*(1.05+rnd()*.4)/Math.max(L,.05);x=g.a.x+g.d.x*h+qx*s;y=g.a.y+g.d.y*h+qy*s;z=g.a.z+g.d.z*h+qz*s;break}}
    pp.set([x,y,z],i*3);c.set(col).offsetHSL((rnd()-.5)*.06,0,(rnd()-.5)*.18);pc.set([c.r,c.g,c.b],i*3);pz[i]=.016+Math.pow(rnd(),4)*.075}}
  const pg=new T.BufferGeometry();pg.setAttribute('position',new T.BufferAttribute(pp,3));pg.setAttribute('col',new T.BufferAttribute(pc,3));pg.setAttribute('sz',new T.BufferAttribute(pz,1));
- const U={t:{value:0},scl:{value:500},ms:{value:new T.Vector2(9,9)},mp:{value:0},asp:{value:1}};
+ const U={t:{value:0},scl:{value:500},ms:{value:new T.Vector2(9,9)},md:{value:new T.Vector2()},mp:{value:0},asp:{value:1}};
  const parts=new T.Points(pg,new T.ShaderMaterial({uniforms:U,
-  vertexShader:`attribute vec3 col;attribute float sz;uniform float t,scl,mp,asp;uniform vec2 ms;varying vec3 c;varying float f;void main(){vec3 p=position;p.y+=sin(t*.3+position.x*.7+position.z)*.07;p.x+=cos(t*.25+position.z*.6)*.06;vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
- /* fare: imlecin altındaki baloncuklar kenara itilir ve hafifçe girdap yapar */
- vec2 dd=gl_Position.xy/gl_Position.w-ms;dd.x*=asp;float r=length(dd),k=smoothstep(.28,.0,r)*mp;if(k>0.){vec2 n=dd/max(r,1e-4);mv.xy+=(n*.85+vec2(-n.y,n.x)*.35)*k*(-mv.z)*.11;gl_Position=projectionMatrix*mv;}float d=-mv.z;gl_PointSize=clamp(sz*scl/d,1.2,48.);c=col;f=exp(-d*d*.0011);}`,
+  vertexShader:`attribute vec3 col;attribute float sz;uniform float t,scl,mp,asp;uniform vec2 ms,md;varying vec3 c;varying float f;void main(){vec3 p=position;p.y+=sin(t*.3+position.x*.7+position.z)*.07;p.x+=cos(t*.25+position.z*.6)*.06;vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
+ /* fare: imlecin geçtiği yerdeki baloncuklar arkasından sürüklenir, sonra yerine döner */
+ vec2 dd=gl_Position.xy/gl_Position.w-ms;dd.x*=asp;float r=length(dd),k=smoothstep(.22,.0,r)*mp;if(k>0.){mv.xy+=vec2(md.x*asp,md.y)*k*(-mv.z)*.33;gl_Position=projectionMatrix*mv;}float d=-mv.z;gl_PointSize=clamp(sz*scl/d,1.2,48.);c=col;f=exp(-d*d*.0011);}`,
   fragmentShader:`varying vec3 c;varying float f;void main(){vec2 q=gl_PointCoord*2.-1.;q.y=-q.y;float r2=dot(q,q);if(r2>1.)discard;vec3 n=vec3(q,sqrt(1.-r2)),L=normalize(vec3(-.45,.6,.66));float df=max(dot(n,L),0.),sp=pow(max(dot(reflect(-L,n),vec3(0,0,1)),0.),28.),rim=pow(1.-n.z,3.);vec3 o=c*(.08+.85*df)+sp*.55+rim*c*.35;gl_FragColor=vec4(mix(vec3(.02,.022,.04),o,f),1.);}`}));
  parts.frustumCulled=false;scene.add(parts);
  /* ---- cam kartlar ---- */
@@ -401,7 +439,7 @@ void main(){vec2 uv=vP.xy/sz+.5;float back=step(vP.z,0.);if(back>.5)uv.x=1.-uv.x
  const VS=`varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}`;
  const mk=(fs,u)=>new T.ShaderMaterial({uniforms:u,vertexShader:VS,fragmentShader:fs,depthTest:false,depthWrite:false});
  const pass=(m,tg)=>{fsMesh.material=m;R.setRenderTarget(tg);R.render(fsScene,fsCam)};
- const rtS=new T.WebGLRenderTarget(1,1,{type:T.HalfFloatType,samples:small?2:4});
+ const rtS=new T.WebGLRenderTarget(1,1,{type:T.HalfFloatType,samples:small?0:4});
  const opt={type:T.HalfFloatType,depthBuffer:false};
  const LV=[0,1,2,3].map(()=>[new T.WebGLRenderTarget(1,1,opt),new T.WebGLRenderTarget(1,1,opt)]);
  const dn=mk(`uniform sampler2D tex;uniform vec2 px;uniform float th;varying vec2 vUv;void main(){vec3 c=(texture2D(tex,vUv+px*vec2(-1,-1)).rgb+texture2D(tex,vUv+px*vec2(1,-1)).rgb+texture2D(tex,vUv+px*vec2(-1,1)).rgb+texture2D(tex,vUv+px*vec2(1,1)).rgb)*.25;float l=max(c.r,max(c.g,c.b));gl_FragColor=vec4(th<0.?c:c*smoothstep(th,th+.7,l),1.);}`,{tex:{value:null},px:{value:new T.Vector2()},th:{value:0}});
@@ -410,7 +448,7 @@ void main(){vec2 uv=vP.xy/sz+.5;float back=step(vP.z,0.);if(back>.5)uv.x=1.-uv.x
 vec3 aces(vec3 x){return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.,1.);}
 float hash(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
 void main(){vec2 uv=vUv,d=uv-.5;float r2=dot(d,d),asp=res.x/res.y;vec2 o=d*r2*.008;
-o*=1.+wp*6.;vec3 c=vec3(0.);for(int i=0;i<8;i++){vec2 q=.5+d*(1.-float(i)*wp*.022);c+=vec3(texture2D(tex,q+o).r,texture2D(tex,q).g,texture2D(tex,q-o).b);}c/=8.;
+o*=1.+wp*6.;vec3 c;if(wp<.002)c=vec3(texture2D(tex,uv+o).r,texture2D(tex,uv).g,texture2D(tex,uv-o).b);else{c=vec3(0.);for(int i=0;i<8;i++){vec2 q=.5+d*(1.-float(i)*wp*.022);c+=vec3(texture2D(tex,q+o).r,texture2D(tex,q).g,texture2D(tex,q-o).b);}c/=8.;}
 vec3 b=texture2D(b0,uv).rgb*.4+texture2D(b1,uv).rgb*.6+texture2D(b2,uv).rgb*.8+texture2D(b3,uv).rgb*1.;c+=b*str;
 float g1=exp(-length((uv-vec2(1.02,1.05))*vec2(asp,1.))*2.6),g2=exp(-length((uv-vec2(-.05,-.02))*vec2(asp,1.))*3.),g3=exp(-abs(uv.x-1.02)*5.);
 c+=vec3(.03,.13,.14)*g1+vec3(.08,.04,.14)*g2+vec3(.01,.05,.06)*g3;
@@ -424,9 +462,10 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
  const size=()=>{const w=innerWidth,h=innerHeight;step=h;mob=w<=860;track.style.height=((STOPS-1)*step+h)+'px';R.setPixelRatio(dpr);R.setSize(w,h,false);cam.aspect=w/h;cam.fov=mob?52:40;cam.updateProjectionMatrix();
   const W=Math.floor(w*dpr),H=Math.floor(h*dpr);rtS.setSize(W,H);LV.forEach((p,k)=>{const s=2**(k+1);p.forEach(r=>r.setSize(Math.max(1,W/s|0),Math.max(1,H/s|0)))});fin.uniforms.res.value.set(W,H);
   U.scl.value=H/(2*Math.tan(cam.fov*Math.PI/360));orient(mob);calc()};
- addEventListener('scroll',calc,{passive:true});addEventListener('resize',size);size();
- const PM=new T.Vector2(9,9);let pmT=0;
- addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;PM.set(e.clientX/innerWidth*2-1,1-e.clientY/innerHeight*2);if(U.ms.value.x>8)U.ms.value.copy(PM);pmT=1},{passive:true});
+ /* telefonda adres çubuğu açılıp kapanınca sahneyi baştan kurma; sadece gerçek boyut değişiminde kur */
+ let lw=innerWidth,lh=innerHeight;addEventListener('scroll',calc,{passive:true});addEventListener('resize',()=>{if(small&&innerWidth===lw&&Math.abs(innerHeight-lh)<160)return;lw=innerWidth;lh=innerHeight;size()});size();
+ const PM=new T.Vector2(9,9);let pmT=0,lsk=null;
+ addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;if(e.pointerType!=='mouse')return;PM.set(e.clientX/innerWidth*2-1,1-e.clientY/innerHeight*2);if(U.ms.value.x>8)U.ms.value.copy(PM);pmT=1},{passive:true});
  document.addEventListener('pointerleave',()=>{pmT=0});addEventListener('blur',()=>{pmT=0});
  document.querySelectorAll('[data-stop]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();scrollTo({top:+a.dataset.stop*step,behavior:'smooth'})}));
  const rc=new T.Raycaster(),mv=new T.Vector2();
@@ -439,7 +478,7 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
  const dLoop=now=>{const v=$('detV');if(dvI<0||det.style.display==='none'){dvI=-1;return}const r=Math.min(2,devicePixelRatio||1),w=Math.round(v.clientWidth*r),h=Math.round(v.clientHeight*r);if(v.width!==w||v.height!==h){v.width=w;v.height=h}
   const x=v.getContext('2d');x.setTransform(w/1280,0,0,h/800,0,0);x.drawImage(dvB,0,0,1280,800);art(x,dvI,now/1000);requestAnimationFrame(dLoop)};
  const type=(el,s,d0)=>{el.textContent='';[...s].forEach((ch,j)=>typT.push(setTimeout(()=>{el.textContent+=ch},d0+j*(reduce?0:14))))};
- function openDet(c){dc=c;typT.forEach(clearTimeout);typT=[];const el=c.el,lab=el.querySelector('.wb span').textContent,tg=el.querySelector('.tg'),pe=el.querySelector('p:not(.mono)'),grp=TU(lab.split('·')[0].trim());
+ function openDet(c){if(!dc)SND.dive();dc=c;typT.forEach(clearTimeout);typT=[];const el=c.el,lab=el.querySelector('.wb span').textContent,tg=el.querySelector('.tg'),pe=el.querySelector('p:not(.mono)'),grp=TU(lab.split('·')[0].trim());
   if(c.img){$('detI').src=c.img.src;dvI=-1}else{const b=document.createElement('canvas');b.width=1280;b.height=800;paint(b,el,c.k-1,null,true);dvB=b;$('detI').src=b.toDataURL('image/jpeg',.6);if(dvI<0)requestAnimationFrame(dLoop);dvI=c.k-1}
   $('detV').style.display=c.img?'none':'block';$('detI').alt=el.querySelector('h2').textContent;
   type($('detH'),TU(el.querySelector('h2').textContent),250);type($('detM'),'2026 / '+(tg?TU(tg.textContent):'NEBİM V3 · SQL')+' / '+grp,450);type($('detD'),TU(pe.textContent),650);
@@ -447,7 +486,7 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
   dl=c;dvT=1;
   if(!det.classList.contains('on')){clearTimeout(dtm);const w=det.style.display==='block'?0:(reduce?0:820);det.style.display='block';root.classList.add('det-on');document.body.style.overflow='hidden';dtm=setTimeout(()=>{if(dc)det.classList.add('on')},w);$('detC').focus({preventScroll:true});if(location.hash!=='#is')history.pushState({det:1},'','#is')}}
  /* çıkış = girişin tersi: önce katman söner (çerçeve büyür), sonra kamera karttan geri fırlar */
- function closeDet(back){if(!dc)return;dc=null;clearTimeout(dtm);typT.forEach(clearTimeout);det.classList.remove('on');
+ function closeDet(back){if(!dc)return;SND.exit();dc=null;clearTimeout(dtm);typT.forEach(clearTimeout);det.classList.remove('on');
   dtm=setTimeout(()=>{if(dc)return;det.style.display='none';dvT=0;root.classList.remove('det-on');dtm=setTimeout(()=>{if(!dc)document.body.style.overflow=''},reduce?0:1100)},reduce?0:650);if(back!==false&&location.hash==='#is')history.back()}
  /* tekerlek: detaydayken çevirince geri çık; animasyon bitene kadar sayfa kaymaz */
  addEventListener('wheel',e=>{if(dc||dvT||dv>.01){e.preventDefault();if(dc&&Math.abs(e.deltaY)>4)closeDet()}},{passive:false});
@@ -461,7 +500,7 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
  function adapt(dt){acc+=dt;fr++;if(fr<45)return;const avg=acc/fr;acc=0;fr=0;if(avg>24&&lvl<3){lvl++;if(lvl===1){dpr=1;size()}else if(lvl===2){pg.setDrawRange(0,Math.floor(PN*.55))}else{dpr=.75;size()}}}
  const sm=f=>f*f*(3-2*f),ease=f=>.75*sm(f)+.25*f,TP=new T.Vector3(),DV=new T.Vector3();let dv=0,dvT=0,dl=null;
  function frame(now){const dt=now-last;last=now;const t=reduce?0:(now-t0)/1000;if(dt<200)adapt(dt);
-  uS+=(u-uS)*.07;mx+=(tx-mx)*.04;my+=(ty-my)*.04;U.t.value=t;U.asp.value=innerWidth/innerHeight;U.ms.value.lerp(PM,.18);U.mp.value+=((dc?0:pmT)-U.mp.value)*.05;fin.uniforms.t.value=t;
+  uS+=(u-uS)*.07;{const sk=Math.round(uS);if(sk!==lsk){if(lsk!==null&&!dc&&!dvT)SND.whoosh();lsk=sk}}mx+=(tx-mx)*.04;my+=(ty-my)*.04;U.t.value=t;U.asp.value=innerWidth/innerHeight;U.ms.value.lerp(PM,.07);U.md.value.subVectors(PM,U.ms.value);if(U.md.value.length()>.3)U.md.value.setLength(.3);U.mp.value+=((dc?0:pmT)-U.mp.value)*.05;fin.uniforms.t.value=t;
   const i=Math.min(STOPS-2,Math.floor(uS)),f=ease(uS-i),a=st(i,mob),b=st(i+1,mob),q=a.map((v,j)=>v+(b[j]-v)*f);
   /* geçişte kamera biraz geri çekilir: daha sinematik */
   const pull=Math.sin(f*Math.PI)*(i?2.2:0);
