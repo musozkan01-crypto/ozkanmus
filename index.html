@@ -5,14 +5,14 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-M40Z49FV4F');</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Özkan Muş — Nebim V3, SQL Server ve ERP Entegrasyon</title>
-<meta name="description" content="Perakende zincirlerinin Nebim V3, SQL Server ve ERP altyapısını yönetiyorum: canlı paneller, e-Fatura / e-İrsaliye takibi, kasa ve mağaza sistemleri.">
+<title>Özkan Muş — Web Sitesi ve Programınız Telefonda</title>
+<meta name="description" content="Küçük ya da büyük işletmeler için uygun bütçeli tanıtım siteleri; kullandığınız programın verisini web'e taşıyan, telefondan bakılan ve veri girilen paneller.">
 <meta name="author" content="Özkan Muş">
 <meta name="theme-color" content="#05060b">
 <link rel="canonical" href="https://ozkanmus.com.tr/">
 <meta property="og:type" content="website"><meta property="og:locale" content="tr_TR"><meta property="og:url" content="https://ozkanmus.com.tr/">
 <meta property="og:title" content="Özkan Muş — Nebim V3, SQL Server ve ERP Entegrasyon">
-<meta property="og:description" content="Mağazalar kapanmadan ciro, stok ve e-belge tek ekranda.">
+<meta property="og:description" content="İnternette yeriniz olsun; programınızın rakamları da telefonunuzda.">
 <meta property="og:image" content="https://ozkanmus.com.tr/logo/final/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="logo/final/favicon-uzay.svg"><link rel="apple-touch-icon" href="logo/final/apple-touch-icon.png">
@@ -92,7 +92,11 @@ details.k2{font-size:.8rem;color:var(--dim);margin:0 0 10px 28px}details.k2 summ
 button.sub{width:100%;min-height:50px;border:1px solid rgba(185,168,255,.5);border-radius:99px;background:rgba(185,168,255,.12);color:var(--ink);font:600 .86rem var(--tech);letter-spacing:.16em;text-transform:uppercase;margin-top:6px;transition:background .2s}button.sub:hover{background:rgba(185,168,255,.24)}button.sub:disabled{opacity:.6;cursor:wait}
 .sent{display:none;text-align:center;padding:24px 6px}.sent.show{display:block}
 .sent .ck{width:52px;height:52px;border-radius:50%;background:var(--lav);color:#0b0816;display:grid;place-items:center;margin:0 auto 14px;font-size:1.5rem;font-weight:700}
-@media(max-width:860px){#iletisim{left:12px;right:12px;top:auto;bottom:12px;width:auto;max-height:72svh;transform:none}.copy{display:none}}
+@media(max-width:860px){html,body{overflow-x:hidden;overscroll-behavior:none}.intro{padding:0 18px;font-size:.6rem;letter-spacing:.16em;line-height:1.7}.intro b{letter-spacing:.32em}
+ #iletisim{left:12px;right:12px;top:calc(50% + 30px);bottom:auto;width:auto;max-height:calc(100svh - 84px);transform:translateY(-50%);overscroll-behavior:contain}.copy{display:none}
+ #iletisim .wc{padding:16px 16px 14px}#iletisim h2{font-size:1.2rem!important;margin-top:4px!important}#iletisim .f2{grid-template-columns:1fr 1fr;gap:8px}
+ #iletisim .fld{margin-top:8px}#iletisim .fld label{font-size:.62rem;margin-bottom:4px}#iletisim .fld input,#iletisim .fld textarea{padding:9px 11px;font-size:16px;border-radius:10px}#iletisim .fld textarea{min-height:64px}
+ #iletisim .chk{font-size:.72rem;margin:8px 0 2px}#iletisim .k2{margin:0 0 6px 28px;font-size:.72rem}#iletisim .sub{min-height:44px}}
 /* kart detayı (AT /work/... görünümü) */
 #det{position:fixed;inset:0;z-index:20;display:none;opacity:0;transition:opacity .7s ease;background:radial-gradient(70% 60% at 50% 45%,rgba(14,30,52,.55),rgba(3,6,12,.94) 75%),repeating-linear-gradient(0deg,rgba(120,170,255,.03) 0 1px,transparent 1px 5px);-webkit-backdrop-filter:blur(10px) saturate(.8);backdrop-filter:blur(10px) saturate(.8)}
 #det.on{opacity:1}
@@ -107,6 +111,8 @@ button.sub{width:100%;min-height:50px;border:1px solid rgba(185,168,255,.5);bord
 #det .tx a{display:inline-block;color:#8fd0ff;text-decoration:underline;text-underline-offset:4px;margin-bottom:14px}
 #det .tx a[hidden]{display:none}
 #fly{position:fixed;inset:0;z-index:21;pointer-events:none;perspective:700px;overflow:hidden}#fly div{position:absolute;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Chakra Petch",sans-serif;font-weight:500;color:#f6f3ff;text-shadow:0 0 18px rgba(185,168,255,.6)}
+#fly .pt{position:absolute;left:var(--px,50%);top:var(--py,50%);width:44vmax;height:44vmax;margin:-22vmax 0 0 -22vmax;border-radius:50%;border:2px solid rgba(127,232,242,.9);box-shadow:0 0 70px rgba(127,232,242,.6),inset 0 0 80px rgba(185,168,255,.55);transform:scale(.04);opacity:0}#fly .pt+.pt{border-color:rgba(255,111,159,.8);box-shadow:0 0 70px rgba(255,111,159,.5),inset 0 0 80px rgba(185,168,255,.4)}
+#fly.go .pt{animation:pt 1.15s cubic-bezier(.45,0,.2,1) forwards}#fly.go .pt+.pt{animation-delay:.16s}#fly.go .pt+.pt+.pt{animation-delay:.32s}@keyframes pt{0%{transform:scale(.04);opacity:0}25%{opacity:1}100%{transform:scale(3.2);opacity:0}}
 #fly span{display:inline-block;will-change:transform,opacity;transition:transform 1.3s cubic-bezier(.55,0,.8,.3),opacity .35s ease .85s,filter .5s ease .7s}
 #fly.go span{transform:translate3d(calc(var(--dx)*3.6px),calc(var(--dy)*3.6px),220px) rotateY(calc(var(--nx)*75deg)) rotateX(calc(var(--ny)*-50deg)) scale(3.4);opacity:0;filter:blur(3px)}
 #det .tx ul{list-style:none;margin:0 0 18px;padding:0}#det .tx li{position:relative;padding-left:22px;margin-bottom:6px;color:#dbe9ff;min-height:1.55em}#det .tx li::before{content:"->";position:absolute;left:0;color:var(--teal)}
@@ -132,47 +138,67 @@ html.det-on .look,html.det-on .intro{opacity:0!important;pointer-events:none!imp
 
 <header class="top">
   <a class="brand" href="#" data-stop="0" aria-label="Özkan Muş, başa dön"><img src="logo/final/isaret-uzay.svg" alt="" width="22" height="22"><span>Özkan Muş</span></a>
-  <nav class="pill" aria-label="Ana menü"><a href="#calismalar" data-stop="6">Çalışmalar</a><i></i><a href="#iletisim" data-stop="9">İletişim</a><i></i><button id="snd" type="button" aria-label="Sesi kapat" aria-pressed="true"><b></b><b></b><b></b><b></b></button></nav>
+  <nav class="pill" aria-label="Ana menü"><a href="#calismalar" data-stop="7">Çalışmalar</a><i></i><a href="#iletisim" data-stop="10">İletişim</a><i></i><button id="snd" type="button" aria-label="Sesi kapat" aria-pressed="true"><b></b><b></b><b></b><b></b></button></nav>
 </header>
 <script>
 /* ses: dosya yok — tarayıcıda üretilen sakin ambiyans müziği + ona uyumlu geçiş notaları.
    iOS: ses ancak dokunuş bitince açılabilir; sessiz tuşunu aşmak için audioSession=playback. */
-window.SND=(()=>{let ac=null,out=null,rv=null,pf=null,on=true,ci=0,bellT=0,started=false;try{on=localStorage.getItem('snd')!=='0'}catch(e){}
+window.SND=(()=>{let ac=null,out=null,rv=null,pf=null,on=true,bellT=0,started=false;try{on=localStorage.getItem('snd')!=='0'}catch(e){}
  const mf=m=>440*Math.pow(2,(m-69)/12);
- const CH=[[45,52,55,59,64],[41,48,52,57,60],[48,52,55,59,64],[43,50,55,59,62]],PEN=[69,72,74,76,79,81,84,86,88];
  const build=()=>{out=ac.createGain();out.gain.value=0;const cp=ac.createDynamicsCompressor();cp.threshold.value=-18;cp.ratio.value=3;out.connect(cp);cp.connect(ac.destination);
   const L=Math.floor(ac.sampleRate*3.6),ir=ac.createBuffer(2,L,ac.sampleRate);for(let c=0;c<2;c++){const d=ir.getChannelData(c);for(let i=0;i<L;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/L,2.6)}
   rv=ac.createConvolver();rv.buffer=ir;const rg=ac.createGain();rg.gain.value=.7;rv.connect(rg);rg.connect(out);
   pf=ac.createBiquadFilter();pf.type='lowpass';pf.frequency.value=700;pf.Q.value=.6;const pg=ac.createGain();pg.gain.value=.22;pf.connect(pg);pg.connect(out);pg.connect(rv);
   const lfo=ac.createOscillator(),lg=ac.createGain();lfo.frequency.value=.07;lg.gain.value=260;lfo.connect(lg);lg.connect(pf.frequency);lfo.start()};
- /* pad: her akor 9 sn, yumuşak giriş/çıkış, iki hafif kaymış testere */
- const pad=()=>{if(!on||!ac)return;const t=ac.currentTime,c=CH[ci%CH.length];ci++;
-  c.forEach((m,j)=>[-6,6].forEach(dt=>{const o=ac.createOscillator(),g=ac.createGain();o.type=j===0?'triangle':'sawtooth';o.frequency.value=mf(m);o.detune.value=dt;
-   g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(j===0?.09:.045,t+3.2);g.gain.setValueAtTime(j===0?.09:.045,t+7.5);g.gain.linearRampToValueAtTime(0,t+11.5);o.connect(g);g.connect(pf);o.start(t);o.stop(t+11.6)}))};
+ /* tekrar etmeyen ambiyans: akor havuzundan rastgele yürüyüş, her seferinde farklı dizilim ve süre */
+ const POOL=[[45,52,55,59,64],[41,48,52,57,60],[48,52,55,59,64],[43,50,55,59,62],[40,47,52,55,59],[38,45,50,53,57],[44,51,55,58,63],[46,53,57,60,65],[36,43,50,52,59],[42,49,54,57,61]];
+ /* her kartın kendi "boyutu": ayrı tonal dünya */
+ const DIM=[[50,57,62,66,68,73],[47,54,61,63,66,70],[53,60,64,67,71,74],[49,56,60,63,68,72],[46,53,58,62,64,69],[51,58,62,65,70,74],[48,55,59,62,66,71],[44,51,56,60,63,67],[52,59,63,66,71,75]];
+ let dim=-1,curC=POOL[0],lastP=0,padTo=0,pads=[],nz=null;
+ const vary=c=>c.map((m,j)=>j&&Math.random()<.22?m+12:m).filter((m,j)=>!j||Math.random()>.25);
+ const pad=()=>{if(!on||!ac)return;clearTimeout(padTo);const t=ac.currentTime,dur=10+Math.random()*8,dm=dim>=0;
+  let c;if(dm)c=vary(DIM[dim]);else{let p;do p=Math.floor(Math.random()*POOL.length);while(p===lastP);lastP=p;c=vary(POOL[p])}curC=c;
+  const pg2=ac.createGain();pg2.connect(pf);pads.push(pg2);if(pads.length>4)pads.shift();const at=dm?1.2:3+Math.random()*2;
+  c.forEach((m,j)=>(dm?[-11,0,11]:[-6,6]).forEach(dt=>{const o=ac.createOscillator(),g=ac.createGain();o.type=j===0?'triangle':dm?'sine':'sawtooth';o.frequency.value=mf(m)*(dm&&j>2?2:1);o.detune.value=dt;const v=(j===0?.09:.045)*(dm?1.3:1);
+   g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+at);g.gain.setValueAtTime(v,t+dur-3);g.gain.linearRampToValueAtTime(0,t+dur+2);o.connect(g);g.connect(pg2);o.start(t);o.stop(t+dur+2.1)}));
+  padTo=setTimeout(pad,(dur-3)*1000)};
+ const fadePads=(d)=>{const t=ac.currentTime;pads.forEach(g=>{g.gain.cancelScheduledValues(t);g.gain.setValueAtTime(g.gain.value,t);g.gain.linearRampToValueAtTime(0,t+d)});pads=[]};
  /* çan: sinüs + metalik üst ses, uzun kuyruk */
  const bell=(m,t,v,d=2.4)=>{[[1,1],[2.76,.28],[5.4,.08]].forEach(([r,a])=>{const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=mf(m)*r;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v*a,t+.008);g.gain.exponentialRampToValueAtTime(.0001,t+d/r);o.connect(g);g.connect(out);g.connect(rv);o.start(t);o.stop(t+d/r+.05)})};
- const tick=()=>{if(!ac||!on)return;const t=ac.currentTime;if(t>=bellT){if(Math.random()<.55)bell(PEN[Math.floor(Math.random()*PEN.length)],t+.05,.035,3.2);bellT=t+2.2+Math.random()*3.5}};
- let pid=0,bid=0;
- const start=()=>{if(started||!ac)return;started=true;out.gain.setValueAtTime(0,ac.currentTime);out.gain.linearRampToValueAtTime(.8,ac.currentTime+2.5);pad();pid=setInterval(pad,9000);bid=setInterval(tick,400)};
- const stop=()=>{if(!started)return;started=false;clearInterval(pid);clearInterval(bid);out.gain.cancelScheduledValues(ac.currentTime);out.gain.setTargetAtTime(0,ac.currentTime,.3)};
+ const tick=()=>{if(!ac||!on)return;const t=ac.currentTime;if(t>=bellT){if(Math.random()<(dim>=0?.7:.45)){const m=curC[Math.floor(Math.random()*curC.length)]+(Math.random()<.5?24:36);bell(m,t+.05,.03,3.4)}bellT=t+2.5+Math.random()*(dim>=0?3:5)}};
+ let bid=0;
+ const start=()=>{if(started||!ac)return;started=true;out.gain.setValueAtTime(0,ac.currentTime);out.gain.linearRampToValueAtTime(.8,ac.currentTime+2.5);pad();bid=setInterval(tick,400)};
+ const stop=()=>{if(!started)return;started=false;clearTimeout(padTo);clearInterval(bid);out.gain.cancelScheduledValues(ac.currentTime);out.gain.setTargetAtTime(0,ac.currentTime,.3)};
  const unlock=()=>{try{if(navigator.audioSession)navigator.audioSession.type='playback'}catch(e){}
   if(!ac){try{ac=new(window.AudioContext||window.webkitAudioContext)()}catch(e){return}build()}
   if(ac.state!=='running')ac.resume();const b=ac.createBuffer(1,1,22050),s=ac.createBufferSource();s.buffer=b;s.connect(ac.destination);s.start(0);
   if(on)start()};
  const ok=()=>on&&ac&&ac.state==='running'&&started;
- const cur=()=>CH[(ci+CH.length-1)%CH.length];
- const sweep=(f,dur)=>{const t=ac.currentTime;pf.frequency.cancelScheduledValues(t);pf.frequency.setValueAtTime(pf.frequency.value,t);pf.frequency.linearRampToValueAtTime(f,t+dur*.3);pf.frequency.linearRampToValueAtTime(700,t+dur)};
+ const noise=()=>{if(!nz){const L=ac.sampleRate*2;nz=ac.createBuffer(1,L,ac.sampleRate);const d=nz.getChannelData(0);for(let i=0;i<L;i++)d[i]=Math.random()*2-1}const s=ac.createBufferSource();s.buffer=nz;return s};
+ /* filtrelenmiş gürültü süpürmesi: hava akımı / geçit sesi */
+ const swoosh=(t,f0,f1,d,v,q=1.2)=>{const s=noise(),b=ac.createBiquadFilter(),g=ac.createGain();b.type='bandpass';b.Q.value=q;b.frequency.setValueAtTime(f0,t);b.frequency.exponentialRampToValueAtTime(f1,t+d);
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+d*.85);g.gain.linearRampToValueAtTime(0,t+d+.08);s.connect(b);b.connect(g);g.connect(out);g.connect(rv);s.start(t);s.stop(t+d+.1)};
+ /* kayan testere kümesi: uzay/boyut geçişi */
+ const glide=(t,m,mul,d,v)=>{const lp=ac.createBiquadFilter(),g=ac.createGain();lp.type='lowpass';lp.frequency.setValueAtTime(mul>1?500:5000,t);lp.frequency.exponentialRampToValueAtTime(mul>1?6000:400,t+d);
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+d*.8);g.gain.linearRampToValueAtTime(0,t+d+.06);lp.connect(g);g.connect(out);g.connect(rv);
+  [-14,0,9,19].forEach(dt=>{const o=ac.createOscillator();o.type='sawtooth';o.detune.value=dt;o.frequency.setValueAtTime(mf(m),t);o.frequency.exponentialRampToValueAtTime(mf(m)*mul,t+d);o.connect(lp);o.start(t);o.stop(t+d+.1)})};
+ const boom=t=>{const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.setValueAtTime(95,t);o.frequency.exponentialRampToValueAtTime(30,t+.9);g.gain.setValueAtTime(.55,t);g.gain.exponentialRampToValueAtTime(.0001,t+1.8);o.connect(g);g.connect(out);o.start(t);o.stop(t+1.9);
+  const s=noise(),lp=ac.createBiquadFilter(),g2=ac.createGain();lp.type='lowpass';lp.frequency.value=900;g2.gain.setValueAtTime(.25,t);g2.gain.exponentialRampToValueAtTime(.0001,t+.6);s.connect(lp);lp.connect(g2);g2.connect(out);g2.connect(rv);s.start(t);s.stop(t+.7)};
+ const pfTo=(f,t,tc)=>{pf.frequency.cancelScheduledValues(t);pf.frequency.setTargetAtTime(f,t,tc)};
+ /* yeni boyutun akoru: hepsi birden açılan parlak bir çiçek */
+ const bloom=(t,k)=>{const c=DIM[k];c.forEach((m,j)=>bell(m+24,t+j*.012,.045,4.5));bell(c[0]+36,t+.4,.025,6)};
  let lw=0;
  const api={
-  /* durak değişince: akordan tek nota, aşağı indikçe yükselir */
-  step(k){if(!ok())return;const t=ac.currentTime;if(t-lw<.22)return;lw=t;const c=cur(),m=c[(k%c.length)]+24+(k>=c.length?12:0);bell(m,t,.07,2.2)},
-  /* karta giriş: hoş geldiniz — yükselen arp, açılan pad, alttan sıcak dalga */
-  dive(){if(!ok())return;const t=ac.currentTime,c=cur();sweep(3400,2.6);
-   const ns=[...c.map(m=>m+12),...c.map(m=>m+24)];ns.forEach((m,j)=>bell(m,t+.06+j*.075,.075-j*.004,2.6));
-   const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.setValueAtTime(mf(c[0]-12),t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.28,t+.45);g.gain.exponentialRampToValueAtTime(.0001,t+2.4);o.connect(g);g.connect(out);o.start(t);o.stop(t+2.5);
-   bell(c[c.length-1]+36,t+.9,.03,4)},
-  /* çıkış: yumuşak inen kapanış */
-  exit(){if(!ok())return;const t=ac.currentTime,c=cur();[c[3]+24,c[2]+24,c[1]+24,c[0]+24].forEach((m,j)=>bell(m,t+j*.09,.06,1.8));pf.frequency.setTargetAtTime(500,t,.25);pf.frequency.setTargetAtTime(700,t+.8,.6)},
+  /* durak değişince: melodi değil, kısa bir hava süpürmesi */
+  step(k){if(!ok())return;const t=ac.currentTime;if(t-lw<.3)return;lw=t;swoosh(t,300+Math.random()*200,1400+Math.random()*900,.38,.06,1.6)},
+  /* karta giriş: başka boyuta geçiş — yükselen uğultu, varışta darbe, ardından o kartın kendi dünyası */
+  dive(k){if(!ok())return;const t=ac.currentTime,d=.95,kk=((k||1)-1)%DIM.length;
+   swoosh(t,250,7500,d,.24,.9);glide(t,curC[0]-12,4,d,.07);pfTo(300,t,.15);
+   boom(t+d);bloom(t+d,kk);dim=kk;fadePads(1.1);clearTimeout(padTo);padTo=setTimeout(pad,d*1000);pfTo(1500,t+d,.5)},
+  /* detayda kart değişimi: kısa yatay geçiş, yeni dünya */
+  shift(k){if(!ok())return;const t=ac.currentTime,kk=((k||1)-1)%DIM.length;swoosh(t,600,3200,.45,.12,1.4);bloom(t+.4,kk);dim=kk;fadePads(.8);clearTimeout(padTo);padTo=setTimeout(pad,400)},
+  /* çıkış: tersine geçiş, ana dünyaya dönüş */
+  exit(){if(!ok())return;const t=ac.currentTime;swoosh(t,6000,250,.75,.18,.9);glide(t,curC[0],.25,.75,.05);pfTo(700,t,.4);dim=-1;fadePads(.9);clearTimeout(padTo);padTo=setTimeout(pad,700)},
   get on(){return on},
   toggle(){on=!on;try{localStorage.setItem('snd',on?'1':'0')}catch(e){}if(on)unlock();else stop();return on}};
  ['touchend','click','keydown','pointerup'].forEach(e=>addEventListener(e,unlock,{passive:true}));
@@ -183,34 +209,36 @@ window.SND=(()=>{let ac=null,out=null,rv=null,pf=null,on=true,ci=0,bellT=0,start
 
 <main>
 <div class="intro" id="heroT">
-  <h1 class="sr">Özkan Muş — Nebim V3, SQL Server ve ERP altyapısı: sistemleriniz tek ekranda.</h1>
-  <b>Özkan Muş</b>Nebim V3 · SQL Server · ERP
+  <h1 class="sr">Özkan Muş — uygun bütçeli tanıtım siteleri ve programınızın verisini telefona taşıyan web panelleri.</h1>
+  <b>Özkan Muş</b>Web sitesi · Programınız telefonda
   <span>kaydırın ↓</span>
 </div>
 
 <nav class="look" id="look" aria-label="Bölümler">
   <p>Ne arıyorsunuz?</p>
-  <a href="#hizmetler" data-stop="1">-&gt; Nebim V3 &amp; SQL</a>
-  <a href="#" data-stop="2">-&gt; Canlı paneller</a>
-  <a href="#" data-stop="3">-&gt; e-Fatura / e-İrsaliye</a>
-  <a href="#" data-stop="4">-&gt; Kasa &amp; mağaza</a>
-  <a href="#" data-stop="5">-&gt; Altyapı &amp; otomasyon</a>
-  <a href="#calismalar" data-stop="6">-&gt; Çalışmalar</a>
-  <a href="#iletisim" class="ask" data-stop="9">Bana yazın...</a>
+  <a href="#hizmetler" data-stop="1">-&gt; İnternette yeriniz</a>
+  <a href="#" data-stop="2">-&gt; Program cebinizde</a>
+  <a href="#" data-stop="3">-&gt; Programınız kalsın</a>
+  <a href="#" data-stop="4">-&gt; Sahadan giriş</a>
+  <a href="#" data-stop="5">-&gt; Kendiliğinden çalışır</a>
+  <a href="#" data-stop="6">-&gt; Sağlam veri</a>
+  <a href="#calismalar" data-stop="7">-&gt; Çalışmalar</a>
+  <a href="#iletisim" class="ask" data-stop="10">Bana yazın...</a>
 </nav>
 
-<article class="win" id="hizmetler"><div class="wb"><span>Hizmetler · 1/5</span></div><div class="wc"><p class="mono">01 / Hizmetler</p><h2>Nebim V3 ve <em>SQL Server</em></h2><p>Yavaş raporu hızlı rapora çeviririm. Envanter raporu 20 dk → 59 sn, satır sayısı değişmeden.</p></div></article>
-<article class="win"><div class="wb"><span>Hizmetler · 2/5</span></div><div class="wc"><h2>Canlı <em>paneller</em></h2><p>Ciro, stok ve tahsilat mağazalar kapanmadan tek ekranda; yönetici telefonundan da aynı sayıyı görür.</p></div></article>
-<article class="win"><div class="wb"><span>Hizmetler · 3/5</span></div><div class="wc"><h2>e-Fatura / <em>e-İrsaliye</em></h2><p>Takılan belgenin nedenini bulurum: plaka, seri tanımı, kilit, muhasebe entegrasyonu.</p></div></article>
-<article class="win"><div class="wb"><span>Hizmetler · 4/5</span></div><div class="wc"><h2>Kasa ve <em>mağaza</em></h2><p>Yazar kasa (ÖKC) fiş akışı, transfer ve koli takibi, sayım terminali, puantaj.</p></div></article>
-<article class="win"><div class="wb"><span>Hizmetler · 5/5</span></div><div class="wc"><h2>Altyapı ve <em>otomasyon</em></h2><p>Yedekleme, zamanlanmış görevler, rol yetkisi, sunucu ve VPN. Sistem sessizce iş yolundadır.</p></div></article>
+<article class="win" id="hizmetler"><div class="wb"><span>Hizmetler · 1/6</span></div><div class="wc"><p class="mono">01 / Hizmetler</p><h2>İnternette <em>yeriniz</em></h2><p>Küçük bir dükkân da olsanız büyük bir firma da: işinizi anlatan, telefonda düzgün açılan, uygun bütçeli tek sayfalık ya da birkaç sayfalık bir site.</p></div></article>
+<article class="win"><div class="wb"><span>Hizmetler · 2/6</span></div><div class="wc"><h2>Program <em>cebinizde</em></h2><p>Kullandığınız programı açmadan ciroya, stoğa, tahsilata bakın. Veri kendiliğinden web'e taşınır; telefondan ya da bilgisayardan.</p></div></article>
+<article class="win"><div class="wb"><span>Hizmetler · 3/6</span></div><div class="wc"><h2>Programınız <em>kalsın</em></h2><p>Yeni program öğrenmek yok. Mevcut programınıza bağlanılır, gereken veri alınır ve sade bir ekrana dönüşür.</p></div></article>
+<article class="win"><div class="wb"><span>Hizmetler · 4/6</span></div><div class="wc"><h2>Sahadan <em>giriş</em></h2><p>Personel programı açmaz: puantaj, sayım, transfer, istenirse satış bile telefondan girilir ve merkeze ulaşır.</p></div></article>
+<article class="win"><div class="wb"><span>Hizmetler · 5/6</span></div><div class="wc"><h2>Kendiliğinden <em>çalışır</em></h2><p>Veri aktarımı, yedekleme ve bildirimler zamanlanmış görevlerle her gün kendiliğinden döner. Kimse elle rapor çekmez.</p></div></article>
+<article class="win"><div class="wb"><span>Hizmetler · 6/6</span></div><div class="wc"><h2>Sağlam <em>veri</em></h2><p>Ekranın arkası Nebim V3 ve SQL Server deneyimine dayanır: envanter raporu 20 dakikadan 59 saniyeye, satır kaybı olmadan.</p></div></article>
 
 <article class="win" id="calismalar"><div class="wb"><span>Çalışmalar · 1/3</span></div><div class="wc"><p class="mono">02 / Çalışmalar</p><h2>Nevas <em>Destek</em></h2><span class="tg">Kapalı sistem</span><p>Talep, puantaj, tahsilat/tediye ve rol bazlı erişim; Nebim entegrasyonuyla mağaza ve merkez aynı kayıtta çalışır.</p><img class="th" src="assets/proje_nevas.webp" alt="Nevas Destek giriş ekranı" width="800" height="500"></div></article>
 <article class="win"><div class="wb"><span>Çalışmalar · 2/3</span></div><div class="wc"><h2>Niti<em>GO</em></h2><span class="tg">Ön muhasebe</span><p>Cari, stok, kasa ve banka; çok firmalı yapı, anlık raporlar. Türkçe ve İngilizce.</p><img class="th" src="assets/proje_nitigo.webp" alt="NitiGO ön muhasebe" width="800" height="500"></div></article>
 <article class="win"><div class="wb"><span>Çalışmalar · 3/3</span></div><div class="wc"><h2>Esat <em>Üzüm</em></h2><span class="tg">Yayında</span><p>Dijital pazarlama uzmanı için kurumsal site: hizmetler, paketler, blog ve e-posta bildirimli iletişim formu.</p><img class="th" src="assets/proje_esat.webp" alt="Esat Üzüm kurumsal site" width="800" height="500"><a class="go" href="https://esatuzum.com" target="_blank" rel="noopener">Siteyi aç ↗</a></div></article>
 
 <article class="win wide" id="iletisim"><div class="wc">
-  <p class="mono" style="font:500 .72rem var(--tech);letter-spacing:.14em;text-transform:uppercase;color:var(--lav)">03 / İletişim</p><h2 style="font:600 clamp(1.5rem,1rem + 1.4vw,2.1rem)/1.05 var(--tech);text-transform:uppercase;margin-top:10px">Sisteminizin neresi <em style="font-style:normal;color:var(--teal)">takılıyor?</em></h2>
+  <p class="mono" style="font:500 .72rem var(--tech);letter-spacing:.14em;text-transform:uppercase;color:var(--lav)">03 / İletişim</p><h2 style="font:600 clamp(1.5rem,1rem + 1.4vw,2.1rem)/1.05 var(--tech);text-transform:uppercase;margin-top:10px">Siteniz mi, <em style="font-style:normal;color:var(--teal)">programınız mı?</em></h2>
   <form id="f" novalidate aria-label="İletişim formu">
     <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr">
     <div class="f2"><div class="fld"><label for="ad">Ad</label><input id="ad" required maxlength="60" autocomplete="given-name"><div class="hint2" id="h-ad"></div></div><div class="fld"><label for="soyad">Soyad</label><input id="soyad" required maxlength="60" autocomplete="family-name"><div class="hint2" id="h-soyad"></div></div></div>
@@ -229,7 +257,7 @@ window.SND=(()=>{let ac=null,out=null,rv=null,pf=null,on=true,ci=0,bellT=0,start
   <div class="fr"><img id="detI" alt=""><canvas id="detV" aria-hidden="true"></canvas></div>
   <div class="sc">Kaydırarak kapatın</div><div class="nx"><button type="button" id="detP" aria-label="Önceki">&lt;&lt;</button><span id="detN"></span><button type="button" id="detX" aria-label="Sonraki">&gt;&gt;</button></div>
   <div class="tx"><h3 id="detH"></h3><div class="meta" id="detM"></div><p id="detD"></p><ul id="detB"></ul><div class="st" id="detS"></div><a id="detL" target="_blank" rel="noopener" hidden>Siteyi aç ↗</a><button type="button" id="detC">&lt;- Kapat</button></div>
-  <a class="ask2" href="#iletisim" data-stop="9">Bana yazın...</a>
+  <a class="ask2" href="#iletisim" data-stop="10">Bana yazın...</a>
 </section>
 <div id="fly" aria-hidden="true"></div>
 <div class="copy">© 2026 Özkan Muş · Alanya</div>
@@ -277,7 +305,7 @@ const hideLd=()=>{clearInterval(cd);ldSet(100);lds.textContent='HAZIR';setTimeou
 let R;
 try{R=new T.WebGLRenderer({canvas:cv,antialias:false,alpha:false,powerPreference:'high-performance'});if(!R.capabilities.isWebGL2)throw 0}catch(e){R=null;root.classList.add('nogl')}
 if(!R){hideLd()}else{
- const BG=0x05060b,STOPS=10;
+ const BG=0x05060b,STOPS=11;
  let dpr=Math.min(devicePixelRatio||1,small?1.25:2);
  R.setPixelRatio(dpr);R.setClearColor(BG,1);
  const scene=new T.Scene();scene.fog=new T.FogExp2(BG,.034);
@@ -296,8 +324,8 @@ if(!R){hideLd()}else{
  const chrome=o=>new T.MeshPhysicalMaterial(Object.assign({color:0xb8b2c8,metalness:1,roughness:.13,iridescence:1,iridescenceIOR:1.75,iridescenceThicknessRange:[150,900],clearcoat:small?0:1,clearcoatRoughness:.05,envMapIntensity:1.9},o));
  /* ---- yerleşim: kartlar sütunun etrafında döner ---- */
  const cyl=(a,r,y)=>new T.Vector3(r*Math.cos(a),y,r*Math.sin(a));
- const AK=k=>.5+(k-1)*1.25,YK=k=>-1.2-(k-1)*3,COLTOP=.7,COLBOT=-31,CW=3.4,CH=2.1;
- const st=(k,m)=>k<=0?[AK(1)-.42,m?27:20,5.4,AK(1),0,2.2]:k>=9?[AK(8)+1.3,m?14:10.5,-25.6,AK(8)+1.3,0,-26.4]:m?[AK(k),12.8,YK(k)+.2,AK(k),3.4,YK(k)]:[AK(k),9.4,YK(k)+.3,AK(k),3.4,YK(k)-.02];
+ const AK=k=>.5+(k-1)*1.25,YK=k=>-1.2-(k-1)*3,COLTOP=.7,COLBOT=-34,CW=3.4,CH=2.1;
+ const st=(k,m)=>k<=0?[AK(1)-.42,m?27:20,5.4,AK(1),0,2.2]:k>=10?[AK(9)+1.3,m?14:10.5,YK(9)-3.4,AK(9)+1.3,0,YK(9)-4.2]:m?[AK(k),12.8,YK(k)+.2,AK(k),3.4,YK(k)]:[AK(k),9.4,YK(k)+.3,AK(k),3.4,YK(k)-.02];
  /* ---- tepe: krom halka + 3B logo ---- */
  const crown=new T.Group();crown.position.set(0,2.3,0);scene.add(crown);
  /* tepede iki ışık halkası; aynı iki çizgi omurganın etrafında sarmal olarak aşağı iner */
@@ -349,10 +377,10 @@ if(!R){hideLd()}else{
  /* ---- parçacık kümeleri: gölgeli küçük küreler ---- */
  const PN=small?26000:120000,pp=new Float32Array(PN*3),pc=new Float32Array(PN*3),pz=new Float32Array(PN);
  {const top=[0xc8bf5a,0x8f9e44,0xe0c98a,0x6f9a6a,0xb0a040],low=[0xff6fb0,0xb06cff,0x6a86ff,0xffb36b,0x8fdcff,0xe0458a,0x9d7bff],c=new T.Color();
-  const SEG=[];for(let k=1;k<=8;k++)[false,true].forEach(m=>{const s=st(k,m),a=cyl(AK(k),3.4,YK(k)),d=cyl(s[0],s[1],s[2]).sub(a);SEG.push({a,d,l2:d.lengthSq(),r:2.2})});
+  const SEG=[];for(let k=1;k<=9;k++)[false,true].forEach(m=>{const s=st(k,m),a=cyl(AK(k),3.4,YK(k)),d=cyl(s[0],s[1],s[2]).sub(a);SEG.push({a,d,l2:d.lengthSq(),r:2.2})});
   const gs=()=>{let s=0;for(let i=0;i<4;i++)s+=rnd();return(s-2)/2};
-  const CL=[];for(let i=0;i<(small?45:85);i++){const y=6-rnd()*38,a=rnd()*6.283,r=2.2+Math.pow(rnd(),.8)*12;CL.push({p:cyl(a,r,y),s:[.5+rnd()*2.4,.6+rnd()*(rnd()<.3?5:2),.5+rnd()*2.4],c:(y>-2?top:low)[Math.floor(rnd()*5+(y>-2?0:rnd()*2))],m:.4+rnd()})}
-  for(let i=0;i<PN;i++){let x,y,z,col;if(rnd()<.14){const a=rnd()*6.283,r=2+rnd()*16;y=7-rnd()*40;x=Math.cos(a)*r;z=Math.sin(a)*r;col=(y>-2?top:low)[Math.floor(rnd()*5)]}
+  const CL=[];for(let i=0;i<(small?45:85);i++){const y=6-rnd()*41,a=rnd()*6.283,r=2.2+Math.pow(rnd(),.8)*12;CL.push({p:cyl(a,r,y),s:[.5+rnd()*2.4,.6+rnd()*(rnd()<.3?5:2),.5+rnd()*2.4],c:(y>-2?top:low)[Math.floor(rnd()*5+(y>-2?0:rnd()*2))],m:.4+rnd()})}
+  for(let i=0;i<PN;i++){let x,y,z,col;if(rnd()<.14){const a=rnd()*6.283,r=2+rnd()*16;y=7-rnd()*43;x=Math.cos(a)*r;z=Math.sin(a)*r;col=(y>-2?top:low)[Math.floor(rnd()*5)]}
    else{const q=CL[Math.floor(rnd()*CL.length)];x=q.p.x+gs()*q.s[0];y=q.p.y+gs()*q.s[1];z=q.p.z+gs()*q.s[2];col=q.c}
    const rr=Math.hypot(x,z);if(rr<2.3){const k=2.3/Math.max(rr,.01);x*=k;z*=k}
    /* kamera→kart görüş hattını boşalt */
@@ -388,12 +416,12 @@ void main(){vec2 uv=vP.xy/sz+.5;float back=step(vP.z,0.);if(back>.5)uv.x=1.-uv.x
  const TU=s=>s.toLocaleUpperCase('tr-TR');
  /* hizmet detayı: her hizmete özel, sürekli oynayan sahne (1280×800 mantıksal) */
  const SR=Array.from({length:320},(_,j)=>({a:rnd()*6.283,o:rnd(),v:.5+rnd(),c:j%3}));
- function art(x,i,t){const LV='#b9a8ff',TL='#7fe8f2',GD='#f2b34a',PK='#ff6f9f',CL=[LV,TL,PK],F=(w,s)=>`${w} ${s}px "Chakra Petch",sans-serif`;
+ function art(x,i,t){i=[5,0,2,3,4,1][i]??i;const LV='#b9a8ff',TL='#7fe8f2',GD='#f2b34a',PK='#ff6f9f',CL=[LV,TL,PK],F=(w,s)=>`${w} ${s}px "Chakra Petch",sans-serif`;
   const tx=(s,a,b,c,w,sz,al,bl)=>{x.save();x.fillStyle=c;x.font=F(w,sz);x.textAlign=al||'center';if(bl){x.shadowColor=c;x.shadowBlur=bl}x.fillText(s,a,b);x.restore()};
   const dot=(a,b,r,c,bl)=>{x.save();x.fillStyle=c;x.shadowColor=c;x.shadowBlur=bl||0;x.beginPath();x.arc(a,b,r,0,7);x.fill();x.restore()};
   const vig=(a,b,r,al)=>{const g=x.createRadialGradient(a,b,0,a,b,r);g.addColorStop(0,`rgba(4,5,14,${al})`);g.addColorStop(1,'rgba(4,5,14,0)');x.fillStyle=g;x.fillRect(0,0,1280,800)};
   x.lineCap='round';
-  if(i===0){/* rapor motoru: satırlar akar; süre karşılaştırması sabit ve okunur */
+  if(i===1){/* rapor motoru: satırlar akar; süre karşılaştırması sabit ve okunur */
    x.save();x.globalCompositeOperation='lighter';SR.forEach(s=>{const d=(s.o+t*.2*s.v)%1,r0=Math.pow(d,2.3)*900,r1=r0+8+d*d*160;x.strokeStyle=CL[s.c];x.globalAlpha=d*.3;x.lineWidth=1+d*2.5;x.beginPath();x.moveTo(640+Math.cos(s.a)*r0,400+Math.sin(s.a)*r0*.62);x.lineTo(640+Math.cos(s.a)*r1,400+Math.sin(s.a)*r1*.62);x.stroke()});x.restore();vig(640,400,520,.7);
    const X0=70,Y0=110,TW=640,TH=580;x.fillStyle='rgba(8,10,26,.78)';x.strokeStyle='rgba(185,168,255,.3)';x.lineWidth=2;x.beginPath();x.roundRect(X0,Y0,TW,TH,18);x.fill();x.stroke();
    tx('ENVANTER RAPORU · CANLI SORGU',X0+28,Y0+44,'rgba(207,196,255,.9)',600,22,'left');
@@ -410,7 +438,7 @@ void main(){vec2 uv=vP.xy/sz+.5;float back=step(vP.z,0.);if(back>.5)uv.x=1.-uv.x
    const bar=(y,w,c,l,v,gl)=>{x.fillStyle='rgba(255,255,255,.07)';x.beginPath();x.roundRect(RX,y,410,24,12);x.fill();x.save();x.fillStyle=c;x.shadowColor=c;x.shadowBlur=gl;x.beginPath();x.roundRect(RX,y,w,24,12);x.fill();x.restore();tx(l,RX,y-14,'rgba(207,196,255,.7)',500,18,'left');tx(v,RX+410,y-12,c,600,24,'right')};
    bar(250,410,PK,'ÖNCE','20 dk',0);bar(340,24,TL,'SONRA','59 sn',18+12*Math.sin(t*3));
    tx('20×',RX,500,TL,600,124,'left',30);tx('DAHA HIZLI',RX,552,'#efeaff',600,30,'left');tx('✓ SATIR SAYISI AYNI',RX,618,GD,600,22,'left');tx('✓ SONUÇ BİREBİR',RX,654,GD,600,22,'left')}
-  else if(i===1){/* canlı panel: ufka uzanan ızgara, kayan çizgi grafik, akan sayılar */
+  else if(i===0){/* canlı panel: ufka uzanan ızgara, kayan çizgi grafik, akan sayılar */
    const hz=470;x.strokeStyle='rgba(127,232,242,.22)';x.lineWidth=1.5;for(let k=-14;k<=14;k++){x.beginPath();x.moveTo(640+k*14,hz);x.lineTo(640+k*130,800);x.stroke()}
    for(let k=0;k<12;k++){const f=((k+t*.6)%12)/12,y=hz+Math.pow(f,2.2)*330;x.globalAlpha=f;x.beginPath();x.moveTo(0,y);x.lineTo(1280,y);x.stroke()}x.globalAlpha=1;
    const fy=v=>400-(Math.sin(v*.011)*.5+Math.sin(v*.027+1)*.3+Math.sin(v*.061)*.2)*120;x.beginPath();for(let px=100;px<=1180;px+=6){const y=fy(px+t*140);px>100?x.lineTo(px,y):x.moveTo(px,y)}
@@ -418,12 +446,12 @@ void main(){vec2 uv=vP.xy/sz+.5;float back=step(vP.z,0.);if(back>.5)uv.x=1.-uv.x
    const ly=fy(1180+t*140);dot(1180,ly,9,'#fff',30);x.strokeStyle=`rgba(127,232,242,${1-(t%1.2)/1.2})`;x.lineWidth=2;x.beginPath();x.arc(1180,ly,9+(t%1.2)*40,0,7);x.stroke();
    [['CİRO','▲ %'+(11.8+Math.sin(t*.9)*.6).toFixed(1),TL],['ANLIK SATIŞ',String(4800+Math.floor(t*7)%900).replace(/\B(?=(\d{3})+$)/g,'.'),LV],['MAĞAZA','● CANLI',GD]].forEach(([a,b,c],j)=>{const X=250+j*390;x.fillStyle='rgba(8,10,26,.55)';x.strokeStyle='rgba(185,168,255,.3)';x.lineWidth=2;x.beginPath();x.roundRect(X-170,70,340,130,16);x.fill();x.stroke();tx(a,X,112,'rgba(207,196,255,.7)',500,22);tx(b,X,176,c,600,50,'center',20)})}
   else if(i===2){/* e-belge hattı: belgeler tarayıcıdan geçer, takılan belge çözülür */
-   const sp=150,gap=250,solved=Math.floor(t*sp/gap);for(let k=-1;k<7;k++){const off=(t*sp)%gap,X=k*gap+off-120,id=k-solved,bad=((id%4)+4)%4===1,ok=X>640;
+   const sp=150,gap=250,solved=Math.floor(t*sp/gap);for(let k=-1;k<7;k++){const off=(t*sp)%gap,X=k*gap+off-120,id=k-solved,bad=false,ok=X>640,ER=['NEBİM','LOGO','MİKRO','NETSİS','EXCEL','SQL'][((id%6)+6)%6];
     x.save();x.translate(X,400);x.rotate(Math.sin(id*1.7)*.05);const c=ok?TL:(bad?PK:LV);x.shadowColor=c;x.shadowBlur=ok||bad?30:12;x.fillStyle=bad&&!ok?'rgba(60,14,34,.92)':'rgba(16,18,40,.92)';x.strokeStyle=c;x.lineWidth=3;x.beginPath();x.roundRect(-85,-115,170,230,10);x.fill();x.stroke();x.shadowBlur=0;
     for(let l=0;l<6;l++){x.fillStyle='rgba(230,226,255,.28)';x.fillRect(-60,-80+l*26,120-(l*29%50),9)}
-    if(bad&&!ok){x.translate((Math.random()-.5)*6,0);tx('TAKILDI',0,90,PK,600,24)}else if(ok)tx(bad?'ÇÖZÜLDÜ ✓':'ONAY ✓',0,90,TL,600,22);x.restore()}
+    tx(ok?'ÖZET ✓':ER,0,90,ok?TL:LV,600,ok?22:24);x.restore()}
    const g=x.createLinearGradient(600,0,680,0);g.addColorStop(0,'rgba(127,232,242,0)');g.addColorStop(.5,'rgba(127,232,242,.55)');g.addColorStop(1,'rgba(127,232,242,0)');x.fillStyle=g;x.fillRect(600,190,80,420);x.save();x.strokeStyle='#fff';x.shadowColor=TL;x.shadowBlur=30;x.lineWidth=3;x.beginPath();x.moveTo(640,180);x.lineTo(640,620);x.stroke();x.restore();
-   tx('E-FATURA · E-İRSALİYE · E-ARŞİV',640,110,'rgba(207,196,255,.75)',500,26);tx('ÇÖZÜLEN BELGE  '+String(1200+solved).padStart(5,'0'),640,700,TL,600,34,'center',20)}
+   tx('HANGİ PROGRAM OLURSA · TEK SADE EKRAN',640,110,'rgba(207,196,255,.75)',500,26);tx('HAZIR ÖZET  '+String(1200+solved).padStart(5,'0'),640,700,TL,600,34,'center',20)}
   else if(i===3){/* mağaza ağı: dönen mağazalar merkeze fiş paketleri yollar */
    const C=[640,410],N=8,pulse=(t*1.6)%1;for(let k=0;k<3;k++){x.strokeStyle=`rgba(185,168,255,${.35-k*.1})`;x.lineWidth=1.5;x.beginPath();x.ellipse(C[0],C[1],430-k*120,210-k*58,0,0,7);x.stroke()}
    const P=[];for(let k=0;k<N;k++){const a=t*.18+k/N*6.283;P.push([C[0]+Math.cos(a)*430,C[1]+Math.sin(a)*210,Math.sin(a)])}
@@ -432,6 +460,26 @@ void main(){vec2 uv=vP.xy/sz+.5;float back=step(vP.z,0.);if(back>.5)uv.x=1.-uv.x
     const s=.75+z*.25;dot(a,b,30*s,'#0c1426',0);x.save();x.strokeStyle=TL;x.lineWidth=3;x.shadowColor=TL;x.shadowBlur=20;x.beginPath();x.arc(a,b,30*s,0,7);x.stroke();x.restore()});
    x.strokeStyle=`rgba(242,179,74,${1-pulse})`;x.lineWidth=3;x.beginPath();x.arc(C[0],C[1],80+pulse*120,0,7);x.stroke();dot(C[0],C[1],80,'#16123a',40);x.save();x.strokeStyle=LV;x.lineWidth=4;x.shadowColor=LV;x.shadowBlur=40;x.beginPath();x.arc(C[0],C[1],80,0,7);x.stroke();x.restore();
    tx('MERKEZ',C[0],C[1]-6,'#efeaff',600,30);tx('ÖKC · SAYIM · KOLİ',C[0],C[1]+28,TL,500,17);tx('MAĞAZA → MERKEZ · ANLIK',640,90,'rgba(207,196,255,.75)',500,26)}
+  else if(i===5){/* web sitesi: masaüstünde parça parça kurulur, telefonda aynı site akar */
+   x.strokeStyle='rgba(185,168,255,.05)';x.lineWidth=1;for(let g=0;g<=1280;g+=40){x.beginPath();x.moveTo(g,0);x.lineTo(g,800);x.stroke()}for(let g=0;g<=800;g+=40){x.beginPath();x.moveTo(0,g);x.lineTo(1280,g);x.stroke()}
+   const bx=(a,b,w,h,r,f,s,lw)=>{x.beginPath();x.roundRect(a,b,w,h,r);if(f){x.fillStyle=f;x.fill()}if(s){x.strokeStyle=s;x.lineWidth=lw||2;x.stroke()}};
+   const hg=(a,b,w,h)=>{const g=x.createLinearGradient(a,b,a+w,b+h);g.addColorStop(0,'#5a2a8a');g.addColorStop(.6,'#c2407e');g.addColorStop(1,'#ff9a6b');return g};
+   const ss=v=>v*v*(3-2*v),ph=(t*.16)%1,bt=Math.min(1,ph*1.5),P=j=>Math.max(0,Math.min(1,bt*7-j));
+   tx('SİTENİZ · MASAÜSTÜ + MOBİL',640,64,'rgba(207,196,255,.75)',500,24);
+   const X0=60,Y0=100,BW=720,BH=540;bx(X0,Y0,BW,BH,18,'rgba(8,10,26,.85)','rgba(185,168,255,.35)');bx(X0,Y0,BW,44,[18,18,0,0],'rgba(185,168,255,.08)');
+   ['#ff6f9f','#f2b34a','#7fe8f2'].forEach((c,j)=>dot(X0+24+j*20,Y0+22,6,c));bx(X0+110,Y0+10,360,24,12,'rgba(5,5,12,.7)');tx('isletmeniz.com.tr',X0+130,Y0+28,'#cfc4ff',500,15,'left');
+   const cx0=X0+20,cw=BW-40,cy=Y0+60,el=(j,fn)=>{const p=P(j);if(p<=0)return;x.save();x.globalAlpha=p;x.translate(0,(1-p)*26);fn();x.restore()};
+   el(0,()=>{bx(cx0,cy,cw,34,8,'rgba(185,168,255,.1)');dot(cx0+20,cy+17,8,GD);[0,1,2,3].forEach(k=>bx(cx0+cw-300+k*70,cy+13,50,8,4,'rgba(207,196,255,.45)'))});
+   el(1,()=>{bx(cx0,cy+46,cw,200,14,hg(cx0,cy+46,cw,200));tx('İŞİNİZİ',cx0+36,cy+110,'#fff',600,40,'left');tx('İNTERNETTE BÜYÜTÜN',cx0+36,cy+154,'#fff',600,40,'left');bx(cx0+36,cy+180,170,40,20,TL);tx('TEKLİF AL',cx0+121,cy+206,'#0b0a1e',600,17)});
+   [0,1,2].forEach(k=>el(2+k,()=>{const w=(cw-40)/3,a=cx0+k*(w+20);bx(a,cy+262,w,130,12,'rgba(185,168,255,.1)','rgba(185,168,255,.25)');dot(a+28,cy+292,12,[TL,LV,PK][k],12);bx(a+18,cy+322,w-60,10,5,'rgba(239,234,255,.7)');bx(a+18,cy+344,w-36,7,4,'rgba(207,196,255,.35)');bx(a+18,cy+360,w-70,7,4,'rgba(207,196,255,.35)')}));
+   el(5,()=>{bx(cx0,cy+408,cw,52,12,'rgba(127,232,242,.08)',TL);tx('WHATSAPP  ·  ARA  ·  YOL TARİFİ',cx0+cw/2,cy+441,TL,600,18)});
+   if(bt>=1){const k=Math.min(1,(ph-.67)/.2),mx0=cx0+cw*.8,my0=cy+330,mx1=cx0+121,my1=cy+200,ex=mx0+(mx1-mx0)*ss(k),ey=my0+(my1-my0)*ss(k);x.save();x.fillStyle='#fff';x.beginPath();x.moveTo(ex,ey);x.lineTo(ex+14,ey+18);x.lineTo(ex+5,ey+16);x.lineTo(ex,ey+24);x.closePath();x.fill();x.restore();
+    if(k>=1){const r=((ph-.87)/.13)*60;x.save();x.strokeStyle=`rgba(127,232,242,${Math.max(0,1-r/60)})`;x.lineWidth=3;x.beginPath();x.arc(mx1,my1,r,0,7);x.stroke();x.restore();tx('YENİ TALEP ✓',mx1+150,my1-20,TL,600,20,'left',16)}}
+   const PX=880,PY=96,PW=280,PH=580;bx(PX,PY,PW,PH,40,'rgba(8,10,26,.9)','rgba(185,168,255,.45)',3);x.save();x.beginPath();x.roundRect(PX+12,PY+12,PW-24,PH-24,30);x.clip();
+   const so=(t*46)%400;for(let rp=0;rp<2;rp++){const b=PY+60-so+rp*400,a=PX+24,w=PW-48;bx(a,b,w,160,12,hg(a,b,w,160));tx('İŞİNİZİ',a+18,b+52,'#fff',600,22,'left');tx('BÜYÜTÜN',a+18,b+80,'#fff',600,22,'left');bx(a+18,b+104,104,30,15,TL);tx('TEKLİF AL',a+70,b+124,'#0b0a1e',600,12);
+    [0,1].forEach(k=>{bx(a,b+176+k*92,w,80,12,'rgba(185,168,255,.1)');dot(a+24,b+216+k*92,10,[TL,PK][k],10);bx(a+46,b+204+k*92,w-70,9,4,'rgba(239,234,255,.65)');bx(a+46,b+222+k*92,w-100,7,4,'rgba(207,196,255,.35)')})}
+   x.restore();bx(PX+PW/2-40,PY+20,80,18,9,'#05060b');bx(PX+18,PY+PH-74,PW-36,48,24,'rgba(127,232,242,.14)',TL);tx('WHATSAPP',PX+PW/2,PY+PH-43,TL,600,16);
+   [['1,4 SN AÇILIŞ',230],['✓ MOBİL UYUMLU',520],['GOOGLE’DA BULUNUR',860]].forEach(([s,a],j)=>{const on=.5+.5*Math.sin(t*2-j);bx(a-130,700,260,46,23,'rgba(8,10,26,.8)',`rgba(127,232,242,${.3+.4*on})`);tx(s,a,730,'#efeaff',600,17)})}
   else{/* gece kadranı: ibre döner, zamanlanmış görevler sırayla yanar */
    const C=[640,410],R=300,ang=-Math.PI/2+(t*.22)%6.283,hr=((ang+Math.PI/2)/6.283*24+24)%24;for(let k=0;k<60;k++){dot((k*397)%1280,(k*211)%800,1.3,`rgba(255,255,255,${.25+.25*Math.sin(t*2+k)})`)}
    for(let k=0;k<96;k++){const a=-Math.PI/2+k/96*6.283,l=k%4?10:24;x.strokeStyle=k%4?'rgba(185,168,255,.3)':'rgba(185,168,255,.7)';x.lineWidth=k%4?1.5:3;x.beginPath();x.moveTo(C[0]+Math.cos(a)*R,C[1]+Math.sin(a)*R);x.lineTo(C[0]+Math.cos(a)*(R-l),C[1]+Math.sin(a)*(R-l));x.stroke()}
@@ -460,7 +508,7 @@ void main(){vec2 uv=vP.xy/sz+.5;float back=step(vP.z,0.);if(back>.5)uv.x=1.-uv.x
   const lh=fs*.92,y0=H/2-(lines.length-1)*lh/2+fs*.34;el._ly={fs,lines,y0,lh,W,H};
   x.font='500 40px "Chakra Petch"';x.letterSpacing='4px';x.fillStyle='rgba(255,255,255,.88)';x.fillText(tg?TU(tg.textContent):TU(lab.textContent.split('·')[0].trim()),W/2,y0-fs*.95);
   x.font=`500 ${fs}px "Chakra Petch"`;x.letterSpacing='2px';x.fillStyle='#f6f3ff';lines.forEach((l,j)=>x.fillText(l,W/2,y0+j*lh));
-  x.shadowBlur=0;x.font='500 26px "Chakra Petch"';x.letterSpacing='5px';x.fillStyle='rgba(205,195,255,.7)';x.fillText(String(i+1).padStart(2,'0')+' / 08   ·   DETAY İÇİN TIKLAYIN',W/2,H-74);x.textAlign='left'}
+  x.shadowBlur=0;x.font='500 26px "Chakra Petch"';x.letterSpacing='5px';x.fillStyle='rgba(205,195,255,.7)';x.fillText(String(i+1).padStart(2,'0')+' / 09   ·   DETAY İÇİN TIKLAYIN',W/2,H-74);x.textAlign='left'}
  const cards=wins.map((el,i)=>{const k=i+1,cvx=document.createElement('canvas');cvx.width=1280;cvx.height=Math.round(1280*CH/CW);
   const tex=new T.CanvasTexture(cvx);tex.colorSpace=T.SRGBColorSpace;tex.anisotropy=8;
   const u={map:{value:tex},t:U.t,op:{value:0},gl:{value:0},act:{value:0},sz:{value:new T.Vector2(CW,CH)}};
@@ -486,7 +534,7 @@ void main(){vec2 uv=vP.xy/sz+.5;float back=step(vP.z,0.);if(back>.5)uv.x=1.-uv.x
 vec3 aces(vec3 x){return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.,1.);}
 float hash(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
 void main(){vec2 uv=vUv,d=uv-.5;float r2=dot(d,d),asp=res.x/res.y;vec2 o=d*r2*.008;
-o*=1.+wp*6.;vec3 c;if(wp<.002)c=vec3(texture2D(tex,uv+o).r,texture2D(tex,uv).g,texture2D(tex,uv-o).b);else{c=vec3(0.);for(int i=0;i<8;i++){vec2 q=.5+d*(1.-float(i)*wp*.022);c+=vec3(texture2D(tex,q+o).r,texture2D(tex,q).g,texture2D(tex,q-o).b);}c/=8.;}
+o*=1.+wp*11.;vec3 c;if(wp<.002)c=vec3(texture2D(tex,uv+o).r,texture2D(tex,uv).g,texture2D(tex,uv-o).b);else{c=vec3(0.);for(int i=0;i<8;i++){vec2 q=.5+d*(1.-float(i)*wp*.036);c+=vec3(texture2D(tex,q+o).r,texture2D(tex,q).g,texture2D(tex,q-o).b);}c/=8.;}
 vec3 b=texture2D(b0,uv).rgb*.4+texture2D(b1,uv).rgb*.6+texture2D(b2,uv).rgb*.8+texture2D(b3,uv).rgb*1.;c+=b*str;
 float g1=exp(-length((uv-vec2(1.02,1.05))*vec2(asp,1.))*2.6),g2=exp(-length((uv-vec2(-.05,-.02))*vec2(asp,1.))*3.),g3=exp(-abs(uv.x-1.02)*5.);
 c+=vec3(.03,.13,.14)*g1+vec3(.08,.04,.14)*g2+vec3(.01,.05,.06)*g3;
@@ -520,40 +568,31 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
   let r=s.slice(0,j);for(let q=0;q<Math.min(5,n-j);q++)r+=s[j+q]===' '?' ':GL[Math.floor(Math.random()*GL.length)];el.textContent=r;typT.push(setTimeout(f,32))};typT.push(setTimeout(f,d0))};
  /* detay içerikleri: her kartın gerçek anlatımı */
  const DET={
-  1:{m:'NEBİM V3 · SQL SERVER / PERFORMANS · ANA VERİ',d:"Yavaşlayan raporları, kilitlenen ekranları ve dağınık ana veriyi toparlarım. İşe sorgu planından başlarım: sonuç aynı satırlarla, çok daha hızlı gelir.",
-   li:['Rapor ve sorgu hızlandırma: indeks, plan, istatistik','Renk, beden ve ürün kartı birleştirme; yedekli ve geri alınabilir','Datalar arası mağaza ve tanım kopyalama','Kilit, "kullanıma alınmış", entegrasyon hatası teşhisi'],
-   st:[['20 dk → 59 sn','Envanter raporu'],['0','Kaybolan satır'],['%100','Geri alınabilir işlem']]},
-  2:{m:'CANLI PANEL / CİRO · STOK · TAHSİLAT',d:"Ciro, stok, tahsilat ve personel verisi Nebim'den kendiliğinden çekilir. Yönetici mağaza kapanmasını beklemeden telefonunda aynı sayıyı görür.",
-   li:['Mağaza ve bayi bazında anlık ciro','5–30 dakikada bir otomatik senkron','Rol bazlı erişim: herkes yalnız kendi verisini görür','Telefon, tablet ve el terminalinde çalışır'],
-   st:[['5 dk','Senkron aralığı'],['7/24','Erişim'],['Tek ekran','Tüm mağazalar']]},
-  3:{m:'E-DÖNÜŞÜM / E-FATURA · E-İRSALİYE · E-ARŞİV',d:"Gönderilemeyen, takılan ya da reddedilen belgenin kök nedenini bulurum; aynı hata bir daha çıkmasın diye tanımı düzeltirim.",
-   li:['Kuyrukta takılan e-fatura ve e-arşiv','e-İrsaliye plaka ve taşıma şekli hataları','Seri tanımı, belge kilidi, muhasebe entegrasyonu','Toplu belge dönüştürme ve yeniden gönderim'],
-   st:[['1.295','Toplu dönüştürülen belge'],['Kök neden','Yama değil çözüm'],['Aynı gün','Müdahale']]},
-  4:{m:'MAĞAZA / ÖKC · TRANSFER · SAYIM · PUANTAJ',d:"Yazar kasa ile Nebim arasındaki fiş akışını kurarım; transfer, sayım ve puantajı mağazadan merkeze tek akışa bağlarım.",
-   li:['ÖKC entegrasyonu (GMP-3) ve kendi POS uygulaması','Transfer ve koli takibi, el terminali ekranları','Sayım cihazı onayı ve mağaza stoğu','Puantaj ve personel alışveriş limiti'],
-   st:[['GMP-3','ÖKC protokolü'],['5 dk','Koli senkronu'],['Saha','El terminali']]},
-  5:{m:'ALTYAPI / SUNUCU · YEDEK · GÖREV · YETKİ',d:"Yedekler, senkronlar ve raporlar gece kendiliğinden çalışır. Bir şey ters giderse siz fark etmeden önce ben görürüm.",
-   li:['Otomatik yedekleme ve disk yönetimi','Zamanlanmış senkron ve rapor görevleri','Rol ve yetki denetimi, SSL, VPN','Sunucu kurulumu, güncelleme ve bakım'],
-   st:[['Gece','Bakım penceresi'],['7/24','İzleme'],['0','Elle tekrar eden iş']]},
-  6:{d:"Mağaza ile merkezin ortak çalışma alanı. Talep, puantaj, tahsilat ve tediye aynı kayıtta; herkes yalnız kendi rolünün ekranını görür.",li:['Talep ve arıza kaydı, e-posta bildirimi','Puantaj, tahsilat ve tediye','Transfer ve koli takibi','Nebim ile canlı entegrasyon']},
-  7:{d:"Küçük ve orta işletmeler için ön muhasebe: cari, stok, kasa ve banka tek uygulamada, birden çok firma için.",li:['Cari, stok, kasa ve banka','Çok firmalı yapı','Anlık raporlar','Türkçe ve İngilizce arayüz']},
-  8:{d:"Dijital pazarlama uzmanı için kurumsal site: hizmetler, paketler ve blog; form mesajları anında e-postaya düşer.",li:['Hizmet ve paket sayfaları','Blog','E-posta bildirimli iletişim formu','Mobil uyumlu, hızlı açılış']}};
+  1:{"m":"TANITIM SİTESİ / TEK SAYFA · BİRKAÇ SAYFA","d":"İnternette bir yeriniz olsun diye büyük bütçe gerekmez. İşinizi, ürünlerinizi ve size nasıl ulaşılacağını anlatan sade bir site; telefonda hızlı açılır, gelen mesaj doğrudan e-postanıza düşer.","li":["Tek sayfalık tanıtım ya da birkaç sayfalık kurumsal site","Telefona göre tasarım, hızlı açılış","Harita, WhatsApp ve iletişim formu","Yayına alma ve sonrasında güncelleme"],"st":[["Tek sayfa","ya da birkaç sayfa"],["Uygun","Bütçe"],["Mobil","Önce telefon"]]},
+  2:{"m":"PROGRAM → WEB / CİRO · STOK · TAHSİLAT","d":"Rakamları görmek için her seferinde programı açmak, rapor çekmek, dosya göndermek gerekmez. Programdaki veri belirlenen aralıklarla web'e taşınır; yetkili kişi telefondan ya da bilgisayardan anlık veya günlük bakar.","li":["Ciro, stok ve tahsilat tek ekranda","Anlık ya da günlük görünüm","Mağaza, şube ve bayi karşılaştırması","Herkes yalnız kendi yetkisindeki veriyi görür"],"st":[["5 dk","Veri aktarım aralığı"],["7/24","Erişim"],["0","Elle çekilen rapor"]]},
+  3:{"m":"BAĞLANTI / MEVCUT PROGRAMINIZ","d":"Programınızı değiştirmeniz ya da çalışanlarınıza yeni bir şey öğretmeniz gerekmez. Mevcut programın verisine yalnızca okuyarak bağlanılır; ihtiyaç duyulan kısım alınıp sade bir web ekranına dönüştürülür.","li":["Nebim V3 ve SQL tabanlı programlar","Programa dokunmadan, yalnızca okuyarak","Birden çok firma ve şube tek ekranda","Gereken kadar veri; fazlası değil"],"st":[["0","Program değişikliği"],["Tek ekran","Tüm şubeler"],["Okuma","Verinize dokunulmaz"]]},
+  4:{"m":"SAHA / TELEFON · EL TERMİNALİ","d":"Mağazadaki, depodaki ya da sahadaki kişinin programa girmesine gerek yok. Puantaj, sayım, transfer ve koli takibi telefondan ya da el terminalinden yapılır; kayıt doğrudan merkeze ve programa ulaşır.","li":["Günlük puantaj, tek tuşla İK'ya","Sayım ve cihaz onayı","Transfer ve koli takibi","Web üzerinden veri ve satış girişi"],"st":[["5 dk","Koli senkronu"],["Tek tuş","Puantaj gönderimi"],["Saha","El terminali"]]},
+  5:{"m":"OTOMASYON / ZAMANLANMIŞ GÖREV · YEDEK","d":"Kurulan görevler veriyi taşır, yedeği alır, bildirimi gönderir. Bir aksama olursa siz fark etmeden ele alınır.","li":["Zamanlanmış veri aktarımı","Otomatik yedekleme ve disk takibi","E-posta bildirimleri","Sunucu, SSL ve VPN bakımı"],"st":[["Gece","Bakım penceresi"],["7/24","Takip"],["0","Elle tekrar eden iş"]]},
+  6:{"m":"NEBİM V3 · SQL SERVER / PERFORMANS","d":"Ekranda görülen rakam doğru ve hızlı gelmeli. Nebim V3 ve SQL Server üzerinde rapor hızlandırma, ana veri düzenleme ve hata teşhisi yapılır; sonuç aynı satırlarla, çok daha hızlı gelir.","li":["Envanter raporu 20 dakikadan 59 saniyeye","Renk ve beden birleştirme; yedekli, geri alınabilir","Datalar arası mağaza kopyalama","Kilit ve entegrasyon hatası teşhisi"],"st":[["20 dk → 59 sn","Envanter raporu"],["0","Kaybolan satır"],["%100","Geri alınabilir işlem"]]},
+  7:{d:"Mağaza ile merkezin ortak çalışma alanı. Talep, puantaj, tahsilat ve tediye aynı kayıtta; herkes yalnız kendi rolünün ekranını görür.",li:['Rapor çekmeden anlık ve günlük görünüm','Talep ve arıza kaydı, e-posta bildirimi','Puantaj, tahsilat, tediye; transfer ve koli takibi','Nebim ile canlı entegrasyon, web üzerinden veri girişi']},
+  8:{d:"Küçük ve orta işletmeler için ön muhasebe: cari, stok, kasa ve banka tek uygulamada, birden çok firma için.",li:['Cari, stok, kasa ve banka','Çok firmalı yapı','Anlık raporlar','Türkçe ve İngilizce arayüz']},
+  9:{d:"Dijital pazarlama uzmanı için kurumsal site: hizmetler, paketler ve blog; form mesajları anında e-postaya düşer.",li:['Hizmet ve paket sayfaları','Blog','E-posta bildirimli iletişim formu','Mobil uyumlu, hızlı açılış']}};
  /* tıklayınca kartın başlık harfleri kameraya doğru büyüyüp kenarlardan kaçar */
  const fly=$('fly');let flyT=0,flyC=null;
- function flyOut(c){const L=c.el._ly;if(!L||reduce)return;clearTimeout(flyT);fly.className='';fly.innerHTML='';
+ function flyOut(c){const L=c.el._ly;if(!L||reduce)return;clearTimeout(flyT);fly.className='';fly.innerHTML='<i class="pt"></i><i class="pt"></i><i class="pt"></i>';
   const v=new T.Vector3(),P=[[-CW/2,CH/2],[CW/2,CH/2],[-CW/2,-CH/2],[CW/2,-CH/2]].map(([a,b])=>{v.set(a,b,0);c.mesh.localToWorld(v);v.project(cam);return[(v.x+1)/2*innerWidth,(1-v.y)/2*innerHeight]});
-  const xs=P.map(p=>p[0]),ys=P.map(p=>p[1]),x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys),sx=(x1-x0)/L.W,sy=(y1-y0)/L.H,cx=(x0+x1)/2;
+  const xs=P.map(p=>p[0]),ys=P.map(p=>p[1]),x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys),sx=(x1-x0)/L.W,sy=(y1-y0)/L.H,cx=(x0+x1)/2;fly.style.setProperty('--px',cx+'px');fly.style.setProperty('--py',(y0+y1)/2+'px');
   L.lines.forEach((ln,j)=>{const d=document.createElement('div');d.style.left=cx+'px';d.style.top=(y0+(L.y0+j*L.lh-L.fs*.36)*sy)+'px';d.style.fontSize=(L.fs*sx)+'px';d.style.letterSpacing=(2*sx)+'px';
    [...ln].forEach(ch=>{const sp=document.createElement('span');sp.textContent=ch===' '?' ':ch;d.appendChild(sp)});fly.appendChild(d)});
   const hw=innerWidth/2,hh=innerHeight/2;fly.querySelectorAll('span').forEach(sp=>{const r=sp.getBoundingClientRect(),dx=r.left+r.width/2-hw,dy=r.top+r.height/2-hh;sp.style.setProperty('--dx',dx);sp.style.setProperty('--dy',dy);sp.style.setProperty('--nx',(dx/hw).toFixed(3));sp.style.setProperty('--ny',(dy/hh).toFixed(3));sp.style.transitionDelay=(Math.random()*.12).toFixed(2)+'s, .85s, .7s'});
   if(flyC&&flyC!==c){paint(flyC.cvx,flyC.el,flyC.k-1,flyC.img);flyC.tex.needsUpdate=true}flyC=c;paint(c.cvx,c.el,c.k-1,c.img,true);c.tex.needsUpdate=true;requestAnimationFrame(()=>requestAnimationFrame(()=>fly.className='go'));flyT=setTimeout(()=>{fly.innerHTML='';fly.className=''},1500)}
- function openDet(c){if(!dc){SND.dive();flyOut(c)}dc=c;typT.forEach(clearTimeout);typT=[];const el=c.el,lab=el.querySelector('.wb span').textContent,tg=el.querySelector('.tg'),pe=el.querySelector('p:not(.mono)'),grp=TU(lab.split('·')[0].trim());
+ function openDet(c){if(!dc){SND.dive(c.k);flyOut(c)}else SND.shift(c.k);dc=c;typT.forEach(clearTimeout);typT=[];const el=c.el,lab=el.querySelector('.wb span').textContent,tg=el.querySelector('.tg'),pe=el.querySelector('p:not(.mono)'),grp=TU(lab.split('·')[0].trim());
   if(c.img){$('detI').src=c.img.src;dvI=-1}else{const b=document.createElement('canvas');b.width=1280;b.height=800;paint(b,el,c.k-1,null,true);dvB=b;$('detI').src=b.toDataURL('image/jpeg',.6);if(dvI<0)requestAnimationFrame(dLoop);dvI=c.k-1}
   $('detV').style.display=c.img?'none':'block';$('detI').alt=el.querySelector('h2').textContent;
   const D=DET[c.k]||{};type($('detH'),TU(el.querySelector('h2').textContent),250);type($('detM'),D.m||('2026 / '+(tg?TU(tg.textContent):'NEBİM V3 · SQL')+' / '+grp),420);type($('detD'),TU(D.d||pe.textContent),600);
   const B=$('detB');B.innerHTML='';(D.li||[]).forEach((x,j)=>{const li=document.createElement('li');B.appendChild(li);type(li,TU(x),1100+j*240)});
   const S=$('detS');S.innerHTML='';S.hidden=!D.st;(D.st||[]).forEach(([a,b],j)=>{const e=document.createElement('div');e.innerHTML='<b></b><span></span>';S.appendChild(e);type(e.firstChild,a,2100+j*180);type(e.lastChild,TU(b),2200+j*180)});
-  const L=$('detL');if(c.href){L.href=c.href;L.hidden=false}else L.hidden=true;$('detN').textContent=String(c.k).padStart(2,'0')+' / 08 · '+TU(el.querySelector('h2').textContent);
+  const L=$('detL');if(c.href){L.href=c.href;L.hidden=false}else L.hidden=true;$('detN').textContent=String(c.k).padStart(2,'0')+' / 09 · '+TU(el.querySelector('h2').textContent);
   dl=c;dvT=1;
   if(!det.classList.contains('on')){clearTimeout(dtm);const w=det.style.display==='block'?0:(reduce?0:820);det.style.display='block';root.classList.add('det-on');document.body.style.overflow='hidden';dtm=setTimeout(()=>{if(dc)det.classList.add('on')},w);$('detC').focus({preventScroll:true});if(location.hash!=='#is')history.pushState({det:1},'','#is')}}
  /* çıkış = girişin tersi: önce katman söner (çerçeve büyür), sonra kamera karttan geri fırlar */
@@ -561,7 +600,7 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
   dtm=setTimeout(()=>{if(dc)return;det.style.display='none';dvT=0;root.classList.remove('det-on');dtm=setTimeout(()=>{if(!dc)document.body.style.overflow=''},reduce?0:1100)},reduce?0:650);if(back!==false&&location.hash==='#is')history.back()}
  /* tekerlek: detaydayken çevirince geri çık; animasyon bitene kadar sayfa kaymaz */
  addEventListener('wheel',e=>{if(dc||dvT||dv>.01){e.preventDefault();if(dc&&Math.abs(e.deltaY)>4)closeDet()}},{passive:false});
- const goDet=s=>{const k=(dc.k-1+s+8)%8+1;scrollTo({top:k*step});openDet(cards[k-1])};
+ const goDet=s=>{const k=(dc.k-1+s+9)%9+1;scrollTo({top:k*step});openDet(cards[k-1])};
  $('detC').onclick=()=>closeDet();$('detP').onclick=()=>goDet(-1);$('detX').onclick=()=>goDet(1);
  det.querySelector('.ask2').addEventListener('click',()=>closeDet());
  addEventListener('keydown',e=>{if(!dc)return;if(e.key==='Escape')closeDet();else if(e.key==='ArrowRight')goDet(1);else if(e.key==='ArrowLeft')goDet(-1)});
@@ -578,9 +617,9 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
   cam.position.copy(cyl(q[0]+mx*.06,q[1]+pull,q[2]-my*.35+Math.sin(t*.5)*.05));TP.copy(cyl(q[3],q[4],q[5]));cam.lookAt(TP);
   /* karta dalış: kamera kartın içine düşer, görüş açılır, ekran çekilir */
   dv+=(dvT-dv)*.05;if(Math.abs(dvT-dv)<.002)dv=dvT;const e=dv*dv*(3-2*dv);
-  if(e>0&&dl){DV.copy(dl.mesh.position).sub(cam.position);const L=DV.length();cam.position.addScaledVector(DV,Math.min(1,(L-.35)/L)*e*e);cam.rotateZ(e*e*.35)}
+  if(e>0&&dl){DV.copy(dl.mesh.position).sub(cam.position);const L=DV.length();cam.position.addScaledVector(DV,Math.min(1,(L-.35)/L)*e*e);cam.rotateZ(e*e*.6)}
   cam.fov=(mob?52:40)+e*e*58;fin.uniforms.wp.value=Math.sin(Math.min(1,e*1.15)*Math.PI*.5)*(1-.6*Math.max(0,e-.85)/.15);
-  cam.filmOffset=mob?0:Math.max(0,1-Math.abs(uS-9)*1.5)*-7;cam.updateProjectionMatrix();
+  cam.filmOffset=mob?0:Math.max(0,1-Math.abs(uS-10)*1.5)*-7;cam.updateProjectionMatrix();
   crown.lookAt(cam.position.x,crown.position.y,cam.position.z);rings[0].rotation.set(Math.sin(t*.5)*.5,t*.6,0);rings[1].rotation.set(Math.cos(t*.4)*.6+.3,-t*.5,.4);
   /* sarmal çizgiler kaydırmayla birlikte aşağı iner; uçlarında parlayan baş */
   const hT=Math.max(.03,Math.min(1,(HY0-(TP.y-1.6))/(HY0-HY1)));hf+=(hT-hf)*.06;hel.forEach(h=>{const n=Math.floor(hf*(h.g.index.count/h.ti))*h.ti;h.g.setDrawRange(0,n);h.hd.position.copy(h.cu.getPointAt(Math.min(1,hf)))});logoS.rotation.y=t*.4;logoS.position.y=Math.sin(t*1.1)*.04;
@@ -590,8 +629,8 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
    c.mesh.position.y=YK(c.k)+Math.sin(t*.6+c.k)*.06});
   const h0=Math.max(0,1-uS*1.8);heroT.style.opacity=h0;heroT.style.visibility=h0<.02?'hidden':'visible';
   look.style.opacity=Math.min(1,uS*1.5);look.style.pointerEvents=uS>.3?'auto':'none';
-  const cur=Math.round(uS),act=cur>=9?9:cur>=6?6:cur;lks.forEach(l=>l.classList.toggle('on',+l.dataset.stop===act));
-  const w9=Math.max(0,1-(9-uS)*1.6);cform.style.opacity=w9;cform.style.visibility=w9<.02?'hidden':'visible';cform.style.pointerEvents=w9>.5?'auto':'none';
+  const cur=Math.round(uS),act=cur>=10?10:cur>=7?7:cur;lks.forEach(l=>l.classList.toggle('on',+l.dataset.stop===act));
+  const w9=Math.max(0,1-(10-uS)*1.6);cform.style.opacity=w9;cform.style.visibility=w9<.02?'hidden':'visible';cform.style.pointerEvents=w9>.5?'auto':'none';
   /* sahne → HDR hedef → bloom zinciri → ekran */
   R.setRenderTarget(rtS);R.render(scene,cam);
   let src=rtS;LV.forEach((p,k)=>{dn.uniforms.tex.value=src.texture;dn.uniforms.px.value.set(.5/src.width,.5/src.height);dn.uniforms.th.value=k?-1:.9;pass(dn,p[0]);
