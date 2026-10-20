@@ -400,7 +400,7 @@ if(!R){hideLd()}else{
   vertexShader:`attribute vec3 col;attribute float sz;uniform float t,scl,mp,asp;uniform vec2 ms,md;varying vec3 c;varying float f;void main(){vec3 p=position;p.y+=sin(t*.3+position.x*.7+position.z)*.07;p.x+=cos(t*.25+position.z*.6)*.06;vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
  /* fare: imlecin geçtiği yerdeki baloncuklar arkasından sürüklenir, sonra yerine döner */
  vec2 dd=gl_Position.xy/gl_Position.w-ms;dd.x*=asp;float r=length(dd),k=smoothstep(.22,.0,r)*mp;if(k>0.){mv.xy+=vec2(md.x*asp,md.y)*k*(-mv.z)*.33;gl_Position=projectionMatrix*mv;}float d=-mv.z;gl_PointSize=clamp(sz*scl/d,1.2,48.);c=col;f=exp(-d*d*.0011);}`,
-  fragmentShader:`uniform vec3 fc;uniform vec2 wt;varying vec3 c;varying float f;void main(){vec2 q=gl_PointCoord*2.-1.;q.y=-q.y;float r2=dot(q,q);if(r2>1.)discard;vec3 n=vec3(q,sqrt(1.-r2)),L=normalize(vec3(-.45,.6,.66));float df=max(dot(n,L),0.),sp=pow(max(dot(reflect(-L,n),vec3(0,0,1)),0.),28.),rim=pow(1.-n.z,3.);vec3 o=c*(.08+.85*df)+sp*.55+rim*c*.35;float l=dot(o,vec3(.3,.59,.11));o=mix(o,l*vec3(.5,1.05,1.3)+o*.25,wt.x*(1.-wt.y));o=mix(o,l*vec3(1.4,1.05,.5)+o*.15,wt.y);gl_FragColor=vec4(mix(fc,o,f*(1.-.6*wt.x)),1.);}`}));
+  fragmentShader:`uniform vec3 fc;uniform vec2 wt;varying vec3 c;varying float f;void main(){vec2 q=gl_PointCoord*2.-1.;q.y=-q.y;float r2=dot(q,q);if(r2>1.)discard;vec3 n=vec3(q,sqrt(1.-r2)),L=normalize(vec3(-.45,.6,.66));float df=max(dot(n,L),0.),sp=pow(max(dot(reflect(-L,n),vec3(0,0,1)),0.),28.),rim=pow(1.-n.z,3.);vec3 o=c*(.08+.85*df)+sp*.55+rim*c*.35;float l=dot(o,vec3(.3,.59,.11));o=mix(vec3(l),o,.55)*.8;l=dot(o,vec3(.3,.59,.11));o=mix(o,l*vec3(.5,1.05,1.3)+o*.25,wt.x*(1.-wt.y));o=mix(o,l*vec3(1.4,1.05,.5)+o*.15,wt.y);gl_FragColor=vec4(mix(fc,o,f*(1.-.6*wt.x)),1.);}`}));
  parts.frustumCulled=false;scene.add(parts);
  /* ---- katmanlar: hizmetler → (su yüzeyinin içinden) çalışmalar → (halka kapı) iletişim ---- */
  const WY=(YK(6)+YK(7))/2,wU={t:U.t,op:{value:0}};
@@ -584,10 +584,10 @@ vec3 aces(vec3 x){return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.,1.);}
 float hash(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
 void main(){vec2 uv=vUv,d=uv-.5;float r2=dot(d,d),asp=res.x/res.y;vec2 o=d*r2*.008;
 o*=1.+wp*11.;vec3 c;if(wp<.002)c=vec3(texture2D(tex,uv+o).r,texture2D(tex,uv).g,texture2D(tex,uv-o).b);else{c=vec3(0.);for(int i=0;i<8;i++){vec2 q=.5+d*(1.-float(i)*wp*.036);c+=vec3(texture2D(tex,q+o).r,texture2D(tex,q).g,texture2D(tex,q-o).b);}c/=8.;}
-c*=1.-bk*smoothstep(.0,.5,.75-length(d)*.4);vec3 b=texture2D(b0,uv).rgb*.4+texture2D(b1,uv).rgb*.6+texture2D(b2,uv).rgb*.8+texture2D(b3,uv).rgb*1.;c+=b*str;
+{float dr=smoothstep(.22,.8,length(d*vec2(asp,1.)))*.011;if(dr>.0005){vec3 a=c;for(int i=0;i<8;i++){float an=float(i)*.785+hash(uv)*.8;a+=texture2D(tex,uv+vec2(cos(an),sin(an))*dr*vec2(1./asp,1.)).rgb;}c=a/9.;}}c*=1.-bk*smoothstep(.0,.5,.75-length(d)*.4);vec3 b=texture2D(b0,uv).rgb*.4+texture2D(b1,uv).rgb*.6+texture2D(b2,uv).rgb*.8+texture2D(b3,uv).rgb*1.;c+=b*str;
 float g1=exp(-length((uv-vec2(1.02,1.05))*vec2(asp,1.))*2.6),g2=exp(-length((uv-vec2(-.05,-.02))*vec2(asp,1.))*3.),g3=exp(-abs(uv.x-1.02)*5.);
-c+=vec3(.03,.13,.14)*g1+vec3(.08,.04,.14)*g2+vec3(.01,.05,.06)*g3;
-c+=wp*wp*vec3(.05,.04,.09)*smoothstep(.0,.6,1.-length(d));c=aces(c*1.15);c*=mix(1.,smoothstep(1.15,.25,length(d*vec2(asp*.7,1.))),.75);
+c+=(vec3(.03,.13,.14)*g1+vec3(.08,.04,.14)*g2+vec3(.01,.05,.06)*g3)*.25;c=mix(vec3(dot(c,vec3(.3,.59,.11))),c,.72);
+c+=wp*wp*vec3(.05,.04,.09)*smoothstep(.0,.6,1.-length(d));c=aces(c*1.15);c*=mix(1.,smoothstep(1.05,.18,length(d*vec2(asp*.7,1.))),.9);
 c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4(c,1.);}`,
   {tex:{value:rtS.texture},b0:{value:LV[0][0].texture},b1:{value:LV[1][0].texture},b2:{value:LV[2][0].texture},b3:{value:LV[3][0].texture},t:{value:0},str:{value:.55},wp:{value:0},bk:{value:0},res:{value:new T.Vector2()}});
  /* ---- kaydırma ---- */
