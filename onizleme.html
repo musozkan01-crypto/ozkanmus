@@ -326,7 +326,9 @@ if(!R){hideLd()}else{
  const pan=(c,i,x,y,z,w,h)=>{const m=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color:new T.Color(c).multiplyScalar(i),side:T.DoubleSide}));m.position.set(x,y,z);m.lookAt(0,0,0);env.add(m)};
  pan(0xffffff,9,-6,3,4,.5,12);pan(0xff5fa8,5,-7,-1,-3,3,8);pan(0x7f6bff,6,7,1,-1,2.5,9);pan(0x5fe0ff,5,5,-6,4,6,1.4);pan(0xffffff,6,0,8,0,8,.5);pan(0xffb36b,4,2,-8,-3,10,1);pan(0x1a1030,2,0,0,-9,20,20);
  const pm=new T.PMREMGenerator(R);scene.environment=pm.fromScene(env,.015).texture;pm.dispose();
- const chrome=o=>new T.MeshPhysicalMaterial(Object.assign({color:0xb8b2c8,metalness:1,roughness:.13,iridescence:1,iridescenceIOR:1.75,iridescenceThicknessRange:[150,900],clearcoat:small?0:1,clearcoatRoughness:.05,envMapIntensity:1.9},o));
+ /* omurga su yüzeyinde biter: altı başka dünya */
+ const CLP=[new T.Plane(new T.Vector3(0,1,0),17.7)];R.localClippingEnabled=true;
+ const chrome=o=>new T.MeshPhysicalMaterial(Object.assign({clippingPlanes:CLP,color:0xb8b2c8,metalness:1,roughness:.13,iridescence:1,iridescenceIOR:1.75,iridescenceThicknessRange:[150,900],clearcoat:small?0:1,clearcoatRoughness:.05,envMapIntensity:1.9},o));
  /* ---- yerleşim: kartlar sütunun etrafında döner ---- */
  const cyl=(a,r,y)=>new T.Vector3(r*Math.cos(a),y,r*Math.sin(a));
  const AK=k=>.5+(k-1)*1.25,YK=k=>-1.2-(k-1)*3,COLTOP=.7,COLBOT=-34,CW=3.4,CH=2.1;
@@ -337,8 +339,8 @@ if(!R){hideLd()}else{
  const HC=[new T.Color(0xb9a8ff).multiplyScalar(2.4),new T.Color(0x7fe8f2).multiplyScalar(2.2)],ring=new T.Group();crown.add(ring);
  const rings=HC.map((c,j)=>{const m=new T.Mesh(new T.TorusGeometry(1.05+j*.12,.022,8,small?160:240),new T.MeshBasicMaterial({color:c,fog:false}));ring.add(m);return m});
  const HY0=2.3,HY1=COLBOT+.4,hel=HC.map((c,j)=>{const P=[],n=700;for(let s=0;s<=n;s++){const f=s/n,y=HY0+(HY1-HY0)*f,a=(HY0-y)*1.9+j*Math.PI,r=1.05+j*.12+(1.5-1.05-j*.12)*Math.min(1,f*14)+.18*Math.sin((HY0-y)*.95+j*Math.PI);P.push(new T.Vector3(Math.cos(a)*r,y-(f<.02?0:0),Math.sin(a)*r))}
-  const cu=new T.CatmullRomCurve3(P),g=new T.TubeGeometry(cu,small?900:1600,.026,6,false),m=new T.Mesh(g,new T.MeshBasicMaterial({color:c}));scene.add(m);
-  const hd=new T.Mesh(new T.SphereGeometry(.07,14,10),new T.MeshBasicMaterial({color:c.clone().multiplyScalar(1.8),fog:false}));scene.add(hd);return{cu,g,m,hd,ti:g.index.count/(small?900:1600)}});
+  const cu=new T.CatmullRomCurve3(P),g=new T.TubeGeometry(cu,small?900:1600,.026,6,false),m=new T.Mesh(g,new T.MeshBasicMaterial({color:c,clippingPlanes:CLP}));scene.add(m);
+  const hd=new T.Mesh(new T.SphereGeometry(.07,14,10),new T.MeshBasicMaterial({color:c.clone().multiplyScalar(1.8),fog:false,clippingPlanes:CLP}));scene.add(hd);return{cu,g,m,hd,ti:g.index.count/(small?900:1600)}});
  let hf=0;
  const sq=(s,h)=>{const p=new T.Shape();p.moveTo(-s,-s);p.lineTo(s,-s);p.lineTo(s,s);p.lineTo(-s,s);p.closePath();if(h){const q=new T.Path();q.moveTo(-h,-h);q.lineTo(-h,h);q.lineTo(h,h);q.lineTo(h,-h);q.closePath();p.holes.push(q)}return p};
  const slab=(s,h)=>{const g=new T.ExtrudeGeometry(sq(s,h),{depth:.09,bevelEnabled:true,bevelThickness:.022,bevelSize:.022,bevelSegments:4,curveSegments:1});g.rotateX(-Math.PI/2);g.rotateY(Math.PI/4);g.translate(0,-.045,0);return g};
@@ -398,7 +400,7 @@ if(!R){hideLd()}else{
   vertexShader:`attribute vec3 col;attribute float sz;uniform float t,scl,mp,asp;uniform vec2 ms,md;varying vec3 c;varying float f;void main(){vec3 p=position;p.y+=sin(t*.3+position.x*.7+position.z)*.07;p.x+=cos(t*.25+position.z*.6)*.06;vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
  /* fare: imlecin geçtiği yerdeki baloncuklar arkasından sürüklenir, sonra yerine döner */
  vec2 dd=gl_Position.xy/gl_Position.w-ms;dd.x*=asp;float r=length(dd),k=smoothstep(.22,.0,r)*mp;if(k>0.){mv.xy+=vec2(md.x*asp,md.y)*k*(-mv.z)*.33;gl_Position=projectionMatrix*mv;}float d=-mv.z;gl_PointSize=clamp(sz*scl/d,1.2,48.);c=col;f=exp(-d*d*.0011);}`,
-  fragmentShader:`uniform vec3 fc;uniform vec2 wt;varying vec3 c;varying float f;void main(){vec2 q=gl_PointCoord*2.-1.;q.y=-q.y;float r2=dot(q,q);if(r2>1.)discard;vec3 n=vec3(q,sqrt(1.-r2)),L=normalize(vec3(-.45,.6,.66));float df=max(dot(n,L),0.),sp=pow(max(dot(reflect(-L,n),vec3(0,0,1)),0.),28.),rim=pow(1.-n.z,3.);vec3 o=c*(.08+.85*df)+sp*.55+rim*c*.35;float l=dot(o,vec3(.3,.59,.11));o=mix(o,l*vec3(.5,1.05,1.3)+o*.25,wt.x*(1.-wt.y));o=mix(o,l*vec3(1.25,.7,1.3)+o*.2,wt.y);gl_FragColor=vec4(mix(fc,o,f),1.);}`}));
+  fragmentShader:`uniform vec3 fc;uniform vec2 wt;varying vec3 c;varying float f;void main(){vec2 q=gl_PointCoord*2.-1.;q.y=-q.y;float r2=dot(q,q);if(r2>1.)discard;vec3 n=vec3(q,sqrt(1.-r2)),L=normalize(vec3(-.45,.6,.66));float df=max(dot(n,L),0.),sp=pow(max(dot(reflect(-L,n),vec3(0,0,1)),0.),28.),rim=pow(1.-n.z,3.);vec3 o=c*(.08+.85*df)+sp*.55+rim*c*.35;float l=dot(o,vec3(.3,.59,.11));o=mix(o,l*vec3(.5,1.05,1.3)+o*.25,wt.x*(1.-wt.y));o=mix(o,l*vec3(1.4,1.05,.5)+o*.15,wt.y);gl_FragColor=vec4(mix(fc,o,f*(1.-.6*wt.x)),1.);}`}));
  parts.frustumCulled=false;scene.add(parts);
  /* ---- katmanlar: hizmetler → (su yüzeyinin içinden) çalışmalar → (halka kapı) iletişim ---- */
  const WY=(YK(6)+YK(7))/2,wU={t:U.t,op:{value:0}};
@@ -406,11 +408,42 @@ if(!R){hideLd()}else{
   vertexShader:`varying vec2 vW;void main(){vec4 w=modelMatrix*vec4(position,1.);vW=w.xz;gl_Position=projectionMatrix*viewMatrix*w;}`,
   fragmentShader:`uniform float t,op;varying vec2 vW;
 void main(){vec2 p=mod(vW*.22*6.2832,6.2832)-250.,i=p;float c=1.;for(int n=0;n<5;n++){float k=t*.5*(1.-3.5/float(n+1));i=p+vec2(cos(k-i.x)+sin(k+i.y),sin(k-i.y)+cos(k+i.x));c+=1./length(vec2(p.x/(sin(i.x+k)/.005),p.y/(cos(i.y+k)/.005)));}
-c/=5.;c=1.17-pow(c,1.4);float s=pow(abs(c),8.),r=length(vW),fd=exp(-r*r*.0012);gl_FragColor=vec4((vec3(.02,.08,.12)+vec3(.35,.75,.95)*min(s,1.5))*fd*op,1.);}`}));
+c/=5.;c=1.17-pow(c,1.4);float s=pow(abs(c),8.),r=length(vW),fd=exp(-r*r*.0045);gl_FragColor=vec4((vec3(.02,.07,.14)+vec3(.3,.62,1.)*min(s,1.6))*fd*op,1.);}`}));
  water.rotation.x=-Math.PI/2;water.position.y=WY;water.frustumCulled=false;scene.add(water);
  const portal=new T.Group();portal.position.set(0,YK(9)-4.2,0);scene.add(portal);
  const pR=[[3.2,.03,0xb9a8ff,2.6],[3.55,.012,0x7fe8f2,2.4],[2.75,.01,0xff6fb0,2.2]].map(([r,w,c,i])=>{const m=new T.Mesh(new T.TorusGeometry(r,w,8,small?160:280),new T.MeshBasicMaterial({color:new T.Color(c).multiplyScalar(i),transparent:true,opacity:0,fog:false}));portal.add(m);return m});
- const FC=[new T.Color(BG),new T.Color(0x031522),new T.Color(0x0c0718)],fcol=new T.Color();let wi=null,tp=0,tpd=1;
+ /* halka kapının krom gövdesi */
+ const prC=new T.Mesh(new T.TorusGeometry(3,.17,32,small?120:220),chrome({clippingPlanes:[],color:0xc9c2dc,roughness:.1,transparent:true,opacity:0}));portal.add(prC);
+ /* Lab: su yüzeyinin altında omurganın yerini alan altıgen hücreli tambur */
+ const hxY0=WY-.15,hxY1=YK(9)-1.7,hxU={t:U.t,op:{value:0},cy:{value:0},h:{value:hxY0-hxY1}};
+ const hexD=new T.Mesh(new T.CylinderGeometry(2.25,2.25,hxY0-hxY1,small?64:120,1,true),new T.ShaderMaterial({uniforms:hxU,transparent:true,
+  vertexShader:`varying vec2 vU;varying vec3 vW;varying float vD;void main(){vU=uv;vec4 w=modelMatrix*vec4(position,1.);vW=w.xyz;vec4 mv=viewMatrix*w;vD=-mv.z;gl_Position=projectionMatrix*mv;}`,
+  fragmentShader:`uniform float t,op,cy,h;varying vec2 vU;varying vec3 vW;varying float vD;
+float hs(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+void main(){vec2 p=vec2(vU.x*14.137,vU.y*h)*3.4,r=vec2(1.,1.732),hh=r*.5,a=mod(p,r)-hh,b=mod(p-hh,r)-hh,g=dot(a,a)<dot(b,b)?a:b,id=p-g;
+vec2 q=abs(g);float hd=max(dot(q,vec2(.5,.866)),q.x),cell=smoothstep(.47,.4,hd),n2=min(1.,dot(g,g)/.2),bz=sqrt(1.-n2);
+float k=id.x*.13,wy=id.y*.11;float f=sin(k*1.7+t*.25)*cos(wy*1.3-t*.18)+.6*sin(k*.6-wy*.9+t*.1);
+vec3 pal=mix(vec3(.55,.22,.08),vec3(.1,.55,.45),smoothstep(-.6,.8,f));pal=mix(pal,vec3(.9,.85,.7),smoothstep(.95,1.4,f));
+float gl=exp(-pow((vW.y-cy)/2.6,2.)),sp=pow(max(0.,1.-length(g-vec2(-.12,.16))*3.2),3.),rnd=hs(id);
+vec3 c=vec3(.025,.03,.04)+pal*(.04+.42*gl)*(.55+.45*bz)*(.5+.7*rnd)+sp*vec3(.8,.9,1.)*(.08+.35*gl);
+c*=cell;c+=(1.-cell)*vec3(.01,.015,.02);c+=step(.985,rnd)*vec3(.2,1.,.6)*gl*cell;
+float top=smoothstep(0.,.08,1.-vU.y)*smoothstep(0.,.05,vU.y);gl_FragColor=vec4(c*exp(-vD*vD*.0016)*(.4+.6*top),op);}`}));
+ hexD.position.y=(hxY0+hxY1)/2;hexD.visible=false;scene.add(hexD);
+ /* iletişim: yukarıdan yağan altın toz */
+ const GN=small?1200:3500,gp=new Float32Array(GN*3),gs2=new Float32Array(GN);for(let i=0;i<GN;i++){const a=rnd()*6.283,r=1.5+Math.pow(rnd(),.6)*13;gp.set([Math.cos(a)*r,rnd()*16,Math.sin(a)*r],i*3);gs2[i]=.5+rnd()*1.5}
+ const gdU={t:U.t,op:{value:0},scl:U.scl,y0:{value:YK(9)-12}},gdG=new T.BufferGeometry();gdG.setAttribute('position',new T.BufferAttribute(gp,3));gdG.setAttribute('sz',new T.BufferAttribute(gs2,1));
+ const gdP=new T.Points(gdG,new T.ShaderMaterial({uniforms:gdU,transparent:true,depthWrite:false,blending:T.AdditiveBlending,
+  vertexShader:`attribute float sz;uniform float t,scl,y0;varying float a;void main(){vec3 p=position;p.y=y0+mod(p.y-t*(.25+.2*sz),16.);p.x+=sin(t*.4+p.y*.8+sz*9.)*.15;vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;gl_PointSize=clamp(sz*.022*scl/-mv.z,1.,9.);a=smoothstep(0.,2.,p.y-y0)*smoothstep(16.,13.,p.y-y0)*(.5+.5*sin(t*2.+sz*40.));}`,
+  fragmentShader:`uniform float op;varying float a;void main(){float r=length(gl_PointCoord-.5);gl_FragColor=vec4(vec3(1.,.78,.36)*smoothstep(.5,0.,r)*a*op*1.6,1.);}`}));
+ gdP.frustumCulled=false;gdP.visible=false;scene.add(gdP);
+ /* katman geçişi: kameranın önünde patlayan parçacık bulutu */
+ const BN=small?900:2400,bd=new Float32Array(BN*3),bcl=new Float32Array(BN*3);{const C=[[1,1,1],[1,.8,.45],[.5,.95,1],[.75,.6,1]];for(let i=0;i<BN;i++){const z=rnd()*2-1,a=rnd()*6.283,s=Math.sqrt(1-z*z),v=.3+Math.pow(rnd(),1.6)*1.4;bd.set([Math.cos(a)*s*v,Math.sin(a)*s*v,z*v],i*3);bcl.set(C[Math.floor(rnd()*4)],i*3)}}
+ const brU={p:{value:0},op:{value:0},scl:U.scl},brG=new T.BufferGeometry();brG.setAttribute('position',new T.BufferAttribute(bd,3));brG.setAttribute('col',new T.BufferAttribute(bcl,3));
+ const brP=new T.Points(brG,new T.ShaderMaterial({uniforms:brU,transparent:true,depthTest:false,depthWrite:false,blending:T.AdditiveBlending,
+  vertexShader:`attribute vec3 col;uniform float p,scl;varying vec3 c;void main(){float e=1.-pow(1.-p,3.);vec3 q=position*(.4+e*16.);q.z+=-9.+e*6.;vec4 mv=modelViewMatrix*vec4(q,1.);gl_Position=projectionMatrix*mv;gl_PointSize=clamp(.05*scl/max(.3,-mv.z),1.,40.);c=col;}`,
+  fragmentShader:`uniform float op;varying vec3 c;void main(){float r=length(gl_PointCoord-.5);gl_FragColor=vec4(c*smoothstep(.5,.1,r)*op*1.8,1.);}`}));
+ brP.frustumCulled=false;brP.visible=false;cam.add(brP);scene.add(cam);
+ const FC=[new T.Color(BG),new T.Color(0x02101c),new T.Color(0x07060c)],fcol=new T.Color();let wi=null,tp=0,tpd=1;
  /* ---- cam kartlar ---- */
  const rr=(w,h,r)=>{const s=new T.Shape(),x=-w/2,y=-h/2;s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);return s};
  const cgeo=new T.ExtrudeGeometry(rr(CW,CH,.17),{depth:.05,bevelEnabled:true,bevelThickness:.04,bevelSize:.04,bevelSegments:6,curveSegments:12});cgeo.translate(0,0,-.025);
@@ -546,17 +579,17 @@ void main(){vec2 uv=vP.xy/sz+.5;float back=step(vP.z,0.);if(back>.5)uv.x=1.-uv.x
  const LV=[0,1,2,3].map(()=>[new T.WebGLRenderTarget(1,1,opt),new T.WebGLRenderTarget(1,1,opt)]);
  const dn=mk(`uniform sampler2D tex;uniform vec2 px;uniform float th;varying vec2 vUv;void main(){vec3 c=(texture2D(tex,vUv+px*vec2(-1,-1)).rgb+texture2D(tex,vUv+px*vec2(1,-1)).rgb+texture2D(tex,vUv+px*vec2(-1,1)).rgb+texture2D(tex,vUv+px*vec2(1,1)).rgb)*.25;float l=max(c.r,max(c.g,c.b));gl_FragColor=vec4(th<0.?c:c*smoothstep(th,th+.7,l),1.);}`,{tex:{value:null},px:{value:new T.Vector2()},th:{value:0}});
  const bl=mk(`uniform sampler2D tex;uniform vec2 dir;varying vec2 vUv;void main(){vec3 c=texture2D(tex,vUv).rgb*.227027;c+=(texture2D(tex,vUv+dir*1.384615).rgb+texture2D(tex,vUv-dir*1.384615).rgb)*.316216;c+=(texture2D(tex,vUv+dir*3.230769).rgb+texture2D(tex,vUv-dir*3.230769).rgb)*.07027;gl_FragColor=vec4(c,1.);}`,{tex:{value:null},dir:{value:new T.Vector2()}});
- const fin=mk(`uniform sampler2D tex,b0,b1,b2,b3;uniform float t,str,wp;uniform vec2 res;varying vec2 vUv;
+ const fin=mk(`uniform sampler2D tex,b0,b1,b2,b3;uniform float t,str,wp,bk;uniform vec2 res;varying vec2 vUv;
 vec3 aces(vec3 x){return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.,1.);}
 float hash(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
 void main(){vec2 uv=vUv,d=uv-.5;float r2=dot(d,d),asp=res.x/res.y;vec2 o=d*r2*.008;
 o*=1.+wp*11.;vec3 c;if(wp<.002)c=vec3(texture2D(tex,uv+o).r,texture2D(tex,uv).g,texture2D(tex,uv-o).b);else{c=vec3(0.);for(int i=0;i<8;i++){vec2 q=.5+d*(1.-float(i)*wp*.036);c+=vec3(texture2D(tex,q+o).r,texture2D(tex,q).g,texture2D(tex,q-o).b);}c/=8.;}
-vec3 b=texture2D(b0,uv).rgb*.4+texture2D(b1,uv).rgb*.6+texture2D(b2,uv).rgb*.8+texture2D(b3,uv).rgb*1.;c+=b*str;
+c*=1.-bk*smoothstep(.0,.5,.75-length(d)*.4);vec3 b=texture2D(b0,uv).rgb*.4+texture2D(b1,uv).rgb*.6+texture2D(b2,uv).rgb*.8+texture2D(b3,uv).rgb*1.;c+=b*str;
 float g1=exp(-length((uv-vec2(1.02,1.05))*vec2(asp,1.))*2.6),g2=exp(-length((uv-vec2(-.05,-.02))*vec2(asp,1.))*3.),g3=exp(-abs(uv.x-1.02)*5.);
 c+=vec3(.03,.13,.14)*g1+vec3(.08,.04,.14)*g2+vec3(.01,.05,.06)*g3;
 c+=wp*wp*vec3(.05,.04,.09)*smoothstep(.0,.6,1.-length(d));c=aces(c*1.15);c*=mix(1.,smoothstep(1.15,.25,length(d*vec2(asp*.7,1.))),.75);
 c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4(c,1.);}`,
-  {tex:{value:rtS.texture},b0:{value:LV[0][0].texture},b1:{value:LV[1][0].texture},b2:{value:LV[2][0].texture},b3:{value:LV[3][0].texture},t:{value:0},str:{value:.55},wp:{value:0},res:{value:new T.Vector2()}});
+  {tex:{value:rtS.texture},b0:{value:LV[0][0].texture},b1:{value:LV[1][0].texture},b2:{value:LV[2][0].texture},b3:{value:LV[3][0].texture},t:{value:0},str:{value:.55},wp:{value:0},bk:{value:0},res:{value:new T.Vector2()}});
  /* ---- kaydırma ---- */
  const track=document.getElementById('track'),heroT=document.getElementById('heroT'),look=document.getElementById('look'),cform=document.getElementById('iletisim'),lks=[...look.querySelectorAll('a')];
  let step=innerHeight,mob=innerWidth<=860,u=0,uS=0,mx=0,my=0,tx=0,ty=0,vis=true;
@@ -648,7 +681,9 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
   /* katman: sınır geçilince warp darbesi + ses; ortam rengi, su yüzeyi, halka kapı */
   {const nw=uS<6.5?0:uS<9.5?1:2;if(wi===null)wi=nw;else if(nw!==wi){if(!dc&&!dvT&&!reduce){tp=1;tpd=nw>wi?1:-1;SND.layer(nw,nw>wi)}wi=nw}tp*=.955;
    const wA=sm(Math.max(0,Math.min(1,(uS-6.3)/.45))),wB=sm(Math.max(0,Math.min(1,(uS-9.3)/.45)));fcol.copy(FC[0]).lerp(FC[1],wA).lerp(FC[2],wB);scene.fog.color.copy(fcol);R.setClearColor(fcol,1);U.fc.value.copy(fcol).convertLinearToSRGB();U.wt.value.set(wA,wB);
-   wU.op.value=Math.max(0,1-Math.abs(uS-6.5)*1.8)*.8+wA*(1-wB)*.3;water.visible=wU.op.value>.01;
+   wU.op.value=Math.max(0,1-Math.abs(uS-6.5)*1.8)*.8+wA*(1-wB)*.6;water.visible=wU.op.value>.01;
+   hxU.op.value=(.3+.7*wA)*(1-wB*.8);hexD.visible=uS>5.2;hexD.rotation.y=t*.02;
+   gdU.op.value=wB;gdP.visible=wB>.01;prC.material.opacity=wB;brP.visible=tp>.02;brU.p.value=1-tp;brU.op.value=Math.min(1,tp*1.6);
    portal.visible=wB>.01;pR.forEach((m,j)=>{m.material.opacity=wB;m.rotation.set(Math.sin(t*.3+j)*.25,Math.cos(t*.25+j*2)*.25,t*(.12+j*.07)*(j%2?-1:1))});portal.scale.setScalar(.55+.45*wB+Math.sin(tp*Math.PI)*.15*wB)}
   const i=Math.min(STOPS-2,Math.floor(uS)),f=ease(uS-i),a=st(i,mob),b=st(i+1,mob),q=a.map((v,j)=>v+(b[j]-v)*f);
   /* geçişte kamera biraz geri çekilir: daha sinematik */
@@ -658,6 +693,7 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
   dv+=(dvT-dv)*.05;if(Math.abs(dvT-dv)<.002)dv=dvT;const e=dv*dv*(3-2*dv);
   if(e>0&&dl){DV.copy(dl.mesh.position).sub(cam.position);const L=DV.length();cam.position.addScaledVector(DV,Math.min(1,(L-.35)/L)*e*e);cam.rotateZ(e*e*.6)}
   portal.lookAt(cam.position);const tw=Math.sin(tp*Math.PI);if(tw>.001)cam.rotateZ(tw*.12*tpd);
+  hxU.cy.value=TP.y;if(uS>6.5&&uS<9.6)water.position.y=Math.min(WY,cam.position.y+2.3);else water.position.y=WY;fin.uniforms.bk.value=Math.pow(tw,1.5)*.75;
   cam.fov=(mob?52:40)+e*e*58+tw*14;fin.uniforms.wp.value=Math.max(tw*.6,Math.sin(Math.min(1,e*1.15)*Math.PI*.5)*(1-.6*Math.max(0,e-.85)/.15));
   cam.filmOffset=mob?0:Math.max(0,1-Math.abs(uS-10)*1.5)*-7;cam.updateProjectionMatrix();
   crown.lookAt(cam.position.x,crown.position.y,cam.position.z);rings[0].rotation.set(Math.sin(t*.5)*.5,t*.6,0);rings[1].rotation.set(Math.cos(t*.4)*.6+.3,-t*.5,.4);
