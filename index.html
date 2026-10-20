@@ -149,26 +149,26 @@ window.SND=(()=>{let ac=null,out=null,rv=null,pf=null,on=true,bellT=0,started=fa
  const build=()=>{out=ac.createGain();out.gain.value=0;const cp=ac.createDynamicsCompressor();cp.threshold.value=-18;cp.ratio.value=3;out.connect(cp);cp.connect(ac.destination);
   const L=Math.floor(ac.sampleRate*3.6),ir=ac.createBuffer(2,L,ac.sampleRate);for(let c=0;c<2;c++){const d=ir.getChannelData(c);for(let i=0;i<L;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/L,2.6)}
   rv=ac.createConvolver();rv.buffer=ir;const rg=ac.createGain();rg.gain.value=.7;rv.connect(rg);rg.connect(out);
-  pf=ac.createBiquadFilter();pf.type='lowpass';pf.frequency.value=700;pf.Q.value=.6;const pg=ac.createGain();pg.gain.value=.22;pf.connect(pg);pg.connect(out);pg.connect(rv);
-  const lfo=ac.createOscillator(),lg=ac.createGain();lfo.frequency.value=.07;lg.gain.value=260;lfo.connect(lg);lg.connect(pf.frequency);lfo.start()};
+  pf=ac.createBiquadFilter();pf.type='lowpass';pf.frequency.value=520;pf.Q.value=.4;const pg=ac.createGain();pg.gain.value=.3;pf.connect(pg);pg.connect(out);pg.connect(rv);
+  const lfo=ac.createOscillator(),lg=ac.createGain();lfo.frequency.value=.05;lg.gain.value=120;lfo.connect(lg);lg.connect(pf.frequency);lfo.start()};
  /* tekrar etmeyen ambiyans: akor havuzundan rastgele yürüyüş, her seferinde farklı dizilim ve süre */
- const POOL=[[45,52,55,59,64],[41,48,52,57,60],[48,52,55,59,64],[43,50,55,59,62],[40,47,52,55,59],[38,45,50,53,57],[44,51,55,58,63],[46,53,57,60,65],[36,43,50,52,59],[42,49,54,57,61]];
+ const POOL=[[38,50,57,62,66],[35,47,54,59,62],[43,50,55,59,62],[45,52,57,61,64],[40,52,55,59,64],[38,45,54,57,62]];
  /* her kartın kendi "boyutu": ayrı tonal dünya */
- const DIM=[[50,57,62,66,68,73],[47,54,61,63,66,70],[53,60,64,67,71,74],[49,56,60,63,68,72],[46,53,58,62,64,69],[51,58,62,65,70,74],[48,55,59,62,66,71],[44,51,56,60,63,67],[52,59,63,66,71,75]];
+ const DIM=[[50,57,62,66,69],[47,54,59,62,66],[43,50,55,59,62],[45,52,57,61,64],[52,59,64,67,71],[50,54,57,62,69],[47,50,54,59,62],[43,47,50,55,59],[45,49,52,57,64]];
  let dim=-1,curC=POOL[0],lastP=0,padTo=0,pads=[],nz=null;
- const vary=c=>c.map((m,j)=>j&&Math.random()<.22?m+12:m).filter((m,j)=>!j||Math.random()>.25);
- const pad=()=>{if(!on||!ac)return;clearTimeout(padTo);const t=ac.currentTime,dur=10+Math.random()*8,dm=dim>=0;
+ const vary=c=>c.filter((m,j)=>j<2||Math.random()>.25);
+ const pad=()=>{if(!on||!ac)return;clearTimeout(padTo);const t=ac.currentTime,dur=14+Math.random()*8,dm=dim>=0;
   let c;if(dm)c=vary(DIM[dim]);else{let p;do p=Math.floor(Math.random()*POOL.length);while(p===lastP);lastP=p;c=vary(POOL[p])}curC=c;
-  const pg2=ac.createGain();pg2.connect(pf);pads.push(pg2);if(pads.length>4)pads.shift();const at=dm?1.2:3+Math.random()*2;
-  c.forEach((m,j)=>(dm?[-11,0,11]:[-6,6]).forEach(dt=>{const o=ac.createOscillator(),g=ac.createGain();o.type=j===0?'triangle':dm?'sine':'sawtooth';o.frequency.value=mf(m)*(dm&&j>2?2:1);o.detune.value=dt;const v=(j===0?.09:.045)*(dm?1.3:1);
+  const pg2=ac.createGain();pg2.connect(pf);pads.push(pg2);if(pads.length>4)pads.shift();const at=dm?2.5:5+Math.random()*2;
+  c.forEach((m,j)=>[0].forEach(dt=>{const o=ac.createOscillator(),g=ac.createGain();o.type=j===0?'triangle':'sine';o.frequency.value=mf(m);const v=j===0?.11:.06;
    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+at);g.gain.setValueAtTime(v,t+dur-3);g.gain.linearRampToValueAtTime(0,t+dur+2);o.connect(g);g.connect(pg2);o.start(t);o.stop(t+dur+2.1)}));
   padTo=setTimeout(pad,(dur-3)*1000)};
  const fadePads=(d)=>{const t=ac.currentTime;pads.forEach(g=>{g.gain.cancelScheduledValues(t);g.gain.setValueAtTime(g.gain.value,t);g.gain.linearRampToValueAtTime(0,t+d)});pads=[]};
  /* çan: sinüs + metalik üst ses, uzun kuyruk */
- const bell=(m,t,v,d=2.4)=>{[[1,1],[2.76,.28],[5.4,.08]].forEach(([r,a])=>{const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=mf(m)*r;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v*a,t+.008);g.gain.exponentialRampToValueAtTime(.0001,t+d/r);o.connect(g);g.connect(out);g.connect(rv);o.start(t);o.stop(t+d/r+.05)})};
- const tick=()=>{if(!ac||!on)return;const t=ac.currentTime;if(t>=bellT){if(Math.random()<(dim>=0?.7:.45)){const m=curC[Math.floor(Math.random()*curC.length)]+(Math.random()<.5?24:36);bell(m,t+.05,.03,3.4)}bellT=t+2.5+Math.random()*(dim>=0?3:5)}};
+ const bell=(m,t,v,d=2.4)=>{[[1,1],[2,.12]].forEach(([r,a])=>{const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=mf(m)*r;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v*a,t+.008);g.gain.exponentialRampToValueAtTime(.0001,t+d/r);o.connect(g);g.connect(out);g.connect(rv);o.start(t);o.stop(t+d/r+.05)})};
+ const tick=()=>{if(!ac||!on)return;const t=ac.currentTime;if(t>=bellT){if(Math.random()<(dim>=0?.4:.25)){const m=curC[1+Math.floor(Math.random()*(curC.length-1))]+12;bell(m,t+.05,.018,4)}bellT=t+5+Math.random()*7}};
  let bid=0;
- const start=()=>{if(started||!ac)return;started=true;out.gain.setValueAtTime(0,ac.currentTime);out.gain.linearRampToValueAtTime(.8,ac.currentTime+2.5);pad();bid=setInterval(tick,400)};
+ const start=()=>{if(started||!ac)return;started=true;out.gain.setValueAtTime(0,ac.currentTime);out.gain.linearRampToValueAtTime(.55,ac.currentTime+4);pad();bid=setInterval(tick,400)};
  const stop=()=>{if(!started)return;started=false;clearTimeout(padTo);clearInterval(bid);out.gain.cancelScheduledValues(ac.currentTime);out.gain.setTargetAtTime(0,ac.currentTime,.3)};
  const unlock=()=>{try{if(navigator.audioSession)navigator.audioSession.type='playback'}catch(e){}
   if(!ac){try{ac=new(window.AudioContext||window.webkitAudioContext)()}catch(e){return}build()}
@@ -177,17 +177,17 @@ window.SND=(()=>{let ac=null,out=null,rv=null,pf=null,on=true,bellT=0,started=fa
  const ok=()=>on&&ac&&ac.state==='running'&&started;
  const noise=()=>{if(!nz){const L=ac.sampleRate*2;nz=ac.createBuffer(1,L,ac.sampleRate);const d=nz.getChannelData(0);for(let i=0;i<L;i++)d[i]=Math.random()*2-1}const s=ac.createBufferSource();s.buffer=nz;return s};
  /* filtrelenmiş gürültü süpürmesi: hava akımı / geçit sesi */
- const swoosh=(t,f0,f1,d,v,q=1.2)=>{const s=noise(),b=ac.createBiquadFilter(),g=ac.createGain();b.type='bandpass';b.Q.value=q;b.frequency.setValueAtTime(f0,t);b.frequency.exponentialRampToValueAtTime(f1,t+d);
+ const swoosh=(t,f0,f1,d,v,q=1.2)=>{f0=Math.min(f0,2200);f1=Math.min(f1,2200);v*=.6;q=Math.min(q,.9);const s=noise(),b=ac.createBiquadFilter(),g=ac.createGain();b.type='bandpass';b.Q.value=q;b.frequency.setValueAtTime(f0,t);b.frequency.exponentialRampToValueAtTime(f1,t+d);
   g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+d*.85);g.gain.linearRampToValueAtTime(0,t+d+.08);s.connect(b);b.connect(g);g.connect(out);g.connect(rv);s.start(t);s.stop(t+d+.1)};
  /* kayan testere kümesi: uzay/boyut geçişi */
- const glide=(t,m,mul,d,v)=>{const lp=ac.createBiquadFilter(),g=ac.createGain();lp.type='lowpass';lp.frequency.setValueAtTime(mul>1?500:5000,t);lp.frequency.exponentialRampToValueAtTime(mul>1?6000:400,t+d);
+ const glide=(t,m,mul,d,v)=>{const lp=ac.createBiquadFilter(),g=ac.createGain();lp.type='lowpass';lp.frequency.setValueAtTime(mul>1?400:1800,t);lp.frequency.exponentialRampToValueAtTime(mul>1?1800:300,t+d);
   g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+d*.8);g.gain.linearRampToValueAtTime(0,t+d+.06);lp.connect(g);g.connect(out);g.connect(rv);
-  [-14,0,9,19].forEach(dt=>{const o=ac.createOscillator();o.type='sawtooth';o.detune.value=dt;o.frequency.setValueAtTime(mf(m),t);o.frequency.exponentialRampToValueAtTime(mf(m)*mul,t+d);o.connect(lp);o.start(t);o.stop(t+d+.1)})};
- const boom=t=>{const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.setValueAtTime(95,t);o.frequency.exponentialRampToValueAtTime(30,t+.9);g.gain.setValueAtTime(.55,t);g.gain.exponentialRampToValueAtTime(.0001,t+1.8);o.connect(g);g.connect(out);o.start(t);o.stop(t+1.9);
+  [0,7].forEach(dt=>{const o=ac.createOscillator();o.type='sine';o.detune.value=dt;o.frequency.setValueAtTime(mf(m),t);o.frequency.exponentialRampToValueAtTime(mf(m)*mul,t+d);o.connect(lp);o.start(t);o.stop(t+d+.1)})};
+ const boom=t=>{const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.setValueAtTime(95,t);o.frequency.exponentialRampToValueAtTime(30,t+.9);g.gain.setValueAtTime(.3,t);g.gain.exponentialRampToValueAtTime(.0001,t+1.8);o.connect(g);g.connect(out);o.start(t);o.stop(t+1.9);
   const s=noise(),lp=ac.createBiquadFilter(),g2=ac.createGain();lp.type='lowpass';lp.frequency.value=900;g2.gain.setValueAtTime(.25,t);g2.gain.exponentialRampToValueAtTime(.0001,t+.6);s.connect(lp);lp.connect(g2);g2.connect(out);g2.connect(rv);s.start(t);s.stop(t+.7)};
  const pfTo=(f,t,tc)=>{pf.frequency.cancelScheduledValues(t);pf.frequency.setTargetAtTime(f,t,tc)};
  /* yeni boyutun akoru: hepsi birden açılan parlak bir çiçek */
- const bloom=(t,k)=>{const c=DIM[k];c.forEach((m,j)=>bell(m+24,t+j*.012,.045,4.5));bell(c[0]+36,t+.4,.025,6)};
+ const bloom=(t,k)=>{const c=DIM[k];c.forEach((m,j)=>bell(m+12,t+j*.06,.022,4.5))};
  let lw=0;
  const api={
   /* durak değişince: melodi değil, kısa bir hava süpürmesi */
