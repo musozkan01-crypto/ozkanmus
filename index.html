@@ -98,7 +98,8 @@ button.sub{width:100%;min-height:50px;border:1px solid rgba(185,168,255,.5);bord
  #iletisim .fld{margin-top:8px}#iletisim .fld label{font-size:.62rem;margin-bottom:4px}#iletisim .fld input,#iletisim .fld textarea{padding:9px 11px;font-size:16px;border-radius:10px}#iletisim .fld textarea{min-height:64px}
  #iletisim .chk{font-size:.72rem;margin:8px 0 2px}#iletisim .k2{margin:0 0 6px 28px;font-size:.72rem}#iletisim .sub{min-height:44px}}
 /* kart detayı (AT /work/... görünümü) */
-#det{position:fixed;inset:0;z-index:20;display:none;opacity:0;transition:opacity .7s ease;background:radial-gradient(70% 60% at 50% 45%,rgba(14,30,52,.55),rgba(3,6,12,.94) 75%),repeating-linear-gradient(0deg,rgba(120,170,255,.03) 0 1px,transparent 1px 5px);-webkit-backdrop-filter:blur(10px) saturate(.8);backdrop-filter:blur(10px) saturate(.8)}
+#detFx{position:fixed;inset:0;z-index:21;pointer-events:none}
+#det{position:fixed;inset:0;z-index:20;display:none;opacity:0;transition:opacity .7s ease;background:radial-gradient(70% 60% at 50% 45%,var(--tc,rgba(14,30,52,.55)),rgba(3,6,12,.94) 75%),repeating-linear-gradient(0deg,rgba(120,170,255,.03) 0 1px,transparent 1px 5px);-webkit-backdrop-filter:blur(10px) saturate(.8);backdrop-filter:blur(10px) saturate(.8)}
 #det.on{opacity:1}
 #det .fr{position:absolute;left:50%;top:46%;width:min(60vw,880px);aspect-ratio:16/10;transform:translate(-50%,-50%) scale(1.35);transition:transform 1.3s cubic-bezier(.2,.8,.2,1);clip-path:polygon(28px 0,calc(100% - 28px) 0,100% 28px,100% calc(100% - 28px),calc(100% - 28px) 100%,28px 100%,0 calc(100% - 28px),0 28px);background:#0a0c14;overflow:hidden}
 #det.on .fr{transform:translate(-50%,-50%) scale(1)}
@@ -259,6 +260,7 @@ window.SND=(()=>{let ac=null,out=null,rv=null,pf=null,on=true,bellT=0,started=fa
   <div class="tx"><h3 id="detH"></h3><div class="meta" id="detM"></div><p id="detD"></p><ul id="detB"></ul><div class="st" id="detS"></div><a id="detL" target="_blank" rel="noopener" hidden>Siteyi aç ↗</a><button type="button" id="detC">&lt;- Kapat</button></div>
   <a class="ask2" href="#iletisim" data-stop="10">Bana yazın...</a>
 </section>
+<canvas id="detFx" aria-hidden="true"></canvas>
 <div id="fly" aria-hidden="true"></div>
 <div class="copy">© 2026 Özkan Muş · Alanya</div>
 
@@ -563,6 +565,24 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
  /* hizmet sahnesi döngüsü: detay açıkken çerçevenin içinde canlı oynar */
  const dLoop=now=>{const v=$('detV');if(dvI<0||det.style.display==='none'){dvI=-1;return}const r=Math.min(2,devicePixelRatio||1),w=Math.round(v.clientWidth*r),h=Math.round(v.clientHeight*r);if(v.width!==w||v.height!==h){v.width=w;v.height=h}
   const x=v.getContext('2d');x.setTransform(w/1280,0,0,h/800,0,0);x.drawImage(dvB,0,0,1280,800);art(x,dvI,now/1000);requestAnimationFrame(dLoop)};
+ /* parçacık çözülme (AT detay geçişi): görüntü dumandan toplanır, geçişte dağılır, kenarları tüter */
+ const fx=$('detFx'),fxx=fx.getContext('2d'),fxF=det.querySelector('.fr'),fxS=document.createElement('canvas');fxS.width=96;fxS.height=60;const fxC=fxS.getContext('2d',{willReadFrequently:true});let FP=[],fxOn=0,fxR=null,fxD=null;
+ const fxT=['','rgba(20,48,80,.6)','rgba(16,58,52,.6)','rgba(44,30,78,.6)','rgba(70,40,22,.55)','rgba(14,26,78,.62)','rgba(12,56,70,.6)','rgba(14,60,60,.6)','rgba(64,20,58,.55)','rgba(60,46,18,.55)'];
+ const fxB=()=>({x:fxF.offsetLeft-fxF.offsetWidth/2,y:fxF.offsetTop-fxF.offsetHeight/2,w:fxF.offsetWidth,h:fxF.offsetHeight});
+ const fxE=()=>dvI>=0?$('detV'):$('detI');
+ function fxG(s){try{if(!s||!(s.width||s.naturalWidth))return null;fxC.clearRect(0,0,96,60);fxC.drawImage(s,0,0,96,60);return fxC.getImageData(0,0,96,60).data}catch(e){return null}}
+ function fxP(d,u,v,o){const i=((v*60|0)*96+(u*96|0))*4,R=o.R;return Object.assign({hx:R.x+u*R.w,hy:R.y+v*R.h,c:'rgb('+d[i]+','+d[i+1]+','+d[i+2]+')',w:Math.random()*6.3,s:1.4+Math.random()*2.2,a:1},o)}
+ function fxO(d,inn){if(!d||reduce)return;const R=fxB(),n=innerWidth<860?1800:4200,now=performance.now();for(let i=0;i<n;i++){const u=Math.random(),v=Math.random();FP.push(fxP(d,u,v,{R,inn,ox:(inn?1:-1)*(140+Math.random()*420)*(.35+(inn?u:1-u)),oy:(Math.random()*2-1)*110,t0:now+(inn?u*650:u*520)+Math.random()*200,d:700+Math.random()*700}))}if(!fxOn){fxOn=1;requestAnimationFrame(fxL)}}
+ function fxM(m){fxF.style.webkitMaskImage=fxF.style.maskImage=m}
+ function fxI(c,dl){if(reduce)return;fxM('linear-gradient(90deg,transparent,transparent)');setTimeout(()=>{const go=()=>{if(dc!==c){fxM('');return}fxD=fxG(fxE());if(!fxD){fxM('');return}fxO(fxD,true);fxR={t:performance.now()}};c.img?$('detI').decode().then(go,go):requestAnimationFrame(()=>requestAnimationFrame(go))},dl)}
+ function fxL(now){const W=innerWidth,H=innerHeight;if(fx.width!==W||fx.height!==H){fx.width=W;fx.height=H}fxx.clearRect(0,0,W,H);fxx.globalCompositeOperation='lighter';
+  if(fxR){const p=(now-fxR.t-850)/750*100;if(p>112){fxM('');fxR=null}else fxM('linear-gradient(90deg,#000 '+(p-12)+'%,transparent '+(p+6)+'%)')}
+  if(dc&&fxD&&!fxR&&det.classList.contains('on')){const R=fxB();for(let i=0;i<3;i++){const s=Math.random()*4|0,q=Math.random(),u=s<2?q:s===2?.004:.996,v=s<2?(s?.996:.004):q;FP.push(fxP(fxD,u,v,{R,inn:false,ox:(u-.5)*120-30-Math.random()*60,oy:(v-.5)*90-20-Math.random()*40,t0:now,d:1300+Math.random()*900,a:.5,s:.8+Math.random()*1.4}))}}
+  const FN=[];for(const p of FP){let e=(now-p.t0)/p.d,x,y,al;
+   if(p.inn){if(e<0){FN.push(p);continue}const k=1-Math.min(e,1),k3=k*k*k;x=p.hx+p.ox*k3+Math.sin(p.w+e*6)*22*k;y=p.hy+p.oy*k3+Math.cos(p.w*1.3+e*5)*16*k;al=e<1?Math.min(1,e*2.5):1-(now-p.t0-p.d)/420;if(al<=0)continue}
+   else{const f=Math.max(0,e),f2=f*f;x=p.hx+p.ox*f2+Math.sin(p.w+f*5)*26*f;y=p.hy+p.oy*f2-f*30+Math.cos(p.w*1.3+f*4)*18*f;al=1-f;if(al<=0)continue}
+   fxx.globalAlpha=al*p.a*.85;fxx.fillStyle=p.c;fxx.fillRect(x,y,p.s,p.s);FN.push(p)}
+  FP=FN;fxx.globalAlpha=1;if(FP.length||fxR||dc)requestAnimationFrame(fxL);else{fxOn=0;fxx.clearRect(0,0,W,H)}}
  const GL='ABCDEFGHİKLMNOPRSTUVYZ0123456789#%/<>*';
  const type=(el,s,d0)=>{el.textContent='';if(reduce){el.textContent=s;return}const n=s.length;let t0=0;const f=()=>{const now=performance.now();if(!t0)t0=now;const j=Math.floor((now-t0)/16);if(j>=n){el.textContent=s;return}
   let r=s.slice(0,j);for(let q=0;q<Math.min(5,n-j);q++)r+=s[j+q]===' '?' ':GL[Math.floor(Math.random()*GL.length)];el.textContent=r;typT.push(setTimeout(f,32))};typT.push(setTimeout(f,d0))};
@@ -586,17 +606,17 @@ c=pow(c,vec3(1./2.2));c+=(hash(uv*res+fract(t*7.)*97.)-.5)*.05;gl_FragColor=vec4
    [...ln].forEach(ch=>{const sp=document.createElement('span');sp.textContent=ch===' '?' ':ch;d.appendChild(sp)});fly.appendChild(d)});
   const hw=innerWidth/2,hh=innerHeight/2;fly.querySelectorAll('span').forEach(sp=>{const r=sp.getBoundingClientRect(),dx=r.left+r.width/2-hw,dy=r.top+r.height/2-hh;sp.style.setProperty('--dx',dx);sp.style.setProperty('--dy',dy);sp.style.setProperty('--nx',(dx/hw).toFixed(3));sp.style.setProperty('--ny',(dy/hh).toFixed(3));sp.style.transitionDelay=(Math.random()*.12).toFixed(2)+'s, .85s, .7s'});
   if(flyC&&flyC!==c){paint(flyC.cvx,flyC.el,flyC.k-1,flyC.img);flyC.tex.needsUpdate=true}flyC=c;paint(c.cvx,c.el,c.k-1,c.img,true);c.tex.needsUpdate=true;requestAnimationFrame(()=>requestAnimationFrame(()=>fly.className='go'));flyT=setTimeout(()=>{fly.innerHTML='';fly.className=''},1500)}
- function openDet(c){if(!dc){SND.dive(c.k);flyOut(c)}else SND.shift(c.k);dc=c;typT.forEach(clearTimeout);typT=[];const el=c.el,lab=el.querySelector('.wb span').textContent,tg=el.querySelector('.tg'),pe=el.querySelector('p:not(.mono)'),grp=TU(lab.split('·')[0].trim());
+ function openDet(c){const was=dc;if(!dc){SND.dive(c.k);flyOut(c)}else{SND.shift(c.k);fxO(fxG(fxE()),false)}dc=c;det.style.setProperty('--tc',fxT[c.k]||'');typT.forEach(clearTimeout);typT=[];const el=c.el,lab=el.querySelector('.wb span').textContent,tg=el.querySelector('.tg'),pe=el.querySelector('p:not(.mono)'),grp=TU(lab.split('·')[0].trim());
   if(c.img){$('detI').src=c.img.src;dvI=-1}else{const b=document.createElement('canvas');b.width=1280;b.height=800;paint(b,el,c.k-1,null,true);dvB=b;$('detI').src=b.toDataURL('image/jpeg',.6);if(dvI<0)requestAnimationFrame(dLoop);dvI=c.k-1}
   $('detV').style.display=c.img?'none':'block';$('detI').alt=el.querySelector('h2').textContent;
   const D=DET[c.k]||{};type($('detH'),TU(el.querySelector('h2').textContent),250);type($('detM'),D.m||('2026 / '+(tg?TU(tg.textContent):'NEBİM V3 · SQL')+' / '+grp),420);type($('detD'),TU(D.d||pe.textContent),600);
   const B=$('detB');B.innerHTML='';(D.li||[]).forEach((x,j)=>{const li=document.createElement('li');B.appendChild(li);type(li,TU(x),1100+j*240)});
   const S=$('detS');S.innerHTML='';S.hidden=!D.st;(D.st||[]).forEach(([a,b],j)=>{const e=document.createElement('div');e.innerHTML='<b></b><span></span>';S.appendChild(e);type(e.firstChild,a,2100+j*180);type(e.lastChild,TU(b),2200+j*180)});
   const L=$('detL');if(c.href){L.href=c.href;L.hidden=false}else L.hidden=true;$('detN').textContent=String(c.k).padStart(2,'0')+' / 09 · '+TU(el.querySelector('h2').textContent);
-  dl=c;dvT=1;
+  dl=c;dvT=1;fxI(c,was?60:(det.style.display==='block'?0:820)+300);
   if(!det.classList.contains('on')){clearTimeout(dtm);const w=det.style.display==='block'?0:(reduce?0:820);det.style.display='block';root.classList.add('det-on');document.body.style.overflow='hidden';dtm=setTimeout(()=>{if(dc)det.classList.add('on')},w);$('detC').focus({preventScroll:true});if(location.hash!=='#is')history.pushState({det:1},'','#is')}}
  /* çıkış = girişin tersi: önce katman söner (çerçeve büyür), sonra kamera karttan geri fırlar */
- function closeDet(back){if(!dc)return;SND.exit();dc=null;if(flyC){const f=flyC;flyC=null;setTimeout(()=>{paint(f.cvx,f.el,f.k-1,f.img);f.tex.needsUpdate=true},400)}clearTimeout(dtm);typT.forEach(clearTimeout);det.classList.remove('on');
+ function closeDet(back){if(!dc)return;SND.exit();if(!fxR)fxO(fxG(fxE()),false);fxR=null;fxM('');dc=null;if(flyC){const f=flyC;flyC=null;setTimeout(()=>{paint(f.cvx,f.el,f.k-1,f.img);f.tex.needsUpdate=true},400)}clearTimeout(dtm);typT.forEach(clearTimeout);det.classList.remove('on');
   dtm=setTimeout(()=>{if(dc)return;det.style.display='none';dvT=0;root.classList.remove('det-on');dtm=setTimeout(()=>{if(!dc)document.body.style.overflow=''},reduce?0:1100)},reduce?0:650);if(back!==false&&location.hash==='#is')history.back()}
  /* tekerlek: detaydayken çevirince geri çık; animasyon bitene kadar sayfa kaymaz */
  addEventListener('wheel',e=>{if(dc||dvT||dv>.01){e.preventDefault();if(dc&&Math.abs(e.deltaY)>4)closeDet()}},{passive:false});
