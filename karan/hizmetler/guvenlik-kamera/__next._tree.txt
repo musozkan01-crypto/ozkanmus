@@ -4,4 +4,4 @@
 :HL["/karan/_next/static/media/6a5386fd6038edbe-s.p.3_z45zcoc-xoz.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/karan/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/karan/marka.svg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"hizmetler","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"guvenlik-kamera","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"l8zFDSPdzyUzMYLEuNIV1"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"hizmetler","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"guvenlik-kamera","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"0csH396LzSwwaP_w0FQvr"}
